@@ -1,0 +1,425 @@
+%Title Data
+\documentclass[reqno]{amsart}
+\title{Summary of Summer Reading}
+\author{Fergus Barratt}
+
+%Packages
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+%\usepackage[a4paper]{geometry}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage[backend=biber, style=ieee]{biblatex}
+\usepackage{todonotes}
+\addbibresource{Bibliography.bib}
+
+%Operator,math and QM shorthands
+\newcommand{\ham}{\hat{\mathscr{H}}}
+\newcommand{\cre}{\hat{a}^\dagger}
+\newcommand{\ann}{\hat{a}}
+\newcommand{\atann}{\hat{\sigma}_-}
+\newcommand{\atcre}{\hat{\sigma}_+}
+\newcommand{\dens}{\hat{\rho}}
+\newcommand{\ket}[1]{| #1 \rangle}
+\newcommand{\bra}[1]{\langle #1 |}
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+\newcommand{\bratens}[2]{\bra{#1} \otimes \bra{#2}}
+\newcommand{\kettens}[2]{\ket{#1} \otimes \ket{#2}}
+\newcommand{\qexp}[1]{\langle #1 \rangle}
+\newcommand{\Epsilon}{\mathcal{E}}
+\newcommand{\abs}[1]{|#1|}
+\begin{document}
+\maketitle
+
+ %---------------------------------------------------------------------------------------------------------------------------------
+ 
+% \todo[inline]{Change HJC section to definition via $\Omega_n$}
+% \todo[inline]{justification of Lindblad form}
+% \todo[inline]{dispersive regime}
+% \todo[inline]{Finish summary of Carmichael paper} 
+ %---------------------------------------------------------------------------------------------------------------------------------
+
+\section{The Density Operator}
+\subsection{The Statistical Interpretation of Quantum Mechanics}
+\autocite{Breuer2002}
+Consider a statistical ensemble $\varepsilon$ consisting of a suitably large number N of identically prepared quantum systems
+\begin{equation}
+	\varepsilon = \{S^1, S^2, ..., S^N\}
+\end{equation}
+Such a statistical ensemble represents a particular set of experimental conditions, whose realisation in each instance generates a particular member $S^i$ of  $\varepsilon$
+
+The first postulate of the statistical interpretation of quantum mechanics is that a complete characterisation of such a statistical ensemble can be represented by a normalised state vector $| \psi \rangle$ in an associated Hilbert space $\mathcal{H}$
+
+The second postulate is that all the possible outcomes of measurements on such an ensemble are represented by self-adjoint operators on $\mathcal{H}$. The outcome of the measurement corresponding to an operator $\hat{R}$ represents a real valued random variable R with cumulative distribution function $F_{\hat{R}}$ defined via the family of orthogonal projection operators that constitute the spectral decomposition of $\hat{R}$:
+
+\begin{equation}
+	\hat{R} = \int_{-\infty}^\infty rdE_r
+\end{equation}
+as
+\begin{equation}
+	F_{\hat{R}} = \langle \psi |E_r | \psi \rangle
+\end{equation}
+
+This characterisation of the possible statistical variation of a quantum system is not yet complete, for it neglects classical uncertainty associated with which statistical ensemble $\varepsilon$ represents a given quantum system. To generate the most general possible representation of a quantum statistical ensemble, a number of possible quantum ensembles $\varepsilon_\alpha$ of the above type are mixed with weights $w_\alpha$ (these weights are probabilities in the classical, not quantum sense). A self-adjoint operator now yields a random variable R with cumulative distribution function 
+
+\begin{equation}
+	F_{\hat{R}} = \sum_\alpha w_\alpha \langle \psi_\alpha | E_r | \psi_\alpha \rangle
+\end{equation}
+for convenience, the \emph{density operator} $\rho$ can be introduced thus
+\begin{equation}
+	\dens = \sum_\alpha w_\alpha |\psi_\alpha \rangle \langle \psi_\alpha |
+\end{equation}
+and the cumulative distribution written:
+\begin{equation}
+	F_{\hat{R}} = tr\{E_r \dens\}
+\end{equation}
+
+by a similar mixing argument and using the spectral decomposition of $\hat{R}$ the mean and variance of the random variable associated with $\hat{R}$ as above are as follows
+
+\begin{align}
+	\langle \hat{R} \rangle &= tr\{\hat{R} \dens\} \\
+	var(\hat{R}) &= \langle \hat{R}^2 \rangle - {\langle \hat{R} \rangle}^2
+\end{align}
+
+The density matrix constitutes a complete description of the statistical properties of an open quantum system. Thus, the dynamics of such a system can be described by the time evolution of its density operator.
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+\section{The Quantum Master Equation}
+The quantum master equation is in a sense a generalisation of the classical master equation, which describes the time evolution of a system confined to a set of states via a set of differential equations for the probability of the system occupying each state. In the quantum case, differential equations not just for the probability of occupying a particular state (the diagonal elements of $\dens$) are required, but also equations describing how the off diagonal elements of the density matrix evolve in time because of their relation to quantum coherence effects.
+
+In the nonrelativistic theory of quantum mechanics the time evolution of the pure state state vector is described by the \emph{Schr\"odinger equation}:
+\begin{equation}
+	i\hbar \frac{d}{dt} |\psi(t)\rangle = \ham(t) |\psi(t) \rangle
+\end{equation}
+
+with $\ham$ the Hamiltonian of the system. Setting $\hbar$ to 1 going forwards, the time dependence in the above can also be represented in terms of a time evolution operator (generated by the Hamiltonian) 
+
+\begin{equation}
+	|\psi(t) \rangle = U(t, 0) | \psi(0) \rangle
+\end{equation}
+
+by substitution of the (10) into (9), it is easy to see that $U^{\dagger}U = UU^\dagger = I$ provided $\ham$ is hamiltonian i.e. U represents unitary time evolution of the system
+
+For a mixed state of a closed system, an equation of motion for the density matrix
+\begin{equation}
+	\dens (t) = \sum_\alpha w_{\alpha} |\psi_\alpha (t) \rangle \langle \psi_\alpha (t) |
+\end{equation}
+can be found by propagating each normalised $| \psi_\alpha (t) \rangle$ with the unitary time evolution operator given by solving the Schr\"odinger equation, the net result of which is more concisely expressed
+\begin{equation}
+	\dens (t) = U(t, 0)\dens (0) U^\dagger (t, 0)
+\end{equation}
+which, when differentiated with respect to time yields the \emph{Liouville-Von Neumann} equation
+\begin{equation}
+	\frac{d}{dt}\dens(t) = i [\ham, \dens (t) ]
+\end{equation}
+
+Non-unitary dynamics of open systems result from partitioning a larger, unitarily evolved system into system and environment, and performing a partial trace over the environment degrees of freedom.
+
+We start with the Hamiltonian for a closed, mixed quantum system, potentially time dependent, and partition it into components representing: a subsystem constituting the totality of the interesting dynamics: the \emph{system}, a subsystem representing the dynamics of the remaining subsystem the \emph{environment} or \emph{reservoir}, and a component representing the interaction between system and environment (there is an associated partitioning of the Hilbert space into the tensor product of system and environment Hilbert spaces, and in the equation below it is understood that operators with the subscript S operate only on the system degrees of freedom i.e. exist in the system Hilbert space and represent identity in the environment Hilbert space, and etc.)
+\begin{equation}
+	\ham = \ham_S +\ham_R + \ham_I
+\end{equation}
+
+The partial trace operation is an operator-valued function that takes a operator on a larger Hilbert space and discards its action on all but a smaller Hilbert space, colloquially "tracing over" the degrees of freedom of the discarded subsystem to leave the operator on a smaller subsystem.
+
+Starting from equation (12) and tracing over the environment
+\begin{equation}
+	\dens_S (t) = tr_E \{U(t, 0) \dens_S (0) U^\dagger (t, 0) \}
+\end{equation}
+with $\dens_S = tr_E\{\dens\}$ we arrive at the most general form for the Liouville-Von Neumann equation for the \emph{reduced} system, also known as the reduced master equation
+\begin{equation}
+	\frac{d}{dt} \rho_S (t) = -itr_E\{[\ham(t), \dens(t)]\}
+\end{equation}
+A marked simplification is derived by invoking an approximation known as the Markov Approximation. 
+
+The most general form\autocite[119--122]{Breuer2002} for the reduced master equation in the Markov approximation is known as the \emph{Lindblad Form}
+\begin{equation}
+	\frac{d}{dt} \rho_S (t) = -i[\ham (t), \dens (t)] + \sum_{k=1}^{N^2-1} \gamma_k \{ \hat{A}_k \dens_S \cre_k -\frac{1}{2}  \cre_k \dens_S \hat{A}_k -\frac{1}{2} \dens_S \cre_k \hat{A}_k \}
+\end{equation} 
+with $\{A_k\}_{k \in I}$ some indexed complete orthonormal basis of operators on the system Hilbert space
+
+\section{The Jayes-Cumming Hamiltonian}
+The Jaynes-Cumming model in quantum optics is an important example of an open quantum system. It consists of a two level atom interacting with a single quantized mode of an optical cavity. It is solvable, provided several widely applicable approximations are made. 
+We start with the total Hamiltonian
+\begin{equation}
+	\mathscr{H} = \mathscr{H}_A + \mathscr{H}_F +\mathscr{V}_{int}
+\end{equation}
+\subsection{The Dipole Approximation}
+In full generality, the field will interact with all the higher order dipole moments of the atom. However, given that the spatial variation of typical optical fields is minimal on the order of an atom ($\sim$ \AA), the interaction hamiltonian can be approximated by the interaction of the electric field only with the electric dipole moment of the atom 
+\begin{equation}
+	\hat{\mathscr{V}}_{int} = -\vec{\hat{d}} \cdot \vec{\hat{E}}
+\end{equation}
+The quantized electromagnetic multimode vector potential in a medium can be expressed in the following way \autocite[271-273]{Novotny2006}
+\begin{equation}
+	\hat{A} = \sum_{\vec{k}, \mu} \sqrt{\frac{\hbar}{2\omega_{\vec{k}} V \varepsilon_0}} (\vec{u}_{\vec{k}} \ann + \vec{u}^*_{\vec{k}} \cre )
+\end{equation}
+with $\vec{u}_{\vec{k}}$ orthogonal normal modes satisfying the wave equation:
+\begin{equation}
+	\nabla \times \nabla \times \vec{u}_{\vec{k}} = \frac{\omega_{\vec{k}}^2}{c^2}  \vec{u}_{\vec{k}}
+\end{equation}
+We consider only coupling to a single mode of the cavity field:
+\begin{equation}
+	\hat{A} =  \sqrt{\frac{\hbar}{2\omega_{\vec{k}} V \varepsilon_0}} (\vec{u}_{\vec{k}} \ann + \vec{u}^*_{\vec{k}} \cre )
+\end{equation}
+from which $\vec{E}$ for the mode is easily derived since (in the radiation gauge)
+\begin{equation}
+	\vec{\hat{E}} = -\frac{\partial}{\partial t}\vec{\hat{A}}
+\end{equation}
+\subsection{Two Level Approximation}
+$\vec{\hat{d}} = e \vec{\hat{r}}$ can be expanded in the space of atomic levels by resolving unity on each side
+
+\begin{equation}
+	\vec{\hat{d}} = e \sum_{a, b} | a \rangle \langle a | \vec{\hat{r} }| b \rangle \langle b |
+\end{equation}
+since we consider only two levels, the sum can be truncated: 
+\begin{equation}
+	\vec{\hat{d}} = e\{| 1 \rangle \langle 1|\vec{\hat{r}} | 1 \rangle \langle 1 | + | 1 \rangle \langle 1|\vec{\hat{r}} | 2 \rangle \langle 2 | + | 2 \rangle \langle 2|\vec{\hat{r}} | 1 \rangle \langle 1 | + | 2 \rangle \langle 2|\vec{\hat{r}} | 2 \rangle \langle 2 | \}
+\label{eq:25}
+\end{equation}
+we assume the atom has no permanent dipole moment and neglect terms of the form $| 1 \rangle \langle 1|\vec{\hat{r}} | 1 \rangle \langle 1 |$. Expressing \ref{eq:25} in terms of the atomic creation and annihilation operators
+\begin{equation}
+	\vec{\hat{d}} = (m\sigma_+ + m^* \sigma_-)
+\end{equation}
+where $m, m^*$ are the electric dipole matrix elements
+\subsection{The Rotating Wave Approximation}
+The free field hamiltonian, neglecting the zero point energy has the form
+\begin{equation}
+	\ham_F =  \hbar \omega \cre \ann
+\end{equation}
+The atom energy, neglecting centre of mass motion and considering only population inversion, in terms of the Pauli z matrix:
+\begin{equation}
+	\ham = \frac {1} {2} \hbar \omega_A \sigma_z
+\end{equation}
+where $\omega_A$ is the frequency of the bare atomic transition
+
+Assuming sinusoidal mode functions with polarisation $\varepsilon_\Omega$, and incorporating constants into new dipole matrix elements $g = \frac{m \varepsilon_\Omega sin(Kz)} {2 \hbar}$, the total hamiltonian takes the form 
+\begin{equation}
+	\ham = \hbar \omega \cre \hat{a} +\frac{1}{2} \hbar \omega_A \sigma_Z + \hbar (\ann +\cre)(g\atann+g^*\atcre)
+\end{equation}
+
+expanding the interaction term
+\begin{equation}
+	\hat{\mathscr{V}}_{int} = \hbar (\ann +\cre)(g\atann+g^*\atcre) =  \hbar (g \ann \atann + g^* \ann \atcre + g \cre \atcre +g^* \cre\atann)
+\end{equation}
+
+moving to an interaction picture rotating at the transition frequency $\omega_A$ it can be seen that terms of the form $\atann \cre $ counterrotate with frequency $\omega + \omega_L$ and terms of the form $ \atann \ann$ co rotate with frequency given by the detuning $\omega-\omega_L$. The RWA corresponds to the assumption that the counterrotating terms will quickly average to zero over appreciable timescales, and thus can be dropped in the expansion of the interaction hamiltonian.
+\subsection{The Jaynes-Cumming Hamiltonian}
+Applying all of the above leads to a hamiltonian $\ham_{JC}$ of the form:
+
+\begin{equation}
+	\ham_{JC} = \hbar \omega \cre \hat{a} +\frac{1}{2} \hat{\sigma}_Z \omega_A -\hbar g (\cre \atann + \hat{a} \atcre)
+	\label{HJC}
+\end{equation}
+\subsection{Dispersive Regime}
+
+%-----------------------------------------------------------------------------------------------------------------------------------
+
+\section{Quasi-Probability Distributions}
+
+Probability distributions in the classical theory of probability are subject to 3 important restrictions, which derive from the Kolmogorov axioms on the system probability measure. The transition to a quantum theory of probability relaxes one or more of these axioms, and quasi-probability distributions result - these are not necessarily everywhere positive, and regions integrated under such distributions do not in general represent mutually exclusive states as do the analogous regions under true probability distributions. This corresponds to the relaxation of the first and third of Kolmogorov's axioms. 
+
+Several different quasi-probability distribution representations are possible\autocite{Walls2008}, and to each is associated a theorem known as the \emph{Optical equivalence theorem} \autocite{Sudarshan1963}, for a power series of annihilation and creation operators in a given ordering. The optical equivalence theorem is concisely stated as follows
+\begin{equation}
+	\langle g_{\Omega} (\alpha, \alpha^*) \rangle = \langle g_{\Omega} (\hat{a}, \cre) \rangle
+\end{equation}
+with $g_\Omega$ some power series of $\hat{a}$ and $\cre$, and $\Omega$ the ordering of that power series. That is to say, the expectation of a power series of the operators $\hat{a}$ and $\cre$ is the same as the expectation value of the same power series with annihilation and creation operators replaced by complex eigenvalues $\alpha$ and $\alpha^*$ respectively, with regard to the appropriate quasiprobability distribution for that operator ordering. The quasiprobability distributions for each ordering are listed below.
+
+Quasi-probability distributions arise naturally when considering representations of the density operator. The density operator is in general defined with regards to a complete orthonormal set of projection operators. However, a diagonal representation of the density operator in terms of an \emph{overcomplete} set of non-orthogonal projectors is also always possible \autocite{Sudarshan1963}, and the corresponding representation is in certain systems conceptually and computationally simpler. The relevant overcomplete set in quantum optics is the set of coherent states of the electromagnetic field defined as the right eigenstates of the annihilation operator
+
+\begin{equation}
+\alpha | \alpha \rangle = \ann | \alpha \rangle
+\end{equation}
+\subsection{Normal Ordering}
+
+An operator ordering is \emph{normal} if in all products of annihilation and creation operators, all creation operators come before annihilation operators \autocite{Mandl2010} The Glauber-Sudarshan P function\autocite{Cahill1969}:
+\begin{equation}
+	\dens = \int P(\alpha) | \alpha \rangle \langle \alpha | d^2 \alpha
+	\end{equation}
+where $d^2 \alpha = dRe\{\alpha\}dIm\{\alpha\}$, is used for evaluating expectations of normally ordered power series:
+\begin{equation}
+	\langle \hat{a}^{\dagger n} \hat{a}^{m}  \rangle = \int \alpha^n \alpha^m P (\alpha, \alpha^*) d^2 \alpha
+\end{equation}
+P($\alpha$) does not in general admit an interpretation as a classical probability distribution. However, the transition between quantum and classical systems is most clearly visible in the P representation; any system with a classical analogue (a coherent state, a chaotic state) has a non-negative, classically interpretable P function, and any with no classical analogue (Fock states, or states exhibiting squeezing, antibunching) will have a P function which is either negative or more singular than delta function. This statement is not generally true for other quasiprobability distributions\autocite{Mandel1995}
+
+\subsubsection{General procedure for evaluating P($\alpha$)}
+\label{mehta}
+
+There exists a general expression for evaluating the P-function that yields a well-behaved function whenever such a function is possible.\autocite{Mehta1967}:
+\begin{equation}
+	P(\alpha) = \frac{1}{\pi^2} \int d^2 \beta \bra{-\beta} \dens \ket{\beta} e^{|\beta|^2} e^{\beta^* \alpha -\alpha^* \beta}
+\end{equation}
+It is a necessary and suffient condition for this expression for P($\alpha$) to be standard function that the function $ \bra{\beta} \dens \ket{\beta} e^{|\beta|^2} $ be square integrable. Should it not be square integrable P($\alpha$) can only be understood in the context of generalised function theory.
+
+\subsection{Antinormal Ordering}
+
+\emph{Antinormal} ordering is the inverse of normal ordering, in that annihilation operators appear before creation operators. The associated quasi-probability distribution is the \emph{Husimi-Q Function} \autocite{Husimi1940}, defined as the diagonal matrix elements of the density operator in a pure coherent state
+\begin{equation}
+	Q = \frac{\langle \alpha | \dens | \alpha \rangle}{\pi}
+	\label{qdef}
+\end{equation}
+The Q function is a nonnegative, the density function being a positive operator. It is also bounded above 
+\begin{equation}
+	Q < \frac{1}{\pi}
+\end{equation}
+Antinormally ordered expectation values can be evaluated as follows:
+\begin{equation}
+	\langle \hat{a}^n \hat{a}^{\dagger m}  \rangle = \int \alpha^n \alpha^m Q (\alpha, \alpha^*) d^2 \alpha
+\end{equation}
+The Q function exists for states which admit no P representation, and unlike the P or W function is always positive
+
+\subsection{Symmetric Ordering}
+
+The first quasi-probability distribution to be introduced and the most popular in the literature is the \emph{Wigner Function} \autocite{Wigner1932}, which satisfies the OET for symmetrically ordered products: those of the form $\frac{\ann \cre + \cre \ann}{2}$
+
+True probability distributions for generalised position and momentum are only possible independently $\rho(x) = |\braket{x}{\psi}|^2$, $\rho(p) = |\braket{p}{\psi}|^2$. This is fundamental principle of quantum mechanics. A joint statistical treatment is however available via the Wigner quasi-probability distribution
+\begin{equation}
+	W(X_1, X_2) = \frac{1}{4 \pi} \int_{-\infty}^\infty dX e^{\frac{-iXX_2}{2}} \bra{X_1+X} \dens \ket{X_1-X}
+\end{equation}
+Expressed in terms of the generalised position and momentum in quantum optics: the field quadratures defined $\alpha = X_1 + iX_2$. Integrating over either quadrature yields the true probability distribution of the other quadrature.
+
+The Wigner function is defined as the \emph{Wigner transform} of the density matrix, a general invertible transformation taking operators to functions on phase space. Its inverse, the \emph{Weyl transform}, returns functions to operators. The phase space formulation of quantum mechanics in its original form involves propagating such functions in time using Moyal's Evolution Equation \autocite{Curtright2011}. This same formalism is equivalently applied (via different integral transforms) to the other representations.
+
+\subsection{Characteristic Functions}
+
+The above functions are equivalently derived from the antinormal, normal, and symmetric characteristic functions, defined as follows:
+\begin{align}
+	\chi_{A} (\eta) &= tr\{e^{-\eta^* \hat{a}}e^{\eta \cre } \} \\
+	\chi_{N} (\eta) &= tr\{e^{\eta \cre}e^{-\eta^* \hat{a} } \} \\
+	\chi_{S} (\eta) &= tr\{e^{\eta^* \hat{a}-\eta \cre } \} 
+\end{align}
+with the corresponding quasiprobability distributions retrieved as the inverse Fourier transform of the corresponding characteristic function
+ \begin{equation}
+ 	\{P|Q|W\} = \hat{\mathscr{F}}^{-1} [\chi_{\{N|A|S\}}]
+\end{equation}
+The existence of the inverse transform is necessary condition for the existence of a particular representation in terms of non-generalised functions. 
+
+\subsection{Coherent State Representations}
+
+The form of the density matrix for a system in pure coherent state $ | \alpha_0 \rangle $  is:
+\begin{equation}
+ 	\dens = | \alpha_0 \rangle \langle \alpha_0 | 
+ \end{equation}
+ \subsubsection{P-function}
+ From the properties of the delta function, the form of the P-function is evident:
+\begin{equation}
+	P(\alpha) = \delta^2(\alpha-\alpha_0)
+\end{equation}
+\subsubsection{Q-function}
+The Q-function is evaluated via its definition \ref{qdef}:
+\begin{equation}
+	Q(\alpha) = \frac{\langle \alpha | \alpha_0 \rangle \langle \alpha_0 | \alpha \rangle}{\pi} = \frac{{|\langle \alpha | \alpha_0 \rangle |}^2}{\pi} =  \frac{e^{-{|\alpha_0 - \alpha |}^2}}{\pi}
+\end{equation}
+\subsubsection{Wigner Function}
+The Wigner function is recovered from the Wigner transform of $\ket{\alpha_0}\bra{\alpha_0} = \ket{X_1+iX_2}\bra{X_1+iX_2}$
+\begin{equation}
+	W(x_1, x_2) = \frac{2}{ \pi} e^{-\frac{1}{2}[(x_1-X_1)^2+(x_2-X_2)^2]}
+\end{equation}
+\subsection{Fock state representations}
+\subsubsection{P-function}
+
+Since Fock states have no classical analogue, we would expect the P function associated with the Fock state density matrix $\ket{n}\bra{n}$ should be highly singular or negative. From \ref{mehta}, P($\alpha$) is non-singular (not more singular than a $\delta$-function) if and only if $ \bra{\beta} \dens \ket{\beta} e^{|\beta|^2} $ is square integrable. But, using the Fock state expansion of the coherent states
+\begin{align}
+	 \bra{\beta} \dens \ket{\beta} e^{|\beta|^2}  &= e^{-|\beta|^2} \sum_{k=0}^\infty \frac {{\beta^*}^k}{k!} \braket{k}{n}\braket{n}{k} \sum_{k=0}^\infty \frac {\beta^k}{k!}e^{|\beta|^2} \\ &= e^{-|\beta|^2} \frac{|\beta|^{2n}}{(n!)^2} e^{|\beta|^2} \\ &= \frac{|\beta|^{2n}}{(n!)^2}
+\end{align}
+Which is square integrable for no value of n.
+A representation in terms of a class of generalised functions called \emph{tempered distributions} is possible\footnote{Specifically, in terms of the derivatives of a Dirac delta function\autocite{Gerry2005}}, but the behaviour of such objects makes them difficult to work with.
+\subsubsection{Q-function}
+
+Despite the pathological nature of the Fock state P-function the Q-function is quite straightforwardly evaluated via its definition
+\begin{align}
+	 Q(\alpha) = \bra{\alpha} \dens \ket{\alpha}  &= \sum_{k=0}^\infty \frac {{\alpha^*}^k}{k!} \braket{k}{n}\braket{n}{k} \sum_{k=0}^\infty \frac {\alpha^k}{k!}e^{-|\alpha|^2} \\ &= \frac{|\alpha|^{2n}}{(n!)^2} e^{-|\alpha|^2}
+\end{align}
+
+\subsubsection{Wigner function}
+
+The Wigner transform of $\ket{n}\bra{n}$ is\autocite[65]{Walls2008}
+\begin{equation}
+	W(x_1, x_2) = \frac{2}{\pi} (-1)^n \mathscr{L}_n(4(x_1^2+x_2^2))e^{-2(x_1^2+x_2^2)}
+\end{equation}
+Where $\mathscr{L}_n$ is the nth Laguerre Polynomial. Whilst the Wigner function exists for the Fock state, it is clearly negative.
+%----------------------------------------------------------------------------------------------------------------------------------
+
+\section{Breakdown of Photon Blockade: A Dissipative Quantum Phase Transition in Zero Dimensions}
+
+The driven Jaynes Cumming oscillator exhibits a characteristic Kerr nonlinearity($n \propto I$) under strong coherent drive, called \emph{photon blockade}\autocite{Carmichael2015}. The author presents conditions for breakdown of photon blockade through increasing drive strength, and characterises the corresponding dissipative quantum phase transition, and further numerical simulations highlight the differences between quantum and semiclassical approaches. 
+\subsection{Photon Blockade}
+With the cavity field on resonance ($\omega_A = \omega$) with the two level transition, the JC Hamiltonian \ref{HJC} can be written\autocite[3]{Carmichael2015}
+\begin{equation}
+	\ham_{JC} = \hbar \omega (\cre \ann + \atann \atcre) +\hbar g (\cre \atann + \hat{a} \atcre)
+\end{equation}
+after a rescaling the atomic energy levels and absorption of a - sign into the g-factor. Diagonalising yields the \emph{dressed states}
+\begin{align}
+	\ket{E_{n, U}} & = \frac{1}{\sqrt{2}} (\kettens{n}{-}+\kettens{n-1}{+}) \\
+	\ket{E_{n, L}} & = \frac{1}{\sqrt{2}} (\kettens{n}{-}-\kettens{n-1}{+})
+\end{align} 
+in the tensor product of the field fock space and the atomic eigenspace spanned by $\ket{+}, \ket{-}$. These eigenstates are superpositions of the bare states $\kettens{n}{-}$ and $\kettens{n-1}{+}$ and are balanced only in the case of zero detuning, which we consider here. The eigenenergies are 
+\begin{align}
+	E_{n, U} &= n \hbar \omega_0 + \sqrt{n} \hbar g \\
+	E_{n, L} &= n \hbar \omega_0 - \sqrt{n} \hbar g
+\end{align}
+in which the Rabi splitting between the upper and lower dressed states is clear. In the absence of coupling to a dressing field $(g=0)$ the Jaynes-Cumming energies form a degenerate harmonic ladder; considering coupling to the cavity field induces an anharmonicity via the characteristic $\sqrt{n}$ Rabi splitting.
+
+We now consider the effect of an external drive tuned to the $\ket{G} \rightarrow \ket{E_{1, U/L}}$ transition\footnote{Drive frequencies at multiphoton resonances induce the same effect} (where $\ket{G}$ is the coincident dressed ground state $\ket{E_{0, -}} = \kettens{0}{-}$) with frequency $\omega_D = \hbar \omega_0 \pm \hbar g$.
+The $\kettens{1}{U/L} \rightarrow \kettens{2}{U/L}$ step of the Jaynes Cummings ladder is now detuned from the drive by $E_{2, U/L} - E_{1, U/L} - \hbar \omega_D =  \mp(2-\sqrt{2}) \hbar g$. Thus for sufficiently large g(and sufficiently small linewidth), the upper steps of the ladder are inaccessible, and the Jaynes Cumming system behaves as a two-level system until the photon is reemitted through some loss process. This is the photon blockade effect.
+
+The author now considers the Jaynes Cummings oscillator driven by a coherent field. Transformed to an interaction picture, the Hamiltonian for the driven cavity mode \footnote{The driven qubit can be recovered via a transformation \autocite{Alsing1999}} is 
+
+\begin{equation}
+	\ham_{JC}^{int} = -\hbar \Delta (\cre \ann + \atcre \atann) + \hbar g(\ann \atcre + \cre \atann) + \hbar \Epsilon(\ann + \cre)
+\end{equation}
+with $\Epsilon$ the coherent state intensity and
+\begin{equation}
+	\Delta \omega = \omega_D - \omega
+\end{equation}
+the drive detuning
+
+The Hamiltonian is diagonalised via a Bogliubov transformation\footnote{A Bogliubov transformation is a transformation from one unitary representation to another that is also an isomorphism between the representations' canonical commutator algebras}. The resulting quasi-energy spectrum
+\begin{align}
+	e_{n, +} &= + \sqrt{n} \hbar g \{1 - ({\frac{2\Epsilon}{g}})^2\}^{\frac{3}{4}} \\
+	e_{n, -} &= - \sqrt{n} \hbar g \{1 - ({\frac{2\Epsilon}{g}})^2\}^{\frac{3}{4}}
+\end{align}
+A critical point (corresponding to quantum phase transition) appears at $\frac{2\Epsilon}{g} = 1$, where the quasienergy splitting collapses to zero.
+
+\subsection{The Semiclassical Approach}
+The author now demonstrates the existence of the same critical point in a semiclassical treatment of the system based on what he calls the neoclassical equations, but are more commonly known as the Maxwell-Bloch equations, 
+\begin{align}
+	&\frac{d \qexp{\ann}}{dt} = -(\kappa -i \delta \omega)-ig \qexp{\atann} \\
+	&\frac{d \qexp{\atann}}{dt} = i \Delta \omega \qexp{\atann} +ig \qexp{\ann} \qexp{\sigma_z} \\	
+	&\frac{d \qexp{\sigma_z}}{dt} = 2 i g(\qexp{\ann}^* \qexp{\atann} -\qexp{\ann} \qexp{\ann}^*)
+\end{align}
+With $\kappa$ the cavity loss rate.
+
+Driven on resonance and after adiabatic elimination the equations exhibit a critical point in the drive strength through which the model undergoes a transition: above the critical point, the system sits at the equator of the Bloch sphere and adopts a phase aligned or anti aligned to that of the cavity field, with no sensitivity to the phase of the drive. Each of these two phases by rough analogy corresponds to a set of rungs of the Jaynes Cumming ladder - either the upper or the lower. 
+
+Steady states of the neoclassical equations for non-zero detuning $\Delta \omega$ are given by:
+\begin{align}
+	\qexp{\ann}& = i \Epsilon\frac{1}{[\kappa-i(\Delta \omega \mp sgn(\Delta \omega) \frac{g^2}{\sqrt{\Delta \omega^2 +4g^2 |\alpha|^2}})]} \\
+	\qexp{\atann}& = \pm sgn(\Delta \omega) \frac{g |\qexp{\ann}|}{\sqrt{\Delta \omega^2 + g^2 |\qexp{\ann|}|^2}}\\
+	\qexp{\sigma_z}& = \mp \sqrt{1-4|\qexp{\atann}|^2}
+\end{align}
+the expression for $\qexp{\ann}$ is a Lorentzian, in which is obvious a nonlinear dispersion which diverges as $|\alpha|^2 \rightarrow 0$
+
+The author then proceeds to discuss the differences between this model and a similar one in which a lattice of cavities is treated, which forms a direct analogy to particular quantum phase transition encountered in condensed matter physics.
+
+\subsection{Spontaneous Dressed-State Polarization}
+The author develops an earlier paper \autocite{Alsing1999} in which he and Alsing report a phenomenon which they called "spontaneous dressed state polarization" - the formation of a phase bistability (the above mentioned aligned or antialigned bloch vector) when the system is driven beyond the critical point. The extension in this paper is to further classify the fixed point as an organising centre for the breakdown of the photon blockade phenomenon, which is to say that the fixed point is an attractor in the system phase space. 
+
+This is done by truncating the expansion of the density matrix (this is discussed in \autocite{Savage1988})and solving it using a Runge-Kutta algorithm.The author explains the split Lorentzians in \autocite[Figure 1]{Carmichael2015} via the two distinct Jaynes Cumming ladders and their being climbed by correctly detuned photons. The equal magnitude of each peak is a result of the independence of the two ladders at for high drive strength. Interaction between the ladders via spontaneous emission is treated in \autocite[Section V]{Carmichael2015}
+
+The multiple peaks in the lorentzian (at the bottom of \autocite[Figure 1]{Carmichael2015}) as we move from large to little detuning are a mark of multiphoton blockades and their breaking through.
+
+The author notes the sides of the double lorentzian, most visible in the diagram at the top right of the figure, as domains of coexistence between the near vacuum state and the high occupation state, and the phase transition between the two at this boundary he classifies as first order, in contrast to the transition at the critical point which is second order.
+
+The author then analyses a number of Q function contour plots which show a distinct bimodality. This he uses as an indicator of coexistent states along the aforementioned domain of coexistence. He plots a coloured projection of the domains of coexistence of \autocite[Figure 1 right hand side]{Carmichael2015} as \autocite[Figure 2]{Carmichael2015}, and the Q functions of several points of the system phase space along this boundary. 
+
+\subsection{Critical Slowing Down}
+
+A dynamical system perturbed close to an attracting fixed point, towards said fixed point, recovers its equilibrium position more slowly than the same system perturbed further away from the fixed point. This is known as \emph{critical slowing down}\autocite[40, 56]{Strogatz1994}. The author plots in \autocite[Figure 3]{Carmichael2015} two time-dependent photon number curves (green and red) for one points along the domain of coexistence, and one point far from it, that show a dramatic critical slowing down near to the point $\frac{\Epsilon}{2g} = 1$, which in the earlier analysis was established as a fixed point of the system i.e. direct evidence that this point is an 'organising centre' for the phase transition earlier suggested, and characteristic of a second order phase transition. 
+
+The plot containing evidence of critical slowing also contains a cut through the surface of \autocite[Figure 2]for a given driving value (red squares.)
+
+Figure 3b contains a surface and a contour plot of the 
+
+\printbibliography
+\end{document}
