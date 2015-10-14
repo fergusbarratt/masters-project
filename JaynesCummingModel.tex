@@ -1,0 +1,73 @@
+\section{The Jayes-Cumming Hamiltonian}
+The Jaynes-Cumming model in quantum optics is an important example of an open quantum system. It consists of a two level atom interacting with a single quantized mode of an optical cavity. It is solvable, provided several widely applicable approximations are made. 
+We start with the total Hamiltonian
+\begin{equation}
+	\mathscr{H} = \mathscr{H}_A + \mathscr{H}_F +\mathscr{V}_{int}
+\end{equation}
+\subsection{The Dipole Approximation}
+In full generality, the field will interact with all the higher order dipole moments of the atom. However, given that the spatial variation of typical optical fields is minimal on the order of an atom ($\sim$ \AA), the interaction hamiltonian can be approximated by the interaction of the electric field only with the electric dipole moment of the atom 
+\begin{equation}
+	\hat{\mathscr{V}}_{int} = -\vec{\hat{d}} \cdot \vec{\hat{E}}
+\end{equation}
+The quantized electromagnetic multimode vector potential in a medium can be expressed in the following way \autocite[271-273]{Novotny2006}
+\begin{equation}
+	\hat{A} = \sum_{\vec{k}, \mu} \sqrt{\frac{\hbar}{2\omega_{\vec{k}} V \varepsilon_0}} (\vec{u}_{\vec{k}} \ann + \vec{u}^*_{\vec{k}} \cre )
+\end{equation}
+with $\vec{u}_{\vec{k}}$ orthogonal normal modes satisfying the wave equation:
+\begin{equation}
+	\nabla \times \nabla \times \vec{u}_{\vec{k}} = \frac{\omega_{\vec{k}}^2}{c^2}  \vec{u}_{\vec{k}}
+\end{equation}
+We consider only coupling to a single mode of the cavity field:
+\begin{equation}
+	\hat{A} =  \sqrt{\frac{\hbar}{2\omega_{\vec{k}} V \varepsilon_0}} (\vec{u}_{\vec{k}} \ann + \vec{u}^*_{\vec{k}} \cre )
+\end{equation}
+from which $\vec{E}$ for the mode is easily derived since (in the radiation gauge)
+\begin{equation}
+	\vec{\hat{E}} = -\frac{\partial}{\partial t}\vec{\hat{A}}
+\end{equation}
+\subsection{Two Level Approximation}
+$\vec{\hat{d}} = e \vec{\hat{r}}$ can be expanded in the space of atomic levels by resolving unity on each side
+
+\begin{equation}
+	\vec{\hat{d}} = e \sum_{a, b} | a \rangle \langle a | \vec{\hat{r} }| b \rangle \langle b |
+\end{equation}
+since we consider only two levels, the sum can be truncated: 
+\begin{equation}
+	\vec{\hat{d}} = e\{| 1 \rangle \langle 1|\vec{\hat{r}} | 1 \rangle \langle 1 | + | 1 \rangle \langle 1|\vec{\hat{r}} | 2 \rangle \langle 2 | + | 2 \rangle \langle 2|\vec{\hat{r}} | 1 \rangle \langle 1 | + | 2 \rangle \langle 2|\vec{\hat{r}} | 2 \rangle \langle 2 | \}
+\label{eq:25}
+\end{equation}
+we assume the atom has no permanent dipole moment and neglect terms of the form $| 1 \rangle \langle 1|\vec{\hat{r}} | 1 \rangle \langle 1 |$. Expressing \ref{eq:25} in terms of the atomic creation and annihilation operators
+\begin{equation}
+	\vec{\hat{d}} = (m\sigma_+ + m^* \sigma_-)
+\end{equation}
+where $m, m^*$ are the electric dipole matrix elements
+\subsection{The Rotating Wave Approximation}
+The free field hamiltonian, neglecting the zero point energy has the form
+\begin{equation}
+	\ham_F =  \hbar \omega \cre \ann
+\end{equation}
+The atom energy, neglecting centre of mass motion and considering only population inversion, in terms of the Pauli z matrix:
+\begin{equation}
+	\ham = \frac {1} {2} \hbar \omega_A \sigma_z
+\end{equation}
+where $\omega_A$ is the frequency of the bare atomic transition
+
+Assuming sinusoidal mode functions with polarisation $\varepsilon_\Omega$, and incorporating constants into new dipole matrix elements $g = \frac{m \varepsilon_\Omega sin(Kz)} {2 \hbar}$, the total hamiltonian takes the form 
+\begin{equation}
+	\ham = \hbar \omega \cre \hat{a} +\frac{1}{2} \hbar \omega_A \sigma_Z + \hbar (\ann +\cre)(g\atann+g^*\atcre)
+\end{equation}
+
+expanding the interaction term
+\begin{equation}
+	\hat{\mathscr{V}}_{int} = \hbar (\ann +\cre)(g\atann+g^*\atcre) =  \hbar (g \ann \atann + g^* \ann \atcre + g \cre \atcre +g^* \cre\atann)
+\end{equation}
+
+moving to an interaction picture rotating at the transition frequency $\omega_A$ it can be seen that terms of the form $\atann \cre $ counterrotate with frequency $\omega + \omega_L$ and terms of the form $ \atann \ann$ co rotate with frequency given by the detuning $\omega-\omega_L$. The RWA corresponds to the assumption that the counterrotating terms will quickly average to zero over appreciable timescales, and thus can be dropped in the expansion of the interaction hamiltonian.
+\subsection{The Jaynes-Cumming Hamiltonian}
+Applying all of the above leads to a hamiltonian $\ham_{JC}$ of the form:
+
+\begin{equation}
+	\ham_{JC} = \hbar \omega \cre \hat{a} +\frac{1}{2} \hat{\sigma}_Z \omega_A -\hbar g (\cre \atann + \hat{a} \atcre)
+	\label{HJC}
+\end{equation}
+\subsection{Dispersive Regime}
