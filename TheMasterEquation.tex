@@ -48,7 +48,7 @@ A marked simplification is derived by invoking an approximation known as the Mar
 
 The most general form\autocite[119--122]{Breuer2002} for the reduced master equation in the Markov approximation is known as the \emph{Lindblad Form}
 \begin{equation}
-	\frac{d}{dt} \rho_S (t) = -i[\ham (t), \dens (t)] + \sum_{k=1}^{N^2-1} \gamma_k \{ \hat{A}_k \dens_S \cre_k -\frac{1}{2}  \cre_k \dens_S \hat{A}_k -\frac{1}{2} \dens_S \cre_k \hat{A}_k \}
+	\frac{d}{dt} \rho_S (t) = -i[\ham (t), \dens (t)] + \sum_{k=1}^{N^2-1} \gamma_k \{ \hat{A}_k \dens_S \hat{A}_k -\frac{1}{2}  \hat{A}_k \dens_S \hat{A}_k -\frac{1}{2} \dens_S \hat{A}_k \hat{A}_k \}
 \end{equation} 
 with $\{A_k\}_{k \in I}$ some indexed complete orthonormal basis of operators on the system Hilbert space
 
