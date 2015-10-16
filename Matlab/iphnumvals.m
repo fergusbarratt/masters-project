@@ -25,7 +25,7 @@ function [iphnumvals] = iphnumvals(Eplotvals, kappa, g, Dplotvals, N)
 	sm = tensor(ida,sigmam);
 
 	function [ssiphnum] = ssiphnum(kappa, g, d, N, E)
-		%NEEDS DOING AT EACH STEP: calculates the Liouvillian, finds the density matrix in steady state, outputs the photon number
+		%Calculates the Liouvillian, finds the density matrix in steady state, outputs the photon number
 
 		% get the hamiltonian for the values given
 		% Hamiltonian cavity and qubit in resonance for input vals, d- cavity-qubit freq minus drive freq

@@ -1,6 +1,6 @@
-function [iphnum] = iphnum(E,kappa,g,det,N)
+function [rhoss] = rhoss(E,kappa,g,det,N)
 	
-	% variant of probsss example from qotoolbox for solving master eq in Carmichaels paper.
+	% denity matrix for JC hamiltonian in steady state with conditions.
 
 	% [count1, count2, iphnum] = probss(E,kappa,gamma,g,wc,w0,wl)
 	% solves the problem of a coherently driven cavity with a two-level atom
@@ -44,6 +44,6 @@ function [iphnum] = iphnum(E,kappa,g,det,N)
 	
 	% Calculate expectation values expectation of collapse conj*collapse
 	% Monitor output field of the cavity. count1: output photon count due to kappa
-	count1 = expect(C1dC1,rhoss);
+	% count1 = expect(C1dC1,rhoss);
 	% count2 = expect(C2dC2,rhoss). infield is now intracavity photon number iphnum
-	iphnum = real(count1/(2*kappa))
+	% iphnum = real(count1/(2*kappa))
