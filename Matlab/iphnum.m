@@ -1,5 +1,7 @@
-function [iphnum] = probss(E,kappa,g,det,N)
+function [iphnum] = iphnum(E,kappa,g,det,N)
 	
+	% variant of probsss example from qotoolbox for solving master eq in Carmichaels paper.
+
 	% [count1, count2, iphnum] = probss(E,kappa,gamma,g,wc,w0,wl)
 	% solves the problem of a coherently driven cavity with a two-level atom
 	% E = amplitude of driving field, kappa = mirror coupling,
@@ -12,6 +14,7 @@ function [iphnum] = probss(E,kappa,g,det,N)
 	% N = size of Hilbert space for intracavity field (zero to N-1 photons)
 	% count1 = photocount rate of light leaking out of cavity count2 = spontaneous emission rate
 	% iphnum = intracavity field
+
 
 	%generate identities and constants
 	ida = identity(N); 
@@ -31,7 +34,7 @@ function [iphnum] = probss(E,kappa,g,det,N)
 	%C2dC2 = C2'*C2;
 	
 	% Calculate the Liouvillian, spont emission lindbladians gone
-	LH = -i * (spre(HJC) - spost(HJC));
+	LH = -1i * (spre(HJC) - spost(HJC));
 	L1 = spre(C1)*spost(C1')-0.5*spre(C1dC1)-0.5*spost(C1dC1); 
 	% L2 = spre(C2)*spost(C2'')-0.5*spre(C2dC2)-0.5*spost(C2dC2); 
 	L = LH+L1; %+L2;
