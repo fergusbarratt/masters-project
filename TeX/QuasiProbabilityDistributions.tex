@@ -44,7 +44,7 @@ It is a necessary and suffient condition for this expression for P($\alpha$) to 
 \end{equation}
 The Q function is a nonnegative, the density function being a positive operator. It is also bounded above 
 \begin{equation}
-	Q < \frac{1}{\pi}
+	Q \leq \frac{1}{\pi}
 \end{equation}
 Antinormally ordered expectation values can be evaluated as follows:
 \begin{equation}
@@ -60,7 +60,7 @@ True probability distributions for generalised position and momentum are only po
 \begin{equation}
 	W(X_1, X_2) = \frac{1}{4 \pi} \int_{-\infty}^\infty dX e^{\frac{-iXX_2}{2}} \bra{X_1+X} \dens \ket{X_1-X}
 \end{equation}
-Expressed in terms of the generalised position and momentum in quantum optics: the field quadratures defined $\alpha = X_1 + iX_2$. Integrating over either quadrature yields the true probability distribution of the other quadrature.
+Expressed in terms of the generalised position and momentum in quantum optics: the field quadratures defined $\alpha = X_1 + iX_2$. Integrating over either quadrature yields the true probability distribution in the other quadrature.
 
 The Wigner function is defined as the \emph{Wigner transform} of the density matrix, a general invertible transformation taking operators to functions on phase space. Its inverse, the \emph{Weyl transform}, returns functions to operators. The phase space formulation of quantum mechanics in its original form involves propagating such functions in time using Moyal's Evolution Equation \autocite{Curtright2011}. This same formalism is equivalently applied (via different integral transforms) to the other representations.
 
@@ -68,9 +68,9 @@ The Wigner function is defined as the \emph{Wigner transform} of the density mat
 
 The above functions are equivalently derived from the antinormal, normal, and symmetric characteristic functions, defined as follows:
 \begin{align}
-	\chi_{A} (\eta) &= tr\{e^{-\eta^* \hat{a}}e^{\eta \cre } \} \\
-	\chi_{N} (\eta) &= tr\{e^{\eta \cre}e^{-\eta^* \hat{a} } \} \\
-	\chi_{S} (\eta) &= tr\{e^{\eta^* \hat{a}-\eta \cre } \} 
+	\chi_{A} (\eta) &= tr\{\dens e^{-\eta^* \hat{a}}e^{\eta \cre } \} \\
+	\chi_{N} (\eta) &= tr\{\dens e^{\eta \cre}e^{-\eta^* \hat{a} } \} \\
+	\chi_{S} (\eta) &= tr\{\dens e^{\eta^* \hat{a}-\eta \cre } \} 
 \end{align}
 with the corresponding quasiprobability distributions retrieved as the inverse Fourier transform of the corresponding characteristic function
  \begin{equation}
