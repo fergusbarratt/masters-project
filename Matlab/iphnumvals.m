@@ -50,7 +50,7 @@ function [iphnumvals] = iphnumvals(Eplotvals, kappa, g, Dplotvals, N)
 		ssiphnum = real(expect(CdC,rhoss)/(2*kappa));
 	end
 
-	% generate matrices of vals for iphnumvals
+	% generate matrices of vals for arrayfun
 	kappas = kappa*ones(length(Dplotvals), length(Eplotvals));
 	gs = g*ones(length(Dplotvals), length(Eplotvals));
 	%ds = d*ones(length(Eplotvals));

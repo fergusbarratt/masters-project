@@ -1,10 +1,13 @@
-function [rhoss] = rhoss(E,kappa,g,det,N)
+function [Qss] = Qss(E,kappa,g,det,N, Xrange, Yrange)
 	
-	% denity matrix for JC hamiltonian in steady state with conditions.
+	% density matrix for JC hamiltonian in steady state with conditions.
+
+	% surf(-20:0.4:20, -20:0.4:20, Qss(6.3, 0.5, 30, 4, 100, -20:0.4:20, -20:0.4:20)); - Bistability here.
+	% hbar is set to one - To change?
 
 	% [count1, count2, iphnum] = probss(E,kappa,gamma,g,wc,w0,wl)
 	% solves the problem of a coherently driven cavity with a two-level atom
-	% E = amplitude of driving field, kappa = mirror coupling,
+	% E = amplitude 0of driving field, kappa = mirror coupling,
 	% gamma = spontaneous emission rate, 
 	% g = atom-field coupling,
 	% wc = cavity frequency, 
@@ -41,7 +44,7 @@ function [rhoss] = rhoss(E,kappa,g,det,N)
 	
 	% Find steady state
 	rhoss = steady(L);
-	
+	Qss = qfunc(rhoss, Xrange, Yrange)
 	% Calculate expectation values expectation of collapse conj*collapse
 	% Monitor output field of the cavity. count1: output photon count due to kappa
 	% count1 = expect(C1dC1,rhoss);
