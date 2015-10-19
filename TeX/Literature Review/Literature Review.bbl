@@ -1,0 +1,436 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.5 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist{none}{none}
+    \entry{Breuer2002}{book}{}
+      \name{author}{2}{}{%
+        {{hash=44be9d24e3ede84bee3691a7a300e5db}{Breuer}{B\bibinitperiod}{Heinz-Peter}{H\bibinithyphendelim P\bibinitperiod}{}{}{}{}}%
+        {{hash=4b215190f542b12fd214896e21eff64b}{Petruccione}{P\bibinitperiod}{Francesco}{F\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {OUP}%
+      }
+      \strng{namehash}{fc984943b8bdb1c48eb687b8f74fd49b}
+      \strng{fullhash}{fc984943b8bdb1c48eb687b8f74fd49b}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1st}
+      \field{isbn}{978-0-19-852063-4}
+      \field{title}{{The Theory of Open Quantum Systems}}
+      \field{year}{2002}
+      \field{pages}{625}
+      \range{pages}{1}
+      \verb{doi}
+      \verb http://dx.doi.org/10.1093/acprof:oso/9780199213900.001.0001
+      \endverb
+      \verb{file}
+      \verb :Users/fergusbarratt/Library/Application Support/Mendeley Desktop/Downloaded/Breuer, Petruccione - 2002 - The Theory of Open Quantum Systems.djvu:djvu
+      \endverb
+    \endentry
+    \entry{Novotny2006}{book}{}
+      \name{author}{2}{}{%
+        {{hash=68c8b1fe3e055fe3c71ca1ee6554b509}{Novotny}{N\bibinitperiod}{Lukas}{L\bibinitperiod}{}{}{}{}}%
+        {{hash=77427840f5c77e8bf6cda32554acb7b8}{Hecht}{H\bibinitperiod}{Bert}{B\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{4d6e90d778475dccacd79183e2f10152}
+      \strng{fullhash}{4d6e90d778475dccacd79183e2f10152}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780874216561}
+      \field{number}{1}
+      \field{title}{{Principles of Nano-Optics}}
+      \field{year}{2006}
+      \field{pages}{525}
+      \range{pages}{1}
+      \verb{file}
+      \verb :Users/fergusbarratt/Library/Application Support/Mendeley Desktop/Downloaded/Name et al. - 2014 - No Title No Title.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Walls2008}{book}{}
+      \name{author}{2}{}{%
+        {{hash=8d2e8163541e25ead62336546b816c11}{Walls}{W\bibinitperiod}{D.\bibnamedelimi F.}{D\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+        {{hash=950882b0f7b014fb6710814c5f54b3d2}{Milburn}{M\bibinitperiod}{Gerard\bibnamedelima J.}{G\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{04908ad76c4caaef6c6fda6a004ec1c5}
+      \strng{fullhash}{04908ad76c4caaef6c6fda6a004ec1c5}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Quantum Optics gives a comprehensive coverage of developments in quantum optics over the past years. In the early chapters the formalism of quantum optics is elucidated and the main techniques are introduced. These are applied in the later chapters to problems such as squeezed states of light, resonance fluorescence, laser theory, quantum theory of four-wave mixing, quantum non-demolition measurements, Bell's inequalities, and atom optics. Experimental results are used to illustrate the theory throughout. This yields the most comprehensive and up-to-date coverage of experiment and theory in quantum optics in any textbook.}
+      \field{edition}{2nd}
+      \field{isbn}{978-3-540-28573-1}
+      \field{title}{{Quantum Optics}}
+      \field{year}{2008}
+      \verb{doi}
+      \verb 10.1007/978-3-540-28574-8
+      \endverb
+      \verb{file}
+      \verb :Users/fergusbarratt/Library/Application Support/Mendeley Desktop/Downloaded/Walls, Milburn - 2008 - Quantum Optics.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://www.springerlink.com/index/10.1007/978-3-540-28574-8
+      \endverb
+    \endentry
+    \entry{Sudarshan1963}{article}{}
+      \name{author}{1}{}{%
+        {{hash=0d6730815d23bf7b66d44ece243bd6a0}{Sudarshan}{S\bibinitperiod}{E.\bibnamedelimi C\bibnamedelima G}{E\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{0d6730815d23bf7b66d44ece243bd6a0}
+      \strng{fullhash}{0d6730815d23bf7b66d44ece243bd6a0}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{With the advent of the laser, attention has been focused on the problem of the complete description of the electromagnetic field associated with arbitrary light beams. The classical theory of optical coherence' works almost exclusively with two-point correlations; and this theory is adequate for the description of the classical optical phenomena of interference and diffraction in general. More sophisticated experiments on intensity interferometry and photoelectric counting statistics necessitated special higher order correlations. Most of this work' was done using a classical or a semiclassical formulation of the problem. On the other hand, statistical states of a quantized (electromagnetic) field have been considered recently, ' and a quantum mechanical definition of coherence functions of arbitrary order presented. It is the aim of this note to elaborate on this definition and to demonstrate its complete equivalence to the classical description as long as no nonlinear effects are considered.}
+      \field{issn}{00319007}
+      \field{journaltitle}{Physical Review Letters}
+      \field{number}{7}
+      \field{title}{{Equivalence of semiclassical and quantum mechanical descriptions of statistical light beams}}
+      \field{volume}{10}
+      \field{year}{1963}
+      \field{pages}{277\bibrangedash 279}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1103/PhysRevLett.10.277
+      \endverb
+      \verb{file}
+      \verb :Users/fergusbarratt/Library/Application Support/Mendeley Desktop/Downloaded/Sudarshan - 1963 - Equivalence of semiclassical and quantum mechanical descriptions of statistical light beams.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Mandl2010}{book}{}
+      \name{author}{2}{}{%
+        {{hash=ef35b9afb79c8d14d7b7843fdf6d8e40}{Mandl}{M\bibinitperiod}{Franz}{F\bibinitperiod}{}{}{}{}}%
+        {{hash=e19cc3ebc33bc6ed0b7f7361d2f028d8}{Shaw}{S\bibinitperiod}{Graham}{G\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{9f99b4d122d38bb02f5110ad341c006b}
+      \strng{fullhash}{9f99b4d122d38bb02f5110ad341c006b}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd}
+      \field{title}{{Quantum Field Theory}}
+      \field{year}{2010}
+      \field{pages}{492}
+      \range{pages}{1}
+    \endentry
+    \entry{Cahill1969}{article}{}
+      \name{author}{2}{}{%
+        {{hash=23114ccb6f99029b83dadcd44972893e}{Cahill}{C\bibinitperiod}{K.\bibnamedelimi E.}{K\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{hash=d21981804f93e4bc3b75598e757f70fb}{Glauber}{G\bibinitperiod}{R.\bibnamedelimi J.}{R\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{d2573253b8050bd73f0fa1f0e7326f30}
+      \strng{fullhash}{d2573253b8050bd73f0fa1f0e7326f30}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{doi:10.1103/PhysRev.177.1882}
+      \field{issn}{0031899X}
+      \field{journaltitle}{Physical Review}
+      \field{number}{5}
+      \field{title}{{Density operators and quasiprobability distributions}}
+      \field{volume}{177}
+      \field{year}{1969}
+      \field{pages}{1882\bibrangedash 1902}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1103/PhysRev.177.1882
+      \endverb
+      \verb{file}
+      \verb :Users/fergusbarratt/Library/Application Support/Mendeley Desktop/Downloaded/Cahill, Glauber - 1969 - Density operators and quasiprobability distributions.pdf:pdf
+      \endverb
+      \keyw{bohmian mechanics,density matrix,density operator,time}
+    \endentry
+    \entry{Mandel1995}{book}{}
+      \name{author}{2}{}{%
+        {{hash=dc6966f2c95f08c3017246a5e4de7957}{Mandel}{M\bibinitperiod}{Leonard}{L\bibinitperiod}{}{}{}{}}%
+        {{hash=4f3da79454ab0edb86f37a6038d1998f}{Wolf}{W\bibinitperiod}{Emil}{E\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{8de37a2b95c6de5877b00fe3ea99a1cf}
+      \strng{fullhash}{8de37a2b95c6de5877b00fe3ea99a1cf}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The advent of lasers in the 1960s led to the development of many new fields in optical physics. This book is a systematic treatment of one of these fields-the broad area that deals with the coherence and fluctuation of light. The authors begin with a review of probability theory and random processes, and follow this with a thorough discussion of optical coherence theory within the framework of classical optics. They next treat the theory of photoelectric detection of light and photoelectric correlation. They then discuss in some detail quantum systems and effects. The book closes with two chapters devoted to laser theory and one on the quantum theory of nonlinear optics. The sound introduction to coherence theory and the quantum nature of light and the chapter-end exercises will appeal to graduate students and newcomers to the field. Researchers will find much of interest in the new results on coherence-induced spectral line shifts, nonclassical states of light, higher-order squeezing, and quantum effects of down-conversion. Written by two of the world's most highly regarded optical physicists, this book is required reading of all physicists and engineers working in optics.}
+      \field{booktitle}{American Journal of Physics}
+      \field{edition}{1st}
+      \field{isbn}{0521417112}
+      \field{issn}{00029505}
+      \field{title}{{Optical Coherence and Quantum Optics}}
+      \field{volume}{64}
+      \field{year}{1995}
+      \field{pages}{1194}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1119/1.18450
+      \endverb
+    \endentry
+    \entry{Mehta1967}{article}{}
+      \name{author}{1}{}{%
+        {{hash=078ee3f44de84df6ad884f9991e186ac}{Mehta}{M\bibinitperiod}{C.}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{078ee3f44de84df6ad884f9991e186ac}
+      \strng{fullhash}{078ee3f44de84df6ad884f9991e186ac}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We derive a simple expression for the diagonal coherent-state representation of quantum operators, and discuss some of its applications.}
+      \field{issn}{0031-9007}
+      \field{journaltitle}{Physical Review Letters}
+      \field{number}{18}
+      \field{title}{{Diagonal Coherent-State Representation of Quantum Operators}}
+      \field{volume}{18}
+      \field{year}{1967}
+      \field{pages}{752\bibrangedash 754}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1103/PhysRevLett.18.752
+      \endverb
+      \verb{url}
+      \verb http://link.aps.org/doi/10.1103/PhysRevLett.18.752
+      \endverb
+    \endentry
+    \entry{Husimi1940}{article}{}
+      \name{author}{1}{}{%
+        {{hash=e97388c181a5aa2a97f77a7b41a9e1db}{Husimi}{H\bibinitperiod}{K}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{e97388c181a5aa2a97f77a7b41a9e1db}
+      \strng{fullhash}{e97388c181a5aa2a97f77a7b41a9e1db}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the Physico-Mathematical Society of Japan. 3rd Series}
+      \field{number}{4}
+      \field{title}{{Some Formal Properties of the Density Matrix}}
+      \field{volume}{22}
+      \field{year}{1940}
+      \field{pages}{264\bibrangedash 314}
+      \range{pages}{51}
+    \endentry
+    \entry{Wigner1932}{article}{}
+      \name{author}{1}{}{%
+        {{hash=b72bc5f297bceb97bdde9d16154164c6}{Wigner}{W\bibinitperiod}{Eugene}{E\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{b72bc5f297bceb97bdde9d16154164c6}
+      \strng{fullhash}{b72bc5f297bceb97bdde9d16154164c6}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The probability of a configuration is given in classical theory by the Boltzmann formula exp[\x{fffd}\x{fffd}\x{fffd}VhT] where V is the potential energy of this configuration. For high temperatures this of course also holds in quantum theory. For lower temperatures, however, a correction term has to be introduced, which can be developed into a power series of h. The formula is developed for this correction by means of a probability function and the result discussed.}
+      \field{issn}{0031899X}
+      \field{journaltitle}{Physical Review}
+      \field{number}{5}
+      \field{title}{{On the Quantum Correction for Thermodynamic Equilibrium}}
+      \field{volume}{40}
+      \field{year}{1932}
+      \field{pages}{749\bibrangedash 759}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1103/PhysRev.40.749
+      \endverb
+      \verb{file}
+      \verb :Users/fergusbarratt/Library/Application Support/Mendeley Desktop/Downloaded/Wigner - 1932 - On the Quantum Correction for Thermodynamic Equilibrium(2).pdf:pdf
+      \endverb
+      \keyw{icle}
+    \endentry
+    \entry{Curtright2011}{article}{}
+      \name{author}{2}{}{%
+        {{hash=813b5ff354cbe972ffabd08d8808c8d4}{Curtright}{C\bibinitperiod}{Thomas\bibnamedelima L}{T\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{hash=52a7cb62f4987d94ee3cc94fc09dbf93}{Zachos}{Z\bibinitperiod}{Cosmas\bibnamedelima K}{C\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{b96896880004b9eeb64d1848f0f2aecf}
+      \strng{fullhash}{b96896880004b9eeb64d1848f0f2aecf}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Ever since Werner Heisenberg's 1927 paper on uncertainty, there has been considerable hesitancy in simultaneously considering positions and momenta in quantum contexts, since these are incompatible observables. But this persistent discomfort with addressing positions and momenta jointly in the quantum world is not really warranted, as was first fully appreciated by Hilbrand Groenewold and Jos$\backslash$'e Moyal in the 1940s. While the formalism for quantum mechanics in phase space was wholly cast at that time, it was not completely understood nor widely known --- much less generally accepted --- until the late 20th century.}
+      \field{eprinttype}{arXiv}
+      \field{title}{{Quantum Mechanics in Phase Space}}
+      \field{year}{2011}
+      \field{pages}{1\bibrangedash 15}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1142/S2251158X12000069
+      \endverb
+      \verb{eprint}
+      \verb 1104.5269
+      \endverb
+      \verb{file}
+      \verb :Users/fergusbarratt/Library/Application Support/Mendeley Desktop/Downloaded/cb4d9bae92d8582311db9509ee9409967c7c5a67.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1104.5269%20http://dx.doi.org/10.1142/S2251158X12000069
+      \endverb
+    \endentry
+    \entry{Gerry2005}{book}{}
+      \name{author}{3}{}{%
+        {{hash=5d988600a56c073bdd890c39bf388187}{Gerry}{G\bibinitperiod}{Christopher\bibnamedelima C.}{C\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+        {{hash=eb0ff30013111903355a3c0a9fd94ae4}{Knight}{K\bibinitperiod}{Peter\bibnamedelima L.}{P\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{hash=2cd4faabbad8be0f9c4b2507c1030c3a}{Beck}{B\bibinitperiod}{Mark}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{1b99a60f23d04d4bca2a26b5c1352399}
+      \strng{fullhash}{1b99a60f23d04d4bca2a26b5c1352399}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This elementary introduction to the subject of quantum optics, the study of the quantum mechanical nature of light and its interaction with matter, is almost entirely concerned with the quantized electromagnetic field. The text is designed for upper-level undergraduates taking courses in quantum optics who have already taken a course in quantum mechanics, and for first- and second- year graduate students.}
+      \field{booktitle}{American Journal of Physics}
+      \field{isbn}{9780521820356}
+      \field{issn}{00029505}
+      \field{number}{12}
+      \field{title}{{Introductory Quantum Optics.}}
+      \field{volume}{73}
+      \field{year}{2005}
+      \field{pages}{1197}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1119/1.2110623
+      \endverb
+    \endentry
+    \entry{Carmichael2015}{article}{}
+      \name{author}{1}{}{%
+        {{hash=c04d6abc22451da6d90df1419660260e}{Carmichael}{C\bibinitperiod}{H\bibnamedelima J}{H\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {American Physical Society}%
+      }
+      \strng{namehash}{c04d6abc22451da6d90df1419660260e}
+      \strng{fullhash}{c04d6abc22451da6d90df1419660260e}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Phys. Rev. X}
+      \field{month}{09}
+      \field{number}{3}
+      \field{title}{{Breakdown of Photon Blockade: A Dissipative Quantum Phase Transition in Zero Dimensions}}
+      \field{volume}{5}
+      \field{year}{2015}
+      \field{pages}{31028}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1103/PhysRevX.5.031028
+      \endverb
+      \verb{file}
+      \verb :Users/fergusbarratt/Library/Application Support/Mendeley Desktop/Downloaded/Carmichael - 2015 - Breakdown of photon blockade A dissipative quantum phase transition in zero dimensions.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://link.aps.org/doi/10.1103/PhysRevX.5.031028
+      \endverb
+    \endentry
+    \entry{Alsing1999}{article}{}
+      \name{author}{2}{}{%
+        {{hash=d8a35e6525ed82a213687c661b63f65e}{Alsing}{A\bibinitperiod}{P}{P\bibinitperiod}{}{}{}{}}%
+        {{hash=c04d6abc22451da6d90df1419660260e}{Carmichael}{C\bibinitperiod}{H\bibnamedelima J}{H\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{bf4d79320db6ac86a31960cb7734143d}
+      \strng{fullhash}{bf4d79320db6ac86a31960cb7734143d}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The authors calculate the asymptotic quantum state of a driven cavity mode interacting with a two-state atom when the dipole coupling constant is much larger than the atomic and cavity linewidths. They show that a novel symmetry breaking transition occurs as the strength of the driving field is increased. Although the driving field, the cavity mode, and the atom are all resonant, above the transition threshold the intracavity field shows a bimodality in phase. The bimodality results from an intensity-dependent detuning between the driving field and the transition frequencies of the composite atom-cavity-mode 'molecule.' Well above the transition threshold the driven cavity mode plus atom behaves as a driven harmonic oscillator with randomly switched detuning; the detuning (and hence the phase of the interactivity field) changes sign each time the atom makes a spontaneous transition between dressed states.}
+      \field{issn}{0954-8998}
+      \field{journaltitle}{Quantum Optics: Journal of the European Optical Society Part B}
+      \field{number}{1}
+      \field{title}{{Spontaneous dressed-state polarization of a coupled atom and cavity mode}}
+      \field{volume}{3}
+      \field{year}{1999}
+      \field{pages}{13\bibrangedash 32}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1088/0954-8998/3/1/003
+      \endverb
+    \endentry
+    \entry{Savage1988}{article}{}
+      \name{author}{2}{}{%
+        {{hash=4810d8d2ea8712e3aded911576395cb3}{Savage}{S\bibinitperiod}{C.M.}{C\bibinitperiod}{}{}{}{}}%
+        {{hash=b2160a93ab47aa283b0d0f3a032dc631}{Carmichael}{C\bibinitperiod}{H.J.}{H\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{8172774db0363ad1c9eb27801250abd7}
+      \strng{fullhash}{8172774db0363ad1c9eb27801250abd7}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Absorptive optical bistability is shown to exist for a single two-level atom inside a resonant optical cavity. Solutions for the quantum mechanical density operator are obtained numerically for a parameter regime at the interface between the quantum limit, in which quantum mechanical noise invalidates the semiclassical prediction of bistability, and the classical limit, in which quantum noise is a negligible perturbation on semiclassical results. Bimodal photon number distributions and Q functions are obtained, and two-state transition rates are calculated.}
+      \field{issn}{0018-9197}
+      \field{journaltitle}{IEEE Journal of Quantum Electronics}
+      \field{month}{08}
+      \field{number}{8}
+      \field{title}{{Single atom optical bistability}}
+      \field{volume}{24}
+      \field{year}{1988}
+      \field{pages}{1495\bibrangedash 1498}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1109/3.7075
+      \endverb
+      \verb{url}
+      \verb http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=7075
+      \endverb
+    \endentry
+    \entry{Strogatz1994}{book}{}
+      \name{author}{1}{}{%
+        {{hash=8dde9d64f64f4571b544eb8bf7478a42}{Strogatz}{S\bibinitperiod}{Steven\bibnamedelima F}{S\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{8dde9d64f64f4571b544eb8bf7478a42}
+      \strng{fullhash}{8dde9d64f64f4571b544eb8bf7478a42}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This textbook is aimed at newcomers to nonlinear dynamics and chaos, especially students taking a first course in the subject. The presentation stresses analytical methods, concrete examples and geometric intuition. The theory is developed systematically, starting with first-order differential equations and their bifurcations, followed by phase plane analysis, limit cycles and their bifurcations, and culminating with the Lorenz equations, chaos, iterated maps, period doubling, renormalization, fractals, and strange attractors.A unique feature of the book is its emphasis on applications. These include mechanical vibrations, lasers, biological rhythms, superconducting circuits, insect outbreaks, chemical oscillators, genetic control systems, chaotic waterwheels, and even a technique for using chaos to send secret messages. In each case, the scientific background is explained at an elementary level and closely integrated with the mathematical theory.Richly illustrated, and with many exercises and worked examples, this book is ideal for an introductory course at the junior/senior or first-year graduate level. It is also ideal for the scientist who has not had formal instruction in nonlinear dynamics, but who now desires to begin informal study. The prerequisites are multivariable calculus and introductory physics.}
+      \field{isbn}{0738204536}
+      \field{issn}{00319228}
+      \field{title}{{Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry and Engineering}}
+      \field{year}{1994}
+      \verb{file}
+      \verb :Users/fergusbarratt/Library/Application Support/Mendeley Desktop/Downloaded/Strogatz - 1994 - Nonlinear Dynamics and Chaos.pdf:pdf
+      \endverb
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

@@ -1,0 +1,17 @@
+[0] Config.pm:324> INFO - This is Biber 2.1
+[0] Config.pm:327> INFO - Logfile is 'Literature Review.blg'
+[110] biber-darwin:276> INFO - === Mon Oct 19, 2015, 11:25:12
+[110] Biber.pm:333> INFO - Reading 'Literature Review.bcf'
+[247] Biber.pm:645> INFO - Found 16 citekeys in bib section 0
+[294] Biber.pm:2977> INFO - Processing section 0
+[353] Biber.pm:3115> INFO - Looking for bibtex format file 'Bibliography.bib' for section 0
+[363] bibtex.pm:1021> INFO - Decoding LaTeX character macros into UTF-8
+[368] bibtex.pm:895> INFO - Found BibTeX data source 'Bibliography.bib'
+[597] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[597] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[597] Biber.pm:2854> INFO - Sorting list 'none' of type 'entry' with scheme 'none' and locale 'en-US'
+[597] Biber.pm:2858> INFO - No sort tailoring available for locale 'en-US'
+[620] bbl.pm:505> INFO - Writing 'Literature Review.bbl' with encoding 'ascii'
+[625] Utils.pm:146> WARN - The entry 'Wigner1932' has characters which cannot be encoded in 'ascii'. Recoding problematic characters into macros.
+[627] bbl.pm:596> INFO - Output to Literature Review.bbl
+[628] Biber.pm:106> INFO - WARNINGS: 1

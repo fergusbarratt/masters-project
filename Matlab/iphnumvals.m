@@ -1,4 +1,3 @@
-
 function [iphnumvals] = iphnumvals(Eplotvals, kappa, g, Dplotvals, N)
 		
 	% Generates an array of expected cavity photon numbers for a given range of driving strengths.  
