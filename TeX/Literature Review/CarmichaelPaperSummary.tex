@@ -1,0 +1,92 @@
+%!TEX root = Literature Review.tex
+
+\section{Breakdown of Photon Blockade: A Dissipative Quantum Phase Transition in Zero Dimensions}
+The driven Jaynes Cumming oscillator exhibits a characteristic Kerr nonlinearity($n \propto I$) under strong coherent drive, called \emph{photon blockade}\autocite{Carmichael2015}. The author presents conditions for breakdown of photon blockade through increasing drive strength, and characterises the corresponding dissipative quantum phase transition, and further numerical simulations highlight the differences between quantum and semiclassical approaches.
+\subsection{Photon Blockade}
+With the cavity field on resonance ($\omega_A = \omega$) with the two level transition, the JC Hamiltonian \ref{HJC} can be written\autocite[3]{Carmichael2015}
+\begin{equation}
+	\ham_{JC} = \hbar \omega (\cre \ann + \atann \atcre) +\hbar g (\cre \atann + \hat{a} \atcre)
+\end{equation}
+after a rescaling the atomic energy levels. Diagonalising yields the \emph{dressed states}
+\begin{align}
+	\ket{E_{n, U}} & = \frac{1}{\sqrt{2}} (\kettens{n}{-}+\kettens{n-1}{+}) \\
+	\ket{E_{n, L}} & = \frac{1}{\sqrt{2}} (\kettens{n}{-}-\kettens{n-1}{+})
+\end{align} 
+in the tensor product of the field fock space and the atomic eigenspace spanned by $\ket{+}, \ket{-}$. These eigenstates are superpositions of the bare states $\kettens{n}{-}$ and $\kettens{n-1}{+}$ and are balanced only in the case of zero detuning, which we consider here. The eigenenergies are 
+\begin{align}
+	E_{n, U} &= n \hbar \omega_0 + \sqrt{n} \hbar g \\
+	E_{n, L} &= n \hbar \omega_0 - \sqrt{n} \hbar g
+\end{align}
+in which the Rabi splitting between the upper and lower dressed states is clear. In the absence of coupling to a dressing field $(g=0)$ the Jaynes-Cumming energies form a degenerate harmonic ladder; considering coupling to the cavity field induces an anharmonicity via the characteristic $\sqrt{n}$ Rabi splitting.
+
+We now consider the effect of an external drive tuned to the $\ket{G} \rightarrow \ket{E_{1, U/L}}$ transition\footnote{Drive frequencies at multiphoton resonances induce the same effect} (where $\ket{G}$ is the coincident dressed ground state $\ket{E_{0, -}} = \kettens{0}{-}$) with frequency $\omega_D = \hbar \omega_0 \pm \hbar g$.
+The $\kettens{1}{U/L} \rightarrow \kettens{2}{U/L}$ step of the Jaynes Cummings ladder is now detuned from the drive by $E_{2, U/L} - E_{1, U/L} - \hbar \omega_D =  \mp(2-\sqrt{2}) \hbar g$. Thus for sufficiently large g(and sufficiently small linewidth), the upper steps of the ladder are inaccessible, and the Jaynes Cumming system behaves as a two-level system until the photon is reemitted through some loss process. This is the photon blockade effect.
+
+The author now considers the Jaynes Cummings oscillator driven by a coherent field. Transformed to an interaction picture, the Hamiltonian for the driven cavity mode \footnote{The driven qubit can be recovered via a transformation \autocite{Alsing1999}} is 
+\begin{equation}
+	\ham_{JC}^{int} = -\hbar \Delta (\cre \ann + \atcre \atann) + \hbar g(\ann \atcre + \cre \atann) + \hbar \Epsilon(\ann + \cre)
+\end{equation}
+with $\Epsilon$ the coherent state intensity and
+\begin{equation}
+	\Delta \omega = \omega_D - \omega
+\end{equation}
+the drive detuning
+
+The Hamiltonian is diagonalised via a Bogliubov transformation\footnote{A Bogliubov transformation is a transformation from one unitary representation to another that is also an isomorphism between the representations' canonical commutator algebras}. The resulting quasi-energy spectrum
+\begin{align}
+	e_{n, +} &= + \sqrt{n} \hbar g \left \{1 - \left ({\frac{2\Epsilon}{g}} \right )^2 \right \}^{\frac{3}{4}} \\
+	e_{n, -} &= - \sqrt{n} \hbar g \left \{1 - \left ({\frac{2\Epsilon}{g}} \right )^2 \right \}^{\frac{3}{4}}
+\end{align}
+A critical point (corresponding to quantum phase transition) appears at $\frac{2\Epsilon}{g} = 1$, where the quasienergy splitting collapses to zero.
+
+\subsection{The Semiclassical Approach}
+
+The author now demonstrates the existence of the same critical point in a semiclassical treatment of the system based on what he calls the neoclassical equations, but are more commonly known as the Maxwell-Bloch equations, 
+\begin{align}
+	&\frac{d \qexp{\ann}}{dt} = -(\kappa -i \delta \omega)-ig \qexp{\atann} \\
+	&\frac{d \qexp{\atann}}{dt} = i \Delta \omega \qexp{\atann} +ig \qexp{\ann} \qexp{\sigma_z} \\	
+	&\frac{d \qexp{\sigma_z}}{dt} = 2 i g(\qexp{\ann}^* \qexp{\atann} -\qexp{\ann} \qexp{\ann}^*)
+\end{align}
+With $\kappa$ the cavity loss rate.
+
+Driven on resonance and after adiabatic elimination the equations exhibit a critical point in the drive strength through which the model undergoes a transition: above the critical point, the system sits at the equator of the Bloch sphere and adopts a phase aligned or anti aligned to that of the cavity field, with no sensitivity to the phase of the drive. Each of these two phases by rough analogy corresponds to a set of rungs of the Jaynes Cumming ladder - either the upper or the lower. 
+
+Steady states of the neoclassical equations for non-zero detuning $\Delta \omega$ are given by:
+\begin{align}
+	\qexp{\ann}& = i \Epsilon\frac{1}{[\kappa-i(\Delta \omega \mp sgn(\Delta \omega) \frac{g^2}{\sqrt{\Delta \omega^2 +4g^2 |\alpha|^2}})]} \\
+	\qexp{\atann}& = \pm sgn(\Delta \omega) \frac{g |\qexp{\ann}|}{\sqrt{\Delta \omega^2 + g^2 |\qexp{\ann|}|^2}}\\
+	\qexp{\sigma_z}& = \mp \sqrt{1-4|\qexp{\atann}|^2}
+\end{align}
+the expression for $\qexp{\ann}$ is a Lorentzian, in which is obvious a nonlinear dispersion which diverges as $|\alpha|^2 \rightarrow 0$
+
+The author then proceeds to discuss the differences between this model and a similar one in which a lattice of cavities is treated, which forms a direct analogy to particular quantum phase transition encountered in condensed matter physics.
+
+\subsection{Spontaneous Dressed-State Polarization}
+
+The author develops an earlier paper \autocite{Alsing1999} in which he and Alsing report a phenomenon which they called "spontaneous dressed state polarization" - the formation of a phase bistability (the above mentioned aligned or antialigned bloch vector) when the system is driven beyond the critical point. The extension in this paper is to further classify the fixed point as an organising centre for the breakdown of the photon blockade phenomenon, which is to say that the fixed point is an attractor in the system phase space. 
+
+This is done by truncating the expansion of the density matrix (this is discussed in \autocite{Savage1988})and solving it using a Runge-Kutta algorithm.The author explains the split Lorentzians in \autocite[Figure 1]{Carmichael2015} via the two distinct Jaynes Cumming ladders and their being climbed by correctly detuned photons. The equal magnitude of each peak is a result of the independence of the two ladders at for high drive strength. Interaction between the ladders via spontaneous emission is treated in \autocite[Section V]{Carmichael2015}
+
+The multiple peaks in the lorentzian (at the bottom of \autocite[Figure 1]{Carmichael2015}) as we move from large to little detuning are a mark of multiphoton blockades and their breaking through.
+
+The author notes the sides of the double lorentzian, most visible in the diagram at the top right of the figure, as domains of coexistence between the near vacuum state and the high occupation state, and the phase transition between the two at this boundary he classifies as first order, in contrast to the transition at the critical point which is second order.
+
+The author then analyses a number of Q function contour plots which show a distinct bimodality. This he uses as an indicator of coexistent states along the aforementioned domain of coexistence. He plots a coloured projection of the domains of coexistence of \autocite[Figure 1 right hand side]{Carmichael2015} as \autocite[Figure 2]{Carmichael2015}, and the Q functions of several points of the system phase space along this boundary. 
+
+\subsection{Critical Slowing Down}
+
+A dynamical system perturbed close to an attracting fixed point, towards said fixed point, recovers its equilibrium position more slowly than the same system perturbed further away from the fixed point. This is known as \emph{critical slowing down}\autocite[40, 56]{Strogatz1994}. The author plots in \autocite[Figure 3]{Carmichael2015} two time-dependent photon number curves (green and red) for one point along the domain of coexistence, and one point far from it that show a dramatic critical slowing down in the region of bistability, near to the point $\frac{\Epsilon}{2g} = 1$. This is indicative of the nature of this fixed point: this is an 'organising centre', characteristic of a second order transition. 
+
+The plot containing evidence of critical slowing also contains a cut through the surface of \autocite[Figure 2]{Carmichael2015} for a given driving value (red squares.)
+
+Figure 3b contains a surface and a contour plot of the steady state Q-function. In the contour plot the author highlights the upper half as indicative of the path of excitation (with a region of bimodality corresponding to the different excitation paths that are followed uniquely). The lower half of the plot corresponds to deexcitation.
+
+\subsection{Thermodynamic Limit}
+
+The author investigates a limit of high photon numbers in which quantum fluctuations vanish and the mean field and exact theories coincide. He introduces what he calls the Maxwell-Bloch equations, the mean-field equations in the presence of spontaneous emission coupling to modes of the field other than the cavity fields. This shortens the Bloch vector in general, and thus the vector is no longer confined to the surface of the sphere. 
+
+Solving said equations in the steady state the author finds that $\alpha = \qexp{\ann}$ (the classical approximation to the cavity field) satisfies:
+\begin{equation}
+	\alpha = -i \Epsilon \left [ \kappa - i \Delta \omega + \frac{g^2(\frac{\gamma}{2} +i \Delta \omega)}{\frac{\gamma^2}{4} + \Delta \omega^2 + 2 g^2 |\alpha|^2} \right ]^{-1}
+\end{equation}
+which is the classical solution for the steady state of a saturable two level transition, with a saturation photon number ($I \propto |\alpha|^2 \approx n_{sat}$) of $n_{sat} = \frac{\gamma^2}{8g^2}$. He takes $n_{sat} \rightarrow \infty$ as a definition of a "Thermodynamic limit" 

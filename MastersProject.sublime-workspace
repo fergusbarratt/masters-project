@@ -1,0 +1,345 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"CriticalSo",
+				"CriticalSlowingTimes"
+			],
+			[
+				"Criti",
+				"CriticalSlowingtime"
+			],
+			[
+				"Crit",
+				"CriticalSlowingTimes"
+			],
+			[
+				"slo",
+				"slowingtime1"
+			],
+			[
+				"slowin2",
+				"slowingtime2"
+			],
+			[
+				"T",
+				"TDSols1"
+			],
+			[
+				"TD",
+				"TDSols2"
+			],
+			[
+				"slowing",
+				"slowingtime1"
+			],
+			[
+				"c1",
+				"C1dC1"
+			],
+			[
+				"CdC",
+				"C1dC1"
+			],
+			[
+				"g",
+				"g"
+			],
+			[
+				"D",
+				"Dplotvals"
+			],
+			[
+				"number",
+				"numberofvalues"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 118.0,
+		"selected_items":
+		[
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"git: statu",
+				"Git: Status"
+			],
+			[
+				"Git push",
+				"Git: Push"
+			],
+			[
+				"packageinsta",
+				"Package Control: Install Package"
+			],
+			[
+				"git pus",
+				"Git: Push"
+			],
+			[
+				"git:pu",
+				"Git: Push"
+			],
+			[
+				"git:Pus",
+				"Git: Push"
+			],
+			[
+				"gitpus",
+				"Git: Push Current Branch"
+			],
+			[
+				"gitremote",
+				"Git: Remote"
+			],
+			[
+				"Gitremot",
+				"Git: Remote"
+			],
+			[
+				"gitpush",
+				"Git: Push Current Branch"
+			],
+			[
+				"gitadd",
+				"Git: Add Remote"
+			],
+			[
+				"gpush",
+				"Git: Push Current Branch"
+			],
+			[
+				"gitstat",
+				"Git: Status"
+			],
+			[
+				"git: stat",
+				"Git: Status"
+			],
+			[
+				"Gsta",
+				"Git: Status"
+			],
+			[
+				"git:init",
+				"Git: Init"
+			],
+			[
+				"Late",
+				"LaTeXTools: Reconfigure and migrate settings"
+			],
+			[
+				"Package Control:Insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 417.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/SlowingFigure.fig",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/plotQseries.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/TimeDependentSoln.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/CriticalSlowingCurve.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/CriticalSlowingComparison.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/Figure from Carmichael Paper.fig",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/GeneratePlotValues.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/rhoss.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/probevolve.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TeX/Literature Review/ProjectOutline.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TeX/Literature Review/QuasiProbabilityDistributions.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TeX/Literature Review/Literature Review.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TeX/Literature Review/Project Outline.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/iphnumvals.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/GuidePlotData.mat",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/dispstat.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TeX/Literature Review/TheMasterEquation.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TeX/Project Outline/Project Outline.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TeX/Literature Review/CarmichaelPaperSummary.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TeX/Literature Review/JaynesCummingModel.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TeX/Literature Review/Summary.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/plotseries.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/Qss.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Mathematica/Quasi Probability Functions.nb",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TeX/QuasiProbabilityDistributions.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TeX/Summary.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TeX/TheMasterEquation.tex",
+		"/Applications/MATLAB_R2015a.app/bin/matlab",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/CarmichaelPaperSummary.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TheMasterEquation.aux",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Summary.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TheMasterEquation.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Bibliography.bib",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Summary.aux",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Summary.sublime-project"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"concrit",
+			"det",
+			"d",
+			"t",
+			"N, g, kappa",
+			"n",
+			"N",
+			"detuning",
+			"drive",
+			"kappa, g, det, N",
+			"e",
+			"E",
+			"e",
+			"E",
+			"e",
+			"E",
+			"e",
+			"E",
+			"e",
+			"E",
+			"e",
+			"E",
+			"e",
+			"E",
+			"Eplotiphnumvals",
+			"vals",
+			"X",
+			"Xrange, Yrange)",
+			"Qss",
+			"jpg",
+			"via",
+			"h",
+			"path",
+			"("
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.git-commit":
+	{
+		"height": 100.0
+	},
+	"output.git-init":
+	{
+		"height": 100.0
+	},
+	"output.git-push":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 175.0,
+	"status_bar_visible": true
+}
