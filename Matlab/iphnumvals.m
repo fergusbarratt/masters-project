@@ -29,6 +29,7 @@ function [iphnumvals] = iphnumvals(Eplotvals, Dplotvals, varargin)
 	catch ME
 		kappa = 0.5;
 	end
+
 	tic
 
 	%generate identities and constants
