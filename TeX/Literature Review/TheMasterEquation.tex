@@ -20,6 +20,7 @@ For a mixed state of a closed system, an equation of motion for the density matr
 can be found by propagating each normalised $| \psi_\alpha (t) \rangle$ with the unitary time evolution operator given by solving the Schr\"odinger equation, the net result of which is more concisely expressed
 \begin{equation}
 	\dens (t) = U(t, 0)\dens (0) U^\dagger (t, 0)
+	\label{eq:timeprop}
 \end{equation}
 which, when differentiated with respect to time yields the \emph{Liouville-Von Neumann} equation
 \begin{equation}
@@ -33,7 +34,7 @@ We start with the Hamiltonian for a closed, mixed quantum system, potentially ti
 \end{equation}
 The partial trace operation is an operator-valued function that takes a operator on a larger Hilbert space and discards its action on all but a smaller Hilbert space, colloquially "tracing over" the degrees of freedom of the discarded subsystem to leave the operator on a smaller subsystem.
 
-Starting from equation (12) and tracing over the environment
+Starting from \cref{eq:timeprop} and tracing over the environment
 \begin{equation}
 	\dens_S (t) = tr_E \{U(t, 0) \dens_S (0) U^\dagger (t, 0) \}
 \end{equation}

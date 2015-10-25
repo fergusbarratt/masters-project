@@ -3,7 +3,7 @@
 \section{Breakdown of Photon Blockade: A Dissipative Quantum Phase Transition in Zero Dimensions}
 The driven Jaynes Cumming oscillator exhibits a characteristic Kerr nonlinearity($n \propto I$) under strong coherent drive, called \emph{photon blockade}\autocite{Carmichael2015}. The author presents conditions for breakdown of photon blockade through increasing drive strength, and characterises the corresponding dissipative quantum phase transition, and further numerical simulations highlight the differences between quantum and semiclassical approaches.
 \subsection{Photon Blockade}
-With the cavity field on resonance ($\omega_A = \omega$) with the two level transition, the JC Hamiltonian \ref{HJC} can be written\autocite[3]{Carmichael2015}
+With the cavity field on resonance ($\omega_A = \omega$) with the two level transition, the JC Hamiltonian \cref{HJC} can be written\autocite[3]{Carmichael2015}
 \begin{equation}
 	\ham_{JC} = \hbar \omega (\cre \ann + \atann \atcre) +\hbar g (\cre \atann + \hat{a} \atcre)
 \end{equation}
@@ -38,26 +38,83 @@ The Hamiltonian is diagonalised via a Bogliubov transformation\footnote{A Bogliu
 	e_{n, -} &= - \sqrt{n} \hbar g \left \{1 - \left ({\frac{2\Epsilon}{g}} \right )^2 \right \}^{\frac{3}{4}}
 \end{align}
 A critical point (corresponding to quantum phase transition) appears at $\frac{2\Epsilon}{g} = 1$, where the quasienergy splitting collapses to zero.
-
 \subsection{The Semiclassical Approach}
 
 The author now demonstrates the existence of the same critical point in a semiclassical treatment of the system based on what he calls the neoclassical equations, but are more commonly known as the Maxwell-Bloch equations, 
 \begin{align}
-	&\frac{d \qexp{\ann}}{dt} = -(\kappa -i \delta \omega)-ig \qexp{\atann} \\
-	&\frac{d \qexp{\atann}}{dt} = i \Delta \omega \qexp{\atann} +ig \qexp{\ann} \qexp{\sigma_z} \\	
-	&\frac{d \qexp{\sigma_z}}{dt} = 2 i g(\qexp{\ann}^* \qexp{\atann} -\qexp{\ann} \qexp{\ann}^*)
+	&\frac{d \alpha}{dt} = -(\kappa -i \Delta \omega) \alpha-ig \beta \label{eq:alpha}\\
+	&\frac{d \beta}{dt} = i \Delta \omega \beta +ig \alpha \zeta \label{eq:beta}\\	
+	&\frac{d \zeta}{dt} = 2 i g(\alpha^* \beta -\alpha \beta^*)\label{eq:zeta}
 \end{align}
-With $\kappa$ the cavity loss rate.
-
-Driven on resonance and after adiabatic elimination the equations exhibit a critical point in the drive strength through which the model undergoes a transition: above the critical point, the system sits at the equator of the Bloch sphere and adopts a phase aligned or anti aligned to that of the cavity field, with no sensitivity to the phase of the drive. Each of these two phases by rough analogy corresponds to a set of rungs of the Jaynes Cumming ladder - either the upper or the lower. 
+With $\kappa$ the cavity loss rate. Since the length of the pseudo-spin is conserved in the absence of loss we have also a fourth equation
+\begin{equation}
+	4|\beta|^2+\zeta = 1 \label{eq:pseudospin}
+\end{equation}
+\subsubsection{Neoclassical Radiation Theory}
+In the absence of drive and detuning and with the cavity field derivative set to zero 
+\begin{align}
+	& 0 = -\kappa \alpha - ig \beta \\
+	\implies & \alpha = \frac{ig}{\kappa} \beta
+\end{align}
+in \cref{eq:zeta} 
+\begin{equation}
+	\frac{d \zeta}{dt} = -4 g^2 |\beta|^2
+\end{equation}
+and from \cref{eq:pseudospin}
+\begin{align}
+	 |\beta|^2 &= (1-\zeta^2)/4 \\
+\implies \frac{d \zeta}{dt} &= -\frac{g^2}{\kappa} (1-\zeta^2)
+\end{align}
+We recover the non exponential decay of neoclassical radiation theory
+\begin{figure}[H]
+ 	\centering
+ 	\includegraphics[width=0.5\textwidth]{Images/NeoclassicalDecay.png}
+ 	\caption{Non-exponential decay of $\zeta$, $\frac{g}{\kappa} = 50, \zeta(0) = 0$} \label{fig:neoclassical}
+\end{figure}
+\subsubsection{Critical Point}
+We consider the equations in the steady state with the field adiabatically eliminated and the detuning zero, after which remain:
+\begin{align}
+	-ig \beta -i \Epsilon &= 0 \\
+	ig\alpha \zeta &= 0 \\
+\end{align}
+from which two branches of solutions are seen $\rightarrow \zeta = 0$ or $\alpha = 0$. We take $\alpha = 0$ and from \cref{eq:alpha} and \cref{eq:pseudospin} 
+\begin{align}
+	\beta &= -\frac{\Epsilon}{g} \\
+	\zeta &= \mp \sqrt{1 - \left( \frac{2\Epsilon}{g} \right)^2} 
+\end{align}
+Increasing drive through the critical point $\frac{2\Epsilon}{g}$ the difference under the square root becomes negative and the inversion $\zeta$ imaginary and unphysical. We take up the other branch $\zeta = 0$, and from \cref{eq:alpha}
+\begin{align}
+	\beta &= \pm \frac{\alpha}{2|\alpha|} \\
+	\zeta &= 0 
+\end{align}
+with $\alpha$ a solution to 
+\begin{equation}
+	\alpha = -i \Epsilon\left ( \kappa \pm i \frac{g}{2|\alpha|} \right )^{-1}
+\end{equation}
+\begin{figure}[H]
+	\begin{minipage}{.5\linewidth}
+		\centering
+		\includegraphics[width=1\textwidth]{Images/MeanFieldBelowCritical.png}
+		\subcaption{$\zeta$ approaches zero with increasing drive strength (positive branch)}
+		\label{fig:zeta}
+	\end{minipage}%
+	\begin{minipage}{.5\linewidth}
+		\centering
+		\includegraphics[width=1\textwidth]{Images/MeanFieldAboveCritical.png}
+		\subcaption{$\beta$ with increasing drive greater than critical}
+		\label{fig:alpha}
+	\end{minipage}
+	\caption{$\alpha$ and $\zeta$ as the drive strength $\Epsilon$ moves up to through and beyond the critical point}
+\end{figure}
+in \cref{fig:alpha} the phase bistability above the critical point is obvious. The two $\alpha$ solution branches start coincident ($\pi$ and $-\pi$) at drive strengths just above critical and quickly move to opposite sides of the Bloch sphere ($-\frac{\pi}{2}$ and $\frac{\pi}{2}$)
 
 Steady states of the neoclassical equations for non-zero detuning $\Delta \omega$ are given by:
 \begin{align}
-	\qexp{\ann}& = i \Epsilon\frac{1}{[\kappa-i(\Delta \omega \mp sgn(\Delta \omega) \frac{g^2}{\sqrt{\Delta \omega^2 +4g^2 |\alpha|^2}})]} \\
-	\qexp{\atann}& = \pm sgn(\Delta \omega) \frac{g |\qexp{\ann}|}{\sqrt{\Delta \omega^2 + g^2 |\qexp{\ann|}|^2}}\\
-	\qexp{\sigma_z}& = \mp \sqrt{1-4|\qexp{\atann}|^2}
+	\alpha& = i \Epsilon\frac{1}{[\kappa-i(\Delta \omega \mp sgn(\Delta \omega) \frac{g^2}{\sqrt{\Delta \omega^2 +4g^2 |\alpha|^2}})]} \\
+	\beta& = \pm sgn(\Delta \omega) \frac{g |\alpha|}{\sqrt{\Delta \omega^2 + g^2 |\qexp{\ann|}|^2}}\\
+	\zeta& = \mp \sqrt{1-4|\beta|^2}
 \end{align}
-the expression for $\qexp{\ann}$ is a Lorentzian, in which is obvious a nonlinear dispersion which diverges as $|\alpha|^2 \rightarrow 0$
+the expression for $\alpha$ is a Lorentzian, in which is obvious a nonlinear dispersion which diverges as $|\alpha|^2 \rightarrow 0$
 
 The author then proceeds to discuss the differences between this model and a similar one in which a lattice of cavities is treated, which forms a direct analogy to particular quantum phase transition encountered in condensed matter physics.
 
@@ -85,7 +142,7 @@ Figure 3b contains a surface and a contour plot of the steady state Q-function. 
 
 The author investigates a limit of high photon numbers in which quantum fluctuations vanish and the mean field and exact theories coincide. He introduces what he calls the Maxwell-Bloch equations, the mean-field equations in the presence of spontaneous emission coupling to modes of the field other than the cavity fields. This shortens the Bloch vector in general, and thus the vector is no longer confined to the surface of the sphere. 
 
-Solving said equations in the steady state the author finds that $\alpha = \qexp{\ann}$ (the classical approximation to the cavity field) satisfies:
+Solving said equations in the steady state the author finds that $\alpha = \alpha$ (the classical approximation to the cavity field) satisfies:
 \begin{equation}
 	\alpha = -i \Epsilon \left [ \kappa - i \Delta \omega + \frac{g^2(\frac{\gamma}{2} +i \Delta \omega)}{\frac{\gamma^2}{4} + \Delta \omega^2 + 2 g^2 |\alpha|^2} \right ]^{-1}
 \end{equation}

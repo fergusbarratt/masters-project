@@ -78,7 +78,7 @@ The form of the density matrix for a system in pure coherent state $ | \alpha_0 
 	P(\alpha) = \delta^2(\alpha-\alpha_0)
 \end{equation}
 \subsubsection{Q-function}
-The Q-function is evaluated through its definition \ref{qdef}:
+The Q-function is evaluated through its definition \cref{qdef}:
 \begin{equation}
 	Q(\alpha) = \frac{\langle \alpha | \alpha_0 \rangle \langle \alpha_0 | \alpha \rangle}{\pi} = \frac{{|\langle \alpha | \alpha_0 \rangle |}^2}{\pi} =  \frac{e^{-{|\alpha_0 - \alpha |}^2}}{\pi}
 \end{equation}
@@ -101,7 +101,7 @@ The Wigner function is recovered from the Wigner transform of $\ket{\alpha_0}\br
 \end{figure}
 \subsection{Fock state representations}
 \subsubsection{P-function}
-Since Fock states have no classical analogue, we would expect the P function associated with the Fock state density matrix $\ket{n}\bra{n}$ should be highly singular or negative. From \ref{mehta}, P($\alpha$) is non-singular (not more singular than a $\delta$-function) if and only if $ \bra{\beta} \dens \ket{\beta} e^{|\beta|^2} $ is square integrable. But, using the Fock state expansion of the coherent states
+Since Fock states have no classical analogue, we would expect the P function associated with the Fock state density matrix $\ket{n}\bra{n}$ should be highly singular or negative. From \cref{mehta}, P($\alpha$) is non-singular (not more singular than a $\delta$-function) if and only if $ \bra{\beta} \dens \ket{\beta} e^{|\beta|^2} $ is square integrable. But, using the Fock state expansion of the coherent states
 \begin{align}
 	 \bra{\beta} \dens \ket{\beta} e^{|\beta|^2}  &= e^{-|\beta|^2} \sum_{k=0}^\infty \frac {{\beta^*}^k}{k!} \braket{k}{n}\braket{n}{k} \sum_{k=0}^\infty \frac {\beta^k}{k!}e^{|\beta|^2} \\ &= e^{-|\beta|^2} \frac{|\beta|^{2n}}{(n!)^2} e^{|\beta|^2} \\ &= \frac{|\beta|^{2n}}{(n!)^2}
 \end{align}
