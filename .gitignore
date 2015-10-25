@@ -10,3 +10,4 @@
 *.synctex
 /TeX/*.pdf
 TeX/Literature Review/*.pdf
+*.nb
