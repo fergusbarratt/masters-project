@@ -1,12 +1,13 @@
 %Title Data
 \documentclass[reqno]{amsart}
-\title{Literature Review}
+\title{Literature Review \& Project Outline}
 \author{Fergus Barratt}
-
+\date{}
+\thanks{First Supervisor: Marzena Szymanska \\Second Supervisor: Themis Mavrogordatos}
 %Packages
 \usepackage{amsthm}
 \usepackage{mathrsfs}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=0.7in]{geometry}
 % \usepackage{fullpage}
 \usepackage{graphicx}
 \usepackage[backend=biber, style=ieee]{biblatex}
@@ -18,6 +19,30 @@
 \usepackage{grffile}
 \usepackage{cleveref}
 \graphicspath{ {./Images} }
+
+\makeatletter
+\@addtoreset{section}{part}
+\def\@part[#1]#2{%
+    \ifnum \c@secnumdepth >\m@ne
+      \refstepcounter{part}%
+      \addcontentsline{toc}{part}{\thepart\hspace{1em}#1}%
+    \else
+      \addcontentsline{toc}{part}{#1}%
+    \fi
+    {\parindent \z@ \raggedright
+     \interlinepenalty \@M
+     \normalfont\centering
+     \ifnum \c@secnumdepth >\m@ne
+       \LARGE\bfseries \partname\nobreakspace\thepart
+       \par\nobreak
+     \fi
+     \huge \bfseries #2%
+     \markboth{}{}\par}%
+    \nobreak
+    \vskip 3ex
+    \@afterheading}
+\renewcommand\partname{Section}
+\makeatother
 
 \addbibresource{Bibliography.bib}
 
@@ -39,15 +64,15 @@
 
 \begin{document}
 \maketitle
+%\include{TitlePage}
  %-------------------------------------------------------------------------------------------------------------------------------
 % \todo[inline]{Change HJC section to definition via $\Omega_n$}
 % \todo[inline]{justification of Lindblad form}
 % \todo[inline]{dispersive regime}
 % \todo[inline]{Finish summary of Carmichael paper} 
  %--------------------------------------------------------------------------------------------------------------------------------
-
 \include{ProjectOutline}
-
+\part{Literature Review}
 \section{Introduction\autocite{Breuer2002}}
 Consider a statistical ensemble $\varepsilon$ consisting of a suitably large number N of identically prepared quantum systems
 \begin{equation}
