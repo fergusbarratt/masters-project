@@ -59,16 +59,115 @@
 	},
 	"buffers":
 	[
+		{
+			"contents": "Remote:   origin @ https://github.com/fergusbarratt/masters-project.git\nLocal:    master ~/Dropbox/University/Masters project\nHead:     6e22e1a Optional title page, more mean field stuff, figures etc.\n\n\nChanges:\n	Modified   MastersProject.sublime-workspace\n	Modified   Matlab/GeneratePlotValues.m\n	Modified   Matlab/iphnumvals.m\n	Modified   TeX/Literature Review/CarmichaelPaperSummary.tex\n\n\n# Movement:\n#    r = refresh status\n#    1-5 = jump to section\n#    n = next item, N = next section\n#    p = previous item, P = previous section\n#\n# Staging:\n#    s = stage file/section, S = stage all unstaged files\n#    ctrl+shift+s = stage all unstaged and untracked files\n#    u = unstage file/section, U = unstage all files\n#    backspace = discard file/section, shift+backspace = discard everything\n#\n# Commit:\n#    c = commit, C = commit -a (add unstaged)\n#    ctrl+shift+c = commit --amend (amend previous commit)\n#\n# Other:\n#    i = ignore file, I = ignore pattern\n#    enter = open file\n#    d = view diff\n#\n# Stashes:\n#    a = apply stash, A = pop stash\n#    z = create stash, Z = create stash including untracked files\n#    backspace = discard stash",
+			"settings":
+			{
+				"buffer_size": 1152,
+				"line_ending": "Unix",
+				"name": "*git-status*: Masters project",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"file": "Mathematica/NeoclassicalDecay.m",
+			"settings":
+			{
+				"buffer_size": 3161,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
+			"settings":
+			{
+				"buffer_size": 13273,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Matlab/GeneratePlotValues.m",
+			"settings":
+			{
+				"buffer_size": 267,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Matlab/iphnumvals.m",
+			"settings":
+			{
+				"buffer_size": 2996,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 118.0,
+		"height": 96.0,
 		"selected_items":
 		[
 			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"installl",
+				"Package Control: Install Local Dependency"
+			],
+			[
+				"git pus",
+				"Git: Push"
+			],
+			[
+				"git diff",
+				"Git: Diff"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
 				"git push",
 				"Git: Push"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"git pull",
+				"Git: Pull"
+			],
+			[
+				"git pu",
+				"Git: Pull Current Branch"
+			],
+			[
+				"git add r",
+				"Git: Add Remote"
+			],
+			[
+				"git ini",
+				"Git: Init"
+			],
+			[
+				"pull",
+				"Git: Pull"
+			],
+			[
+				"git",
+				"Git: Pull"
+			],
+			[
+				"gpus",
+				"Git: Push"
+			],
+			[
+				"git state",
+				"Git: Stash Include Untracked"
 			],
 			[
 				"git: statu",
@@ -81,10 +180,6 @@
 			[
 				"packageinsta",
 				"Package Control: Install Package"
-			],
-			[
-				"git pus",
-				"Git: Push"
 			],
 			[
 				"git:pu",
@@ -160,6 +255,21 @@
 	},
 	"file_history":
 	[
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/HighResCarmichaelPlot.fig",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica/NeoclassicalDecay.nb",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica/Script.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/LiteratureReview.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/TitlePage.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/ProjectOutline.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/CarmichaelPaperSummary.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica/QuasiProbabilityFunctions.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica/NeoclassicalDecay.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica/Quasi Probability Functions.nb",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/JaynesCummingModel.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/TheMasterEquation.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/QuasiProbabilityDistributions.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/QuasiProbabilityDistributions.aux",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/iphnumvals.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/SlowingFigure.fig",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/plotQseries.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/TimeDependentSoln.m",
@@ -212,6 +322,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"[H]",
+			"equation",
+			"ref",
+			"equation",
+			"quation",
+			"\\qexp{\\sigma_z}",
+			"\\qexp{\\atann}",
+			"\\qexp{\\ann}",
+			"qexp{\\ann}",
 			"concrit",
 			"det",
 			"d",
@@ -263,8 +382,147 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"settings":
+					{
+						"buffer_size": 1152,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								807,
+								807
+							]
+						],
+						"settings":
+						{
+							"__vi_external_disable": true,
+							"draw_white_space": "none",
+							"git_repo": "/Users/fergusbarratt/Dropbox/University/Masters project",
+							"git_status": true,
+							"git_view": "status",
+							"syntax": "Packages/SublimeGit/syntax/SublimeGit Status.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Mathematica/NeoclassicalDecay.m",
+					"settings":
+					{
+						"buffer_size": 3161,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1769,
+								1769
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Matlab/Matlab.tmLanguage"
+						},
+						"translation.x": 4.0,
+						"translation.y": 16.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
+					"settings":
+					{
+						"buffer_size": 13273,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7148,
+								7148
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Matlab/GeneratePlotValues.m",
+					"settings":
+					{
+						"buffer_size": 267,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								267,
+								267
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Matlab/Matlab.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Matlab/iphnumvals.m",
+					"settings":
+					{
+						"buffer_size": 2996,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2279,
+								2279
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Matlab/Matlab.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 627.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -315,6 +573,10 @@
 	{
 		"height": 100.0
 	},
+	"output.git-remote":
+	{
+		"height": 98.0
+	},
 	"replace":
 	{
 		"height": 0.0
@@ -340,6 +602,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 175.0,
+	"side_bar_width": 211.0,
 	"status_bar_visible": true
 }

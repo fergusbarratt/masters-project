@@ -25,7 +25,7 @@ function [iphnumvals] = iphnumvals(Eplotvals, Dplotvals, varargin)
 		g = 25;
 	end
 	try 
-		kappa = varargin{3}
+		kappa = varargin{3};
 	catch ME
 		kappa = 0.5;
 	end

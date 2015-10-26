@@ -1,7 +1,7 @@
 % Plot ranges for iphnumvals
-Evals = [1:1:8, 8.2:0.4:10, 10.2:0.2:12, 12.1:0.1:16, 17:25];
-Dvals = [-20:1:-7,-6.8:0.1:-1.2, -1:0.05:1, 1.2:0.1:6.8, 7:1:20]; 
+Evals = [1:0.05:5];
+Dvals = [-5:0.2:-3,-2.8:0.05:-1.2, -1:0.03:1, 1.2:0.05:2.8, 3:0.1:2]; 
 
 fprintf('Projected: %4.2fm. \r', length(Evals)*length(Dvals)/60)
-PlotVals = iphnumvals(Evals, Dvals);
-surfc(Evals, Dvals, PlotVals);
+PlotVals = iphnumvals(Evals, Dvals, 60, 0.5, 0.01);
+surfc(Evals, Dvals, PlotVals)
