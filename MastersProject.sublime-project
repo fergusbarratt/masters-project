@@ -9,6 +9,9 @@
 		},
 		{
 			"path": "TeX"
+		},
+		{
+			"path": "Python"
 		}
 	]
 }
