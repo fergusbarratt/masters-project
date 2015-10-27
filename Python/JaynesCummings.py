@@ -1,30 +1,56 @@
-from qutip import *
-from math import sqrt
+# from qutip import *
+# from math import sqrt, cos
+
 import matplotlib.pyplot as plt
 import numpy as np
+from qutip import *
 
-def jc_hamiltonian(omega_qubit = 1.0, omega_cavity = 1.25, g = 0.05,  N = 2):
-	# operator definitions
-	sz = tensor(sigmaz(), identity(N))
-	sm = tensor(destroy(2), identity(N))
-	a = tensor(identity(2), destroy(N))
-	return 0.5*omega_qubit*sz+omega_cavity*a.dag()*a+g*(a.dag()*sm+sm.dag()*a)
+# Example from manual
+g = 0.5 # coupling strength
+kappa = 0.01 # Cavity decay rate
+t = np.linspace(0, 100, 200) # Define time vector
+N = 2 # Set where to truncate Fock state for cavity
+M = 2 # Number of qubit levels. 
+omega_qubit = 1.0 
+omega_cavity = 1.0
+omega_driving = 1.0
+driving_strength = 10
+# kappa = 0.01
+# g = 0.05
+# N = 2
 
-def kcollapse(kappa = 0.001, N=2):
-	return sqrt(2*kappa)*tensor(create(2), identity(N))
+#States
+# ustate = basis(M, 0) 
+excited = basis(M, 1)
+ground = basis(M, 0)
 
-def jc_liouvillian(omega_qubit=1.0, omega_cavity = 1.25, g = 0.05, kappa = 0.01, N = 2, *args):
-	H = jc_hamiltonian(omega_qubit, omega_cavity, g, N)
-	C  = tensor(kcollapse(kappa, 2), identity(N))
-	L = liouvillian(H, [C])
-	return L
+# Operators
+sz = tensor(sigmaz(), qeye(N))
+sm = tensor(destroy(2), qeye(N))
+a = tensor(destroy(N), qeye(M))
+ada = tensor(num(N), qeye(M))
+c_ops = [] # Build collapse operators
+c_ops.append(np.sqrt(kappa) * a)
 
-psi0 = tensor(basis(2, 0), fock(2, 0))
-times = np.linspace(0.0, 10.0, 100)
-result = mesolve(jc_hamiltonian(), psi0, times, [kcollapse()], [tensor(sigmaz(), identity(2))])
+# Initial state and expectation projectors
+psi0 = tensor(basis(N, 1), ground) # Define initial state
 
-# t = np.arange(0., 5., 0.2)
-plt.plot(times, result.expect[0])
+state_GG = tensor(basis(N, 1), ground) # Define states onto which to project
+sigma_GG = state_GG * state_GG.dag()
+# state_UU = tensor(basis(N, 0), ustate)
+# sigma_UU = state_UU * state_UU.dag()
+
+# Hamiltonian Components
+H0 = 0.5 * omega_qubit*sz + omega_cavity*a.dag()*a + g*(a.dag()*sm + sm.dag()*a)
+H1 = ((driving_strength)/np.sqrt(2))*(a+a.dag())
+def H1_coeff(t, args, omega_driving=1.0):
+	return np.cos(omega_driving*t) 
+H = [H0, [H1, H1_coeff]]
+
+# Solve, Plot
+output = mesolve(H, psi0, t, c_ops, [ada, sigma_GG])
+
+plt.plot(t, output.expect[0])
 plt.show()
 
 
