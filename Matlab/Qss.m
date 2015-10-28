@@ -1,6 +1,6 @@
 function [Qss] = Qss(E,kappa,g,det,N, Xrange, Yrange)
 	
-	% density matrix for JC hamiltonian in steady state with conditions.
+	% density matrix and q function for JC hamiltonian in steady state with conditions.
 
 	% surf(-20:0.4:20, -20:0.4:20, Qss(6.3, 0.5, 30, 4, 100, -20:0.4:20, -20:0.4:20)); - Bistability here.
 	% surf(-20:0.4:20, -20:0.4:20, Qss(6.5, 0.5, 30, 7, 100, -20:0.4:20, -20:0.4:20));

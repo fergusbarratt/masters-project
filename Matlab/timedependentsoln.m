@@ -14,7 +14,7 @@ function [iphnum, iphnums] = timedependentsoln(E, detuning, tlist, varargin)
 	try 
 		kappa = varargin{3}
 	catch ME
-		kappa = 25;
+		kappa = 0.01;
 	end
 
 	%generate identities and constants

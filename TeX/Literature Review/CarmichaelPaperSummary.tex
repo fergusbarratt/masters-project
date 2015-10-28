@@ -108,7 +108,8 @@ with $\alpha$ a solution to
 \begin{equation}
 	\alpha = -i \Epsilon\left ( \kappa \pm i \frac{g}{2|\alpha|} \right )^{-1}
 \end{equation}
-\begin{figure}
+
+\begin{figure}[h]
 	\begin{minipage}{.5\linewidth}
 		\centering
 		\includegraphics[width=1\textwidth]{Images/MeanFieldBelowCritical.png}
@@ -118,24 +119,46 @@ with $\alpha$ a solution to
 	\begin{minipage}{.5\linewidth}
 		\centering
 		\includegraphics[width=1\textwidth]{Images/MeanFieldAboveCritical.png}
-		\subcaption{$\beta$ with increasing drive greater than critical}
+		\subcaption{Phase of $\beta$ with increasing drive greater than critical}
 		\label{fig:alpha}
 	\end{minipage}
 	\caption{$\alpha$ and $\zeta$ as the drive strength $\Epsilon$ moves up to through and beyond the critical point}
 \end{figure}
+
 in \cref{fig:alpha} the phase bistability above the critical point is obvious. The two $\beta$ solution branches start coincident in phase ($\pi$ and $-\pi$) at drive strengths just above critical and quickly move to opposite sides of the Bloch sphere ($-\frac{\pi}{2}$ and $\frac{\pi}{2}$). 
 
 The phase of $\beta$ above the critical point follows the phase of $\alpha$, either aligned or antialigned. This spontaneous development of phase bistability Alsing and Carmichael call "Spontaneous Dressed State Polarisation" \autocite{Alsing1999}. Referred to the fully quantum model, each of the two phases corresponds to a the system ascending different sets of rungs of the Jaynes Cummings ladder, either $\ket{E_{n, U}}$ or $\ket{E_{n, L}}$
 \subsubsection{Non-zero detuning}
 Solving \cref{eq:alpha}, \cref{eq:beta}, \cref{eq:zeta} in the steady state gives
 \begin{align}
-	\alpha& = i \Epsilon\frac{1}{[\kappa-i(\Delta \omega \mp sgn(\Delta \omega) \frac{g^2}{\sqrt{\Delta \omega^2 +4g^2 |\alpha|^2}})]} \\
+	\alpha& = i \Epsilon\frac{1}{[\kappa-i(\Delta \omega \mp sgn(\Delta \omega) \frac{g^2}{\sqrt{\Delta \omega^2 +4g^2 |\alpha|^2}})]} 
+\end{align}
+as a condition that $\alpha$ should satisfy, and 
+\begin{align}
 	\beta& = \pm sgn(\Delta \omega) \frac{g \alpha}{\sqrt{\Delta \omega^2 + 4 g^2 |\alpha|^2}}\\
 	\zeta& = \mp \sqrt{1-4|\beta|^2}
 \end{align}
-the expression for $\alpha$ is a Lorentzian, in which is obvious a nonlinear dispersion which diverges as $|\alpha|^2 \rightarrow 0$
+for $\beta$ and $\zeta$, where $sgn(\Delta \omega)$ is the sign of the detuning with $sgn(0) = 1$.
+
+The expression for $\alpha$ is a Lorentzian, in which is obvious a nonlinear dispersion which diverges as $|\alpha|^2 \rightarrow 0$
 
 \subsection{Computationally Solving the Master Equation}
+
+\begin{figure}[h]
+	\begin{minipage}{.5\linewidth}
+		\centering
+		\includegraphics[width=1\textwidth]{Images/HighResCarmichaelPlot.png}
+		\subcaption{IC photon number expectation, g = 25, kappa = 0.5}
+		\label{fig:densp}
+	\end{minipage}%
+	\begin{minipage}{.5\linewidth}
+		\centering
+		\includegraphics[width=1\textwidth]{Images/Q-Bifurcation.png}
+		\subcaption{Bifurcation in the Q function for E from 0 to 1, g = 0.5, kappa = 0.01, $\Delta \omega$ = 1}
+		\label{fig:Qbirfc}
+	\end{minipage}
+	\caption{Surface plot of expected intracavity photon number in drive-detuning space}
+\end{figure}
 
 The extension of \autocite{Alsing1999} in this paper is to further classify the fixed point at $\frac{2\Epsilon}{g}$ as an organising centre for the breakdown of the photon blockade phenomenon, which is to say that the fixed point is an attractor in the system phase space. 
 
@@ -150,6 +173,13 @@ The author then analyses a number of Q function contour plots which show a disti
 \subsection{Critical Slowing Down}
 
 A dynamical system perturbed close to an attracting fixed point, towards said fixed point, recovers its equilibrium position more slowly than the same system perturbed further away from the fixed point. This is known as \emph{critical slowing down}\autocite[40, 56]{Strogatz1994}. The author plots in \autocite[Figure 3]{Carmichael2015} two time-dependent photon number curves (green and red) for one point along the domain of coexistence, and one point far from it that show a dramatic critical slowing down in the region of bistability, near to the point $\frac{\Epsilon}{2g} = 1$. This is indicative of the nature of this fixed point: this is an 'organising centre', characteristic of a second order transition. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\textwidth]{Images/CriticalSlowing.png}
+	\caption{Time Dependent Solutions with g=0.5, kappa = 0.01, blue line is (0.24, 1), red line is (0.1, 1)}
+	\label{fig:CriticalSlowing}
+\end{figure}
 
 The plot containing evidence of critical slowing also contains a cut through the surface of \autocite[Figure 2]{Carmichael2015} for a given driving value (red squares.)
 
