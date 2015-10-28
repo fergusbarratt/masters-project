@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"func",
+				"functype"
+			],
+			[
+				"els",
+				"elseif	elseif"
+			],
+			[
 				"solve",
 				"solve_jc_system"
 			],
@@ -116,27 +124,54 @@
 	"buffers":
 	[
 		{
-			"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
+			"file": "/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 			"settings":
 			{
-				"buffer_size": 13273,
+				"buffer_size": 570,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Python/BlochAnimation.py",
+			"settings":
+			{
+				"buffer_size": 1693,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Python 2.7.10 (default, Aug 22 2015, 20:33:39) \n[GCC 4.2.1 Compatible Apple LLVM 7.0.0 (clang-700.0.59.1)] on darwin\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n(InteractiveConsole)\n>>> import qutip\nTraceback (most recent call last):\n  File \"<console>\", line 1, in <module>\nImportError: No module named qutip\n>>> from",
+			"settings":
+			{
+				"buffer_size": 344,
+				"line_ending": "Unix",
+				"name": "*REPL* [python]",
+				"scratch": true
+			}
+		},
+		{
+			"file": "Python/JaynesCummings.py",
+			"settings":
+			{
+				"buffer_size": 1415,
 				"line_ending": "Unix"
 			}
 		}
 	],
 	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
 	"command_palette":
 	{
-		"height": 118.0,
+		"height": 169.0,
+		"last_filter": "show",
 		"selected_items":
 		[
 			[
-				"git push",
-				"Git: Push"
-			],
-			[
-				"status",
-				"Git: Status"
+				"show",
+				"SublimeLinter: Show All Errors"
 			],
 			[
 				"install",
@@ -145,6 +180,22 @@
 			[
 				"remove",
 				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"git sts",
+				"Git: Status"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"status",
+				"Git: Status"
 			],
 			[
 				"package",
@@ -315,11 +366,15 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 393.0
+		"width": 416.0
 	},
 	"console":
 	{
-		"height": 125.0
+		"height": 125.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
 	},
 	"distraction_free":
 	{
@@ -330,11 +385,25 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python"
+	],
 	"file_history":
 	[
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/iphnumvals.m",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimation.py",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimationJC.py",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimation.py",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/CriticalSlowingComparison.m",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 2/Packages/User/Package Control.sublime-settings",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/CarmichaelPaperSummary.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/timedependentsoln.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/PlotQPSeries.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Qss.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Slowing.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/HighResCarmichaelPlot.fig",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/iphnumvals.m",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 2/Packages/SublimeCodeIntel/SublimeCodeIntel.sublime-settings",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/probevolve.m",
@@ -359,9 +428,7 @@
 		"/Users/fergusbarratt/CoverLetter.tex",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 2/Packages/SublimeREPL/config/Python/Main.sublime-menu",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 2/Packages/python3.sublime-build",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/CarmichaelPaperSummary.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica/NeoclassicalDecay.m",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/HighResCarmichaelPlot.fig",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica/NeoclassicalDecay.nb",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica/Script.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/LiteratureReview.tex",
@@ -411,7 +478,7 @@
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 25.0
 	},
 	"find_in_files":
 	{
@@ -425,6 +492,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"    //",
+			"Yrange",
+			"ge",
+			", Xrange, Yrange",
+			"qfunc(rhoss(E, det, N, g, kappa)",
 			"sigmam",
 			"sx",
 			"sz",
@@ -493,34 +565,169 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
+					"file": "/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13273,
+						"buffer_size": 570,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								255,
+								255
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Python/BlochAnimation.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1693,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								160,
+								160
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 344,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								344,
+								344
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"auto_indent": false,
+							"default_dir": "/Users/fergusbarratt/Dropbox/University/Masters project/Matlab",
+							"detect_indentation": false,
+							"gutter": false,
+							"history_arrows": true,
+							"indent_subsequent_lines": false,
+							"line_numbers": false,
+							"repl": true,
+							"repl_external_id": "python",
+							"repl_id": "8f7baf0607a6472b8122943322c39b31",
+							"repl_restart_args":
+							{
+								"autocomplete_server": true,
+								"cmd":
+								{
+									"linux":
+									[
+										"python",
+										"-u",
+										"${packages}/SublimeREPL/config/Python/ipy_repl.py"
+									],
+									"osx":
+									[
+										"python",
+										"-u",
+										"${packages}/SublimeREPL/config/Python/ipy_repl.py"
+									],
+									"windows":
+									[
+										"python",
+										"-u",
+										"${packages}/SublimeREPL/config/Python/ipy_repl.py"
+									]
+								},
+								"cwd": "$file_path",
+								"encoding": "utf8",
+								"extend_env":
+								{
+									"PYTHONIOENCODING": "utf-8",
+									"SUBLIMEREPL_EDITOR": "subl -w"
+								},
+								"external_id": "python",
+								"syntax": "Packages/Python/Python.tmLanguage",
+								"type": "subprocess"
+							},
+							"repl_sublime2": false,
+							"smart_indent": false,
+							"spell_check": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Python/JaynesCummings.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1415,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								108,
+								113
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -528,7 +735,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 0.0
+		"height": 25.0
 	},
 	"input":
 	{
@@ -561,6 +768,10 @@
 	{
 		"height": 121.0
 	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
 	"output.git-commit":
 	{
 		"height": 100.0
@@ -577,14 +788,17 @@
 	{
 		"height": 98.0
 	},
+	"pinned_build_system": "",
+	"project": "MastersProject.sublime-project",
 	"replace":
 	{
-		"height": 62.0
+		"height": 46.0
 	},
 	"save_all_on_build": true,
 	"select_file":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -597,15 +811,32 @@
 	"select_project":
 	{
 		"height": 500.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],
 		"width": 380.0
 	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
 	"show_minimap": true,
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 178.0,
-	"status_bar_visible": true
+	"side_bar_width": 164.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
 }

@@ -10,8 +10,8 @@ g = 0.5 # coupling strength
 kappa = 0.01 # Cavity decay rate
 t = np.linspace(0, 100, 200) # Define time vector
 N = 2 # Set where to truncate Fock state for cavity
-M = 2 # Number of qubit levels. 
-omega_qubit = 1.0 
+M = 2 # Number of qubit levels.
+omega_qubit = 1.0
 omega_cavity = 1.0
 omega_driving = 1.0
 driving_strength = 10
@@ -20,7 +20,7 @@ driving_strength = 10
 # N = 2
 
 #States
-# ustate = basis(M, 0) 
+# ustate = basis(M, 0)
 excited = basis(M, 1)
 ground = basis(M, 0)
 
@@ -44,7 +44,7 @@ sigma_GG = state_GG * state_GG.dag()
 H0 = 0.5 * omega_qubit*sz + omega_cavity*a.dag()*a + g*(a.dag()*sm + sm.dag()*a)
 H1 = ((driving_strength)/np.sqrt(2))*(a+a.dag())
 def H1_coeff(t, args, omega_driving=1.0):
-	return np.cos(omega_driving*t) 
+	return np.cos(omega_driving*t)
 H = [H0, [H1, H1_coeff]]
 
 # Solve, Plot
