@@ -4,6 +4,62 @@
 		"selected_items":
 		[
 			[
+				"solve",
+				"solve_jc_system"
+			],
+			[
+				"Plot",
+				"PlotVals"
+			],
+			[
+				"omeg",
+				"omega_driving"
+			],
+			[
+				"H1",
+				"H1_coeff"
+			],
+			[
+				"t_",
+				"t_d_coeff"
+			],
+			[
+				"omega_driving",
+				"omega_driving〔argument〕"
+			],
+			[
+				"kcollaps",
+				"kcollapse〔function〕"
+			],
+			[
+				"omega",
+				"omega_cavity"
+			],
+			[
+				"omega_",
+				"omega_qubit"
+			],
+			[
+				"vec",
+				"vec_rho"
+			],
+			[
+				"sz",
+				"sz_2"
+			],
+			[
+				"spin",
+				"spin2"
+			],
+			[
+				"coh",
+				"coherent_dm"
+			],
+			[
+				"p",
+				"pop"
+			],
+			[
 				"CriticalSo",
 				"CriticalSlowingTimes"
 			],
@@ -60,74 +116,57 @@
 	"buffers":
 	[
 		{
-			"contents": "Remote:   origin @ https://github.com/fergusbarratt/masters-project.git\nLocal:    master ~/Dropbox/University/Masters project\nHead:     6e22e1a Optional title page, more mean field stuff, figures etc.\n\n\nChanges:\n	Modified   MastersProject.sublime-workspace\n	Modified   Matlab/GeneratePlotValues.m\n	Modified   Matlab/iphnumvals.m\n	Modified   TeX/Literature Review/CarmichaelPaperSummary.tex\n\n\n# Movement:\n#    r = refresh status\n#    1-5 = jump to section\n#    n = next item, N = next section\n#    p = previous item, P = previous section\n#\n# Staging:\n#    s = stage file/section, S = stage all unstaged files\n#    ctrl+shift+s = stage all unstaged and untracked files\n#    u = unstage file/section, U = unstage all files\n#    backspace = discard file/section, shift+backspace = discard everything\n#\n# Commit:\n#    c = commit, C = commit -a (add unstaged)\n#    ctrl+shift+c = commit --amend (amend previous commit)\n#\n# Other:\n#    i = ignore file, I = ignore pattern\n#    enter = open file\n#    d = view diff\n#\n# Stashes:\n#    a = apply stash, A = pop stash\n#    z = create stash, Z = create stash including untracked files\n#    backspace = discard stash",
-			"settings":
-			{
-				"buffer_size": 1152,
-				"line_ending": "Unix",
-				"name": "*git-status*: Masters project",
-				"read_only": true,
-				"scratch": true
-			}
-		},
-		{
-			"file": "Mathematica/NeoclassicalDecay.m",
-			"settings":
-			{
-				"buffer_size": 3161,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
-			"settings":
-			{
-				"buffer_size": 13273,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Matlab/GeneratePlotValues.m",
-			"settings":
-			{
-				"buffer_size": 267,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "Matlab/iphnumvals.m",
 			"settings":
 			{
 				"buffer_size": 2996,
 				"line_ending": "Unix"
 			}
+		},
+		{
+			"contents": "Python 3.5.0 (default, Sep 23 2015, 04:41:38) \n[GCC 4.2.1 Compatible Apple LLVM 7.0.0 (clang-700.0.72)] on darwin\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n>>> import qutip.testing\n>>> run()\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nNameError: name 'run' is not defined\n>>> from qutip.testing import *\n>>> run()\nTransform 2-level to eigenbasis and back ... ok\nTransform 10-level real-values to eigenbasis and back ... ok\nTransform 10-level to eigenbasis and back ... ok\nTransform 10-level imag to eigenbasis and back ... ok\nConsistency between transformations of kets and density matrices ... ok\nCheck diagonalization via eigenbasis transformation ... ok\nbrmesolve: simple qubit ... ok\nbrmesolve: c_ops alone ... ok\nbrmesolve: c_ops with a_ops ... ok\nbrmesolve: harmonic oscillator, zero temperature ... ok\nbrmesolve: harmonic oscillator, finite temperature ... ok\nbrmesolve: harmonic oscillator, finite temperature, states ... ok\nbrmesolve: Jaynes-Cummings model, zero temperature ... ok\ncorrelation: legacy me and es for oscillator in coherent initial state ... ok\ncorrelation: comparing me and es for oscillator in coherent initial state ... ok\ncorrelation: comparing me and mc for driven oscillator in ground state ... ERROR\ncorrelation: legacy me and es for oscillator in steady-state ... ok\ncorrelation: comparing me and es for oscillator in steady-state ... ok\ncorrelation: legacy spectrum from es and pi methods ... ok\ncorrelation: comparing spectrum from es and fft methods ... ok\ncorrelation: comparing spectrum from es and pi methods ... ok\ncorrelation: comparing TLS emission correlations (str-list td format) ... /Users/fergusbarratt/.pyxbld/temp.macosx-10.11-x86_64-3.5/pyrex/rhs101300.c:242:10: fatal error: 'numpy/arrayobject.h' file not found\n#include \"numpy/arrayobject.h\"\n         ^\n1 error generated.\nERROR\ncorrelation: comparing TLS emission correlations (fn-list td format) ... ok\ncorrelation: comparing TLS emission correlations (fn td format) ... ok\nCounting statistics: current and current noise in a DQD model ... ok\nDispersive cQED Setup: compare unitary matrix for ISWAP and propogator ... ok\nDispersive cQED Setup: compare unitary matrix for ISWAP, SQRTISWAP, ... ok\nDiagonalization of random two-level system ... ok\nDiagonalization of composite systems ... ok\nExcitation-number-restricted state-space: full state space ... ok\nExcitation-number-restricted state space: single excitations ... ok\nExcitation-number-restricted state space: two excitations ... ok\nExcitation-number-restricted state space: fock states ... ok\nExcitation-number-restricted state space: identity operator ... ok\nExcitation-number-restricted state space: thermal density operator (I) ... ok\nExcitation-number-restricted state space: thermal density operator (II) ... ok\nEntropy: von-Neumann entropy ... ok\nEntropy: Linear entropy ... ok\nEntropy: Concurrence ... ok\nEntropy: Mutual information ... ok\nEntropy: Conditional entropy ... ok\nEntropy: Entangling power ... ok\nexpect: operator list and state list ... ok\nexpect: operator and density matrix ... ok\nexpect: operator and ket ... ok\nexpect: operator list and state ... ok\nexpect: operator list and state list ... ok\nexpect: operator and state list ... ok\nRead and write complex valued decimal formatted data ... ok\nRead and write complex valued default formatted data ... ok\nRead and write complex valued exp formatted data ... ok\nRead and write real valued decimal formatted data ... ok\nRead and write real valued default formatted data ... ok\nRead and write real valued exp formatted data ... ok\nRead and write with automatic separator detection ... ok\nFloquet: test unitary evolution of time-dependent two-level system ... ok\ngates: expand 1 to N ... ok\ngates: expand 2 to N (using cnot, iswap, sqrtswap) ... ok\ngates: expand 2 to N (using swap) ... ok\ngates: expand 3 to N (using toffoli, fredkin, and random 3 qubit gate) ... ok\ngates: expand 3 to 3 with permuTation (using toffoli) ... ok\ngates: swap gate ... ok\nGraph: Graph Degree ... ok\nGraph: Breadth-First Search ... ok\nGraph: Reverse Cuthill-McKee Ordering (simple) ... ok\nGraph: Reverse Cuthill-McKee Ordering (Bucky) ... ok\nGraph: Reverse Cuthill-McKee Ordering (boost) ... ok\nGraph: Reverse Cuthill-McKee Ordering (qutip) ... ok\nGraph: Maximum Bipartite Matching ... ok\nGraph: Weighted Bipartite Matching ... ok\nMonte-carlo: Constant H with no collapse ops (expect) ... ok\nMonte-carlo: Constant H with no collapse ops (states) ... ok\nMonte-carlo: Constant H with no collapse ops (expect and states) ... ok\nMonte-carlo: Constant H (str format) with no collapse ops (expect) ... /Users/fergusbarratt/.pyxbld/temp.macosx-10.11-x86_64-3.5/pyrex/rhs101301.c:242:10: fatal error: 'numpy/arrayobject.h' file not found\n#include \"numpy/arrayobject.h\"\n         ^\n1 error generated.\nERROR\nMonte-carlo: Constant H (func format) with no collapse ops (expect) ... ok\nMonte-carlo: Constant H (str format) with no collapse ops (states) ... /Users/fergusbarratt/.pyxbld/temp.macosx-10.11-x86_64-3.5/pyrex/rhs101302.c:242:10: fatal error: 'numpy/arrayobject.h' file not found\n#include \"numpy/arrayobject.h\"\n         ^\n1 error generated.\nERROR\nMonte-carlo: Constant H (func format) with no collapse ops (states) ... ok\nMonte-carlo: Check for stored collapse operators and times ... ok\nMonte-carlo: Constant H with constant collapse ... ok\nMonte-carlo: Constant H with constant collapse (states) ... ok\nMonte-carlo: Constant H with constant collapse (states) ... ok\nMonte-carlo: Constant H with single collapse operator ... ok\nMonte-carlo: Constant H with single expect operator ... ok\nMonte-carlo: Collapse terms constant (func format) ... ok\nMonte-carlo: Collapse terms constant (str format) ... /Users/fergusbarratt/.pyxbld/temp.macosx-10.11-x86_64-3.5/pyrex/rhs101303.c:242:10: fatal error: 'numpy/arrayobject.h' file not found\n#include \"numpy/arrayobject.h\"\n         ^\n1 error generated.\nERROR\nMonte-carlo: Time-dependent H (func format) ... ok\nMonte-carlo: Time-dependent H (str format) ... /Users/fergusbarratt/.pyxbld/temp.macosx-10.11-x86_64-3.5/pyrex/rhs101304.c:242:10: fatal error: 'numpy/arrayobject.h' file not found\n#include \"numpy/arrayobject.h\"\n         ^\n1 error generated.\nERROR\nMonte-carlo: check for correct dtypes (average_states=True) ... ok\nMonte-carlo: check for correct dtypes (average_states=False) ... ok\nMonte-carlo: check reusing seeds ... ok\nMonte-carlo: check not reusing seeds ... ok\nMonte-carlo: list of trajectories ... ok\nmcsolve_f90: Constant H with no collapse ops (expect) ... ok\nmcsolve_f90: Constant H with no collapse ops (states) ... ok\nmcsolve_f90: Constant H with constant collapse ... ok\nmcsolve_f90: Constant H with single collapse operator ... ok\nmcsolve_f90: Constant H with single expect operator ... ok\nmcsolve_f90: check for correct dtypes (average_states=True) ... ok\nmcsolve_f90: check for correct dtypes (average_states=False) ... ok\nmesolve: cavity-qubit interaction, no dissipation ... ok\nmesolve: cavity-qubit without interaction, decay ... ok\nmesolve: cavity-qubit with interaction, decay ... ok\nmesolve: qubit with dissipation ... ok\nmesolve: qubit without dissipation ... ok\nmesolve: time-dependence as array ... /Users/fergusbarratt/.pyxbld/temp.macosx-10.11-x86_64-3.5/pyrex/rhs101305.c:242:10: fatal error: 'numpy/arrayobject.h' file not found\n#include \"numpy/arrayobject.h\"\n         ^\n1 error generated.\nERROR\nmesolve: time-dependence as function list ... ok\nmesolve: time-dependence as partial function list ... ok\nmesolve: time-dependence as string list ... /Users/fergusbarratt/.pyxbld/temp.macosx-10.11-x86_64-3.5/pyrex/rhs101306.c:242:10: fatal error: 'numpy/arrayobject.h' file not found\n#include \"numpy/arrayobject.h\"\n         ^\n1 error generated.\nERROR\nmesolve: simple constant decay ... ok\nmesolve: constant decay as function list ... ok\nmesolve: constant decay as string list ... /Users/fergusbarratt/.pyxbld/temp.macosx-10.11-x86_64-3.5/pyrex/rhs101307.c:242:10: fatal error: 'numpy/arrayobject.h' file not found\n#include \"numpy/arrayobject.h\"\n         ^\n1 error generated.\nERROR\nmesolve: simple constant decay ... ok\nmesolve: simple constant decay ... ok\nMetrics: Fidelity / trace distance limiting cases ... ok\nMetrics: Fidelity, mixed state inequality ... ok\nMetrics: Fidelity, invariance under unitary trans. ... ok\nMetrics: Trace dist., invariance under unitary trans. ... ok\nMetrics: Trace dist. & Fidelity mixed/mixed inequality ... ok\nMetrics: Trace dist. & Fidelity mixed/pure inequality ... ok\nMetrics: Check avg gate fidelities for random ... ok\nMetrics: Hilbert distance. ... ok\nOperator CSR Type: commutator ... ok\nOperator CSR Type: create ... ok\nOperator CSR Type: destroy ... ok\nOperator CSR Type: displace ... ok\nOperator CSR Type: spin ops ... ok\nOperator CSR Type: momentum ... ok\nOperator CSR Type: num ... ok\nOperator CSR Type: phase ... ok\nOperator CSR Type: position ... ok\nOperator CSR Type: qdiags ... ok\nOperator CSR Type: qeye/identity ... ok\nOperator CSR Type: qutrit ops ... ok\nOperator CSR Type: squeeze ... ok\nOperator CSR Type: squeezing ... ok\nOperator CSR Type: zero_oper ... ok\nSpin 1/2 operators ... ok\nSpin 3/2 operators ... ok\nSpin 2 operators ... ok\nSpin 5/2 operators ... ok\nDestruction operator ... ok\nCreation operator ... ok\nIdentity operator ... ok\nIdentity operator ... ok\nNumber operator ... ok\nSqueezing operator ... ok\nDisplacement operator ... ok\nparfor ... ok\nparallel_map ... ok\nserial_map ... ok\npartial transpose of bipartite systems ... ok\npartial transpose: comparing sparse and dense implementations ... ok\npartial transpose: randomized tests on tripartite system ... ok\nqft: compare qft and product of qft steps ... ok\nQobj data ... ok\nQobj type ... ok\nQobj Hermicity ... ok\nQobj shape ... ok\nQobj addition ... ok\nQobj subtraction ... ok\nQobj multiplication ... ok\nQobj division ... ok\nQobj power ... ok\nQobj negation ... ok\nQobj equals ... ok\nQobj getitem ... ok\nQobj multiplication type ... ok\nQobj conjugate ... ok\nQobj adjoint (dagger) ... ok\nQobj diagonals ... ok\nQobj eigenenergies ... ok\nQobj eigenstates ... ok\nQobj expm ... ok\nQobj expm (explicit sparse) ... ok\nQobj expm (explicit dense) ... ok\nQobj sqrtm ... ok\nQobj full ... ok\nQobj norm ... ok\nQobj permute ... ok\nQobj ket type ... ok\nQobj bra type ... ok\nQobj operator type ... ok\nQobj superoperator type ... ok\nChecks that binary ops preserve 'superrep'. ... ok\nChecks that binary ops preserve 'superrep'. ... ok\nChecks that binary ops preserve 'superrep'. ... ok\nChecks that binary ops preserve 'superrep'. ... ok\nChecks that binary ops preserve 'superrep'. ... ok\nChecks that binary ops preserve 'superrep'. ... ok\nChecks that binary ops preserve 'superrep'. ... ok\nChecks that binary ops preserve 'superrep'. ... ok\nChecks that binary ops preserve 'superrep'. ... ok\nChecks that binary ops preserve 'superrep'. ... ok\nChecks that binary ops preserve 'superrep'. ... ok\nChecks that binary ops preserve 'superrep'. ... ok\nChecks that binary ops preserve 'superrep'. ... ok\nChecks that binary ops preserve 'superrep'. ... ok\nChecks that binary ops preserve 'superrep'. ... ok\nmul and tensor of skew-Hermitian operators report ``isherm = True``. ... ok\nTensor: Checks that super_tensor respects states. ... ok\nTensor: Super_tensor correctly tensors on underlying spaces. ... ok\nComposite: Tests compositing unitaries and superoperators. ... ok\nComposite: Tests compositing states and density operators. ... ok\nquantum process tomography for snot gate ... ok\nquantum process tomography for cnot gate ... ok\nTest mesolve qubit, with dissipation ... ok\nTest mesolve qubit, no dissipation ... ok\nTest essolve qubit, with dissipation ... ok\nTest mcsolve qubit, with dissipation ... ok\nTest mcsolve qubit, no dissipation ... ok\nCNOT to CSIGN: compare unitary matrix for CNOT and product of ... ok\nCNOT to ISWAP: compare unitary matrix for CNOT and product of ... ok\nCNOT to SQRTISWAP: compare unitary matrix for CNOT and product of ... ok\nCNOT to SQRTSWAP: compare unitary matrix for CNOT and product of ... ok\nCSIGN to CNOT: compare unitary matrix for CSIGN and product of ... ok\nISWAP to CNOT: compare unitary matrix for ISWAP and product of ... ok\nSWAP to CNOT: compare unitary matrix for SWAP and product of ... ok\nAdjacent Gates: compare unitary matrix for ISWAP and product of ... ok\nrandom Unitary ... ok\nrandom density matrix ... ok\nrandom hermitian ... ok\nrandom ket ... ok\nSparse eigs Hermitian ... ok\nSparse eigs non-Hermitian ... ok\nSparse eigvals only Hermitian. ... ok\nDense eigs Hermitian. ... ok\nDense eigs non-Hermitian ... ok\nDense eigvals only Hermitian ... ok\nSparse: Symmetric Permute ... ok\nSparse: Nonsymmetric Permute ... ok\nSparse: Symmetric Reverse Permute ... ok\nSparse: Nonsymmetric Reverse Permute ... ok\nSparse: Bandwidth ... ok\nSparse: Profile ... ok\nCircular Spin Chain Setup: compare unitary matrix for ISWAP and ... ok\nCircular Spin Chain Setup: compare unitary matrix for SQRTISWAP and ... ok\nLinear Spin Chain Setup: compare unitary matrix for ISWAP, SQRTISWAP, ... ok\nLinear Spin Chain Setup: compare unitary matrix for ISWAP and ... ok\nLinear Spin Chain Setup: compare unitary matrix for SQRTISWAP and ... ok\nLinear Spin Chain Setup: compare unitary matrix for ISWAP, SQRTISWAP, ... ok\nState CSR Type: basis ... ok\nState CSR Type: bell_state ... ok\nState CSR Type: bra ... ok\nState CSR Type: coherent ... ok\nState CSR Type: coherent_dm ... ok\nState CSR Type: fock ... ok\nState CSR Type: fock_dm ... ok\nState CSR Type: ghz_state ... ok\nState CSR Type: ket ... ok\nState CSR Type: ket2dm ... ok\nState CSR Type: maximall_mixed_dm ... ok\nState CSR Type: spin_coherent ... ok\nState CSR Type: spin_state ... ok\nState CSR Type: thermal_dm ... ok\nState CSR Type: w_state ... ok\nstates: coherent density matrix ... ok\nstates: Fock density matrix ... ok\nstates: thermal density matrix ... ok\nSteady state: Thermal qubit - direct solver ... ok\nSteady state: Thermal qubit - eigen solver ... ok\nSteady state: Thermal qubit - power solver ... ok\nSteady state: Thermal qubit - iterative-gmres solver ... ok\nSteady state: Thermal qubit - iterative-bicgstab solver ... ok\nSteady state: Thermal qubit - iterative-lgmres solver ... ok\nSteady state: Thermal HO - direct solver ... ok\nSteady state: Thermal HO - eigen solver ... ok\nSteady state: Thermal HO - power solver ... ok\nSteady state: Thermal HO - iterative-gmres solver ... ok\nSteady state: Thermal HO - iterative-bicgstab solver ... ok\nSteady state: Thermal HO - iterative-lgmres solver ... ok\nSteady state: Driven cavity - direct solver ... ok\nSteady state: Driven cavity - eigen solver ... ok\nSteady state: Driven cavity - power solver ... ok\nSteady state: Driven cavity - iterative-gmres solver ... ok\nSteady state: Driven cavity - iterative-bicgstab solver ... ok\nSteady state: Driven cavity - iterative-lgmres solver ... ok\nStochastic: smesolve: photo-current ... ok\nStochastic: smesolve: homodyne ... ok\nStochastic: smesolve: heterodyne ... ok\nStochastic: ssesolve: photo-current ... ok\nStochastic: ssesolve: homodyne ... ok\nStochastic: ssesolve: heterodyne ... ok\nComposite system, operator on Hilbert space. ... ok\nSuperoperator: Efficient numerics and reference return same result, ... ok\nNon-composite system, operator on Hilbert space. ... ok\nNon-composite system, operator on Liouville space. ... ok\nSuperoperator: Convert superoperator to Choi matrix and back. ... ok\nSuperoperator: to_choi(q) returns q if q is already Choi. ... ok\nSuperoperator: Converting two-qubit superoperator through ... ok\nSuperoperator: Converting superoperator to Choi matrix and back. ... ok\nSuperoperator: to_super(q) returns q if q is already a ... ok\nSuperoperator: Trace returned by to_choi matches docstring. ... ok\nSuperoperator: iscp, istp and iscptp known cases. ... ok\nSuperoperator: Randomly generated superoperators are ... ok\nSuperoperator: Randomized comparison of standard and reference ... ok\nSuperoperator: Conversion matrix to vector to matrix ... ok\nSuperoperator: apply operator and superoperator from right (spost) ... ok\nSuperoperator: apply operator and superoperator from left (spre) ... ok\nSuperoperator: Unitary transformation with operators and superoperators ... ok\nSuperoperator: Operator - vector - operator conversion. ... ok\nSuperoperator: Compatibility between matrix/vector and ... ok\nSuperoperator: Conversion between matrix and vector indices ... ok\nSuperoperator: Conversion vector to matrix to vector ... ok\nqutip.tests.test_superoper.TestMatVec.test_reshuffle ... ok\nqutip.tests.test_superoper.TestMatVec.test_sprepost ... ok\ntd_format_check: monte-carlo ... ok\nqutip.tests.test_tensor.test_flatten ... ok\nqutip.tests.test_tensor.test_enumerate_flat ... ok\nqutip.tests.test_tensor.test_deep_remove ... ok\nqutip.tests.test_tensor.test_unflatten ... ok\nqutip.tests.test_tensor.test_tensor_contract ... ok\nThree-level atom: States ... ok\nThree-level atom: Operators ... ok\nutilities: energy unit conversions ... ok\nwigner: test wigner function calculation for coherent states ... ok\nwigner: test wigner function calculation for Fock states ... ok\nwigner: compare wigner methods for random density matrices ... ok\nwigner: compare wigner methods for random state vectors ... ok\nWigner: Compare Wigner fft and iterative for rand. ket ... ok\nWigner: Compare Wigner fft and iterative for rand. dm ... ok\n\n======================================================================\nERROR: correlation: comparing me and mc for driven oscillator in ground state\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.5/site-packages/nose/case.py\", line 198, in runTest\n    self.test(*self.arg)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/tests/test_correlation.py\", line 122, in test_compare_solvers_coherent_state_memc\n    solver=\"mc\")[0]\n  File \"/usr/local/lib/python3.5/site-packages/qutip/correlation.py\", line 238, in correlation_2op_2t\n    solver=solver, args=args, options=options)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/correlation.py\", line 1091, in _correlation_2t\n    args=args, options=options)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/correlation.py\", line 1297, in _correlation_mc_2t\n    1j*c_tau[1] + 1j*c_tau[3])\nTypeError: ufunc 'add' output (typecode 'O') could not be coerced to provided output parameter (typecode 'D') according to the casting rule ''same_kind''\n\n======================================================================\nERROR: correlation: comparing TLS emission correlations (str-list td format)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 118, in _compile\n    extra_postargs)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 909, in spawn\n    spawn(cmd, dry_run=self.dry_run)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/spawn.py\", line 36, in spawn\n    _spawn_posix(cmd, search_path, dry_run=dry_run)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/spawn.py\", line 159, in _spawn_posix\n    % (cmd, exit_status))\ndistutils.errors.DistutilsExecError: command 'clang' failed with exit status 1\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 209, in load_module\n    inplace=build_inplace, language_level=language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 186, in build_module\n    reload_support=pyxargs.reload_support)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyxbuild.py\", line 100, in pyx_to_dll\n    dist.run_commands()\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 955, in run_commands\n    self.run_command(cmd)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 974, in run_command\n    cmd_obj.run()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 164, in run\n    _build_ext.build_ext.run(self)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 338, in run\n    self.build_extensions()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 172, in build_extensions\n    self.build_extension(ext)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 532, in build_extension\n    depends=ext.depends)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 574, in compile\n    self._compile(obj, src, ext, cc_args, extra_postargs, pp_opts)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 120, in _compile\n    raise CompileError(msg)\ndistutils.errors.CompileError: command 'clang' failed with exit status 1\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.5/site-packages/nose/case.py\", line 198, in runTest\n    self.test(*self.arg)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/tests/test_correlation.py\", line 278, in test_str_list_td_corr\n    sm.dag(), sm.dag() * sm, sm, args=args)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/correlation.py\", line 393, in correlation_3op_2t\n    solver=solver, args=args, options=options)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/correlation.py\", line 1087, in _correlation_2t\n    args=args, options=options)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/correlation.py\", line 1125, in _correlation_me_2t\n    args=args, options=options).states\n  File \"/usr/local/lib/python3.5/site-packages/qutip/mesolve.py\", line 302, in mesolve\n    progress_bar)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/mesolve.py\", line 619, in _mesolve_list_str_td\n    exec(code, globals())\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 435, in load_module\n    language_level=self.language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 225, in load_module\n    raise exc.with_traceback(tb)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 209, in load_module\n    inplace=build_inplace, language_level=language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 186, in build_module\n    reload_support=pyxargs.reload_support)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyxbuild.py\", line 100, in pyx_to_dll\n    dist.run_commands()\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 955, in run_commands\n    self.run_command(cmd)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 974, in run_command\n    cmd_obj.run()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 164, in run\n    _build_ext.build_ext.run(self)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 338, in run\n    self.build_extensions()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 172, in build_extensions\n    self.build_extension(ext)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 532, in build_extension\n    depends=ext.depends)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 574, in compile\n    self._compile(obj, src, ext, cc_args, extra_postargs, pp_opts)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 120, in _compile\n    raise CompileError(msg)\nImportError: Building module rhs101300 failed: [\"distutils.errors.CompileError: command 'clang' failed with exit status 1\\n\"]\n\n======================================================================\nERROR: Monte-carlo: Constant H (str format) with no collapse ops (expect)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 118, in _compile\n    extra_postargs)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 909, in spawn\n    spawn(cmd, dry_run=self.dry_run)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/spawn.py\", line 36, in spawn\n    _spawn_posix(cmd, search_path, dry_run=dry_run)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/spawn.py\", line 159, in _spawn_posix\n    % (cmd, exit_status))\ndistutils.errors.DistutilsExecError: command 'clang' failed with exit status 1\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 209, in load_module\n    inplace=build_inplace, language_level=language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 186, in build_module\n    reload_support=pyxargs.reload_support)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyxbuild.py\", line 100, in pyx_to_dll\n    dist.run_commands()\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 955, in run_commands\n    self.run_command(cmd)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 974, in run_command\n    cmd_obj.run()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 164, in run\n    _build_ext.build_ext.run(self)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 338, in run\n    self.build_extensions()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 172, in build_extensions\n    self.build_extension(ext)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 532, in build_extension\n    depends=ext.depends)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 574, in compile\n    self._compile(obj, src, ext, cc_args, extra_postargs, pp_opts)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 120, in _compile\n    raise CompileError(msg)\ndistutils.errors.CompileError: command 'clang' failed with exit status 1\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.5/site-packages/nose/case.py\", line 198, in runTest\n    self.test(*self.arg)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/tests/test_mcsolve.py\", line 134, in test_MCNoCollStrExpt\n    ntraj=ntraj)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/mcsolve.py\", line 274, in mcsolve\n    _mc_func_load(config)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/mcsolve.py\", line 1008, in _mc_func_load\n    exec(code, globals())\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 435, in load_module\n    language_level=self.language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 225, in load_module\n    raise exc.with_traceback(tb)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 209, in load_module\n    inplace=build_inplace, language_level=language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 186, in build_module\n    reload_support=pyxargs.reload_support)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyxbuild.py\", line 100, in pyx_to_dll\n    dist.run_commands()\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 955, in run_commands\n    self.run_command(cmd)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 974, in run_command\n    cmd_obj.run()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 164, in run\n    _build_ext.build_ext.run(self)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 338, in run\n    self.build_extensions()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 172, in build_extensions\n    self.build_extension(ext)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 532, in build_extension\n    depends=ext.depends)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 574, in compile\n    self._compile(obj, src, ext, cc_args, extra_postargs, pp_opts)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 120, in _compile\n    raise CompileError(msg)\nImportError: Building module rhs101301 failed: [\"distutils.errors.CompileError: command 'clang' failed with exit status 1\\n\"]\n\n======================================================================\nERROR: Monte-carlo: Constant H (str format) with no collapse ops (states)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 118, in _compile\n    extra_postargs)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 909, in spawn\n    spawn(cmd, dry_run=self.dry_run)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/spawn.py\", line 36, in spawn\n    _spawn_posix(cmd, search_path, dry_run=dry_run)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/spawn.py\", line 159, in _spawn_posix\n    % (cmd, exit_status))\ndistutils.errors.DistutilsExecError: command 'clang' failed with exit status 1\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 209, in load_module\n    inplace=build_inplace, language_level=language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 186, in build_module\n    reload_support=pyxargs.reload_support)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyxbuild.py\", line 100, in pyx_to_dll\n    dist.run_commands()\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 955, in run_commands\n    self.run_command(cmd)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 974, in run_command\n    cmd_obj.run()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 164, in run\n    _build_ext.build_ext.run(self)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 338, in run\n    self.build_extensions()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 172, in build_extensions\n    self.build_extension(ext)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 532, in build_extension\n    depends=ext.depends)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 574, in compile\n    self._compile(obj, src, ext, cc_args, extra_postargs, pp_opts)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 120, in _compile\n    raise CompileError(msg)\ndistutils.errors.CompileError: command 'clang' failed with exit status 1\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.5/site-packages/nose/case.py\", line 198, in runTest\n    self.test(*self.arg)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/tests/test_mcsolve.py\", line 166, in test_MCNoCollStrStates\n    mcdata = mcsolve(H, psi0, tlist, c_op_list, [], args={'c': 0.0})\n  File \"/usr/local/lib/python3.5/site-packages/qutip/mcsolve.py\", line 274, in mcsolve\n    _mc_func_load(config)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/mcsolve.py\", line 1008, in _mc_func_load\n    exec(code, globals())\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 435, in load_module\n    language_level=self.language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 225, in load_module\n    raise exc.with_traceback(tb)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 209, in load_module\n    inplace=build_inplace, language_level=language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 186, in build_module\n    reload_support=pyxargs.reload_support)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyxbuild.py\", line 100, in pyx_to_dll\n    dist.run_commands()\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 955, in run_commands\n    self.run_command(cmd)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 974, in run_command\n    cmd_obj.run()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 164, in run\n    _build_ext.build_ext.run(self)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 338, in run\n    self.build_extensions()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 172, in build_extensions\n    self.build_extension(ext)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 532, in build_extension\n    depends=ext.depends)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 574, in compile\n    self._compile(obj, src, ext, cc_args, extra_postargs, pp_opts)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 120, in _compile\n    raise CompileError(msg)\nImportError: Building module rhs101302 failed: [\"distutils.errors.CompileError: command 'clang' failed with exit status 1\\n\"]\n\n======================================================================\nERROR: Monte-carlo: Collapse terms constant (str format)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 118, in _compile\n    extra_postargs)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 909, in spawn\n    spawn(cmd, dry_run=self.dry_run)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/spawn.py\", line 36, in spawn\n    _spawn_posix(cmd, search_path, dry_run=dry_run)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/spawn.py\", line 159, in _spawn_posix\n    % (cmd, exit_status))\ndistutils.errors.DistutilsExecError: command 'clang' failed with exit status 1\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 209, in load_module\n    inplace=build_inplace, language_level=language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 186, in build_module\n    reload_support=pyxargs.reload_support)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyxbuild.py\", line 100, in pyx_to_dll\n    dist.run_commands()\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 955, in run_commands\n    self.run_command(cmd)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 974, in run_command\n    cmd_obj.run()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 164, in run\n    _build_ext.build_ext.run(self)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 338, in run\n    self.build_extensions()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 172, in build_extensions\n    self.build_extension(ext)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 532, in build_extension\n    depends=ext.depends)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 574, in compile\n    self._compile(obj, src, ext, cc_args, extra_postargs, pp_opts)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 120, in _compile\n    raise CompileError(msg)\ndistutils.errors.CompileError: command 'clang' failed with exit status 1\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.5/site-packages/nose/case.py\", line 198, in runTest\n    self.test(*self.arg)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/tests/test_mcsolve.py\", line 324, in test_MCSimpleConstStr\n    ntraj=ntraj)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/mcsolve.py\", line 274, in mcsolve\n    _mc_func_load(config)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/mcsolve.py\", line 1001, in _mc_func_load\n    exec(code, globals())\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 435, in load_module\n    language_level=self.language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 225, in load_module\n    raise exc.with_traceback(tb)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 209, in load_module\n    inplace=build_inplace, language_level=language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 186, in build_module\n    reload_support=pyxargs.reload_support)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyxbuild.py\", line 100, in pyx_to_dll\n    dist.run_commands()\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 955, in run_commands\n    self.run_command(cmd)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 974, in run_command\n    cmd_obj.run()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 164, in run\n    _build_ext.build_ext.run(self)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 338, in run\n    self.build_extensions()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 172, in build_extensions\n    self.build_extension(ext)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 532, in build_extension\n    depends=ext.depends)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 574, in compile\n    self._compile(obj, src, ext, cc_args, extra_postargs, pp_opts)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 120, in _compile\n    raise CompileError(msg)\nImportError: Building module rhs101303 failed: [\"distutils.errors.CompileError: command 'clang' failed with exit status 1\\n\"]\n\n======================================================================\nERROR: Monte-carlo: Time-dependent H (str format)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 118, in _compile\n    extra_postargs)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 909, in spawn\n    spawn(cmd, dry_run=self.dry_run)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/spawn.py\", line 36, in spawn\n    _spawn_posix(cmd, search_path, dry_run=dry_run)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/spawn.py\", line 159, in _spawn_posix\n    % (cmd, exit_status))\ndistutils.errors.DistutilsExecError: command 'clang' failed with exit status 1\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 209, in load_module\n    inplace=build_inplace, language_level=language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 186, in build_module\n    reload_support=pyxargs.reload_support)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyxbuild.py\", line 100, in pyx_to_dll\n    dist.run_commands()\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 955, in run_commands\n    self.run_command(cmd)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 974, in run_command\n    cmd_obj.run()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 164, in run\n    _build_ext.build_ext.run(self)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 338, in run\n    self.build_extensions()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 172, in build_extensions\n    self.build_extension(ext)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 532, in build_extension\n    depends=ext.depends)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 574, in compile\n    self._compile(obj, src, ext, cc_args, extra_postargs, pp_opts)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 120, in _compile\n    raise CompileError(msg)\ndistutils.errors.CompileError: command 'clang' failed with exit status 1\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.5/site-packages/nose/case.py\", line 198, in runTest\n    self.test(*self.arg)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/tests/test_mcsolve.py\", line 362, in test_TDStr\n    ntraj=ntraj)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/mcsolve.py\", line 274, in mcsolve\n    _mc_func_load(config)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/mcsolve.py\", line 1001, in _mc_func_load\n    exec(code, globals())\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 435, in load_module\n    language_level=self.language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 225, in load_module\n    raise exc.with_traceback(tb)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 209, in load_module\n    inplace=build_inplace, language_level=language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 186, in build_module\n    reload_support=pyxargs.reload_support)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyxbuild.py\", line 100, in pyx_to_dll\n    dist.run_commands()\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 955, in run_commands\n    self.run_command(cmd)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 974, in run_command\n    cmd_obj.run()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 164, in run\n    _build_ext.build_ext.run(self)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 338, in run\n    self.build_extensions()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 172, in build_extensions\n    self.build_extension(ext)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 532, in build_extension\n    depends=ext.depends)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 574, in compile\n    self._compile(obj, src, ext, cc_args, extra_postargs, pp_opts)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 120, in _compile\n    raise CompileError(msg)\nImportError: Building module rhs101304 failed: [\"distutils.errors.CompileError: command 'clang' failed with exit status 1\\n\"]\n\n======================================================================\nERROR: mesolve: time-dependence as array\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 118, in _compile\n    extra_postargs)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 909, in spawn\n    spawn(cmd, dry_run=self.dry_run)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/spawn.py\", line 36, in spawn\n    _spawn_posix(cmd, search_path, dry_run=dry_run)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/spawn.py\", line 159, in _spawn_posix\n    % (cmd, exit_status))\ndistutils.errors.DistutilsExecError: command 'clang' failed with exit status 1\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 209, in load_module\n    inplace=build_inplace, language_level=language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 186, in build_module\n    reload_support=pyxargs.reload_support)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyxbuild.py\", line 100, in pyx_to_dll\n    dist.run_commands()\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 955, in run_commands\n    self.run_command(cmd)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 974, in run_command\n    cmd_obj.run()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 164, in run\n    _build_ext.build_ext.run(self)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 338, in run\n    self.build_extensions()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 172, in build_extensions\n    self.build_extension(ext)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 532, in build_extension\n    depends=ext.depends)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 574, in compile\n    self._compile(obj, src, ext, cc_args, extra_postargs, pp_opts)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 120, in _compile\n    raise CompileError(msg)\ndistutils.errors.CompileError: command 'clang' failed with exit status 1\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.5/site-packages/nose/case.py\", line 198, in runTest\n    self.test(*self.arg)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/tests/test_mesolve.py\", line 448, in testMETDDecayAsArray\n    medata = mesolve(H, psi0, tlist, c_op_list, [a.dag() * a])\n  File \"/usr/local/lib/python3.5/site-packages/qutip/mesolve.py\", line 270, in mesolve\n    progress_bar)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/mesolve.py\", line 619, in _mesolve_list_str_td\n    exec(code, globals())\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 435, in load_module\n    language_level=self.language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 225, in load_module\n    raise exc.with_traceback(tb)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 209, in load_module\n    inplace=build_inplace, language_level=language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 186, in build_module\n    reload_support=pyxargs.reload_support)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyxbuild.py\", line 100, in pyx_to_dll\n    dist.run_commands()\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 955, in run_commands\n    self.run_command(cmd)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 974, in run_command\n    cmd_obj.run()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 164, in run\n    _build_ext.build_ext.run(self)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 338, in run\n    self.build_extensions()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 172, in build_extensions\n    self.build_extension(ext)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 532, in build_extension\n    depends=ext.depends)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 574, in compile\n    self._compile(obj, src, ext, cc_args, extra_postargs, pp_opts)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 120, in _compile\n    raise CompileError(msg)\nImportError: Building module rhs101305 failed: [\"distutils.errors.CompileError: command 'clang' failed with exit status 1\\n\"]\n\n======================================================================\nERROR: mesolve: time-dependence as string list\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 118, in _compile\n    extra_postargs)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 909, in spawn\n    spawn(cmd, dry_run=self.dry_run)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/spawn.py\", line 36, in spawn\n    _spawn_posix(cmd, search_path, dry_run=dry_run)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/spawn.py\", line 159, in _spawn_posix\n    % (cmd, exit_status))\ndistutils.errors.DistutilsExecError: command 'clang' failed with exit status 1\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 209, in load_module\n    inplace=build_inplace, language_level=language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 186, in build_module\n    reload_support=pyxargs.reload_support)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyxbuild.py\", line 100, in pyx_to_dll\n    dist.run_commands()\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 955, in run_commands\n    self.run_command(cmd)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 974, in run_command\n    cmd_obj.run()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 164, in run\n    _build_ext.build_ext.run(self)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 338, in run\n    self.build_extensions()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 172, in build_extensions\n    self.build_extension(ext)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 532, in build_extension\n    depends=ext.depends)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 574, in compile\n    self._compile(obj, src, ext, cc_args, extra_postargs, pp_opts)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 120, in _compile\n    raise CompileError(msg)\ndistutils.errors.CompileError: command 'clang' failed with exit status 1\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.5/site-packages/nose/case.py\", line 198, in runTest\n    self.test(*self.arg)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/tests/test_mesolve.py\", line 432, in testMETDDecayAsStrList\n    medata = mesolve(H, psi0, tlist, c_op_list, [a.dag() * a], args=args)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/mesolve.py\", line 270, in mesolve\n    progress_bar)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/mesolve.py\", line 619, in _mesolve_list_str_td\n    exec(code, globals())\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 435, in load_module\n    language_level=self.language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 225, in load_module\n    raise exc.with_traceback(tb)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 209, in load_module\n    inplace=build_inplace, language_level=language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 186, in build_module\n    reload_support=pyxargs.reload_support)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyxbuild.py\", line 100, in pyx_to_dll\n    dist.run_commands()\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 955, in run_commands\n    self.run_command(cmd)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 974, in run_command\n    cmd_obj.run()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 164, in run\n    _build_ext.build_ext.run(self)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 338, in run\n    self.build_extensions()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 172, in build_extensions\n    self.build_extension(ext)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 532, in build_extension\n    depends=ext.depends)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 574, in compile\n    self._compile(obj, src, ext, cc_args, extra_postargs, pp_opts)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 120, in _compile\n    raise CompileError(msg)\nImportError: Building module rhs101306 failed: [\"distutils.errors.CompileError: command 'clang' failed with exit status 1\\n\"]\n\n======================================================================\nERROR: mesolve: constant decay as string list\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 118, in _compile\n    extra_postargs)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 909, in spawn\n    spawn(cmd, dry_run=self.dry_run)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/spawn.py\", line 36, in spawn\n    _spawn_posix(cmd, search_path, dry_run=dry_run)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/spawn.py\", line 159, in _spawn_posix\n    % (cmd, exit_status))\ndistutils.errors.DistutilsExecError: command 'clang' failed with exit status 1\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 209, in load_module\n    inplace=build_inplace, language_level=language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 186, in build_module\n    reload_support=pyxargs.reload_support)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyxbuild.py\", line 100, in pyx_to_dll\n    dist.run_commands()\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 955, in run_commands\n    self.run_command(cmd)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 974, in run_command\n    cmd_obj.run()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 164, in run\n    _build_ext.build_ext.run(self)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 338, in run\n    self.build_extensions()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 172, in build_extensions\n    self.build_extension(ext)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 532, in build_extension\n    depends=ext.depends)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 574, in compile\n    self._compile(obj, src, ext, cc_args, extra_postargs, pp_opts)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 120, in _compile\n    raise CompileError(msg)\ndistutils.errors.CompileError: command 'clang' failed with exit status 1\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.5/site-packages/nose/case.py\", line 198, in runTest\n    self.test(*self.arg)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/tests/test_mesolve.py\", line 365, in testMEDecayAsStrList\n    medata = mesolve(H, psi0, tlist, c_op_list, [a.dag() * a], args=args)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/mesolve.py\", line 270, in mesolve\n    progress_bar)\n  File \"/usr/local/lib/python3.5/site-packages/qutip/mesolve.py\", line 619, in _mesolve_list_str_td\n    exec(code, globals())\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 435, in load_module\n    language_level=self.language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 225, in load_module\n    raise exc.with_traceback(tb)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 209, in load_module\n    inplace=build_inplace, language_level=language_level)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyximport.py\", line 186, in build_module\n    reload_support=pyxargs.reload_support)\n  File \"/usr/local/lib/python3.5/site-packages/pyximport/pyxbuild.py\", line 100, in pyx_to_dll\n    dist.run_commands()\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 955, in run_commands\n    self.run_command(cmd)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/dist.py\", line 974, in run_command\n    cmd_obj.run()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 164, in run\n    _build_ext.build_ext.run(self)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 338, in run\n    self.build_extensions()\n  File \"/usr/local/lib/python3.5/site-packages/Cython/Distutils/build_ext.py\", line 172, in build_extensions\n    self.build_extension(ext)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/command/build_ext.py\", line 532, in build_extension\n    depends=ext.depends)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/ccompiler.py\", line 574, in compile\n    self._compile(obj, src, ext, cc_args, extra_postargs, pp_opts)\n  File \"/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/unixccompiler.py\", line 120, in _compile\n    raise CompileError(msg)\nImportError: Building module rhs101307 failed: [\"distutils.errors.CompileError: command 'clang' failed with exit status 1\\n\"]\n\n----------------------------------------------------------------------\nRan 320 tests in 427.002s\n\nFAILED (errors=9)\n>>> from matplotlib import *\n>>> fig = figure()\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nTypeError: 'module' object is not callable\n>>> figure)\n  File \"<stdin>\", line 1\n    figure)\n          ^\nSyntaxError: invalid syntax\n>>> figure\n<module 'matplotlib.figure' from '/usr/local/lib/python3.5/site-packages/matplotlib/figure.py'>\n>>> import figure\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nImportError: No module named 'figure'\n>>> fro matplotlib.figure import  *\n  File \"<stdin>\", line 1\n    fro matplotlib.figure import  *\n                 ^\nSyntaxError: invalid syntax\n>>> from matplotlib.figure import  *\n>>> figure()\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nTypeError: 'module' object is not callable\n>>> del matplotlib\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nNameError: name 'matplotlib' is not defined\n>>> from pylab import *\n>>> fig = figure()\n>>> figure()\n<matplotlib.figure.Figure object at 0x10faa9198>\n>>> figure()\n<matplotlib.figure.Figure object at 0x10f75deb8>\n>>> Figure()\n<matplotlib.figure.Figure object at 0x10f75d748>\n>>> fig = figure()\n>>> fig.show()\n>>> ",
+			"settings":
+			{
+				"buffer_size": 65932,
+				"line_ending": "Unix",
+				"name": "*REPL* [python]",
+				"scratch": true
+			}
+		},
+		{
+			"file": "Python/BlochAnimationJC.py",
+			"settings":
+			{
+				"buffer_size": 1560,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Python/BlochAnimation.py",
+			"settings":
+			{
+				"buffer_size": 1702,
+				"line_ending": "Unix"
+			}
 		}
 	],
-	"build_system": "",
+	"build_system": "Packages/python3.sublime-build",
 	"command_palette":
 	{
-		"height": 96.0,
+		"height": 118.0,
 		"selected_items":
 		[
-			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
-				"installl",
-				"Package Control: Install Local Dependency"
-			],
 			[
 				"git pus",
 				"Git: Push"
 			],
 			[
-				"git diff",
-				"Git: Diff"
+				"gitstat",
+				"Git: Status"
 			],
 			[
-				"push",
-				"Git: Push"
+				"repl",
+				"SublimeREPL: Python"
 			],
 			[
 				"git push",
@@ -136,6 +175,66 @@
 			[
 				"git stat",
 				"Git: Status"
+			],
+			[
+				"repl python",
+				"SublimeREPL: Python"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"python ",
+				"SublimeREPL: Python"
+			],
+			[
+				"python",
+				"SublimeREPL: Python - IPython"
+			],
+			[
+				"pyt",
+				"SublimeREPL: Python - virtualenv"
+			],
+			[
+				"sublime python",
+				"SublimeREPL: Python"
+			],
+			[
+				"sublimereply",
+				"SublimeREPL: Python"
+			],
+			[
+				"pytho",
+				"SublimeREPL: Python - IPython"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"package rev",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"sublimereplpytho",
+				"SublimeREPL: Python"
+			],
+			[
+				"installl",
+				"Package Control: Install Local Dependency"
+			],
+			[
+				"git diff",
+				"Git: Diff"
+			],
+			[
+				"push",
+				"Git: Push"
 			],
 			[
 				"git pull",
@@ -214,10 +313,6 @@
 				"Git: Push Current Branch"
 			],
 			[
-				"gitstat",
-				"Git: Status"
-			],
-			[
 				"git: stat",
 				"Git: Status"
 			],
@@ -255,21 +350,47 @@
 	},
 	"file_history":
 	[
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimation.py",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimationJC.py",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 2/Packages/SublimeCodeIntel/SublimeCodeIntel.sublime-settings",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/probevolve.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/bloch_sphere.mp4",
+		"/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/matplotlib/animation.py",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/JaynesCummings.py",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 2/Packages/User/Matlab.sublime-build",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/GeneratePlotValues.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/plotseries.m",
+		"/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/qutip/mesolve.py",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 2/Packages/GitGutter/GitGutter.sublime-settings",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 2/Packages/User/SublimeCodeIntel.sublime-settings",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 2/Packages/SublimeREPL/SublimeREPL.sublime-settings",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/iphnumvals.m",
+		"/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/qutip/superoperator.py",
+		"/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/scipy/sparse/compressed.py",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 2/Packages/User/python3.sublime-build",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/GuidePlot.fig",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 2/Packages/Pylinter/Pylinter.sublime-settings",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 2/Packages/User/Pylinter.sublime-settings",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/fergusbarratt/CoverLetter.tex",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 2/Packages/SublimeREPL/config/Python/Main.sublime-menu",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 2/Packages/python3.sublime-build",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/CarmichaelPaperSummary.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica/NeoclassicalDecay.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/HighResCarmichaelPlot.fig",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica/NeoclassicalDecay.nb",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica/Script.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/LiteratureReview.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/TitlePage.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/ProjectOutline.tex",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/CarmichaelPaperSummary.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica/QuasiProbabilityFunctions.m",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica/NeoclassicalDecay.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica/Quasi Probability Functions.nb",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/JaynesCummingModel.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/TheMasterEquation.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/QuasiProbabilityDistributions.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/QuasiProbabilityDistributions.aux",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/iphnumvals.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/SlowingFigure.fig",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/plotQseries.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/TimeDependentSoln.m",
@@ -322,6 +443,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"sigmam",
+			"sx",
+			"sz",
+			"3",
+			"bar",
+			"scroll",
+			"live",
+			"]",
 			"[H]",
 			"equation",
 			"ref",
@@ -382,122 +511,11 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"settings":
-					{
-						"buffer_size": 1152,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								807,
-								807
-							]
-						],
-						"settings":
-						{
-							"__vi_external_disable": true,
-							"draw_white_space": "none",
-							"git_repo": "/Users/fergusbarratt/Dropbox/University/Masters project",
-							"git_status": true,
-							"git_view": "status",
-							"syntax": "Packages/SublimeGit/syntax/SublimeGit Status.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Mathematica/NeoclassicalDecay.m",
-					"settings":
-					{
-						"buffer_size": 3161,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1769,
-								1769
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Matlab/Matlab.tmLanguage"
-						},
-						"translation.x": 4.0,
-						"translation.y": 16.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
-					"settings":
-					{
-						"buffer_size": 13273,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7148,
-								7148
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Matlab/GeneratePlotValues.m",
-					"settings":
-					{
-						"buffer_size": 267,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								267,
-								267
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Matlab/Matlab.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "Matlab/iphnumvals.m",
 					"settings":
 					{
@@ -508,8 +526,8 @@
 						"selection":
 						[
 							[
-								2279,
-								2279
+								1523,
+								1523
 							]
 						],
 						"settings":
@@ -518,7 +536,119 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 627.0,
+						"translation.y": 842.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"settings":
+					{
+						"buffer_size": 65932,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								65932,
+								65932
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"auto_indent": false,
+							"detect_indentation": false,
+							"gutter": false,
+							"history_arrows": true,
+							"indent_subsequent_lines": false,
+							"line_numbers": false,
+							"repl": true,
+							"repl_external_id": "python",
+							"repl_id": "d2bb46a6532a44588884ad31da5b910c",
+							"repl_restart_args":
+							{
+								"cmd":
+								[
+									"/usr/local/bin/python3.5",
+									"-i",
+									"-u"
+								],
+								"cwd": "$file_path",
+								"encoding": "utf8",
+								"extend_env":
+								{
+									"PYTHONIOENCODING": "utf-8"
+								},
+								"external_id": "python",
+								"syntax": "Packages/Python/Python.tmLanguage",
+								"type": "subprocess"
+							},
+							"repl_sublime2": true,
+							"smart_indent": false,
+							"spell_check": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 15467.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Python/BlochAnimationJC.py",
+					"settings":
+					{
+						"buffer_size": 1560,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Python/BlochAnimation.py",
+					"settings":
+					{
+						"buffer_size": 1702,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								649,
+								649
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -559,7 +689,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 100.0
+		"height": 121.0
 	},
 	"output.git-commit":
 	{
@@ -579,7 +709,7 @@
 	},
 	"replace":
 	{
-		"height": 0.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -587,6 +717,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"",
+				"Matlab/GuidePlot.fig"
+			]
 		],
 		"width": 0.0
 	},
@@ -599,9 +733,9 @@
 		"width": 380.0
 	},
 	"show_minimap": true,
-	"show_open_files": false,
+	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 211.0,
+	"side_bar_width": 283.0,
 	"status_bar_visible": true
 }

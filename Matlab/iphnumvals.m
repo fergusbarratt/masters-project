@@ -41,7 +41,7 @@ function [iphnumvals] = iphnumvals(Eplotvals, Dplotvals, varargin)
 	sm = tensor(ida,sigmam);
 
 	% Generate Hamiltonian components outside for loop
-	Hint =  g*(sm' * a + a' * sm);
+	Hint =  g*(sm' * a + sm * a');
 	HBare = (sm' * sm + a' * a);
 	Collapse =  sqrt ( 2 * kappa ) * a;
 	ConjCollapse = Collapse' * Collapse;

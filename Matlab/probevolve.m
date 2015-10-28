@@ -38,7 +38,8 @@ function [count1, count2, infield] = probevolve(E,kappa,gamma,g,wc,w0,wl,N, tlis
 	% Initial state
 	psi0 = tensor(basis(N,1),basis(2,2));
 	rho0 = psi0 * psi0’;
-	% Calculate solution as an exponential series rhoES = ode2es(L,rho0);
+	% Calculate solution as an exponential series 
+	rhoES = ode2es(L,rho0);
 	% Calculate expectation values
 	count1 = esval(expect(C1dC1,rhoES),tlist); 
 	count2 = esval(expect(C2dC2,rhoES),tlist); 
