@@ -1,30 +1,30 @@
 function [iphnumvals] = iphnumvals(Eplotvals, Dplotvals, varargin)
-		
-	% Generates an array of expected cavity photon numbers for a given range of driving strengths.  
+
+	% Generates an array of expected cavity photon numbers for a given range of driving strengths.
 
 	% solves the problem of a coherent, cavity-qubit detuning zero driving of cavity with a two-level atom
-	% Eplotvals = amplitudes of driving field to plot, 
+	% Eplotvals = amplitudes of driving field to plot,
 	% kappa = mirror coupling,
-	% gamma = spontaneous emission rate, 
+	% gamma = spontaneous emission rate,
 	% g = atom-field coupling,
 	% d = detuning between drive and cavity-qubit resonance
 	% N = size of Hilbert space for intracavity field (zero to N-1 photons)
 	% count1 = photocount rate of light leaking out of cavity count2 = spontaneous emission rate
 	% iphnum = intracavity field
 	% dispstat('', 'init')
-	
+
 	% set default values
-	try 
+	try
 		N = varargin{1};
 	catch ME
 		N = 60;
 	end
-	try 
+	try
 		g = varargin{2};
 	catch ME
 		g = 25;
 	end
-	try 
+	try
 		kappa = varargin{3};
 	catch ME
 		kappa = 0.5;
@@ -33,7 +33,7 @@ function [iphnumvals] = iphnumvals(Eplotvals, Dplotvals, varargin)
 	tic
 
 	%generate identities and constants
-	ida = identity(N); 
+	ida = identity(N);
 	idatom = identity(2);
 
 	% Define cavity field and atomic operators
@@ -59,8 +59,8 @@ function [iphnumvals] = iphnumvals(Eplotvals, Dplotvals, varargin)
 
 
 	% vars for counting progress
-	n = 1; 
-	ds = length(Dplotvals); 
+	n = 1;
+	ds = length(Dplotvals);
 	es = length(Eplotvals);
 	numberofvalues = es*ds;
 	projectedtime = numberofvalues;
