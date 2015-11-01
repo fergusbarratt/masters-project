@@ -83,11 +83,11 @@ and from \cref{eq:pseudospin}
 \implies \frac{d \zeta}{dt} &= -\frac{g^2}{\kappa} (1-\zeta^2)
 \end{align}
 We recover the non exponential decay of neoclassical radiation theory
-\begin{figure}
- 	\centering
- 	\includegraphics[width=0.5\textwidth]{Images/NeoclassicalDecay.png}
- 	\caption{Non-exponential decay of $\zeta$, $\frac{g}{\kappa} = 50, \zeta(0) \approx 1$} \label{fig:neoclassical}
-\end{figure}
+% \begin{figure}
+%  	\centering
+%  	\includegraphics[width=0.5\textwidth]{Images/NeoclassicalDecay.png}
+%  	\caption{Non-exponential decay of $\zeta$, $\frac{g}{\kappa} = 50, \zeta(0) \approx 1$} \label{fig:neoclassical}
+% \end{figure}
 \subsubsection{Critical Point}
 We consider the equations in the steady state with the field adiabatically eliminated and the detuning zero, after which remain:
 \begin{align}
@@ -107,6 +107,7 @@ Increasing drive through the critical point $\Epsilon = \frac{g}{2}$ the differe
 with $\alpha$ a solution to
 \begin{equation}
 	\alpha = -i \Epsilon\left ( \kappa \pm i \frac{g}{2|\alpha|} \right )^{-1}
+	\label{eq:alphacondnotdet}
 \end{equation}
 
 \begin{figure}[h]
@@ -145,16 +146,22 @@ The expression for $\alpha$ is a Lorentzian, in which is obvious a nonlinear dis
 \subsection{Computationally Solving the Master Equation}
 
 \begin{figure}[h]
-	\begin{minipage}{.5\linewidth}
+	\begin{minipage}{.3\linewidth}
 		\centering
 		\includegraphics[width=1\textwidth]{Images/HighResCarmichaelPlot.png}
-		\subcaption{IC photon number expectation, g = 25, kappa = 0.5}
+		\subcaption{From density matrix calculations: IC photon number expectation, g = 25, \kappa = 0.5}
 		\label{fig:densp}
 	\end{minipage}%
-	\begin{minipage}{.5\linewidth}
+	\begin{minipage}{.3\linewidth}
+		\centering
+		\includegraphics[width=0.8\textwidth]{Images/MeanFieldPhotonNumber.png}
+		\subcaption{From meanfield calculations: IC photon number $n \approx |\alpha|^2$, g = 25, \kappa = 0.5}
+		\label{fig:meanfieldp}
+	\end{minipage}%
+	\begin{minipage}{.3\linewidth}
 		\centering
 		\includegraphics[width=1\textwidth]{Images/Q-Bifurcation.png}
-		\subcaption{Bifurcation in the Q function for E from 0 to 1, g = 0.5, kappa = 0.01, $\Delta \omega$ = 1}
+		\subcaption{Bifurcation in the Q function for E from 0 to 1, g = 0.5, \kappa = 0.01, $\Delta \omega$ = 1. From quantum results}
 		\label{fig:Qbirfc}
 	\end{minipage}
 	\caption{Surface plot of expected intracavity photon number in drive-detuning space}
@@ -177,7 +184,7 @@ A dynamical system perturbed close to an attracting fixed point, towards said fi
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\textwidth]{Images/CriticalSlowing.png}
-	\caption{Time Dependent Solutions with g=0.5, kappa = 0.01, blue line is (0.24, 1), red line is (0.1, 1)}
+	\caption{Time Dependent Solutions with g=0.5, $\kappa$ = 0.01, blue line is (0.24, 1), red line is (0.1, 1)}
 	\label{fig:CriticalSlowing}
 \end{figure}
 
@@ -185,12 +192,43 @@ The plot containing evidence of critical slowing also contains a cut through the
 
 Figure 3b contains a surface and a contour plot of the steady state Q-function. In the contour plot the author highlights the upper half as indicative of the path of excitation (with a region of bimodality corresponding to the different excitation paths that are followed uniquely). The lower half of the plot corresponds to deexcitation.
 
-\subsection{Thermodynamic Limit}
+\subsection{Spontaneous Emission}
 
 The author investigates a limit of high photon numbers in which quantum fluctuations vanish and the mean field and exact theories coincide. He introduces what he calls the Maxwell-Bloch equations, the mean-field equations in the presence of spontaneous emission coupling to modes of the field other than the cavity fields. This shortens the Bloch vector in general, and thus the vector is no longer confined to the surface of the sphere.
 
-Solving said equations in the steady state the author finds that $\alpha = \alpha$ (the classical approximation to the cavity field) satisfies:
+The Maxwell-Bloch equations with spontaneous emission
+\begin{align}
+\frac{d \alpha}{dt} &= -(\kappa - i \Delta \omega)\alpha - ig \beta - i\Epsilon\label{eq:alphase}\\
+\frac{d \beta}{dt} &= -(\frac{\gamma}{2}-i\Delta\omega)\beta+ig\alpha\zeta \label{eq:betase}\\
+\frac{d\zeta}{dt} &= -\gamma (\zeta +1)+2ig(\alpha^*\beta-\alpha\beta^*) \label{eq:zetase}
+\end{align}
+In the steady state \cref{eq:alphase} becomes
+\begin{align}
+	\beta &= \frac{ig\alpha\zeta}{\frac{\gamma}{2}-i\Delta\omega}
+\end{align}
+from which in \cref{eq:zetase} in steady-state
+\begin{align}
+	0 &= -\gamma(\zeta+1)+2ig\frac{ig|\alpha|^2\zeta\frac{\gamma}{2}2}{\frac{\gamma^2}{4}+\Delta\omega^2} \\
+	\implies \zeta &= \frac{1}{\frac{-2g^2|\alpha|^2}{\frac{\gamma^2}{4} +\Delta\omega^2}-1} \\
+	&= \frac{1}{\frac{-2g^2|\alpha|^2 - \frac{\gamma^2}{4}-\Delta\omega^2}{\frac{\gamma^2}{4} +\Delta\omega^2}}
+\end{align}
+putting the above together yields
+\begin{align}
+	\beta &= \frac{ig\alpha\zeta}{\frac{\gamma}{2}-i\Delta\omega}\\
+	&= \frac{ig\alpha}{\frac{(-2g^2|\alpha|^2-\frac{\gamma^2}{4}-\Delta\omega^2)(\frac{\gamma}{2}-i\Delta\omega)}{\frac{\gamma^2}{4}+\Delta\omega^2}}\\
+	&= \frac{ig\alpha}{\frac{-2g^2|\alpha|^2-\frac{\gamma^2}{4}-\Delta\omega^2}{\frac{\gamma}{2}+i\Delta\omega^2}}\\
+	&= \frac{ig\alpha(\frac{\gamma}{2}+i\Delta\omega)}{-2g^2|\alpha|^2-\frac{\gamma^2}{4}-\Delta\omega^2} \label{eq:betasolved}
+\end{align}
+\cref{eq:alphase} in the steady state with  \cref{eq:betasolved} becomes a condition for $\alpha$
+\begin{align}
+0 &= -(\kappa -i\Delta\omega)\alpha-ig\beta -i\Epsilon\\
+0 &= -(\kappa -i\Delta\omega)\lapha-g\frac{ig(\frac{\gamma}{2}+i\Delta\omega)}{-2g^2|\alpha|^2-\frac{\gamma^2}{4}-\Delta\omega^2}\alpha-i\Epsilon \\
+\implies \alpha &= -i\Epsilon \frac{1}{\kappa-i\Delta\omega+\frac{g^2(\frac{\gamma}{2}+i\Delta\omega)}{\frac{\gamma^2}{4}+\Delta\omega^2+2g|\alpha|^2}}\label{eq:alphadetdiss}
+\end{align}
+Setting $\gamma$ and $\Delta\omega$ to zero, the condition becomes
 \begin{equation}
-	\alpha = -i \Epsilon \left [ \kappa - i \Delta \omega + \frac{g^2(\frac{\gamma}{2} +i \Delta \omega)}{\frac{\gamma^2}{4} + \Delta \omega^2 + 2 g^2 |\alpha|^2} \right ]^{-1}
+	\alpha = -i\Epsilon\frac{1}{\kappa}
 \end{equation}
-which is the classical solution for the steady state of a saturable two level transition, with a saturation photon number ($I \propto |\alpha|^2 \approx n_{sat}$) of $n_{sat} = \frac{\gamma^2}{8g^2}$. He takes $n_{sat} \rightarrow \infty$ as a definition of a "Thermodynamic limit"
+which is notably not the same as \cref{eq:alphacondnotdet}, since the system in the presence of dissipation comes to steady state in the interior of the bloch sphere
+
+\Cref{eq:alphadetdiss} is the classical solution for the steady state of a saturable two level transition, with a saturation photon number ($I \propto |\alpha|^2 \approx n_{sat}$) of $n_{sat} = \frac{\gamma^2}{8g^2}$. He takes $n_{sat} \rightarrow \infty$ as a definition of a "Thermodynamic limit"

@@ -65,9 +65,9 @@ def solve_jc_system(E, det, tlist, psi0, g = 0.5, kappa = 0.1, gamma = 0.1):
 	# project_excited = excited*excited.dag()
 
 	out = mesolve(H, psi0, tlist, c_ops, [sx, sy, sz])
-	return out.expect[0], out.expect[1], out.expect[2]
+	return out#.expect[0], out.expect[1], out.expect[2]
 
-def solve_jc_system_with_detunings(E, w0, wl, wc, tlist, psi0, g = 25j, kappa = 0.5, gamma = 0.5):
+def solve_jc_system_with_detunings(E, w0, wl, wc, tlist, psi0, g = 25, kappa = 0.5, gamma = 0.5):
 
 	# Identities
 	idcavity = qeye(2)
@@ -103,35 +103,34 @@ def solve_jc_system_with_detunings(E, w0, wl, wc, tlist, psi0, g = 25j, kappa = 
 	out = mesolve(H, psi0, tlist, c_ops, e_ops)
 	return out.expect[0], out.expect[1], out.expect[2]
 
-##INITIALIZATIONS##
-# Qubit Decay
+# ##INITIALIZATIONS##
+# # Qubit Decay
 # w = 1.0 * 2 * pi # qubit angular frequency
 # theta = 0.2 * pi
 # gamma1 = 0.5
 # gamma2 = 0.2
 # # initial state
 # a = 1.0
-# # psi0 = (a* basis(2,0) + (1-a)*basis(2,1))/(sqrt(a**2 + (1-a)**2))
+# psi0 = (a* basis(2,0) + (1-a)*basis(2,1))/(sqrt(a**2 + (1-a)**2))
 
-#Jaynes-Cummings
-E = 0
-det = 0.0
+# Jaynes-Cummings
+E = 100
+# det = 0.0
 # initial state
 ground = tensor(basis(2, 0), basis(2, 1))
 excited = tensor(basis(2, 0), basis(2, 0))
-psi0 = excited
-
+psi0 = ((20*excited+ground).unit()).ptrace(1)
 #lists of t for solutions
 tlist = linspace(0,3,300)
 
-#expectation values of states for ploting
+#Expectation values of states for ploting
 # sx, sy, sz = solve_jc_system(E, det, tlist, psi0, 25, 0.5)
 # sx, sy, sz = qubit_integrate(w, theta, gamma1, gamma2, psi0, tlist)
 sx, sy, sz = solve_jc_system_with_detunings(E, 1, 1, 1, tlist, psi0, 25j, 0, 0)
 
 # ANIMATION CODE
 fig = figure()
-ax = Axes3D(fig,azim=40,elev=30)
+ax = Axes3D(fig,azim=-40,elev=30)
 sphere = Bloch(axes=ax)
 
 def animate(i):
