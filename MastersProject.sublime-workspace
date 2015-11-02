@@ -136,10 +136,10 @@
 	"buffers":
 	[
 		{
-			"contents": "Remote:   origin @ https://github.com/fergusbarratt/masters-project.git\nLocal:    master ~/Dropbox/University/Masters project\nHead:     e9347a2 Bloch sphere has jaynes-cummings thing on it that doesn't work quite right plotqpseries doesn't qork quite right, fixed typo\n\n\nChanges:\n	Modified   MastersProject.sublime-workspace\n	Modified   Python/BlochAnimationJC.py\n	Modified   Python/bloch_sphere.mp4\n\n\n# Movement:\n#    r = refresh status\n#    1-5 = jump to section\n#    n = next item, N = next section\n#    p = previous item, P = previous section\n#\n# Staging:\n#    s = stage file/section, S = stage all unstaged files\n#    ctrl+shift+s = stage all unstaged and untracked files\n#    u = unstage file/section, U = unstage all files\n#    backspace = discard file/section, shift+backspace = discard everything\n#\n# Commit:\n#    c = commit, C = commit -a (add unstaged)\n#    ctrl+shift+c = commit --amend (amend previous commit)\n#\n# Other:\n#    i = ignore file, I = ignore pattern\n#    enter = open file\n#    d = view diff\n#\n# Stashes:\n#    a = apply stash, A = pop stash\n#    z = create stash, Z = create stash including untracked files\n#    backspace = discard stash",
+			"contents": "Remote:   origin @ https://github.com/fergusbarratt/masters-project.git\nLocal:    master ~/Dropbox/University/Masters project\nHead:     888ab69 fixed bloch animation stuff\n\n\nNothing to commit (working directory clean)\n\n# Movement:\n#    r = refresh status\n#    1-5 = jump to section\n#    n = next item, N = next section\n#    p = previous item, P = previous section\n#\n# Staging:\n#    s = stage file/section, S = stage all unstaged files\n#    ctrl+shift+s = stage all unstaged and untracked files\n#    u = unstage file/section, U = unstage all files\n#    backspace = discard file/section, shift+backspace = discard everything\n#\n# Commit:\n#    c = commit, C = commit -a (add unstaged)\n#    ctrl+shift+c = commit --amend (amend previous commit)\n#\n# Other:\n#    i = ignore file, I = ignore pattern\n#    enter = open file\n#    d = view diff\n#\n# Stashes:\n#    a = apply stash, A = pop stash\n#    z = create stash, Z = create stash including untracked files\n#    backspace = discard stash",
 			"settings":
 			{
-				"buffer_size": 1162,
+				"buffer_size": 979,
 				"line_ending": "Unix",
 				"name": "*git-status*: Masters project",
 				"read_only": true,
@@ -147,21 +147,10 @@
 			}
 		},
 		{
-			"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
+			"file": "Mathematica/NeoclassicalDecay.m",
 			"settings":
 			{
-				"buffer_size": 16513,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "# Builds and saves an animation of the bloch sphere for a two level, solutions of problems defined in functions in the first part\nfrom qutip import *\nfrom pylab import *\nfrom scipy import *\nimport numpy as np\nimport matplotlib.animation as animation\nfrom mpl_toolkits.mplot3d import Axes3D\n\n##PROBLEMS, return SX, SY, SZ expectations\ndef qubit_integrate(w, theta, gamma1, gamma2, psi0, tlist):\n    # operators and the hamiltonian\n	sx = sigmax(); sy = sigmay(); sz = sigmaz(); sm = sigmam()\n	H = w * (cos(theta) * sz + sin(theta) * sx)\n	# collapse operators\n	c_op_list = []\n	n_th = 0.5 # temperature\n	rate = gamma1 * (n_th + 1)\n	if rate > 0.0: c_op_list.append(sqrt(rate) * sm)\n	rate = gamma1 * n_th\n	if rate > 0.0: c_op_list.append(sqrt(rate) * sm.dag())\n	rate = gamma2\n	if rate > 0.0: c_op_list.append(sqrt(rate) * sz)\n    # evolve and calculate expectation values\n	output = mesolve(H, psi0, tlist, c_op_list, [sx, sy, sz])\n	return output.expect[0], output.expect[1], output.expect[2]\n\ndef solve_jc_system(E, det, tlist, psi0, g = 0.5, kappa = 0.1, gamma = 0.1):\n\n	# Identities\n	idcavity = qeye(2)\n	idqubit = qeye(2)\n\n	# Cavity field and atomic operators\n	a = tensor(destroy(2), idqubit)\n	sm = tensor(idcavity, sigmam())\n\n	# Hamiltonian components\n	# Bare + int\n\n	H0 = -det*(sm.dag() * sm + a.dag() * a ) + g * ( sm.dag() * a + sm*a.dag() )\n	# Drive\n	H1 = E * ( a + a.dag() )\n\n	H = H0+H1\n\n	# Collapse operators\n	c_ops = []\n	c1 = np.sqrt(2*kappa)*a\n	c2 = np.sqrt(gamma)*sm\n	# more operators go here - remember to append them to c_ops\n	c_ops.append(c1)\n	c_ops.append(c2)\n\n	# Expectation operators\n	e_ops = []\n	sx = tensor(idcavity, sigmax())\n	sy = tensor(idcavity, sigmay())\n	sz = tensor(idcavity, sigmaz())\n	e_ops.append(sx)\n	e_ops.append(sy)\n	e_ops.append(sz)\n	# ground = tensor(basis(2, 0), basis(2, 1))\n	# excited = tensor(basis(2, 0), basis(2, 0))\n	# project_ground = ground*ground.dag()\n	# project_excited = excited*excited.dag()\n\n	out = mesolve(H, psi0, tlist, c_ops, [sx, sy, sz])\n	return out#.expect[0], out.expect[1], out.expect[2]\n\ndef solve_jc_system_with_detunings(E, w0, wl, wc, tlist, psi0, g = 25, kappa = 0.5, gamma = 0.5):\n\n	# Identities\n	idcavity = qeye(2)\n	idqubit = qeye(2)\n\n	# Cavity field and atomic operators\n	a = tensor(destroy(2), idqubit)\n	sm = tensor(idcavity, sigmam())\n\n	H = (w0-wl)*sm*sm.dag() + (wc-wl)*a.dag()*a + g*(a.dag()*sm - sm.dag()*a) + E*(a.dag()+a)\n\n	# Collapse operators\n	c_ops = []\n	c1 = np.sqrt(2*kappa)*a\n	c2 = np.sqrt(gamma)*sm\n	# more operators go here - remember to append them to c_ops\n	c_ops.append(c1)\n	c_ops.append(c2)\n\n	# Expectation operators\n	e_ops = []\n	sx = tensor(idcavity, sigmax())\n	sy = tensor(idcavity, sigmay())\n	sz = tensor(idcavity, sigmaz())\n	e_ops.append(sx)\n	e_ops.append(sy)\n	e_ops.append(sz)\n	# ground = tensor(basis(2, 0), basis(2, 1))\n	# excited = tensor(basis(2, 0), basis(2, 0))\n	# project_ground = ground*ground.dag()\n	# project_excited = excited*excited.dag()\n\n	out = mesolve(H, psi0, tlist, c_ops, e_ops)\n	return out.expect[0], out.expect[1], out.expect[2]\n\n# ##INITIALIZATIONS##\n# # Qubit Decay\n# w = 1.0 * 2 * pi # qubit angular frequency\n# theta = 0.2 * pi\n# gamma1 = 0.5\n# gamma2 = 0.2\n# # initial state\n# a = 1.0\n# psi0 = (a* basis(2,0) + (1-a)*basis(2,1))/(sqrt(a**2 + (1-a)**2))\n\n# # Jaynes-Cummings\n# E = 100\n# # det = 0.0\n# # initial state\n# ground = tensor(basis(2, 0), basis(2, 1))\n# excited = tensor(basis(2, 0), basis(2, 0))\n# psi0 = ((20*excited+ground).unit()).ptrace(1)\n# #lists of t for solutions\n# tlist = linspace(0,3,300)\n\n# #Expectation values of states for ploting\n# # sx, sy, sz = solve_jc_system(E, det, tlist, psi0, 25, 0.5)\n# # sx, sy, sz = qubit_integrate(w, theta, gamma1, gamma2, psi0, tlist)\n# sx, sy, sz = solve_jc_system_with_detunings(E, 1, 1, 1, tlist, psi0, 25j, 0, 0)\n\n# # ANIMATION CODE\n# fig = figure()\n# ax = Axes3D(fig,azim=-40,elev=30)\n# sphere = Bloch(axes=ax)\n\n# def animate(i):\n# 	sphere.clear()\n# 	# sphere.add_vectors([-1,0,0])\n# 	sphere.add_vectors([sx[i], sy[i], sz[i]])\n# 	sphere.make_sphere()\n# 	return ax\n\n# def init():\n# 	sphere.vector_color = ['r']\n# 	return ax\n\n# ani = animation.FuncAnimation(fig, animate, np.arange(len(sz)),\n#                             init_func=init, blit=True, repeat=False)\n# ani.save('bloch_sphere.mp4', fps=20)\n",
-			"file": "Python/BlochAnimationJC.py",
-			"file_size": 4211,
-			"file_write_time": 130907670180000000,
-			"settings":
-			{
-				"buffer_size": 4269,
+				"buffer_size": 3161,
 				"line_ending": "Unix"
 			}
 		},
@@ -219,10 +208,18 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 400.0,
-		"last_filter": "Snippet: ",
+		"height": 291.0,
+		"last_filter": "install ",
 		"selected_items":
 		[
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
 			[
 				"Snippet: ",
 				"Snippet: Page"
@@ -270,10 +267,6 @@
 			[
 				"git sts",
 				"Git: Status"
-			],
-			[
-				"git push",
-				"Git: Push"
 			],
 			[
 				"status",
@@ -326,10 +319,6 @@
 			[
 				"pytho",
 				"SublimeREPL: Python - IPython"
-			],
-			[
-				"install ",
-				"Package Control: Install Package"
 			],
 			[
 				"package rev",
@@ -448,7 +437,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 475.0
+		"width": 449.0
 	},
 	"console":
 	{
@@ -469,17 +458,16 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Python"
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica"
 	],
 	"file_history":
 	[
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/bloch_sphere.mp4",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/TheMasterEquation.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimationJC.py",
-		"/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/qutip/bloch.py",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/CarmichaelPaperSummary.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/bloch_sphere.mp4",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/TheMasterEquation.tex",
+		"/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/qutip/bloch.py",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/PlotQPSeries.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/rhoss.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/iphnumvals.m",
@@ -662,7 +650,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -670,15 +658,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1162,
+						"buffer_size": 979,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								573,
-								573
+								164,
+								164
 							]
 						],
 						"settings":
@@ -697,65 +685,35 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
-					"semi_transient": false,
+					"file": "Mathematica/NeoclassicalDecay.m",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 16513,
+						"buffer_size": 3161,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10202,
-								10476
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Matlab/Matlab.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2851.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Python/BlochAnimationJC.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4269,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3283,
-								3283
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 583.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -765,7 +723,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 3,
+					"buffer": 2,
 					"semi_transient": false,
 					"settings":
 					{
@@ -818,10 +776,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6460.0,
+						"translation.y": 6594.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -855,7 +813,7 @@
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.591711691978,
 			1.0
 		],
 		"rows":
@@ -888,6 +846,10 @@
 	"output.git-remote":
 	{
 		"height": 98.0
+	},
+	"output.markdown":
+	{
+		"height": 144.0
 	},
 	"pinned_build_system": "",
 	"project": "MastersProject.sublime-project",
@@ -927,7 +889,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},

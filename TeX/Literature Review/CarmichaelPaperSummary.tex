@@ -149,19 +149,19 @@ The expression for $\alpha$ is a Lorentzian, in which is obvious a nonlinear dis
 	\begin{minipage}{.3\linewidth}
 		\centering
 		\includegraphics[width=1\textwidth]{Images/HighResCarmichaelPlot.png}
-		\subcaption{From density matrix calculations: IC photon number expectation, g = 25, \kappa = 0.5}
+		\subcaption{From density matrix calculations: IC photon number expectation, g = 25, $\kappa = 0.5$}
 		\label{fig:densp}
 	\end{minipage}%
 	\begin{minipage}{.3\linewidth}
 		\centering
 		\includegraphics[width=0.8\textwidth]{Images/MeanFieldPhotonNumber.png}
-		\subcaption{From meanfield calculations: IC photon number $n \approx |\alpha|^2$, g = 25, \kappa = 0.5}
+		\subcaption{From meanfield calculations: IC photon number $n \approx |\alpha|^2$, g = 25, $\kappa$ = 0.5}
 		\label{fig:meanfieldp}
 	\end{minipage}%
 	\begin{minipage}{.3\linewidth}
 		\centering
 		\includegraphics[width=1\textwidth]{Images/Q-Bifurcation.png}
-		\subcaption{Bifurcation in the Q function for E from 0 to 1, g = 0.5, \kappa = 0.01, $\Delta \omega$ = 1. From quantum results}
+		\subcaption{Bifurcation in the Q function for E from 0 to 1, g = 0.5,$ \kappa = 0.01$, $\Delta \omega$ = 1. From quantum results}
 		\label{fig:Qbirfc}
 	\end{minipage}
 	\caption{Surface plot of expected intracavity photon number in drive-detuning space}
@@ -221,9 +221,11 @@ putting the above together yields
 \end{align}
 \cref{eq:alphase} in the steady state with  \cref{eq:betasolved} becomes a condition for $\alpha$
 \begin{align}
-0 &= -(\kappa -i\Delta\omega)\alpha-ig\beta -i\Epsilon\\
+0 &= -(\kappa -i\Delta\omega)\alpha-ig\beta -i\Epsilon \\
 0 &= -(\kappa -i\Delta\omega)\lapha-g\frac{ig(\frac{\gamma}{2}+i\Delta\omega)}{-2g^2|\alpha|^2-\frac{\gamma^2}{4}-\Delta\omega^2}\alpha-i\Epsilon \\
-\implies \alpha &= -i\Epsilon \frac{1}{\kappa-i\Delta\omega+\frac{g^2(\frac{\gamma}{2}+i\Delta\omega)}{\frac{\gamma^2}{4}+\Delta\omega^2+2g|\alpha|^2}}\label{eq:alphadetdiss}
+\implies \alpha &= -i\Epsilon \frac{1}{\kappa-i\Delta\omega+\frac{g^2(\frac{\gamma}{2}+i\Delta\omega)}{\frac{\gamma^2}{4}+
+\Delta\omega^2+2g|\alpha|^2}}
+\label{eq:alphadetdiss}
 \end{align}
 Setting $\gamma$ and $\Delta\omega$ to zero, the condition becomes
 \begin{equation}

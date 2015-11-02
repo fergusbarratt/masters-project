@@ -28,7 +28,7 @@ which, when differentiated with respect to time yields the \emph{Liouville-Von N
 \end{equation}
 Non-unitary dynamics of open systems result from partitioning a larger, unitarily evolved system into system and environment, and performing a partial trace over the environment degrees of freedom.
 
-We start with the Hamiltonian for a closed, mixed quantum system, potentially time dependent, and partition it into components representing: a subsystem constituting the totality of the interesting dynamics: the \emph{system}, a subsystem representing the dynamics of the remaining subsystem the \emph{environment} or \emph{reservoir}, and a component representing the interaction between system and environment (there is an associated partitioning of the Hilbert space into the tensor product of system and environment Hilbert spaces, and in the equation below it is understood that operators with the subscript S operate only on the system degrees of freedom i.e. exist in the system Hilbert space and represent identity in the environment Hilbert space, and etc.)
+We start with the Hamiltonian for a closed, potentially mixed, potentially time dependent quantum system and partition it into components representing: a subsystem constituting the totality of the interesting dynamics: the \emph{system}, a subsystem representing the dynamics of the remaining subsystem the \emph{environment} or \emph{reservoir}, and a component representing the interaction between system and environment (there is an associated partitioning of the Hilbert space into the tensor product of system and environment Hilbert spaces, and in the equation below it is understood that operators with the subscript S operate only on the system degrees of freedom i.e. exist in the system Hilbert space and represent identity in the environment Hilbert space, and etc.)
 \begin{equation}
 	\ham = \ham_S +\ham_R + \ham_I
 \end{equation}
@@ -38,10 +38,20 @@ Starting from \cref{eq:timeprop} and tracing over the environment
 \begin{equation}
 	\dens_S (t) = tr_E \{U(t, 0) \dens_S (0) U^\dagger (t, 0) \}
 \end{equation}
-with $\dens_S = tr_E\{\dens\}$ we arrive at the most general form for the Liouville-Von Neumann equation for the \emph{reduced} system, also known as the reduced master equation
+with $\dens_S = tr_E\{\dens\}$ we arrive at the most general form for evolution of the \emph{reduced} system, also known as the reduced master equation
 \begin{equation}
 	\frac{d}{dt} \rho_S (t) = -itr_E\{[\ham(t), \dens(t)]\}
 \end{equation}
+We transform into an interaction picture moving with the system and reservoir hamiltonians and let the states proceed with the interaction part
+\begin{equation}
+	\dens_S^{int} = e^{\frac{i\ham_R+\ham_R}{\hbar}t}\dens_se^{-\frac{i\ham_R+\ham_R}{\hbar}t}
+	\label{eq:densintdef}
+\end{equation}
+evolving as
+\begin{equation}
+	\frac{d}{dt}\dens_S^{int} = \frac{1}{i\hbar}\left[\ham_{I}, \dens_s^{int}\right]
+\end{equation}
+where $\ham_I^{int}$ has a now explicit time dependence
 \subsection{Markov Processes}
 Classical Markov processes are characterised by the invocation of the so-called semigroup property of the Chapman-Kolmogorov equation. The Markov transition probabilities $T(x, t|x', t')$ form a one parameter semigroup in t, because of the composition property $T(x, t|x, t')T(x, t'|x, t") = T(x, t|,x, t")$ which results from the conditions that memorylessness puts on their form. This memorylessness is also responsible for this being a \emph{semi}group, since there does not in general exist an inverse for each element - there exist irreversible Markov processes.
 %This semigroup is in fact a "contracting" semigroup, in that the norm of a propagated probability is less than or equal to the probability.
