@@ -2,16 +2,10 @@
 	"folders":
 	[
 		{
-			"path": "Matlab"
+			"path": "."
 		},
 		{
-			"path": "Mathematica"
-		},
-		{
-			"path": "TeX"
-		},
-		{
-			"path": "Python"
+			"path": "/Users/fergusbarratt/Dropbox/University/4th year project Fergus"
 		}
 	]
 }
