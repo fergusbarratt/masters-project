@@ -136,10 +136,10 @@
 	"buffers":
 	[
 		{
-			"contents": "Remote:   origin @ https://github.com/fergusbarratt/masters-project.git\nLocal:    master ~/Dropbox/University/Masters project\nHead:     888ab69 fixed bloch animation stuff\n\n\nNothing to commit (working directory clean)\n\n# Movement:\n#    r = refresh status\n#    1-5 = jump to section\n#    n = next item, N = next section\n#    p = previous item, P = previous section\n#\n# Staging:\n#    s = stage file/section, S = stage all unstaged files\n#    ctrl+shift+s = stage all unstaged and untracked files\n#    u = unstage file/section, U = unstage all files\n#    backspace = discard file/section, shift+backspace = discard everything\n#\n# Commit:\n#    c = commit, C = commit -a (add unstaged)\n#    ctrl+shift+c = commit --amend (amend previous commit)\n#\n# Other:\n#    i = ignore file, I = ignore pattern\n#    enter = open file\n#    d = view diff\n#\n# Stashes:\n#    a = apply stash, A = pop stash\n#    z = create stash, Z = create stash including untracked files\n#    backspace = discard stash",
+			"contents": "Remote:   origin @ https://github.com/fergusbarratt/masters-project.git\nLocal:    master ~/Dropbox/University/Masters project\nHead:     b14fa60 some Density operator stuff following carmichael\n\n\nStaged changes:\n	Modified   MastersProject.sublime-workspace\n\n\n# Movement:\n#    r = refresh status\n#    1-5 = jump to section\n#    n = next item, N = next section\n#    p = previous item, P = previous section\n#\n# Staging:\n#    s = stage file/section, S = stage all unstaged files\n#    ctrl+shift+s = stage all unstaged and untracked files\n#    u = unstage file/section, U = unstage all files\n#    backspace = discard file/section, shift+backspace = discard everything\n#\n# Commit:\n#    c = commit, C = commit -a (add unstaged)\n#    ctrl+shift+c = commit --amend (amend previous commit)\n#\n# Other:\n#    i = ignore file, I = ignore pattern\n#    enter = open file\n#    d = view diff\n#\n# Stashes:\n#    a = apply stash, A = pop stash\n#    z = create stash, Z = create stash including untracked files\n#    backspace = discard stash",
 			"settings":
 			{
-				"buffer_size": 979,
+				"buffer_size": 1018,
 				"line_ending": "Unix",
 				"name": "*git-status*: Masters project",
 				"read_only": true,
@@ -147,21 +147,19 @@
 			}
 		},
 		{
-			"file": "Mathematica/NeoclassicalDecay.m",
+			"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
 			"settings":
 			{
-				"buffer_size": 3161,
+				"buffer_size": 16524,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "Python 2.7.10 (default, Oct 28 2015, 18:51:49) \n[GCC 4.2.1 Compatible Apple LLVM 7.0.0 (clang-700.1.76)] on darwin\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n>>> /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/matplotlib/collections.py:590: FutureWarning: elementwise comparison failed; returning scalar instead, but in the future will perform elementwise comparison\n  if self._edgecolors == str('face'):\n>>> sx\n>>> psi0\n>>> array([ 0.09975062,  0.09662895,  0.08745931,  0.07281564,  0.05361446,\n        0.03105759,  0.00655683, -0.01835432, -0.04211668, -0.06324298,\n       -0.08041092, -0.09254598, -0.09888863, -0.09904189, -0.09299616,\n       -0.08112984, -0.06418563, -0.04322408, -0.01955716,  0.00533384,\n        0.029891  ,  0.0525773 ,  0.0719728 ,  0.08686356,  0.09631757,\n        0.0997431 ,  0.09692576,  0.08804188,  0.07364749,  0.05464354,\n        0.03221948,  0.00777882, -0.01714872, -0.04100293, -0.06229078,\n       -0.07967988, -0.09208185, -0.09872046, -0.0991802 , -0.0934323 ,\n       -0.08183651, -0.06511861, -0.04432496, -0.02075704,  0.00411006,\n        0.02871991,  0.0515322 ,  0.0711191 ,  0.0862547 ,  0.09599165,\n        0.09972053,  0.09720794,  0.08861116,  0.07446824,  0.05566438,\n        0.03337652,  0.00899964, -0.01594053, -0.03988299, -0.06132919,\n       -0.07893682, -0.09160383, -0.0985374 , -0.09930356, -0.09385435,\n       -0.08253084, -0.06604176, -0.04541916, -0.02195379,  0.00288565,\n        0.02754449,  0.05047932,  0.07025468,  0.08563283,  0.09565126,\n        0.09968292,  0.09747547,  0.08916707,  0.07527775,  0.05667682,\n        0.03452852,  0.0102191 , -0.01472994, -0.03875703, -0.06035834,\n       -0.07818185, -0.09111199, -0.09833947, -0.09941193, -0.09426224,\n       -0.08321272, -0.06695495, -0.0465065 , -0.02314723,  0.00166081,\n        0.02636491,  0.04941883,  0.06937966,  0.08499804,  0.09529643,\n        0.09963026,  0.09772828,  0.08970953,  0.0760759 ,  0.05768071,\n        0.03567532,  0.01143702, -0.01351712, -0.03762523, -0.05937839,\n       -0.07741508, -0.0906064 , -0.0981267 , -0.0995053 , -0.09465591,\n       -0.08388204, -0.06785804, -0.04758683, -0.02433718,  0.00043572,\n        0.02518135,  0.04835089,  0.06849417,  0.08435043,  0.09492723,\n        0.09956258,  0.09796636,  0.09023846,  0.07686258,  0.0586759 ,\n        0.03681673,  0.01265321, -0.01230227, -0.03648775, -0.05838948,\n       -0.07663664, -0.09008715, -0.09789914, -0.09958367, -0.0950353 ,\n       -0.08453871, -0.06875089, -0.04865998, -0.02552346, -0.00078944,\n        0.023994  ,  0.04727565,  0.06759835,  0.08369009,  0.09454371,\n        0.09947988,  0.09818965,  0.09075378,  0.07763766,  0.05966224,\n        0.03795258,  0.01386749, -0.01108556, -0.03534477, -0.05739176,\n       -0.07584664, -0.0895543 , -0.0976568 , -0.09964701, -0.09540035,\n       -0.08518263, -0.06963337, -0.04972578, -0.02670588, -0.00201447,\n        0.02280302,  0.04619328,  0.06669233,  0.08301713,  0.09414593,\n        0.09938218,  0.09839814,  0.0912554 ,  0.07840103,  0.06063958,\n        0.03908272,  0.01507969, -0.00986717, -0.03419645, -0.05638539,\n       -0.07504519, -0.08900795, -0.09739974, -0.09969532, -0.09575102,\n       -0.0858137 , -0.07050534, -0.05078409, -0.02788428, -0.00323921,\n        0.02160861,  0.04510395,  0.06577625,  0.08233165,  0.09373395,\n        0.09926948,  0.09859178,  0.09174326,  0.07915258,  0.06160777,\n        0.04020695,  0.01628961, -0.0086473 , -0.03304298, -0.05537051,\n       -0.07423242, -0.08844817, -0.09712798, -0.09972859, -0.09608724,\n       -0.08643183, -0.07136668, -0.05183474, -0.02905847, -0.00446345,\n        0.02041093,  0.0440078 ,  0.06485025,  0.08163375,  0.09330782,\n        0.09914181,  0.09877055,  0.09221728,  0.07989218,  0.06256666,\n        0.04132513,  0.01749707, -0.00742612, -0.03188452, -0.05434728,\n       -0.07340846, -0.08787504, -0.09684156, -0.09974682, -0.09640896,\n       -0.08703691, -0.07221726, -0.05287756, -0.03022828, -0.00568703,\n        0.01921018,  0.04290502,  0.06391446,  0.08092353,  0.09286762,\n        0.09899918,  0.09893441,  0.09267739,  0.08061973,  0.06351612,\n        0.04243706,  0.01870189, -0.00620383, -0.03072125, -0.05331584,\n       -0.07257342, -0.08728866, -0.09654054, -0.09975   , -0.09671614,\n       -0.08762887, -0.07305694, -0.05391241, -0.03139353, -0.00690974,\n        0.01800653,  0.04179577,  0.06296904,  0.0802011 ,  0.09241341,\n        0.09884161,  0.09908336,  0.09312352,  0.08133512,  0.064456  ,\n        0.0435426 ,  0.01990389, -0.0049806 , -0.02955335, -0.05227637,\n       -0.07172744, -0.08668911, -0.09622496, -0.09973813, -0.09700873,\n       -0.0882076 , -0.0738856 , -0.05493913, -0.03255404, -0.00813141,\n        0.01680016,  0.04068021,  0.06201411,  0.07946658,  0.09194526])\n>>> Quantum object: dims = [[2, 2], [1, 1]], shape = [4, 1], type = ket\nQobj data =\n[[ 0.99875234]\n [ 0.04993762]\n [ 0.        ]\n [ 0.        ]]\n>>> psi0.ptrace(1)\nQuantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isherm = True\nQobj data =\n[[ 0.99750623  0.04987531]\n [ 0.04987531  0.00249377]]\n>>> psi0.ptrace(2)\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/qutip/qobj.py\", line 1041, in ptrace\n    q.data, q.dims, _ = _ptrace(self, sel)\n  File \"/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/qutip/ptrace.py\", line 52, in _ptrace\n    raise TypeError(\"Invalid selection index in ptrace.\")\nTypeError: Invalid selection index in ptrace.\n>>> psi0.ptrace(0)\nQuantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isherm = True\nQobj data =\n[[ 1.  0.]\n [ 0.  0.]]\n>>> out\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nNameError: name 'out' is not defined\n>>> out = solve_jc_system(1, 0, linspace(0, 1 ,5), psi0, )\n>>> out\n(array([ 0.09975062,  0.12681257,  0.19850214,  0.29121975,  0.37977357]), array([ 0.,  0.,  0.,  0.,  0.]), array([ 0.99501247,  0.91345784,  0.78334117,  0.63678546,  0.50770756]))\n>>> out.states\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nAttributeError: 'tuple' object has no attribute 'states'\n>>> out.state()\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nAttributeError: 'tuple' object has no attribute 'state'\n>>> out.states()\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nAttributeError: 'tuple' object has no attribute 'states'\n>>> out\n(array([ 0.09975062,  0.12681257,  0.19850214,  0.29121975,  0.37977357]), array([ 0.,  0.,  0.,  0.,  0.]), array([ 0.99501247,  0.91345784,  0.78334117,  0.63678546,  0.50770756]))\n>>> >>> out.states()\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nAttributeError: 'tuple' object has no attribute 'states'\n>>> out = solve_jc_system(1, 0, linspace(0, 1 ,5), psi0, )\n>>> out = solve_jc_system(1, 0, linspace(0, 1 ,5), psi0)\n>>> out\nResult object with mesolve data.\n--------------------------------\nexpect = True\nnum_expect = 3, num_collapse = 0\n>>> out.states()\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nTypeError: 'list' object is not callable\n>>> out.states\n[]\n>>> out.state\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nAttributeError: Result instance has no attribute 'state'\n>>> out.states\n[]\n>>> out.expect[1]\narray([ 0.,  0.,  0.,  0.,  0.])\n>>> out.expect[3]\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nIndexError: list index out of range\n>>> out.expect[0]\narray([ 0.09975062,  0.12681257,  0.19850214,  0.29121975,  0.37977357])\n>>> out\nResult object with mesolve data.\n--------------------------------\nexpect = True\nnum_expect = 3, num_collapse = 0\n>>> out.expect[2]\narray([ 0.99501247,  0.91345784,  0.78334117,  0.63678546,  0.50770756])\n>>> out = solve_jc_system(1, 0, linspace(0, 3, 300), psi0)\n>>> out\nResult object with mesolve data.\n--------------------------------\nexpect = True\nnum_expect = 3, num_collapse = 0\n>>> out.states()\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nTypeError: 'list' object is not callable\n>>> out.states\n[]\n>>> psi0\nQuantum object: dims = [[2, 2], [1, 1]], shape = [4, 1], type = ket\nQobj data =\n[[ 0.99875234]\n [ 0.04993762]\n [ 0.        ]\n [ 0.        ]]\n>>> excited\nQuantum object: dims = [[2, 2], [1, 1]], shape = [4, 1], type = ket\nQobj data =\n[[ 1.]\n [ 0.]\n [ 0.]\n [ 0.]]\n>>> out = solve_jc_system(1, 0, linspace(0, 3, 300), excited)\n>>> out\nResult object with mesolve data.\n--------------------------------\nexpect = True\nnum_expect = 3, num_collapse = 0\n>>> out.states\n[]\n>>> out.expect[0]\narray([  0.00000000e+00,   5.02405239e-05,   2.00570508e-04,\n         4.50373698e-04,   7.98994159e-04,   1.24573322e-03,\n         1.78985443e-03,   2.43058291e-03,   3.16710516e-03,\n         3.99857099e-03,   4.92409297e-03,   5.94274743e-03,\n         7.05357628e-03,   8.25558492e-03,   9.54774611e-03,\n         1.09289988e-02,   1.23982489e-02,   1.39543705e-02,\n         1.55962067e-02,   1.73225699e-02,   1.91322429e-02,\n         2.10239790e-02,   2.29965035e-02,   2.50485139e-02,\n         2.71786808e-02,   2.93856494e-02,   3.16680396e-02,\n         3.40244466e-02,   3.64534421e-02,   3.89535752e-02,\n         4.15233725e-02,   4.41613397e-02,   4.68659618e-02,\n         4.96357046e-02,   5.24690150e-02,   5.53643216e-02,\n         5.83200363e-02,   6.13345547e-02,   6.44062569e-02,\n         6.75335081e-02,   7.07146599e-02,   7.39480508e-02,\n         7.72320068e-02,   8.05648429e-02,   8.39448636e-02,\n         8.73703638e-02,   9.08396293e-02,   9.43509380e-02,\n         9.79025604e-02,   1.01492761e-01,   1.05119797e-01,\n         1.08781924e-01,   1.12477390e-01,   1.16204442e-01,\n         1.19961324e-01,   1.23746280e-01,   1.27557549e-01,\n         1.31393375e-01,   1.35252000e-01,   1.39131667e-01,\n         1.43030622e-01,   1.46947114e-01,   1.50879397e-01,\n         1.54825727e-01,   1.58784368e-01,   1.62753588e-01,\n         1.66731662e-01,   1.70716873e-01,   1.74707512e-01,\n         1.78701879e-01,   1.82698282e-01,   1.86695040e-01,\n         1.90690485e-01,   1.94682956e-01,   1.98670809e-01,\n         2.02652409e-01,   2.06626136e-01,   2.10590384e-01,\n         2.14543561e-01,   2.18484091e-01,   2.22410414e-01,\n         2.26320984e-01,   2.30214275e-01,   2.34088776e-01,\n         2.37942996e-01,   2.41775461e-01,   2.45584717e-01,\n         2.49369328e-01,   2.53127881e-01,   2.56858980e-01,\n         2.60561252e-01,   2.64233345e-01,   2.67873929e-01,\n         2.71481695e-01,   2.75055359e-01,   2.78593658e-01,\n         2.82095353e-01,   2.85559230e-01,   2.88984096e-01,\n         2.92368787e-01,   2.95712161e-01,   2.99013101e-01,\n         3.02270517e-01,   3.05483343e-01,   3.08650541e-01,\n         3.11771097e-01,   3.14844026e-01,   3.17868368e-01,\n         3.20843191e-01,   3.23767591e-01,   3.26640688e-01,\n         3.29461633e-01,   3.32229603e-01,   3.34943804e-01,\n         3.37603471e-01,   3.40207867e-01,   3.42756279e-01,\n         3.45248026e-01,   3.47682455e-01,   3.50058944e-01,\n         3.52376897e-01,   3.54635749e-01,   3.56834958e-01,\n         3.58974015e-01,   3.61052441e-01,   3.63069783e-01,\n         3.65025621e-01,   3.66919559e-01,   3.68751232e-01,\n         3.70520300e-01,   3.72226458e-01,   3.73869424e-01,\n         3.75448950e-01,   3.76964812e-01,   3.78416815e-01,\n         3.79804790e-01,   3.81128601e-01,   3.82388136e-01,\n         3.83583314e-01,   3.84714079e-01,   3.85780402e-01,\n         3.86782282e-01,   3.87719744e-01,   3.88592843e-01,\n         3.89401658e-01,   3.90146295e-01,   3.90826885e-01,\n         3.91443586e-01,   3.91996580e-01,   3.92486077e-01,\n         3.92912312e-01,   3.93275543e-01,   3.93576052e-01,\n         3.93814146e-01,   3.93990157e-01,   3.94104440e-01,\n         3.94157373e-01,   3.94149358e-01,   3.94080818e-01,\n         3.93952199e-01,   3.93763967e-01,   3.93516614e-01,\n         3.93210651e-01,   3.92846610e-01,   3.92425041e-01,\n         3.91946516e-01,   3.91411629e-01,   3.90820989e-01,\n         3.90175229e-01,   3.89474997e-01,   3.88720958e-01,\n         3.87913798e-01,   3.87054218e-01,   3.86142938e-01,\n         3.85180692e-01,   3.84168233e-01,   3.83106327e-01,\n         3.81995755e-01,   3.80837314e-01,   3.79631816e-01,\n         3.78380086e-01,   3.77082963e-01,   3.75741297e-01,\n         3.74355953e-01,   3.72927805e-01,   3.71457742e-01,\n         3.69946663e-01,   3.68395477e-01,   3.66805104e-01,\n         3.65176473e-01,   3.63510523e-01,   3.61808202e-01,\n         3.60070466e-01,   3.58298279e-01,   3.56492612e-01,\n         3.54654445e-01,   3.52784762e-01,   3.50884556e-01,\n         3.48954822e-01,   3.46996564e-01,   3.45010789e-01,\n         3.42998507e-01,   3.40960735e-01,   3.38898490e-01,\n         3.36812795e-01,   3.34704673e-01,   3.32575152e-01,\n         3.30425258e-01,   3.28256022e-01,   3.26068472e-01,\n         3.23863640e-01,   3.21642555e-01,   3.19406247e-01,\n         3.17155745e-01,   3.14892076e-01,   3.12616265e-01,\n         3.10329337e-01,   3.08032312e-01,   3.05726209e-01,\n         3.03412040e-01,   3.01090817e-01,   2.98763547e-01,\n         2.96431230e-01,   2.94094865e-01,   2.91755443e-01,\n         2.89413949e-01,   2.87071364e-01,   2.84728660e-01,\n         2.82386805e-01,   2.80046758e-01,   2.77709471e-01,\n         2.75375888e-01,   2.73046945e-01,   2.70723569e-01,\n         2.68406679e-01,   2.66097185e-01,   2.63795986e-01,\n         2.61503974e-01,   2.59222027e-01,   2.56951017e-01,\n         2.54691803e-01,   2.52445232e-01,   2.50212142e-01,\n         2.47993358e-01,   2.45789695e-01,   2.43601954e-01,\n         2.41430925e-01,   2.39277386e-01,   2.37142100e-01,\n         2.35025820e-01,   2.32929284e-01,   2.30853217e-01,\n         2.28798330e-01,   2.26765321e-01,   2.24754873e-01,\n         2.22767657e-01,   2.20804326e-01,   2.18865522e-01,\n         2.16951871e-01,   2.15063983e-01,   2.13202455e-01,\n         2.11367867e-01,   2.09560784e-01,   2.07781758e-01,\n         2.06031322e-01,   2.04309994e-01,   2.02618278e-01,\n         2.00956660e-01,   1.99325613e-01,   1.97725591e-01,\n         1.96157032e-01,   1.94620360e-01,   1.93115980e-01,\n         1.91644282e-01,   1.90205639e-01,   1.88800408e-01,\n         1.87428929e-01,   1.86091526e-01,   1.84788506e-01,\n         1.83520159e-01,   1.82286759e-01,   1.81088564e-01,\n         1.79925812e-01,   1.78798729e-01,   1.77707521e-01,\n         1.76652378e-01,   1.75633475e-01,   1.74650967e-01,\n         1.73704997e-01,   1.72795687e-01,   1.71923145e-01,\n         1.71087464e-01,   1.70288716e-01,   1.69526961e-01,\n         1.68802241e-01,   1.68114582e-01,   1.67463994e-01,\n         1.66850471e-01,   1.66273991e-01,   1.65734516e-01])\n>>> out.expect[1]\narray([ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,\n        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.])\n>>> out.expect[2]\narray([  1.00000000e+00,   9.97944044e-01,   9.95789819e-01,\n         9.93537765e-01,   9.91188380e-01,   9.88742224e-01,\n         9.86199914e-01,   9.83562124e-01,   9.80829584e-01,\n         9.78003081e-01,   9.75083458e-01,   9.72071613e-01,\n         9.68968494e-01,   9.65775107e-01,   9.62492508e-01,\n         9.59121805e-01,   9.55664157e-01,   9.52120771e-01,\n         9.48492904e-01,   9.44781861e-01,   9.40988990e-01,\n         9.37115689e-01,   9.33163398e-01,   9.29133602e-01,\n         9.25027827e-01,   9.20847640e-01,   9.16594648e-01,\n         9.12270497e-01,   9.07876870e-01,   9.03415485e-01,\n         8.98888098e-01,   8.94296494e-01,   8.89642495e-01,\n         8.84927952e-01,   8.80154743e-01,   8.75324780e-01,\n         8.70439996e-01,   8.65502353e-01,   8.60513834e-01,\n         8.55476447e-01,   8.50392220e-01,   8.45263202e-01,\n         8.40091459e-01,   8.34879074e-01,   8.29628147e-01,\n         8.24340789e-01,   8.19019124e-01,   8.13665289e-01,\n         8.08281428e-01,   8.02869694e-01,   7.97432246e-01,\n         7.91971249e-01,   7.86488870e-01,   7.80987280e-01,\n         7.75468648e-01,   7.69935143e-01,   7.64388932e-01,\n         7.58832177e-01,   7.53267036e-01,   7.47695659e-01,\n         7.42120188e-01,   7.36542756e-01,   7.30965484e-01,\n         7.25390481e-01,   7.19819842e-01,   7.14255646e-01,\n         7.08699956e-01,   7.03154816e-01,   6.97622251e-01,\n         6.92104267e-01,   6.86602845e-01,   6.81119945e-01,\n         6.75657503e-01,   6.70217426e-01,   6.64801596e-01,\n         6.59411868e-01,   6.54050065e-01,   6.48717980e-01,\n         6.43417377e-01,   6.38149984e-01,   6.32917496e-01,\n         6.27721574e-01,   6.22563844e-01,   6.17445891e-01,\n         6.12369265e-01,   6.07335478e-01,   6.02346001e-01,\n         5.97402263e-01,   5.92505654e-01,   5.87657520e-01,\n         5.82859165e-01,   5.78111848e-01,   5.73416784e-01,\n         5.68775144e-01,   5.64188050e-01,   5.59656580e-01,\n         5.55181764e-01,   5.50764583e-01,   5.46405973e-01,\n         5.42106818e-01,   5.37867955e-01,   5.33690169e-01,\n         5.29574198e-01,   5.25520726e-01,   5.21530390e-01,\n         5.17603774e-01,   5.13741412e-01,   5.09943784e-01,\n         5.06211319e-01,   5.02544394e-01,   4.98943340e-01,\n         4.95408431e-01,   4.91939889e-01,   4.88537884e-01,\n         4.85202533e-01,   4.81933902e-01,   4.78732009e-01,\n         4.75596819e-01,   4.72528242e-01,   4.69526138e-01,\n         4.66590313e-01,   4.63720523e-01,   4.60916485e-01,\n         4.58177857e-01,   4.55504248e-01,   4.52895215e-01,\n         4.50350267e-01,   4.47868864e-01,   4.45450427e-01,\n         4.43094323e-01,   4.40799872e-01,   4.38566348e-01,\n         4.36392975e-01,   4.34278937e-01,   4.32223379e-01,\n         4.30225398e-01,   4.28284046e-01,   4.26398335e-01,\n         4.24567232e-01,   4.22789666e-01,   4.21064532e-01,\n         4.19390684e-01,   4.17766935e-01,   4.16192061e-01,\n         4.14664801e-01,   4.13183862e-01,   4.11747919e-01,\n         4.10355615e-01,   4.09005555e-01,   4.07696317e-01,\n         4.06426444e-01,   4.05194456e-01,   4.03998845e-01,\n         4.02838078e-01,   4.01710593e-01,   4.00614803e-01,\n         3.99549098e-01,   3.98511847e-01,   3.97501402e-01,\n         3.96516092e-01,   3.95554228e-01,   3.94614103e-01,\n         3.93693994e-01,   3.92792161e-01,   3.91906858e-01,\n         3.91036322e-01,   3.90178777e-01,   3.89332441e-01,\n         3.88495520e-01,   3.87666214e-01,   3.86842719e-01,\n         3.86023225e-01,   3.85205918e-01,   3.84388981e-01,\n         3.83570597e-01,   3.82748950e-01,   3.81922223e-01,\n         3.81088604e-01,   3.80246286e-01,   3.79393463e-01,\n         3.78528340e-01,   3.77649127e-01,   3.76754044e-01,\n         3.75841319e-01,   3.74909194e-01,   3.73955922e-01,\n         3.72979771e-01,   3.71979023e-01,   3.70951975e-01,\n         3.69896941e-01,   3.68812255e-01,   3.67696269e-01,\n         3.66547357e-01,   3.65363914e-01,   3.64144355e-01,\n         3.62887119e-01,   3.61590674e-01,   3.60253509e-01,\n         3.58874144e-01,   3.57451124e-01,   3.55983020e-01,\n         \n         3.54468436e-01,   3.52906006e-01,   3.51294394e-01,\n         3.49632298e-01,   3.47918446e-01,   3.46151602e-01,\n         3.44330564e-01,   3.42454167e-01,   3.40521279e-01,\n         3.38530806e-01,   3.36481693e-01,   3.34372922e-01,\n         3.32203514e-01,   3.29972527e-01,   3.27679063e-01,\n         3.25322261e-01,   3.22901303e-01,   3.20415413e-01,\n         3.17863855e-01,   3.15245939e-01,   3.12561016e-01,\n         3.09808479e-01,   3.06987766e-01,   3.04098358e-01,\n         3.01139783e-01,   2.98111610e-01,   2.95013453e-01,\n         2.91844975e-01,   2.88605880e-01,   2.85295922e-01,\n         2.81914895e-01,   2.78462641e-01,   2.74939048e-01,\n         2.71344051e-01,   2.67677629e-01,   2.63939805e-01,\n         2.60130650e-01,   2.56250279e-01,   2.52298854e-01,\n         2.48276581e-01,   2.44183711e-01,   2.40020543e-01,\n         2.35787418e-01,   2.31484721e-01,   2.27112881e-01,\n         2.22672372e-01,   2.18163711e-01,   2.13587458e-01,\n         2.08944216e-01,   2.04234629e-01,   1.99459386e-01,\n         1.94619215e-01,   1.89714885e-01,   1.84747205e-01,\n         1.79717026e-01,   1.74625238e-01,   1.69472767e-01,\n         1.64260579e-01,   1.58989675e-01,   1.53661097e-01,\n         1.48275919e-01,   1.42835253e-01,   1.37340245e-01,\n         1.31792075e-01,   1.26191958e-01,   1.20541137e-01,\n         1.14840890e-01,   1.09092523e-01,   1.03297375e-01,\n         9.74568111e-02,   9.15722266e-02,   8.56450430e-02,\n         7.96767091e-02,   7.36686993e-02,   6.76225121e-02,\n         6.15396688e-02,   5.54217145e-02,   4.92702161e-02,\n         4.30867611e-02,   3.68729554e-02,   3.06304240e-02,\n         2.43608101e-02,   1.80657735e-02,   1.17469897e-02,\n         5.40614907e-03,  -9.55044014e-04,  -7.33487244e-03,\n        -1.37316077e-02,  -2.01435123e-02,  -2.65688383e-02,\n        -3.30058297e-02,  -3.94527231e-02,  -4.59077488e-02,\n        -5.23691320e-02,  -5.88350938e-02,  -6.53038523e-02,\n        -7.17736234e-02,  -7.82426224e-02,  -8.47090644e-02])\n>>> >>> out.expect[0].tidy()\n  File \"<stdin>\", line 1\n    out.expect[0].tidy()\n    ^\nIndentationError: unexpected indent\n>>> out.expect[0].tidy()\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nAttributeError: 'numpy.ndarray' object has no attribute 'tidy'\n>>> ",
+			"file": "TeX/Literature Review/LiteratureReview.tex",
 			"settings":
 			{
-				"buffer_size": 22952,
-				"line_ending": "Unix",
-				"name": "*REPL* [python]",
-				"scratch": true
+				"buffer_size": 5819,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -458,15 +456,17 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica"
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review"
 	],
 	"file_history":
 	[
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimationJC.py",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/CarmichaelPaperSummary.tex",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/bloch_sphere.mp4",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/TheMasterEquation.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/CarmichaelPaperSummary.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimationJC.py",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/bloch_sphere.mp4",
 		"/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/qutip/bloch.py",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/PlotQPSeries.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/rhoss.m",
@@ -650,7 +650,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -658,15 +658,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 979,
+						"buffer_size": 1018,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								164,
-								164
+								211,
+								211
 							]
 						],
 						"settings":
@@ -685,101 +685,66 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "Mathematica/NeoclassicalDecay.m",
-					"semi_transient": true,
+					"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3161,
+						"buffer_size": 16524,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								15921,
+								15921
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Matlab/Matlab.tmLanguage"
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4284.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "TeX/Literature Review/LiteratureReview.tex",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 5819,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								41,
+								12
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 2,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 22952,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								22952,
-								22952
-							]
-						],
-						"settings":
-						{
-							"auto_complete": true,
-							"auto_indent": true,
-							"default_dir": "/Users/fergusbarratt/Dropbox/University/Masters project/Matlab",
-							"detect_indentation": false,
-							"gutter": false,
-							"history_arrows": true,
-							"indent_subsequent_lines": false,
-							"line_numbers": false,
-							"repl": true,
-							"repl_external_id": "python",
-							"repl_id": "f27d7a96c73d4bd4a86d3f390fc8cbb4",
-							"repl_restart_args":
-							{
-								"cmd":
-								[
-									"/opt/local/bin/python2.7",
-									"-i",
-									"-u"
-								],
-								"cwd": "$file_path",
-								"encoding": "utf8",
-								"extend_env":
-								{
-									"PYTHONIOENCODING": "utf-8"
-								},
-								"external_id": "python",
-								"syntax": "Packages/Python/Python.tmLanguage",
-								"type": "subprocess"
-							},
-							"repl_sublime2": false,
-							"smart_indent": true,
-							"spell_check": false,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 6594.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -802,18 +767,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.591711691978,
 			1.0
 		],
 		"rows":
@@ -877,6 +835,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"~/Dropbox/University/Tutoring/Tutoring - Aidan and Tiernan.sublime-project"
+			]
 		],
 		"width": 380.0
 	},
@@ -897,7 +859,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 156.0,
+	"side_bar_width": 257.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
