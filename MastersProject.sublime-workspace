@@ -136,14 +136,22 @@
 	"buffers":
 	[
 		{
-			"contents": "Remote:   origin @ https://github.com/fergusbarratt/masters-project.git\nLocal:    master ~/Dropbox/University/Masters project\nHead:     d13a8af added collab folder to project, did readme properly\n\n\nChanges:\n	Modified   MastersProject.sublime-project\n	Modified   MastersProject.sublime-workspace\n	Modified   Python/BlochAnimation.py\n	Modified   Python/BlochAnimationJC.py\n\n\n# Movement:\n#    r = refresh status\n#    1-5 = jump to section\n#    n = next item, N = next section\n#    p = previous item, P = previous section\n#\n# Staging:\n#    s = stage file/section, S = stage all unstaged files\n#    ctrl+shift+s = stage all unstaged and untracked files\n#    u = unstage file/section, U = unstage all files\n#    backspace = discard file/section, shift+backspace = discard everything\n#\n# Commit:\n#    c = commit, C = commit -a (add unstaged)\n#    ctrl+shift+c = commit --amend (amend previous commit)\n#\n# Other:\n#    i = ignore file, I = ignore pattern\n#    enter = open file\n#    d = view diff\n#\n# Stashes:\n#    a = apply stash, A = pop stash\n#    z = create stash, Z = create stash including untracked files\n#    backspace = discard stash",
+			"contents": "Remote:   origin @ https://github.com/fergusbarratt/masters-project.git\nLocal:    master ~/Dropbox/University/Masters project\nHead:     7d1754c Carmichael Summary passes lint. Bloch animations might soon\n\n\nChanges:\n	Modified   MastersProject.sublime-workspace\n\n\n# Movement:\n#    r = refresh status\n#    1-5 = jump to section\n#    n = next item, N = next section\n#    p = previous item, P = previous section\n#\n# Staging:\n#    s = stage file/section, S = stage all unstaged files\n#    ctrl+shift+s = stage all unstaged and untracked files\n#    u = unstage file/section, U = unstage all files\n#    backspace = discard file/section, shift+backspace = discard everything\n#\n# Commit:\n#    c = commit, C = commit -a (add unstaged)\n#    ctrl+shift+c = commit --amend (amend previous commit)\n#\n# Other:\n#    i = ignore file, I = ignore pattern\n#    enter = open file\n#    d = view diff\n#\n# Stashes:\n#    a = apply stash, A = pop stash\n#    z = create stash, Z = create stash including untracked files\n#    backspace = discard stash",
 			"settings":
 			{
-				"buffer_size": 1133,
+				"buffer_size": 1022,
 				"line_ending": "Unix",
 				"name": "*git-status*: Masters project",
 				"read_only": true,
 				"scratch": true
+			}
+		},
+		{
+			"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
+			"settings":
+			{
+				"buffer_size": 16616,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -190,10 +198,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 354.0,
-		"last_filter": "install",
+		"height": 81.0,
+		"last_filter": "linter nex",
 		"selected_items":
 		[
+			[
+				"linter nex",
+				"SublimeLinter: Next Error"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -457,7 +469,8 @@
 	"expanded_folders":
 	[
 		"/Users/fergusbarratt/Dropbox/University/Masters project",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Python",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review",
 		"/Users/fergusbarratt/Dropbox/University/4th year project Fergus"
 	],
 	"file_history":
@@ -567,7 +580,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 158.0,
 		"where_history":
 		[
 		]
@@ -645,6 +658,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"\"><%="
 		],
 		"reverse": false,
 		"show_context": true,
@@ -663,15 +677,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1133,
+						"buffer_size": 1022,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								895,
-								895
+								206,
+								206
 							]
 						],
 						"settings":
@@ -691,6 +705,35 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16616,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15618,
+								15618
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -805,12 +848,12 @@
 	"settings":
 	{
 	},
-	"show_minimap": true,
+	"show_minimap": false,
 	"show_open_files": true,
-	"show_tabs": true,
-	"side_bar_visible": true,
+	"show_tabs": false,
+	"side_bar_visible": false,
 	"side_bar_width": 257.0,
-	"status_bar_visible": true,
+	"status_bar_visible": false,
 	"template_settings":
 	{
 	}
