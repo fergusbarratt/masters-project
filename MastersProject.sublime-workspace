@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"p",
+				"pylab_setup	function"
+			],
+			[
 				"proj",
 				"project_ground"
 			],
@@ -76,10 +80,6 @@
 				"coherent_dm"
 			],
 			[
-				"p",
-				"pop"
-			],
-			[
 				"CriticalSo",
 				"CriticalSlowingTimes"
 			],
@@ -136,30 +136,14 @@
 	"buffers":
 	[
 		{
-			"contents": "Remote:   origin @ https://github.com/fergusbarratt/masters-project.git\nLocal:    master ~/Dropbox/University/Masters project\nHead:     b14fa60 some Density operator stuff following carmichael\n\n\nStaged changes:\n	Modified   MastersProject.sublime-workspace\n\n\n# Movement:\n#    r = refresh status\n#    1-5 = jump to section\n#    n = next item, N = next section\n#    p = previous item, P = previous section\n#\n# Staging:\n#    s = stage file/section, S = stage all unstaged files\n#    ctrl+shift+s = stage all unstaged and untracked files\n#    u = unstage file/section, U = unstage all files\n#    backspace = discard file/section, shift+backspace = discard everything\n#\n# Commit:\n#    c = commit, C = commit -a (add unstaged)\n#    ctrl+shift+c = commit --amend (amend previous commit)\n#\n# Other:\n#    i = ignore file, I = ignore pattern\n#    enter = open file\n#    d = view diff\n#\n# Stashes:\n#    a = apply stash, A = pop stash\n#    z = create stash, Z = create stash including untracked files\n#    backspace = discard stash",
+			"contents": "Remote:   origin @ https://github.com/fergusbarratt/masters-project.git\nLocal:    master ~/Dropbox/University/Masters project\nHead:     d13a8af added collab folder to project, did readme properly\n\n\nChanges:\n	Modified   MastersProject.sublime-project\n	Modified   MastersProject.sublime-workspace\n	Modified   Python/BlochAnimation.py\n	Modified   Python/BlochAnimationJC.py\n\n\n# Movement:\n#    r = refresh status\n#    1-5 = jump to section\n#    n = next item, N = next section\n#    p = previous item, P = previous section\n#\n# Staging:\n#    s = stage file/section, S = stage all unstaged files\n#    ctrl+shift+s = stage all unstaged and untracked files\n#    u = unstage file/section, U = unstage all files\n#    backspace = discard file/section, shift+backspace = discard everything\n#\n# Commit:\n#    c = commit, C = commit -a (add unstaged)\n#    ctrl+shift+c = commit --amend (amend previous commit)\n#\n# Other:\n#    i = ignore file, I = ignore pattern\n#    enter = open file\n#    d = view diff\n#\n# Stashes:\n#    a = apply stash, A = pop stash\n#    z = create stash, Z = create stash including untracked files\n#    backspace = discard stash",
 			"settings":
 			{
-				"buffer_size": 1018,
+				"buffer_size": 1133,
 				"line_ending": "Unix",
 				"name": "*git-status*: Masters project",
 				"read_only": true,
 				"scratch": true
-			}
-		},
-		{
-			"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
-			"settings":
-			{
-				"buffer_size": 16524,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "TeX/Literature Review/LiteratureReview.tex",
-			"settings":
-			{
-				"buffer_size": 5819,
-				"line_ending": "Unix"
 			}
 		}
 	],
@@ -206,10 +190,30 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 291.0,
-		"last_filter": "install ",
+		"height": 354.0,
+		"last_filter": "install",
 		"selected_items":
 		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"enable ",
+				"SublimeLinter: Enable Linter"
+			],
+			[
+				"linte",
+				"SublimeLinter: Show Errors on Save"
+			],
+			[
+				"lin",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"linter",
+				"SublimeLinter: Enable Linter"
+			],
 			[
 				"install ",
 				"Package Control: Install Package"
@@ -224,10 +228,6 @@
 			],
 			[
 				"insta",
-				"Package Control: Install Package"
-			],
-			[
-				"install",
 				"Package Control: Install Package"
 			],
 			[
@@ -439,7 +439,7 @@
 	},
 	"console":
 	{
-		"height": 125.0,
+		"height": 93.0,
 		"history":
 		[
 			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
@@ -456,31 +456,36 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review"
+		"/Users/fergusbarratt/Dropbox/University/Masters project",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python",
+		"/Users/fergusbarratt/Dropbox/University/4th year project Fergus"
 	],
 	"file_history":
 	[
-		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/TheMasterEquation.tex",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/CarmichaelPaperSummary.tex",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Python.sublime-settings",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimationJC.py",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/README.md",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimation.py",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/PlotQPSeries.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/CarmichaelPaperSummary.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Readme.md",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/LiteratureReview.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/TheMasterEquation.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/bloch_sphere.mp4",
 		"/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/qutip/bloch.py",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/PlotQPSeries.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/rhoss.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/iphnumvals.m",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/LaTeXTools/README.markdown",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/SublimeREPL/config/Python/Main.sublime-menu",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/JaynesCummings.py",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/test qutip.py",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimation.py",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/SublimeREPL/Main.sublime-menu",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/SublimeREPL/SublimeREPL (OSX).sublime-settings",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/SublimeREPL/SublimeREPL.sublime-settings",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/Python/Python.sublime-build",
-		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/CriticalSlowingComparison.m",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 2/Packages/User/Package Control.sublime-settings",
@@ -513,7 +518,6 @@
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica/NeoclassicalDecay.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica/NeoclassicalDecay.nb",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica/Script.m",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/LiteratureReview.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/TitlePage.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/ProjectOutline.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Mathematica/QuasiProbabilityFunctions.m",
@@ -559,7 +563,7 @@
 	],
 	"find":
 	{
-		"height": 38.0
+		"height": 70.0
 	},
 	"find_in_files":
 	{
@@ -573,6 +577,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"w",
 			"equation",
 			"));",
 			"rhoss",
@@ -635,7 +640,7 @@
 			"("
 		],
 		"highlight": true,
-		"in_selection": true,
+		"in_selection": false,
 		"preserve_case": false,
 		"regex": false,
 		"replace_history":
@@ -650,7 +655,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -658,15 +663,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1018,
+						"buffer_size": 1133,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								211,
-								211
+								895,
+								895
 							]
 						],
 						"settings":
@@ -680,65 +685,6 @@
 							"syntax": "Packages/SublimeGit/syntax/SublimeGit Status.tmLanguage",
 							"translate_tabs_to_spaces": false,
 							"word_wrap": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 16524,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								15921,
-								15921
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 4284.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "TeX/Literature Review/LiteratureReview.tex",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 5819,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								41,
-								12
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -797,6 +743,10 @@
 	{
 		"height": 100.0
 	},
+	"output.git-pull":
+	{
+		"height": 144.0
+	},
 	"output.git-push":
 	{
 		"height": 100.0
@@ -837,7 +787,7 @@
 		[
 			[
 				"",
-				"~/Dropbox/University/Tutoring/Tutoring - Aidan and Tiernan.sublime-project"
+				"~/Dropbox/RubyProject/RubyProject.sublime-project"
 			]
 		],
 		"width": 380.0
