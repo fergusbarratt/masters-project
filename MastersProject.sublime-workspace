@@ -136,26 +136,63 @@
 	"buffers":
 	[
 		{
-			"contents": "Remote:   origin @ https://github.com/fergusbarratt/masters-project.git\nLocal:    master ~/Dropbox/University/Masters project\nHead:     7d1754c Carmichael Summary passes lint. Bloch animations might soon\n\n\nChanges:\n	Modified   MastersProject.sublime-workspace\n\n\n# Movement:\n#    r = refresh status\n#    1-5 = jump to section\n#    n = next item, N = next section\n#    p = previous item, P = previous section\n#\n# Staging:\n#    s = stage file/section, S = stage all unstaged files\n#    ctrl+shift+s = stage all unstaged and untracked files\n#    u = unstage file/section, U = unstage all files\n#    backspace = discard file/section, shift+backspace = discard everything\n#\n# Commit:\n#    c = commit, C = commit -a (add unstaged)\n#    ctrl+shift+c = commit --amend (amend previous commit)\n#\n# Other:\n#    i = ignore file, I = ignore pattern\n#    enter = open file\n#    d = view diff\n#\n# Stashes:\n#    a = apply stash, A = pop stash\n#    z = create stash, Z = create stash including untracked files\n#    backspace = discard stash",
+			"file": "Matlab/PlotQPSeries.m",
 			"settings":
 			{
-				"buffer_size": 1022,
-				"line_ending": "Unix",
-				"name": "*git-status*: Masters project",
-				"read_only": true,
-				"scratch": true
+				"buffer_size": 1059,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Matlab/GeneratePlotValues.m",
+			"settings":
+			{
+				"buffer_size": 211,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/fergusbarratt/Documents/qotoolbox/doc/qousersguide.pdf",
+			"settings":
+			{
+				"buffer_size": 486987,
+				"line_ending": "CR"
 			}
 		},
 		{
 			"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
 			"settings":
 			{
-				"buffer_size": 16616,
+				"buffer_size": 16718,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "TeX/Literature Review/LiteratureReview.tex",
+			"settings":
+			{
+				"buffer_size": 5837,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "TeX/Literature Review/QuasiProbabilityDistributions.tex",
+			"settings":
+			{
+				"buffer_size": 11780,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/fergusbarratt/Documents/qotoolbox/@qo/qfunc.m",
+			"settings":
+			{
+				"buffer_size": 2133,
 				"line_ending": "Unix"
 			}
 		}
 	],
-	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
+	"build_system": "Packages/SublimeREPL/sublimerepl_build_system_hack.sublime-build",
 	"build_system_choices":
 	[
 		[
@@ -193,15 +230,39 @@
 				"Packages/Python/Python.sublime-build",
 				""
 			]
+		],
+		[
+			[
+				[
+					"Packages/SublimeREPL/sublimerepl_build_system_hack.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Chrome.sublime-build",
+					""
+				],
+				[
+					"Packages/User/jekyll.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/SublimeREPL/sublimerepl_build_system_hack.sublime-build",
+				""
+			]
 		]
 	],
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 81.0,
-		"last_filter": "linter nex",
+		"height": 173.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"git statu",
+				"Git: Status"
+			],
 			[
 				"linter nex",
 				"SublimeLinter: Next Error"
@@ -447,7 +508,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 449.0
+		"width": 370.0
 	},
 	"console":
 	{
@@ -469,12 +530,15 @@
 	"expanded_folders":
 	[
 		"/Users/fergusbarratt/Dropbox/University/Masters project",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review",
-		"/Users/fergusbarratt/Dropbox/University/4th year project Fergus"
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab"
 	],
 	"file_history":
 	[
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/QFunctionsPlot.fig",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/CarmichaelPaperSummary.tex",
+		"/Users/fergusbarratt/Dropbox/RubyProject/sample_app/test/test_helper.rb",
+		"/Users/fergusbarratt/Dropbox/RubyProject/sample_app/test/controllers/static_pages_controller_test.rb",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/LiteratureReview.tex",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Python.sublime-settings",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimationJC.py",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/README.md",
@@ -483,9 +547,7 @@
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/PlotQPSeries.m",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/CarmichaelPaperSummary.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Readme.md",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/LiteratureReview.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/TheMasterEquation.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/bloch_sphere.mp4",
 		"/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/qutip/bloch.py",
@@ -590,6 +652,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"_",
+			"[H]",
+			"\\cref",
 			"w",
 			"equation",
 			"));",
@@ -658,6 +723,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			" \\}",
 			"\"><%="
 		],
 		"reverse": false,
@@ -669,36 +735,58 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "Matlab/PlotQPSeries.m",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1022,
+						"buffer_size": 1059,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								206,
-								206
+								204,
+								204
 							]
 						],
 						"settings":
 						{
-							"__vi_external_disable": true,
-							"default_dir": "/Users/fergusbarratt/Dropbox/University/Masters project/Matlab",
-							"draw_white_space": "none",
-							"git_repo": "/Users/fergusbarratt/Dropbox/University/Masters project",
-							"git_status": true,
-							"git_view": "status",
-							"syntax": "Packages/SublimeGit/syntax/SublimeGit Status.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": false
+							"syntax": "Packages/Matlab/Matlab.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Matlab/GeneratePlotValues.m",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 211,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								211,
+								211
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Matlab/Matlab.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -708,32 +796,150 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
+					"buffer": 2,
+					"file": "/Users/fergusbarratt/Documents/qotoolbox/doc/qousersguide.pdf",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 16616,
+						"buffer_size": 486987,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								15618,
-								15618
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16718,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11764,
+								11764
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2720.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "TeX/Literature Review/LiteratureReview.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5837,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								123,
+								123
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "TeX/Literature Review/QuasiProbabilityDistributions.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11780,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8611,
+								8611
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Users/fergusbarratt/Documents/qotoolbox/@qo/qfunc.m",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2133,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1950,
+								1950
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Matlab/Matlab.tmLanguage",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -802,7 +1008,7 @@
 	{
 		"height": 144.0
 	},
-	"pinned_build_system": "",
+	"pinned_build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
 	"project": "MastersProject.sublime-project",
 	"replace":
 	{
@@ -815,6 +1021,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"qfunc",
+				"Masters project/Matlab/QFunctionsPlot.fig"
+			],
 			[
 				"",
 				"Matlab/GuidePlot.fig"
@@ -830,7 +1040,7 @@
 		[
 			[
 				"",
-				"~/Dropbox/RubyProject/RubyProject.sublime-project"
+				"~/Dropbox/RubyProject/flashcards/flashcards.sublime-project"
 			]
 		],
 		"width": 380.0

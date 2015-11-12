@@ -1,22 +1,26 @@
-function [plo] = PlotQPSeries(Erange, det, functype, plottype, tracesys, varargin)
+function [plo] = PlotQPSeries(Erange, det, functype, plottype, varargin)
 	% function to plot a series of Q functions along an E-line in figure from Carmichael paper
 	% parameter values.
-	N = 2;
-	g = 25;
+	N = 20;
+	g = 25.0;
 	kappa = 0.5;
 
-	% default vals of cavity parameters
 	cols = min(5, max(size(Erange))); % number of columns in subplots
-
 	try
-		Xrange = varargin{1};
-		Yrange = varargin{2};
+		tracesys = varargin{1};
+	catch ME
+		tracesys = 1;
+	end
+	try 
+		Xrange = varargin{2};
+		Yrange = varargin{3};
 	catch ME
 		Xrange = -5:0.3:5;
 		Yrange = -5:0.3:5;
 	end
 	plo = figure;
 	for E = Erange
+		partial = ptrace(rhoss(E, det, N, g, kappa), tracesys);
 		if functype == 'Q'
 			h = real(qfunc(ptrace(rhoss(E, det, N, g, kappa), tracesys), Xrange, Yrange));
 		elseif functype == 'W'

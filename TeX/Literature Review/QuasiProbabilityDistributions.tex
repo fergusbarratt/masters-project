@@ -1,7 +1,7 @@
 %!TEX root = LiteratureReview.tex
 
 \section{Quasi-Probability Distributions}
-Probability distributions in the classical theory of probability are subject to 3 important restrictions, which derive from the Kolmogorov axioms on the system probability measure. The transition to a quantum theory of probability relaxes one or more of these axioms, and quasi-probability distributions result - these are not necessarily everywhere positive, and regions integrated under such distributions do not in general represent mutually exclusive states as do the analogous regions under true probability distributions. This corresponds to the relaxation of the first and third of Kolmogorov's axioms. 
+Probability distributions in the classical theory of probability are subject to 3 important restrictions, which derive from the Kolmogorov axioms on the system probability measure. The transition to a quantum theory of probability relaxes one or more of these axioms, and quasi-probability distributions result-these are not necessarily everywhere positive, and regions integrated under such distributions do not in general represent mutually exclusive states as do the analogous regions under true probability distributions. This corresponds to the relaxation of the first and third of Kolmogorov's axioms. 
 
 Several different quasi-probability distribution representations are possible\autocite{Walls2008}, and to each is associated a theorem known as the \emph{Optical equivalence theorem} \autocite{Sudarshan1963}, for a power series of annihilation and creation operators in a given ordering. The optical equivalence theorem is concisely stated as follows
 \begin{equation}
@@ -18,18 +18,18 @@ An operator ordering is \emph{normal} if in all products of annihilation and cre
 \begin{equation}
 	\dens = \int P(\alpha) | \alpha \rangle \langle \alpha | d^2 \alpha
 	\end{equation}
-where $d^2 \alpha = dRe\{\alpha\}dIm\{\alpha\}$, is used for evaluating expectations of normally ordered power series:
+where $d^2 \alpha = dRe\{\alpha \}dIm\{\alpha \}$, is used for evaluating expectations of normally ordered power series:
 \begin{equation}
 	\langle \hat{a}^{\dagger n} \hat{a}^{m}  \rangle = \int \alpha^n \alpha^m P (\alpha, \alpha^*) d^2 \alpha
 \end{equation}
-P($\alpha$) does not in general admit an interpretation as a classical probability distribution. However, the transition between quantum and classical systems is most clearly visible in the P representation; any system with a classical analogue (a coherent state, a chaotic state) has a non-negative, classically interpretable P function, and any with no classical analogue (Fock states, or states exhibiting squeezing, antibunching) will have a P function which is either negative or more singular than delta function. This statement is not generally true for other quasiprobability distributions\autocite{Mandel1995}
-\subsubsection{General procedure for evaluating P($\alpha$)}
+P ($\alpha$) does not in general admit an interpretation as a classical probability distribution. However, the transition between quantum and classical systems is most clearly visible in the P representation; any system with a classical analogue (a coherent state, a chaotic state) has a non-negative, classically interpretable P function, and any with no classical analogue (Fock states, or states exhibiting squeezing, antibunching) will have a P function which is either negative or more singular than delta function. This statement is not generally true for other quasiprobability distributions\autocite{Mandel1995}
+\subsubsection{General procedure for evaluating P ($\alpha$)}
 \label{mehta}
 There exists a general expression for evaluating the P-function that yields a well-behaved function whenever such a function is possible.\autocite{Mehta1967}:
 \begin{equation}
 	P(\alpha) = \frac{1}{\pi^2} \int d^2 \beta \bra{-\beta} \dens \ket{\beta} e^{|\beta|^2} e^{\beta^* \alpha -\alpha^* \beta}
 \end{equation}
-It is a necessary and suffient condition for this expression for P($\alpha$) to be standard function that the function $ \bra{\beta} \dens \ket{\beta} e^{|\beta|^2} $ be square integrable. Should it not be square integrable P($\alpha$) can only be understood in the context of generalised function theory.
+It is a necessary and suffient condition for this expression for P ($\alpha$) to be standard function that the function $ \bra{\beta} \dens \ket{\beta} e^{|\beta|^2} $ be square integrable. Should it not be square integrable P ($\alpha$) can only be understood in the context of generalised function theory.
 \subsection{Antinormal Ordering}
 \emph{Antinormal} ordering is the inverse of normal ordering, in that annihilation operators appear before creation operators. The associated quasi-probability distribution is the \emph{Husimi-Q Function} \autocite{Husimi1940}, defined as the diagonal matrix elements of the density operator in a pure coherent state
 \begin{equation}
@@ -54,7 +54,7 @@ True probability distributions for generalised position and momentum are only po
 \end{equation}
 Expressed in terms of the generalised position and momentum in quantum optics: the field quadratures defined $\alpha = X_1 + iX_2$. Integrating over either quadrature yields the true probability distribution in the other quadrature.
 
-The Wigner function is defined as the \emph{Wigner transform} of the density matrix, a general invertible transformation taking operators to functions on phase space. Its inverse, the \emph{Weyl transform}, returns functions to operators. The phase space formulation of quantum mechanics in its original form involves propagating such functions in time using Moyal's Evolution Equation \autocite{Curtright2011}. This same formalism is equivalently applied  through different integral transforms) to the other representations.
+The Wigner function is defined as the \emph{Wigner transform} of the density matrix, a general invertible transformation taking operators to functions on phase space. Its inverse, the \emph{Weyl transform}, returns functions to operators. The phase space formulation of quantum mechanics in its original form involves propagating such functions in time using Moyal's Evolution Equation \autocite{Curtright2011}. This same formalism is equivalently applied  through different integral transforms to the other representations.
 \subsection{Characteristic Functions}
 The above functions are equivalently derived from the antinormal, normal, and symmetric characteristic functions, defined as follows:
 \begin{align}
@@ -85,34 +85,33 @@ The Q-function is evaluated through its definition \cref{qdef}:
 \subsubsection{Wigner Function}
 The Wigner function is recovered from the Wigner transform of $\ket{\alpha_0}\bra{\alpha_0} = \ket{X_1+iX_2}\bra{X_1+iX_2}$
 \begin{equation}
-	W(x_1, x_2) = \frac{2}{ \pi} e^{-\frac{1}{2}[(x_1-X_1)^2+(x_2-X_2)^2]}
+	W(x_1, x_2) = \frac{2}{ \pi} e^{-\frac{1}{2}[{(x_1-X_1)}^2+{(x_2-X_2)}^2]}
 \end{equation}
-\begin{figure}[H]
+\begin{figure}[h]
 	\begin{minipage}[b]{.5\linewidth}
-		\centering \large \includegraphics[width=1\textwidth]{Images/Q Function - Coherent.png} 
+		\centering \large \includegraphics[width=1\textwidth]{Images/Q Function-Coherent.png} 
 		\subcaption{W function for the Coherent state $\alpha=1+i$}\label{fig:Qcoh}
 	\end{minipage}%
 	\begin{minipage}[b]{.5\linewidth}
-		\centering\large \includegraphics[width = 1\textwidth]{Images/W Function - Coherent.png}
-		\subcaption{Q function for the Coherent state $\alpha=2+4i$} \label{fig:Wcoh}
+		\centering\large \includegraphics[width = 1\textwidth]{Images/W Function-Coherent.png}
+		\subcaption{Q function for the Coherent state $\alpha=2+4i$}\label{fig:Wcoh}
 	\end{minipage}
-	% \caption{Coherent State Representations}
-	\label{Coherents}
+	% \caption{Coherent State Representations}\label{Coherents}
 \end{figure}
 \subsection{Fock state representations}
 \subsubsection{P-function}
-Since Fock states have no classical analogue, we would expect the P function associated with the Fock state density matrix $\ket{n}\bra{n}$ should be highly singular or negative. From \cref{mehta}, P($\alpha$) is non-singular (not more singular than a $\delta$-function) if and only if $ \bra{\beta} \dens \ket{\beta} e^{|\beta|^2} $ is square integrable. But, using the Fock state expansion of the coherent states
+Since Fock states have no classical analogue, we would expect the P function associated with the Fock state density matrix $\ket{n}\bra{n}$ should be highly singular or negative. From \cref{mehta}, P ($\alpha$) is non-singular (not more singular than a $\delta$-function) if and only if $ \bra{\beta} \dens \ket{\beta} e^{|\beta|^2} $ is square integrable. But, using the Fock state expansion of the coherent states
 \begin{align}
-	 \bra{\beta} \dens \ket{\beta} e^{|\beta|^2}  &= e^{-|\beta|^2} \sum_{k=0}^\infty \frac {{\beta^*}^k}{k!} \braket{k}{n}\braket{n}{k} \sum_{k=0}^\infty \frac {\beta^k}{k!}e^{|\beta|^2} \\ &= e^{-|\beta|^2} \frac{|\beta|^{2n}}{(n!)^2} e^{|\beta|^2} \\ &= \frac{|\beta|^{2n}}{(n!)^2}
+	 \bra{\beta} \dens \ket{\beta} e^{|\beta|^2}  &= e^{-|\beta|^2} \sum_{k=0}^\infty \frac {{\beta^*}^k}{k!} \braket{k}{n}\braket{n}{k} \sum_{k=0}^\infty \frac {\beta^k}{k!}e^{|\beta|^2} \\ &= e^{-|\beta|^2} \frac{|\beta|^{2n}}{{n!}^2} e^{|\beta|^2} \\ &= \frac{|\beta|^{2n}}{{n!}^2}
 \end{align}
 Which is square integrable for no value of n.
 A representation in terms of a class of generalised functions called \emph{tempered distributions} is possible\footnote{Specifically, in terms of the derivatives of a Dirac delta function\autocite{Gerry2005}}, but the behaviour of such objects makes them difficult to work with.
 \subsubsection{Q-function}
 Despite the pathological nature of the Fock state P-function the Q-function is quite straightforwardly evaluated from its definition
 \begin{align}
-	 Q(\alpha) = \bra{\alpha} \dens \ket{\alpha}  &= \sum_{k=0}^\infty \frac {{\alpha^*}^k}{k!} \braket{k}{n}\braket{n}{k} \sum_{k=0}^\infty \frac {\alpha^k}{k!}e^{-|\alpha|^2} \\ &= \frac{|\alpha|^{2n}}{(n!)^2} e^{-|\alpha|^2}
+	 Q(\alpha) = \bra{\alpha} \dens \ket{\alpha}  &= \sum_{k=0}^\infty \frac {{\alpha^*}^k}{k!} \braket{k}{n}\braket{n}{k} \sum_{k=0}^\infty \frac {\alpha^k}{k!}e^{-|\alpha|^2} \\ &= \frac{|\alpha|^{2n}}{{n!}^2} e^{-|\alpha|^2}
 \end{align}
-\begin{figure}[H]
+\begin{figure}[h]
 	\begin{minipage}[b]{.5\linewidth}
 		\centering \large \includegraphics[width=1\textwidth]{Images/Q Function-n=0.png} 
 		\subcaption{n=0}\label{fig:Qn=0}
@@ -126,10 +125,10 @@ Despite the pathological nature of the Fock state P-function the Q-function is q
 \subsubsection{Wigner function}
 The Wigner transform of $\ket{n}\bra{n}$ is\autocite[65]{Walls2008}
 \begin{equation}
-	W(x_1, x_2) = \frac{2}{\pi} (-1)^n \mathscr{L}_n(4(x_1^2+x_2^2))e^{-2(x_1^2+x_2^2)}
+	W(x_1, x_2) = \frac{2}{\pi} {(-1)}^n \mathscr{L}_n(4(x_1^2+x_2^2))e^{-2(x_1^2+x_2^2)}
 \end{equation}
 Where $\mathscr{L}_n$ is the nth Laguerre Polynomial.
-\begin{figure}[H]
+\begin{figure}[h]
 	\begin{minipage}[b]{.5\linewidth}
 		\centering \large \includegraphics[width=1\textwidth]{Images/W Function-n=0.png} 
 		\subcaption{n=0}\label{fig:n=0}

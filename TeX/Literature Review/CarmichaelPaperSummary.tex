@@ -51,8 +51,8 @@ the drive detuning
 
 The Hamiltonian is diagonalised via a Bogliubov transformation\footnote{A Bogliubov transformation is a transformation from one unitary representation to another that is also an isomorphism between the representations' canonical commutator algebras}. The resulting quasi-energy spectrum
 \begin{align}
-  e_{n, +} &= + \sqrt{n} \hbar g \left \{1 - {\left ({\frac{2\Epsilon}{g}} \right )}^2 \right \}^{\frac{3}{4}} \\
-  e_{n, -} &= - \sqrt{n} \hbar g \left \{1 - {\left ({\frac{2\Epsilon}{g}} \right )}^2 \right \}^{\frac{3}{4}}
+  e_{n, +} &= + \sqrt{n} \hbar g {\left \{1 - {\left ({\frac{2\Epsilon}{g}} \right )}^2 \right \}}^{\frac{3}{4}} \\
+  e_{n, -} &= - \sqrt{n} \hbar g {\left \{1 - {\left ({\frac{2\Epsilon}{g}} \right )}^2 \right \}}^{\frac{3}{4}}
 \end{align}
 A critical point (corresponding to quantum phase transition) appears at $\frac{2\Epsilon}{g} = 1$, where the quasienergy splitting collapses to zero.
 \subsection{The Semiclassical Approach}
@@ -97,7 +97,7 @@ We consider the equations in the steady state with the field adiabatically elimi
 from which two branches of solutions are seen $\rightarrow \zeta = 0$ or $\alpha = 0$. We take $\alpha = 0$ and from \cref{eq:alpha} and \cref{eq:pseudospin}
 \begin{align}
   \beta &= -\frac{\Epsilon}{g} \\
-  \zeta &= \mp \sqrt{1 - \left( \frac{2\Epsilon}{g} \right)^2}
+  \zeta &= \mp \sqrt{1 - {\left( \frac{2\Epsilon}{g} \right)}^2}
 \end{align}
 Increasing drive through the critical point $\Epsilon = \frac{g}{2}$ the difference under the square root becomes negative and the inversion $\zeta$ imaginary and unphysical. We take up the other branch $\zeta = 0$, and from \cref{eq:alpha}
 \begin{align}
@@ -106,7 +106,7 @@ Increasing drive through the critical point $\Epsilon = \frac{g}{2}$ the differe
 \end{align}
 with $\alpha$ a solution to
 \begin{equation}
-  \alpha = -i \Epsilon\left ( \kappa \pm i \frac{g}{2|\alpha|} \right )^{-1}
+  \alpha = -i \Epsilon{\left ( \kappa \pm i \frac{g}{2|\alpha|} \right )}^{-1}
   \label{eq:alphacondnotdet}
 \end{equation}
 
@@ -141,6 +141,7 @@ for $\beta$ and $\zeta$, where $sgn(\Delta \omega)$ is the sign of the detuning 
 
 The expression for $\alpha$ is a Lorentzian, in which is obvious a nonlinear dispersion which diverges as $|\alpha|^2 \rightarrow 0$
 
+A surface plot of $|\alpha|^2 \approx n$ is shown in figure 5b for $\Epsilon>\frac{g}{2}$.
 \subsection{Computationally Solving the Master Equation}
 
 \begin{figure}[h]
@@ -215,9 +216,9 @@ putting the above together yields
 \end{align}
 \cref{eq:alphase} in the steady state with  \cref{eq:betasolved} becomes a condition for $\alpha$
 \begin{align} % Here be weird bugs
-0 &= -(\kappa -i\Delta\omega)\alpha-ig\beta -i\Epsilon \\
-0 &= -(\kappa -i\Delta\omega)\lapha-g\frac{ig(\frac{\gamma}{2}+i\Delta\omega)}{-2g^2|\alpha|^2-\frac{\gamma^2}{4}-\Delta\omega^2}\alpha-i\Epsilon \\
-\implies \alpha &= -i\Epsilon \frac{1}{\kappa-i\Delta\omega+\frac{g^2(\frac{\gamma}{2}+i\Delta\omega)}{\frac{\gamma^2}{4}+\Delta\omega^2+2g|\alpha|^2}}\label{eq:alphadetdiss}
+0&=-(\kappa-i\Delta\omega)\alpha-ig\beta-i\Epsilon \\
+0&=-{(\kappa-i\Delta\omega)}\alpha-g\frac{ig(\frac{\gamma}{2}+i\Delta\omega)}{-2g^2|\alpha|^2-\frac{\gamma^2}{4}-\Delta\omega^2}\alpha-i\Epsilon \\
+\implies \alpha &= -i\Epsilon \frac{1}{\kappa-i\Delta\omega+\frac{g^2(\frac{\gamma}{2}+i\Delta\omega)}{\frac{\gamma^2}{4}+{\Delta\omega}^2+2g{|\alpha|}^2}}\label{eq:alphadetdiss}
 \end{align}
 Setting $\gamma$ and $\Delta\omega$ to zero, the condition becomes
 \begin{equation}
