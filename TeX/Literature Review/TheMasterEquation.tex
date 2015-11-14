@@ -32,19 +32,19 @@ We start with the Hamiltonian for a closed, potentially mixed, potentially time 
 \begin{equation}
 	\ham = \ham_S +\ham_R + \ham_I
 \end{equation}
-The partial trace operation is an operator-valued function that takes a operator on a larger Hilbert space and discards its action on all but a smaller Hilbert space, colloquially "tracing over" the degrees of freedom of the discarded subsystem to leave the operator on a smaller subsystem.
+The partial trace operation is an operator-valued function that takes a operator on a larger Hilbert space and discards its action on all but a smaller Hilbert space, colloquially ``tracing over'' the degrees of freedom of the discarded subsystem to leave the operator on a smaller subsystem.
 
 Starting from \cref{eq:timeprop} and tracing over the environment
 \begin{equation}
 	\dens_S (t) = tr_E \{U(t, 0) \dens_S (0) U^\dagger (t, 0) \}
 \end{equation}
-with $\dens_S = tr_E\{\dens\}$ we arrive at the most general form for evolution of the \emph{reduced} system, also known as the reduced master equation
+with $\dens_S = tr_E\{\dens \}$ we arrive at the most general form for evolution of the \emph{reduced} system, also known as the reduced master equation
 \begin{equation}
 	\frac{d}{dt} \rho_S (t) = -itr_E\{[\ham(t), \dens(t)]\}
 \end{equation}
 We transform into an interaction picture moving with the system and reservoir hamiltonians and let the states proceed with the interaction part
 \begin{equation}
-	\dens_S^{int} = e^{\frac{i\ham_R+\ham_R}{\hbar}t}\dens_se^{-\frac{i\ham_R+\ham_R}{\hbar}t}
+	\dens_S^{int} = e^{\frac{i\ham_R+\ham_R}{\hbar}t}\dens_se^{-{\frac{i\ham_R+\ham_R}{\hbar}t}}
 	\label{eq:densintdef}
 \end{equation}
 evolving as
@@ -53,7 +53,7 @@ evolving as
 \end{equation}
 where $\ham_I^{int}$ has a now explicit time dependence
 \subsection{Markov Processes}
-Classical Markov processes are characterised by the invocation of the so-called semigroup property of the Chapman-Kolmogorov equation. The Markov transition probabilities $T(x, t|x', t')$ form a one parameter semigroup in t, because of the composition property $T(x, t|x, t')T(x, t'|x, t") = T(x, t|,x, t")$ which results from the conditions that memorylessness puts on their form. This memorylessness is also responsible for this being a \emph{semi}group, since there does not in general exist an inverse for each element - there exist irreversible Markov processes.
+Classical Markov processes are characterised by the invocation of the so-called semigroup property of the Chapman-Kolmogorov equation. The Markov transition probabilities $T(x, t|x', t')$ form a one parameter semigroup in t, because of the composition property $T(x, t|x, t')T(x, t'|x, t``) = T(x, t|,x, t``)$ which results from the conditions that memorylessness puts on their form. This memorylessness is also responsible for this being a \emph{semi}group, since there does not in general exist an inverse for each element-there exist irreversible Markov processes.
 %This semigroup is in fact a "contracting" semigroup, in that the norm of a propagated probability is less than or equal to the probability.
 The generalisation of Markov processes to quantum mechanics analagously leads to the theory of \emph{quantum dynamical semigroups}
 
@@ -61,4 +61,4 @@ The most general form\autocite[119--122]{Breuer2002} for the reduced master equa
 \begin{equation}
 	\frac{d}{dt} \rho_S (t) = -i[\ham (t), \dens (t)] + \sum_{k=1}^{N^2-1} \gamma_k \{ \hat{A}_k \dens_S \hat{A}_k -\frac{1}{2}  \hat{A}_k \dens_S \hat{A}_k -\frac{1}{2} \dens_S \hat{A}_k \hat{A}_k \}
 \end{equation}
-with $\{A_k\}_{k \in I}$ some indexed complete orthonormal basis of operators on the system Hilbert space
+with ${\{A_k\}}_{k \in I}$ some indexed complete orthonormal basis of operators on the system Hilbert space
