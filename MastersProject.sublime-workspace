@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"C1",
+				"C1dC1"
+			],
+			[
 				"p",
 				"pylab_setup	function"
 			],
@@ -135,14 +139,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
-			"settings":
-			{
-				"buffer_size": 16718,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "Packages/SublimeREPL/sublimerepl_build_system_hack.sublime-build",
 	"build_system_choices":
@@ -481,13 +477,18 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/fergusbarratt/Dropbox/University/Masters project",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Python"
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review"
 	],
 	"file_history":
 	[
+		"/Users/fergusbarratt/Dropbox/RubyProject/flashcards/test/integration/users_edit_test.rb",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/CarmichaelPaperSummary.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/LiteratureReview.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/iphnumvals.m",
+		"/Users/fergusbarratt/Documents/qotoolbox/doc/qousersguide.pdf",
+		"/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/qutip/superop_reps.py",
+		"/Users/fergusbarratt/Documents/qotoolbox/doc/terminal.glue",
+		"/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/qutip/qobj.py",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/QuasiProbabilityDistributions.tex",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/LaTeX.sublime-settings",
@@ -496,10 +497,8 @@
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/JaynesCummingModel.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimationJC.py",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/PlotQPSeries.m",
-		"/Users/fergusbarratt/Documents/qotoolbox/doc/qousersguide.pdf",
 		"/Users/fergusbarratt/Documents/qotoolbox/@qo/qfunc.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/QFunctionsPlot.fig",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/CarmichaelPaperSummary.tex",
 		"/Users/fergusbarratt/Dropbox/RubyProject/sample_app/test/test_helper.rb",
 		"/Users/fergusbarratt/Dropbox/RubyProject/sample_app/test/controllers/static_pages_controller_test.rb",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Python.sublime-settings",
@@ -511,7 +510,6 @@
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/bloch_sphere.mp4",
 		"/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/qutip/bloch.py",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/rhoss.m",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/iphnumvals.m",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/LaTeXTools/README.markdown",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/SublimeREPL/config/Python/Main.sublime-menu",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/JaynesCummings.py",
@@ -602,6 +600,7 @@
 		"height": 158.0,
 		"where_history":
 		[
+			"<project>"
 		]
 	},
 	"find_state":
@@ -609,6 +608,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"data",
+			"spre",
 			"_",
 			"[H]",
 			"\\cref",
@@ -692,39 +693,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 16718,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								11764,
-								11764
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -761,7 +731,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 104.0
+		"height": 168.0
 	},
 	"output.find_results":
 	{
@@ -805,6 +775,10 @@
 		"selected_items":
 		[
 			[
+				"spre",
+				"qutip/superop_reps.py"
+			],
+			[
 				"qfunc",
 				"Masters project/Matlab/QFunctionsPlot.fig"
 			],
@@ -841,12 +815,12 @@
 	"settings":
 	{
 	},
-	"show_minimap": false,
+	"show_minimap": true,
 	"show_open_files": true,
-	"show_tabs": false,
+	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 291.0,
-	"status_bar_visible": false,
+	"side_bar_width": 201.0,
+	"status_bar_visible": true,
 	"template_settings":
 	{
 	}
