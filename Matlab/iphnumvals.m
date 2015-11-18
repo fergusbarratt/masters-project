@@ -12,12 +12,14 @@ function [iphnumvals] = iphnumvals(Eplotvals, Dplotvals, varargin)
 	% count1 = photocount rate of light leaking out of cavity count2 = spontaneous emission rate
 	% iphnum = intracavity field
 	% dispstat('', 'init')
+	% HBAR=1
+	% 
 
 	% set default values
 	try
 		N = varargin{1};
 	catch ME
-		N = 60;
+		N = 125;
 	end
 	try
 		g = varargin{2};
@@ -31,6 +33,20 @@ function [iphnumvals] = iphnumvals(Eplotvals, Dplotvals, varargin)
 	end
 
 	tic
+	function [rhos] = rhos(Hint, HBare, DriveStrength, Detuning, Collapse, ConjCollapse)
+		% takes forms of bare and interaction hamiltonians, drive strength and collapse operator, solves for the density matrix in steady state
+		% then returns steady state density matrix
+
+			H = - Detuning * HBare + Hint + DriveStrength * (a' + a);
+			L = -1i * ( spre(H)- spost(H) ) + 2*spre(Collapse)*spost(Collapse')-spre(ConjCollapse)-spost(ConjCollapse);
+			rhos = steady(L);
+
+	end
+
+	function [expecter] = expecter(rho)
+		% function to evaluate at different rho
+		expecter = expect(C1dC1, rho)/(kappa);
+	end
 
 	%generate identities and constants
 	ida = identity(N);
@@ -41,25 +57,13 @@ function [iphnumvals] = iphnumvals(Eplotvals, Dplotvals, varargin)
 	sm = tensor(ida,sigmam);
 
 	% Generate Hamiltonian components outside for loop
-	Hint =  g*(sm' * a + sm * a');
-	HBare = (sm' * sm + a' * a);
-	Collapse =  sqrt ( 2 * kappa ) * a;
-	ConjCollapse = Collapse' * Collapse;
-
-	function [ssiphnum] = ssiphnum(Hint, HBare, DriveStrength, Detuning, Collapse, ConjCollapse)
-		% takes forms of bare and interaction hamiltonians, drive strength and collapse operator, solves for the density matrix in steady state
-		% then generates steady state photon number
-
-			H = - Detuning * HBare + Hint + DriveStrength * (a' + a);
-			L = -1i * ( spre(H)- spost(H) ) + spre(Collapse)*spost(Collapse')-0.5*spre(ConjCollapse)-0.5*spost(ConjCollapse);
-			rhoss = steady(L);
-			ssiphnum = real(expect(ConjCollapse, rhoss))/2;
-
-	end
-
+	Hi =  g*(sm' * a + sm * a');
+	Hb = (sm' * sm + a' * a);
+	C1 =  sqrt ( kappa ) * a;
+	C1dC1 = C1' * C1;
 
 	% vars for counting progress
-	n = 1;
+	n = 0;
 	ds = length(Dplotvals);
 	es = length(Eplotvals);
 	numberofvalues = es*ds;
@@ -72,9 +76,11 @@ function [iphnumvals] = iphnumvals(Eplotvals, Dplotvals, varargin)
 	for E = Eplotvals
 		row = [];
 		t = toc;
+		if (n>0)
 		fprintf(' %d/%d: %4.2fs elapsed out of projected %4.1fs \r', n, es, t, projectedtime);
+		end
 		for D = Dplotvals
-			row = vertcat(ssiphnum(Hint, HBare, E, D, Collapse, ConjCollapse), row);
+			row = vertcat(expecter(rhos(Hi, Hb, E, D, C1, C1dC1)), row);
 			% dispstat(D);
 			fprintf('|');
 		end
