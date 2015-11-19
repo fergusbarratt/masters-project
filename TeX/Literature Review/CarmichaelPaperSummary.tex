@@ -143,25 +143,12 @@ The expression for $\alpha$ is a Lorentzian, in which is obvious a nonlinear dis
 
 A surface plot of $|\alpha|^2 \approx n$ is shown in figure 5b for $\Epsilon>\frac{g}{2}$.
 \subsection{Computationally Solving the Master Equation}
-
 \begin{figure}[h]
-  \begin{minipage}{.3\linewidth}
-    \centering
-    \includegraphics[width=1\textwidth]{Images/HighResCarmichaelPlot.png}
-    \subcaption{From density matrix calculations: IC photon number expectation, g = 25, $\kappa = 0.5$}\label{fig:densp}
-  \end{minipage}%
-  \begin{minipage}{.3\linewidth}
-    \centering
-    \includegraphics[width=0.8\textwidth]{Images/MeanFieldPhotonNumber.png}
-    \subcaption{From meanfield calculations: IC photon number $n \approx |\alpha|^2$, g = 25, $\kappa$ = 0.5}\label{fig:meanfieldp}
-  \end{minipage}%
-  \begin{minipage}{.3\linewidth}
-    \centering
-    \includegraphics[width=1\textwidth]{Images/Q-Bifurcation.png}
-    \subcaption{Bifurcation in the Q function for E from 0 to 1, g = 0.5,$ \kappa = 0.01$, $\Delta \omega$ = 1. From quantum results}\label{fig:Qbirfc}
-  \end{minipage}
-  \caption{Surface plot of expected intracavity photon number in drive-detuning space}
-\end{figure}
+ \centering
+ \includegraphics[width=1\textwidth]{Images/MeanFieldvsQuantum.png}
+ \caption{Comparison of mean field and fully quantum contour plots with critical points at $\frac{\Epsilon}{2}$ highlighted}
+ \end{figure}
+
 
 The extension of \autocite{Alsing1999} in this paper is to further classify the fixed point at $\frac{2\Epsilon}{g}$ as an organising centre for the breakdown of the photon blockade phenomenon, which is to say that the fixed point is an attractor in the system phase space.
 
@@ -172,7 +159,19 @@ The multiple peaks in the lorentzian (at the bottom of \autocite[Figure 1]{Carmi
 The author notes the sides of the double lorentzian, most visible in the diagram at the top right of the figure, as domains of coexistence between the near vacuum state and the high occupation state, and the phase transition between the two at this boundary he classifies as first order, in contrast to the transition at the critical point which is second order.
 
 The author then analyses a number of Q function contour plots which show a distinct bimodality. This he uses as an indicator of coexistent states along the aforementioned domain of coexistence. He plots a coloured projection of the domains of coexistence of \autocite[Figure 1 right hand side]{Carmichael2015} as \autocite[Figure 2]{Carmichael2015}, and the Q functions of several points of the system phase space along this boundary.
-
+\begin{figure}[h]
+ \begin{minipage}{.5\linewidth}
+  \centering
+  \includegraphics[width=1\textwidth]{Images/Q-Bistability-OnResonance.png}
+  \subcaption{Q functions moving through the critical point at $\frac{\Epsilon}{2}$}
+  \end{minipage}%
+  \begin{minipage}{.5\linewidth}
+      \centering
+      \includegraphics[width=1\textwidth]{Images/Q-Bistability.png}
+      \subcaption{Q functions moving onto the walls of the lorentzian}
+  \end{minipage}
+  \caption{Q-bistabilities}
+\end{figure}
 \subsection{Critical Slowing Down}
 
 A dynamical system perturbed close to an attracting fixed point, towards said fixed point, recovers its equilibrium position more slowly than the same system perturbed further away from the fixed point. This is known as \emph{critical slowing down}\autocite[40, 56]{Strogatz1994}. The author plots in \autocite[Figure 3]{Carmichael2015} two time-dependent photon number curves (green and red) for one point along the domain of coexistence, and one point far from it that show a dramatic critical slowing down in the region of bistability, near to the point $\frac{\Epsilon}{2g} = 1$. This is indicative of the nature of this fixed point: this is an `organising centre', characteristic of a second order transition.
