@@ -3,12 +3,16 @@ function [plo] = PlotQPSeries(Erange, Detrange, functype, varargin)
 	% parameter values. inclusive of both ends of E range. Deletes old figure, specifies the figure size and renormalizes q at each stef
 	% TODO: autowidth
 	% TODO: matrices
+	% to add to paper PlotQPSeries(4.5:0.2:5.5, 0, 'W'), N=60, g=10, kappa=1, gamma=1 - just greater than 1
 	N = 60;
-	g = 50;
+	g = 10;
 	kappa = 1;
+	gamma = 1.5;
 
+	step_size = 0.1;
 	cols = min(3, max(size(Erange))); % number of columns in E subplots
 	rows = min(3, max(size(Detrange))); % number of rows in Det subplots
+	
 	try 
 		plottype = varargin{3};
 	catch ME
@@ -23,8 +27,8 @@ function [plo] = PlotQPSeries(Erange, Detrange, functype, varargin)
 		Xrange = varargin{1};
 		Yrange = varargin{2};
 	catch ME
-		Xrange = -8:0.05:8;
-		Yrange = -8:0.05:8;
+		Xrange = -8:step_size:8;
+		Yrange = -8:step_size:8;
 	end
 
 	% DELETES CURRENT FIGURE BEFORE DRAWING NEW ONE.
@@ -33,7 +37,7 @@ function [plo] = PlotQPSeries(Erange, Detrange, functype, varargin)
 	for E = Erange
 		for det = Detrange
 			if functype == 'Q'
-				h = real(qfunc(ptrace(rhoss(E/kappa, det/kappa, N, g, kappa), tracesys), Xrange, Yrange));
+				h = real(qfunc(ptrace(rhoss(E/kappa, det/kappa, N, g, kappa, gamma), tracesys), Xrange, Yrange));
 				h = h/volintegral(h, Xrange, Yrange); % Renormalise Q function at each step
 				volintegral(h, Xrange, Yrange); %remove semicolon to output volume under Q
 				chk = volintegral(h, Xrange, Yrange); 
@@ -42,7 +46,7 @@ function [plo] = PlotQPSeries(Erange, Detrange, functype, varargin)
 				 		chk
 				 	end
 			elseif functype == 'W'
-				h = real(wfunc(ptrace(rhoss(E/kappa, det/kappa, N, g, kappa), tracesys), Xrange, Yrange));
+				h = real(wfunc(ptrace(rhoss(E/kappa, det/kappa, N, g, kappa, gamma), tracesys), Xrange, Yrange));
 				h = h/volintegral(h, Xrange, Yrange); % Renormalise Q function at each step
 				chk = volintegral(h, Xrange, Yrange);
 			 	if (chk>1.05 || chk<0.95)
@@ -63,6 +67,7 @@ function [plo] = PlotQPSeries(Erange, Detrange, functype, varargin)
 					case 'cf'
 						contourf(Xrange, Yrange, h);
 					case 'c'
+						fprintf('|');
 						plo = surf(Xrange, Yrange, h);
 						plo.LineStyle = 'none';
 						view(2);
@@ -70,7 +75,7 @@ function [plo] = PlotQPSeries(Erange, Detrange, functype, varargin)
 						colorbar
 						ylim=get(gca,'YLim');
 						xlim=get(gca,'XLim');
-						text((xlim(1)-1),(ylim(1)-1),[num2str(E) ',' num2str(det)], 'VerticalAlignment','top', 'HorizontalAlignment','right')
+						text((xlim(1)-1),(ylim(1)-2.5),[num2str(E) ',' num2str(det) '; g: ' num2str(g) ', kappa: ' num2str(kappa) ', gamma: ' num2str(gamma)], 'VerticalAlignment','top', 'HorizontalAlignment','left')
 						xlabel('Re(Q)')
 						ylabel('Im(Q)')
 					case 's'
@@ -80,4 +85,4 @@ function [plo] = PlotQPSeries(Erange, Detrange, functype, varargin)
 				end
 			end
 		end
-
+	fprintf('\n')

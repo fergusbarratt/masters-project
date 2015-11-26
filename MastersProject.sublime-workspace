@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"expecter",
+				"expectertype"
+			],
+			[
 				"C1",
 				"C1dC1"
 			],
@@ -139,6 +143,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
+			"settings":
+			{
+				"buffer_size": 16507,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "Packages/SublimeREPL/sublimerepl_build_system_hack.sublime-build",
 	"build_system_choices":
@@ -203,10 +215,18 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 173.0,
+		"height": 354.0,
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instll",
+				"Package Control: Install Local Dependency"
+			],
 			[
 				"git statu",
 				"Git: Status"
@@ -246,10 +266,6 @@
 			[
 				"Snippet: ",
 				"Snippet: Page"
-			],
-			[
-				"insta",
-				"Package Control: Install Package"
 			],
 			[
 				"pus",
@@ -456,7 +472,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 370.0
+		"width": 449.0
 	},
 	"console":
 	{
@@ -477,10 +493,24 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review"
 	],
 	"file_history":
 	[
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Functions and Scripts/Subplot2Figures.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Functions and Scripts/timedependentsoln.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Functions and Scripts/volintegral.m",
+		"/Users/fergusbarratt/.bash_profile",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Functions and Scripts/iphnumvals.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimationJC.py",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Functions and Scripts/GeneratePlotValues.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Functions and Scripts/iphnum_vs_purity.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Functions and Scripts/prettyplot.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Functions and Scripts/PlotQPSeries.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/bloch_sphere.mp4",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/fergusbarratt/.bash_",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
 		"/Users/fergusbarratt/Dropbox/RubyProject/flashcards/test/integration/users_edit_test.rb",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/CarmichaelPaperSummary.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/LiteratureReview.tex",
@@ -495,7 +525,6 @@
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/TheMasterEquation.tex",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/JSON.sublime-settings",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/JaynesCummingModel.tex",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimationJC.py",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/PlotQPSeries.m",
 		"/Users/fergusbarratt/Documents/qotoolbox/@qo/qfunc.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/QFunctionsPlot.fig",
@@ -503,11 +532,9 @@
 		"/Users/fergusbarratt/Dropbox/RubyProject/sample_app/test/controllers/static_pages_controller_test.rb",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Python.sublime-settings",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/README.md",
-		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimation.py",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Readme.md",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/bloch_sphere.mp4",
 		"/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/qutip/bloch.py",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/rhoss.m",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/LaTeXTools/README.markdown",
@@ -518,7 +545,6 @@
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/SublimeREPL/SublimeREPL (OSX).sublime-settings",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/SublimeREPL/SublimeREPL.sublime-settings",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/Python/Python.sublime-build",
-		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/CriticalSlowingComparison.m",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 2/Packages/User/Package Control.sublime-settings",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/timedependentsoln.m",
@@ -608,6 +634,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"yrange",
+			"xrange",
+			"qfunc",
 			"data",
 			"spre",
 			"_",
@@ -693,8 +722,39 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "TeX/Literature Review/CarmichaelPaperSummary.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16507,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11975,
+								11975
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -704,7 +764,7 @@
 	},
 	"input":
 	{
-		"height": 31.0
+		"height": 68.0
 	},
 	"layout":
 	{
@@ -761,7 +821,7 @@
 	{
 		"height": 144.0
 	},
-	"pinned_build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
+	"pinned_build_system": "Anaconda Python Builder",
 	"project": "MastersProject.sublime-project",
 	"replace":
 	{
@@ -797,7 +857,7 @@
 		[
 			[
 				"",
-				"~/Dropbox/RubyProject/RubyProject.sublime-project"
+				"~/Dropbox/RubyProject/flashcards/_sublime/flashcards.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -819,7 +879,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 201.0,
+	"side_bar_width": 268.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

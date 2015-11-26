@@ -8,9 +8,9 @@ function [] = iphnum_vs_purity(EVals, DVals, varargin)
   % delete(gcf)
   if both
     subplot(1, 2, 1)
-    prettyplot(EVals, DVals, iphnumvals(EVals, DVals, 'iphnum'), 'iphnum')
+    prettyplot(EVals, DVals, iphnumvals(EVals, DVals, 'iphnum'), 'Iphnum')
     subplot(1, 2, 2)
-    prettyplot(EVals, DVals, iphnumvals(EVals, DVals, 'purity'), 'purity')
+    prettyplot(EVals, DVals, iphnumvals(EVals, DVals, 'purity'), 'Purity')
   else
-    prettyplot(EVals, DVals, iphnumvals(EVals, DVals, 'iphnum', 60), 'iphnum')
+    prettyplot(EVals, DVals, iphnumvals(EVals, DVals, 'iphnum', 60), 'Iphnum')
   end

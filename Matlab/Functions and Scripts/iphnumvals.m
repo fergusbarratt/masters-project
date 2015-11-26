@@ -23,19 +23,19 @@ function [iphnumvals] = iphnumvals(Eplotvals, Dplotvals, varargin)
 	try
 		N = varargin{2};
 	catch
-		N = 30;
+		N = 80;
 	end
 	try
 		g = varargin{3};
 	catch
-		g = 50;
+		g = 10;
 	end
 	try
 		kappa = varargin{4};
 	catch
 		kappa = 1;
 	end
-	fprintf(['starting run, mode ' expectertype ', g= %d, kappa = %d, N = %d \n'], g, kappa, N)
+	fprintf(['starting run, mode ' expectertype ', g = %d, kappa = %d, N = %d \n'], g, kappa, N)
 	tic
 	function [rhos] = rhos(Hint, HBare, DriveStrength, Detuning, Collapse, ConjCollapse)
 		% takes forms of bare and interaction hamiltonians, drive strength and collapse operator, solves for the density matrix in steady state
@@ -79,42 +79,30 @@ function [iphnumvals] = iphnumvals(Eplotvals, Dplotvals, varargin)
 	es = length(Eplotvals);
 	numberofvalues = es*ds;
 	projectedtime = numberofvalues;
+	t =0;
 
 	% for loop initialisation - empty arrays for building
-	iphnumvals = [];
+	iphnumvals = zeros(ds, es);
+	for rowind = 1:ds %for each e/row
+		 row = zeros(1, es); %create a row of the right length
 
-	for E = Eplotvals
-		row = [];
-
-		for D = Dplotvals
-			row = vertcat(expecter(rhos(Hi, Hb, E/kappa, D/kappa, C1, C1dC1)), row);
+		for colind = 1:es % for each d/col index
+			row(colind) = expecter(rhos(Hi, Hb, Eplotvals(colind)/kappa, Dplotvals(rowind)/kappa, C1, C1dC1)); % set the values at (rowind, colind) to the value of expecter
 			% dispstat(D);
 			fprintf('|');
 		end
-		iphnumvals = horzcat(iphnumvals, row);
-		n = n+1;
-		t = toc;
+		iphnumvals(rowind, :) = row; % add the e-row to the matrix
+		n = n+1; % Counting and timing
+		roundtime = toc;
+		tic
+		t = t + roundtime;
+		if n>=1;
+			projectedtime = (projectedtime+numberofvalues*roundtime)/2;
+		end
 		if (n>0)
-		fprintf(' %d/%d: %4.2fs elapsed out of projected %4.1fs \r', n, es, t, projectedtime);
+			fprintf(' %d | Es: %d Ds: %d | %4.2fs elapsed out of projected %4.1fs \r', n, es, ds, t, projectedtime);
 		end
-		if n==1;
-			projectedtime = t*es;
-		end
-
 	end
 
-	% arrayfun -> should be slower, might be faster? weird bugs
-	% generate matrices of vals for arrayfun
-	% kappas = kappa*ones(length(Dplotvals), length(Eplotvals));
-	% gs = g*ones(length(Dplotvals), length(Eplotvals));
-	% %ds = d*ones(length(Eplotvals));
-	% Ns = N*ones(length(Dplotvals), length(Eplotvals));
-	% Eplotvalsd = repmat(Eplotvals, [length(Dplotvals), 1]);
-	% Dplotvalsd = repmat(Dplotvals', [1, length(Eplotvals)]);
-
-	% iphnumvals = arrayfun(@ssiphnum, kappas, gs, Dplotvalsd, Ns, Eplotvalsd);
-
-	timeelapsed = toc;
-
-	fprintf('%4.2fs, %d values\n', timeelapsed, numberofvalues)
+	fprintf('%4.2fs, %d values\n', t, numberofvalues)
 end

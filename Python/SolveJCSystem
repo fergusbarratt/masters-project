@@ -1,0 +1,43 @@
+def solve_jc_system(E, det, tlist, psi0, g=0.5, kappa=0.7):
+
+    # Identities
+    idcavity = qeye(2)
+    idqubit = qeye(2)
+
+    # Cavity field and atomic operators
+    a = tensor(destroy(2), idqubit)
+    sm = tensor(idcavity, sigmam())
+
+    # Hamiltonian components
+    # Bare + int
+
+    H0 = -det * (sm.dag() * sm + a.dag() * a) + \
+    g * (sm.dag() * a + sm * a.dag())
+    # Drive
+    H1 = E * (a + a.dag())
+
+    H = H0 + H1
+
+    # Collapse operators
+    c_ops = []
+    c1 = m.sqrt(2 * kappa) * a
+    # c2 = m.sqrt(gamma) * sm
+    # more operators go here - remember to append them to c_ops
+    c_ops.append(c1)
+    # c_ops.append(c2)
+
+    # Expectation operators
+    e_ops = []
+    sx = tensor(idcavity, sigmax())
+    sy = tensor(idcavity, sigmay())
+    sz = tensor(idcavity, sigmaz())
+    e_ops.append(sx)
+    e_ops.append(sy)
+    e_ops.append(sz)
+    # ground = tensor(basis(2, 0), basis(2, 1))
+    # excited = tensor(basis(2, 0), basis(2, 0))
+    # project_ground = ground*ground.dag()
+    # project_excited = excited*excited.dag()
+
+    out = mesolve(H, psi0, tlist, c_ops, [sx, sy, sz])
+    return out.expect[0], out.expect[1], out.expect[2]

@@ -33,6 +33,11 @@ function [rhoss] = rhoss(E, det, varargin)
 	catch ME
 		kappa = 0.5;
 	end
+	try
+		gamma = varargin{4};
+	catch
+		gamma=0.5;
+	end
 
 	%generate identities and constants
 	ida = identity(N); 
@@ -47,15 +52,15 @@ function [rhoss] = rhoss(E, det, varargin)
 	
 	% Collapse operators, spont emission now commented out
 	C1 = sqrt(2*kappa)*a;
-	%C2 = sqrt(gamma)*sm;
+	C2 = sqrt(2*gamma)*sm;
 	C1dC1 = C1'*C1;
-	%C2dC2 = C2'*C2;
+	C2dC2 = C2'*C2;
 	
 	% Calculate the Liouvillian, spont emission lindbladians gone
 	LH = -1i * (spre(HJC) - spost(HJC));
 	L1 = spre(C1)*spost(C1')-0.5*spre(C1dC1)-0.5*spost(C1dC1); 
-	% L2 = spre(C2)*spost(C2'')-0.5*spre(C2dC2)-0.5*spost(C2dC2); 
-	L = LH+L1; %+L2;
+	L2 = spre(C2)*spost(C2')-0.5*spre(C2dC2)-0.5*spost(C2dC2); 
+	L = LH+L1+L2;
 	
 	% Find steady state
 	rhoss = steady(L);
