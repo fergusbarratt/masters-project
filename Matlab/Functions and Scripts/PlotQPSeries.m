@@ -47,6 +47,7 @@ function [plo] = PlotQPSeries(Erange, Detrange, functype, varargin)
 				 	end
 			elseif functype == 'W'
 				h = real(wfunc(ptrace(rhoss(E/kappa, det/kappa, N, g, kappa, gamma), tracesys), Xrange, Yrange));
+
 				h = h/volintegral(h, Xrange, Yrange); % Renormalise Q function at each step
 				chk = volintegral(h, Xrange, Yrange);
 			 	if (chk>1.05 || chk<0.95)

@@ -16,7 +16,6 @@ function [rhoss] = rhoss(E, det, varargin)
 	% N = size of Hilbert space for intracavity field (zero to N-1 photons)
 	% count1 = photocount rate of light leaking out of cavity count2 = spontaneous emission rate
 	% iphnum = intracavity field
-
 	% set defaults
 	try 
 		N = varargin{1};
@@ -26,17 +25,17 @@ function [rhoss] = rhoss(E, det, varargin)
 	try 
 		g = varargin{2};
 	catch ME
-		g = 25;
+		g = 10;
 	end
 	try 
 		kappa = varargin{3};
 	catch ME
-		kappa = 0.5;
+		kappa = 1;
 	end
 	try
 		gamma = varargin{4};
 	catch
-		gamma=0.5;
+		gamma = 1;
 	end
 
 	%generate identities and constants
@@ -63,7 +62,9 @@ function [rhoss] = rhoss(E, det, varargin)
 	L = LH+L1+L2;
 	
 	% Find steady state
+	t= tic;
 	rhoss = steady(L);
+	toc(t)
 	% Calculate expectation values expectation of collapse conj*collapse
 	% Monitor output field of the cavity. count1: output photon count due to kappa
 	% count1 = expect(C1dC1,rhoss);
