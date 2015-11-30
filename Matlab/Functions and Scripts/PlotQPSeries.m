@@ -7,7 +7,7 @@ function [plo] = PlotQPSeries(Erange, Detrange, functype, varargin)
 	N = 60;
 	g = 10;
 	kappa = 1;
-	gamma = 1.5;
+	gamma = 0.8;
 
 	step_size = 0.1;
 	cols = min(3, max(size(Erange))); % number of columns in E subplots
@@ -68,7 +68,6 @@ function [plo] = PlotQPSeries(Erange, Detrange, functype, varargin)
 					case 'cf'
 						contourf(Xrange, Yrange, h);
 					case 'c'
-						fprintf('|');
 						plo = surf(Xrange, Yrange, h);
 						plo.LineStyle = 'none';
 						view(2);
@@ -76,7 +75,7 @@ function [plo] = PlotQPSeries(Erange, Detrange, functype, varargin)
 						colorbar
 						ylim=get(gca,'YLim');
 						xlim=get(gca,'XLim');
-						text((xlim(1)-1),(ylim(1)-2.5),[num2str(E) ',' num2str(det) '; g: ' num2str(g) ', kappa: ' num2str(kappa) ', gamma: ' num2str(gamma)], 'VerticalAlignment','top', 'HorizontalAlignment','left')
+						text((xlim(1)-1),(ylim(1)-1.5),[' (' num2str(E) ', ' num2str(det) ') ' '; g: ' num2str(g) ', kappa: ' num2str(kappa) ', gamma: ' num2str(gamma)], 'VerticalAlignment','top', 'HorizontalAlignment','left')
 						xlabel('Re(Q)')
 						ylabel('Im(Q)')
 					case 's'

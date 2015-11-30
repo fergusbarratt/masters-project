@@ -146,7 +146,7 @@ A surface plot of $|\alpha|^2 \approx n$ is shown in figure 5b for $\Epsilon>\fr
 \begin{figure}[h]
  \centering
  \includegraphics[width=1\textwidth]{Images/MeanFieldvsQuantum.png}
- \caption{Comparison of mean field and fully quantum contour plots with critical points at $\frac{\Epsilon}{2}$ highlighted}
+ \caption{Comparison of mean field and fully quantum contour plots with critical points at $\frac{\Epsilon}{2}$ highlighted}\label{fig:MeanFieldvsQuantum}
  \end{figure}
 
 
@@ -158,19 +158,23 @@ The multiple peaks in the lorentzian (at the bottom of \autocite[Figure 1]{Carmi
 
 The author notes the sides of the double lorentzian, most visible in the diagram at the top right of the figure, as domains of coexistence between the near vacuum state and the high occupation state, and the phase transition between the two at this boundary he classifies as first order, in contrast to the transition at the critical point which is second order.
 
-The author then analyses a number of Q function contour plots which show a distinct bimodality. This he uses as an indicator of coexistent states along the aforementioned domain of coexistence. He plots a coloured projection of the domains of coexistence of \autocite[Figure 1 right hand side]{Carmichael2015} as \autocite[Figure 2]{Carmichael2015}, and the Q functions of several points of the system phase space along this boundary.
+All such features are obvious in the plots in \cref{fig:MeanFieldvsQuantum}, where similar results have been obtained using the steady state master equation solver in the Quantum Optics Toolbox\autocite{qotoolbox}. Computationally solving the for $\alpha$ in the meanfield condition above yields the first plot.
+
+The author then analyses a number of Q function contour plots which show a distinct bimodality. This he uses as an indicator of coexistent states along the aforementioned domain of coexistence. The ratio of the peak heights serves as an estimator of the degree of bistability. He plots a projection of the peak height values onto the system phase space \autocite[Figure 1 right hand side]{Carmichael2015} as \autocite[Figure 2]{Carmichael2015}.
+
+The development of this Q function bimodality is echoed in the Wigner representation, and is clear in \cref{fig:Qbistabilities}, although the parameters are different to those in \cref{fig:MeanFieldvsQuantum} and in \autocite{Carmichael2015}.
 \begin{figure}[h]
  \begin{minipage}{.5\linewidth}
   \centering
   \includegraphics[width=1\textwidth]{Images/Q-Bistability-OnResonance.png}
-  \subcaption{Q functions moving through the critical point at $\frac{\Epsilon}{2}$}
+  \subcaption{Development of phase bistability in the W function for fixed detuning, with drive moving through the critical point at $\frac{\Epsilon}{2}$}
   \end{minipage}%
   \begin{minipage}{.5\linewidth}
       \centering
       \includegraphics[width=1\textwidth]{Images/Q-Bistability.png}
-      \subcaption{Q functions moving onto the walls of the lorentzian}
+      \subcaption{W functions with changing detuning and fixed drive. Note the probability fringes to the right connecting the peaks by spontaneous emission}
   \end{minipage}
-  \caption{Q-bistabilities}
+  \caption{Q-bistabilities}\label{fig:Qbistabilities}
 \end{figure}
 \subsection{Critical Slowing Down}
 
@@ -186,6 +190,7 @@ The plot containing evidence of critical slowing also contains a cut through the
 
 Figure 3b contains a surface and a contour plot of the steady state Q-function. In the contour plot the author highlights the upper half as indicative of the path of excitation (with a region of bimodality corresponding to the different excitation paths that are followed uniquely). The lower half of the plot corresponds to deexcitation.
 
+These deexcitation fringes are clear in \ref{fig:Qbistabilities} where a spontaneous emission rate $ \gamma = \frac{\kappa}{2}$ connects the peaks of bistabilities in phases and amplitude. Given the interpretation of such bimodal quasi-probability functions in the zero detuning case as as having a probability peak for the occupation of each ladder, it is clear that spontaneous emission serves to induce ladder-switching.
 \subsection{Spontaneous Emission}
 
 The author investigates a limit of high photon numbers in which quantum fluctuations vanish and the mean field and exact theories coincide. He introduces what he calls the Maxwell-Bloch equations, the mean-field equations in the presence of spontaneous emission coupling to modes of the field other than the cavity fields. This shortens the Bloch vector in general, and thus the vector is no longer confined to the surface of the sphere.
