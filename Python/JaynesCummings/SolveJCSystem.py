@@ -1,6 +1,6 @@
-# IF qps is given an array of dets and drives it will go along dets
+""" IF qps is given an array of dets and drives it will go along dets
 # Reparametrised system doesn't have i in interaction hamiltonian but
-# unchanged sys does?
+# unchanged sys does? """
 import qutip as qt
 import numpy as np
 import math as m
@@ -9,8 +9,11 @@ from matplotlib import animation
 import numbers
 import warnings
 
-class JC_System:
-    def __init__(self, drive_range, omega_qubit_range, omega_cavity_range, omega_drive_range, c_op_params=[1, 1], g=10, N=40):
+class System:
+    pass
+
+class JC_System(System):
+    def __init__(self, drive_range, omega_qubit_range, omega_cavity_range, omega_drive_range, c_op_params, g, N):
         # Turn all ranges into numpy arrays
         if isinstance(drive_range, numbers.Number):
             self.drive_range = np.array([drive_range])
@@ -30,7 +33,18 @@ class JC_System:
             self.omega_qubit_range = np.array(omega_qubit_range)
 
         if not (len(self.omega_drive_range) == len(self.omega_qubit_range) == len(self.omega_cavity_range)):
-            raise ArithmeticError('Frequency ranges are not of equal length')
+            # test if lengths of freq vectors are the same. Correct if two scalars and one vector, else raise
+            if len(self.omega_cavity_range)==1 and len(self.omega_drive_range)==1:
+                self.omega_cavity_range=np.ones_like(omega_qubit_range)*self.omega_cavity_range[0]
+                self.omega_drive_range=np.ones_like(omega_qubit_range)*self.omega_drive_range[0]
+            elif len(self.omega_qubit_range) == 1 and len(self.omega_cavity_range) == 1:
+                self.omega_qubit_range = np.ones_like(omega_drive_range)*self.omega_qubit_range[0]
+                self.omega_cavity_range = np.ones_like(omega_drive_range)*self.omega_cavity_range[0]
+            elif len(self.omega_qubit_range) == 1 and len(self.omega_drive_range) == 1:
+                self.omega_drive_range = np.ones_like(omega_cavity_range)*self.omega_drive_range[0]
+                self.omega_qubit_range = np.ones_like(omega_cavity_range)*self.omega_qubit_range[0]
+            else:
+                raise ArithmeticError('Frequency ranges are not of equal length')
 
         # Instantiate cavity and qubit parameters
         self.g = g
@@ -48,10 +62,6 @@ class JC_System:
             #any non zero cavity-qubit detunings
             self.reparam = True
             self.det_range = self.omega_cavity_range-self.omega_drive_range
-
-class Steady_State_JC_System(JC_System):
-    def __init__(self, drive_range, omega_qubit_range, omega_cavity_range, omega_drive_range, c_op_params, g, N):
-        JC_System.__init__(self, drive_range, omega_qubit_range, omega_cavity_range, omega_drive_range, c_op_params, g, N)
 
     def hamiltonian(self, drive_index=0, det_index=0):
         #bare and int
@@ -74,34 +84,38 @@ class Steady_State_JC_System(JC_System):
             hamiltonian = hamiltonian_bare + hamiltonian_int + hamiltonian_drive
             return hamiltonian
 
-    def c_ops(self, *arg):
+    def c_ops(self):
         c_ops = []
         c1 = m.sqrt(2 * self.kappa) * self.a
         c2 = m.sqrt(2 * self.gamma) * self.sm
         c_ops.append(c1)
         c_ops.append(c2)
-        c_ops+=[op for op in arg]
         return c_ops
 
-    def rho_ss(self, drive_index, det_index):
+class Steady_State_JC_System(JC_System):
+    def __init__(self, drive_range, omega_qubit_range, omega_cavity_range, omega_drive_range, c_op_params, g, N):
+        JC_System.__init__(self, drive_range, omega_qubit_range, omega_cavity_range, omega_drive_range, c_op_params, g, N)
+
+
+    def rho(self, drive_index, det_index):
         return qt.steadystate(self.hamiltonian(drive_index, det_index), self.c_ops())
 
     def qps(self, xvec, yvec, type='Q'):
         qps = []
-        for drive_index, E in enumerate(self.drive_range):
-            for det_index, D in enumerate(self.omega_qubit_range):
+        for drive_index in range(len(self.drive_range)):
+            for det_index in range(len(self.omega_qubit_range)):
                 if type != 'Q':
-                    qps.append(qt.wigner(self.rho_ss(drive_index, det_index).ptrace(0), xvec, yvec))
+                    qps.append(qt.wigner(self.rho(drive_index, det_index).ptrace(0), xvec, yvec))
                 else:
-                    qps.append(qt.qfunc(self.rho_ss(drive_index, det_index).ptrace(0), xvec, yvec))
+                    qps.append(qt.qfunc(self.rho(drive_index, det_index).ptrace(0), xvec, yvec))
         return  qps
     def intracavity_photon_numbers(self):
-        return [qt.expect(self.rho_ss(drive[0], det[0]), self.a.dag()*self.a) for drive in enumerate(self.drive_range) for det in enumerate(self.omega_qubit_range)]
+        return [qt.expect(self.rho(drive[0], det[0]), self.a.dag()*self.a) for drive in enumerate(self.drive_range) for det in enumerate(self.omega_qubit_range)]
 
     def purities(self):
-        return [(self.rho_ss(drive[0], det[0])**2).tr() for drive in enumerate(self.drive_range) for det in enumerate(self.omega_qubit_range)]
+        return [(self.rho(drive[0], det[0])**2).tr() for drive in enumerate(self.drive_range) for det in enumerate(self.omega_qubit_range)]
 
-class Sys_Build:
+class Sys_Params:
     def __init__(self, drives=[4, 5, 6], omega_qubits=1, omega_cavities=1, omega_drives=1, c_op_params=[1, 1], g=10, N=40):
         # defaults move through critical on zero det
         self.drives = drives
@@ -125,7 +139,7 @@ class Sys_Build:
         self.omega_drives = omega_qubits+np.array(self.dets)
         return (self.drives, self.omega_qubits, self.omega_cavities, self.omega_drives, self.c_op_params, self.g, self.N)
 
-def plot_qps(sys, type='W', infigsize=(12, 3), vec=np.linspace(-10, 10, 200)):
+def plot_qps(sys, type='Q', infigsize=(12, 3), vec=np.linspace(-10, 10, 200)):
     W =  sys.qps(vec, vec, type)
     plots = []
 
@@ -140,12 +154,33 @@ def plot_qps(sys, type='W', infigsize=(12, 3), vec=np.linspace(-10, 10, 200)):
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
         plt.show()
+def animate_qps(sys, type='Q', contno=60, infigsize=(6, 6), ininterval=150, vec=np.linspace(-10, 10, 50)):
+    W = sys.qps(vec, vec, type)
+
+    fig, axes = plt.subplots(1, 1, figsize=infigsize)
+
+    def init():
+        cont = axes.contourf(vec, vec, np.zeros_like(W[0]), contno)
+        return cont
+
+    def animate(i):
+        axes.cla()
+        plt.cla()
+        cont = axes.contourf(vec, vec, W[i], contno)
+        return cont
+    if len(W)!=1:
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            anim = animation.FuncAnimation(fig, animate, init_func=init, frames=len(W), interval=ininterval)
+    else:
+        cont = axes.contourf(vec, vec, W[0], contno)
+    plt.show()
 
 # drives, Q, C, D, c_op_params, g, N
 # build empty system and invoke reparams(drives, dets) for old way
-carmichael_system_params = Sys_Build(5, 1, 1, 2, [1, 1], 10, 40).params()
+carmichael_system_params = Sys_Params(1, 1, 1, 1, [1, 0.5], 10, 40).params()
 
-plot_qps(Steady_State_JC_System(*carmichael_system_params), 'W')
+carmichael_sys = Steady_State_JC_System(*carmichael_system_params)
 
-fig, axes = plt.subplots(1, len(W), figsize=(6, 6))
-
+animate_qps(carmichael_sys, 'Q')
+# plot_qps(carmichael_sys, 'Q')

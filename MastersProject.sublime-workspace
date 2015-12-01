@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"omega_",
+				"omega_qubit_range〔variable〕"
+			],
+			[
+				"omeg",
+				"omega_cavity_range〔variable〕"
+			],
+			[
+				"omega",
+				"omega_qubit_range〔variable〕"
+			],
+			[
+				"omega_ca",
+				"omega_cavity_range"
+			],
+			[
+				"q",
+				"q_d_det〔variable〕"
+			],
+			[
+				"c_op",
+				"c_op_params"
+			],
+			[
 				"drive",
 				"drive_range"
 			],
@@ -68,10 +92,6 @@
 				"PlotVals"
 			],
 			[
-				"omeg",
-				"omega_driving"
-			],
-			[
 				"H1",
 				"H1_coeff"
 			],
@@ -86,14 +106,6 @@
 			[
 				"kcollaps",
 				"kcollapse〔function〕"
-			],
-			[
-				"omega",
-				"omega_cavity"
-			],
-			[
-				"omega_",
-				"omega_qubit"
 			],
 			[
 				"vec",
@@ -167,16 +179,8 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "Python/SolveJCSystem.py",
-			"settings":
-			{
-				"buffer_size": 3276,
-				"line_ending": "Unix"
-			}
-		}
 	],
-	"build_system": "Packages/SublimeREPL/sublimerepl_build_system_hack.sublime-build",
+	"build_system": "Packages/Python/Python.sublime-build",
 	"build_system_choices":
 	[
 		[
@@ -192,6 +196,22 @@
 			],
 			[
 				"Packages/LaTeXTools/LaTeX.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
 				""
 			]
 		],
@@ -518,17 +538,24 @@
 	"expanded_folders":
 	[
 		"/Users/fergusbarratt/Dropbox/University/Masters project",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Python"
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Functions and Scripts",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/JaynesCummings",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review"
 	],
 	"file_history":
 	[
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/CarmichaelPaperSummary.tex",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/JaynesCummings/SolveJCSystem.py",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Functions and Scripts/probss.m",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/SolveJCSystem.py",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Functions and Scripts/rhoss.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Functions and Scripts/PlotQPSeries.m",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/SolveJCSystem.py",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Functions and Scripts/iphnumvals.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Functions and Scripts/iphnum_vs_purity.m",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/CarmichaelPaperSummary.tex",
-		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/test qutip.py",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Functions and Scripts/Subplot2Figures.m",
@@ -662,6 +689,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"rho_ss",
+			"Sys_Build",
+			"n",
+			"params",
+			"JC_Solutions",
+			"wl",
+			"cavity",
+			"coloured",
 			"System",
 			".qp(vec, vec)",
 			"W",
@@ -759,43 +794,6 @@
 	"groups":
 	[
 		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 0,
-					"file": "Python/SolveJCSystem.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3276,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2701,
-								2701
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
-			]
-		},
-		{
 			"sheets":
 			[
 			]
@@ -818,12 +816,6 @@
 				0,
 				1,
 				1
-			],
-			[
-				0,
-				1,
-				1,
-				2
 			]
 		],
 		"cols":
@@ -834,14 +826,13 @@
 		"rows":
 		[
 			0.0,
-			0.5,
 			1.0
 		]
 	},
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 95.0
+		"height": 200.0
 	},
 	"output.find_results":
 	{
@@ -921,16 +912,16 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},
-	"show_minimap": true,
+	"show_minimap": false,
 	"show_open_files": true,
-	"show_tabs": true,
+	"show_tabs": false,
 	"side_bar_visible": false,
-	"side_bar_width": 160.0,
-	"status_bar_visible": true,
+	"side_bar_width": 184.0,
+	"status_bar_visible": false,
 	"template_settings":
 	{
 	}
