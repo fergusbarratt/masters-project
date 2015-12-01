@@ -4,12 +4,52 @@
 		"selected_items":
 		[
 			[
-				"omega_",
-				"omega_qubit_range〔variable〕"
+				"repara",
+				"reparametrised"
+			],
+			[
+				"Quantu",
+				"QuantumOpticsModel"
+			],
+			[
+				"c_ops",
+				"c_op_params"
+			],
+			[
+				"__",
+				"__init__〔function〕"
 			],
 			[
 				"omeg",
-				"omega_cavity_range〔variable〕"
+				"omega_drive_range〔variable〕"
+			],
+			[
+				"omega_",
+				"omega_drive_range〔variable〕"
+			],
+			[
+				"hamilto",
+				"hamiltonian"
+			],
+			[
+				"import",
+				"important_range"
+			],
+			[
+				"inte",
+				"important_range〔variable〕"
+			],
+			[
+				"ini",
+				"init_func"
+			],
+			[
+				"Sys_",
+				"Sys_Params(5"
+			],
+			[
+				"carmichael",
+				"carmichael_sys〔variable〕"
 			],
 			[
 				"omega",
@@ -179,6 +219,22 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "Python/JaynesCummings/SolveJCSystem.py",
+			"settings":
+			{
+				"buffer_size": 15338,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Python/JaynesCummings/qp_anim.mp4",
+			"settings":
+			{
+				"buffer_size": 125975,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "Packages/Python/Python.sublime-build",
 	"build_system_choices":
@@ -538,8 +594,6 @@
 	"expanded_folders":
 	[
 		"/Users/fergusbarratt/Dropbox/University/Masters project",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Functions and Scripts",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/JaynesCummings",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX",
@@ -547,6 +601,7 @@
 	],
 	"file_history":
 	[
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/JaynesCummings/qp_anim.gif",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/CarmichaelPaperSummary.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/JaynesCummings/SolveJCSystem.py",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
@@ -689,6 +744,23 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"SystemParameters",
+			"drive_index, ",
+			"drive_index",
+			"omega_drive_range",
+			"collective_sm",
+			"collective_sz",
+			"cavity_range",
+			"drive_range",
+			"SteadyStateJaynesCummingsSystem",
+			"JC_System",
+			"Steady_State_JC_System",
+			"Sys_Params",
+			"JC_System",
+			"System",
+			"system",
+			"System",
+			"animate",
 			"rho_ss",
 			"Sys_Build",
 			"n",
@@ -794,8 +866,68 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "Python/JaynesCummings/SolveJCSystem.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 15338,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13517,
+								13517
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 468.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Python/JaynesCummings/qp_anim.mp4",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 125975,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -832,7 +964,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 200.0
+		"height": 205.0
 	},
 	"output.find_results":
 	{
@@ -916,12 +1048,12 @@
 	"settings":
 	{
 	},
-	"show_minimap": false,
+	"show_minimap": true,
 	"show_open_files": true,
-	"show_tabs": false,
-	"side_bar_visible": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
 	"side_bar_width": 184.0,
-	"status_bar_visible": false,
+	"status_bar_visible": true,
 	"template_settings":
 	{
 	}
