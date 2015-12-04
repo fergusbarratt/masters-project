@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"A",
+				"Attribute"
+			],
+			[
+				"e",
+				"Exception〔class〕"
+			],
+			[
+				"euler",
+				"euler_step_size〔variable〕"
+			],
+			[
+				"eu",
+				"euler_step_size〔variable〕"
+			],
+			[
+				"runge",
+				"runge_kutta_step_size〔variable〕"
+			],
+			[
+				"a",
+				"AttributeError〔class〕"
+			],
+			[
+				"initi",
+				"initial_cond"
+			],
+			[
 				"PL",
 				"PLU_decomposition〔function〕"
 			],
@@ -252,18 +280,15 @@
 	"buffers":
 	[
 		{
-			"contents": "Package Control Messages\n========================\n\nSublimeLinter-flake8\n--------------------\n\n  SublimeLinter-flake8\n  -------------------------------\n  This linter plugin for SublimeLinter provides an interface to flake8.\n  \n  ** IMPORTANT! **\n  \n  Before this plugin will activate, you *must*\n  follow the installation instructions here:\n  \n  https://github.com/SublimeLinter/SublimeLinter-flake8\n",
+			"file": "/Users/fergusbarratt/Dropbox/NumericalAnalysis/LU Decomposition.py",
 			"settings":
 			{
-				"buffer_size": 399,
-				"line_ending": "Unix",
-				"name": "Package Control Messages",
-				"read_only": true,
-				"scratch": true
+				"buffer_size": 4363,
+				"line_ending": "Unix"
 			}
 		}
 	],
-	"build_system": "Anaconda Python Builder",
+	"build_system": "Packages/Python/Python.sublime-build",
 	"build_system_choices":
 	[
 		[
@@ -366,6 +391,34 @@
 				],
 				[
 					"Packages/SublimeREPL/sublimerepl_build_system_hack.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				],
+				[
+					"Packages/SublimeREPL/sublimerepl_build_system_hack.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Chrome.sublime-build",
+					""
+				],
+				[
+					"Packages/User/jekyll.sublime-build",
 					""
 				]
 			],
@@ -680,12 +733,11 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/fergusbarratt/Dropbox/University/Masters project",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Python",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/JaynesCummings"
+		"/Users/fergusbarratt/Dropbox/NumericalAnalysis"
 	],
 	"file_history":
 	[
+		"/Users/fergusbarratt/Dropbox/NumericalAnalysis/EulerSolve.py",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/fergusbarratt/Dropbox/NumericalAnalysis/sse/sse.cpp",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/JaynesCummings/SolveJCSystem.py",
@@ -812,12 +864,11 @@
 		"/Applications/MATLAB_R2015a.app/bin/matlab",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/CarmichaelPaperSummary.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TheMasterEquation.aux",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Summary.tex",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TheMasterEquation.tex"
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Summary.tex"
 	],
 	"find":
 	{
-		"height": 30.0
+		"height": 70.0
 	},
 	"find_in_files":
 	{
@@ -832,6 +883,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"5",
+			"AttributeError(",
+			"raise ",
+			", 5",
+			"t",
+			",",
+			"self.runge_kutta_step_size",
+			"self.euler_step_size",
 			"2",
 			"P2",
 			"l",
@@ -951,15 +1010,7 @@
 			"N",
 			"detuning",
 			"drive",
-			"kappa, g, det, N",
-			"e",
-			"E",
-			"e",
-			"E",
-			"e",
-			"E",
-			"e",
-			"E"
+			"kappa, g, det, N"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -984,27 +1035,27 @@
 			[
 				{
 					"buffer": 0,
+					"file": "/Users/fergusbarratt/Dropbox/NumericalAnalysis/LU Decomposition.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 399,
+						"buffer_size": 4363,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								102,
-								102
+								76,
+								76
 							]
 						],
 						"settings":
 						{
-							"auto_indent": false,
-							"default_dir": "/Users/fergusbarratt/Dropbox/University/Masters project",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_width": 2,
-							"word_wrap": true
+							"auto_complete": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1049,7 +1100,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 280.0
+		"height": 133.0
 	},
 	"output.find_results":
 	{
@@ -1084,10 +1135,10 @@
 		"height": 144.0
 	},
 	"pinned_build_system": "",
-	"project": "MastersProject.sublime-project",
+	"project": "NumericalAnalysis.sublime-project",
 	"replace":
 	{
-		"height": 56.0
+		"height": 114.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1137,12 +1188,12 @@
 	"settings":
 	{
 	},
-	"show_minimap": true,
+	"show_minimap": false,
 	"show_open_files": true,
-	"show_tabs": true,
+	"show_tabs": false,
 	"side_bar_visible": true,
 	"side_bar_width": 184.0,
-	"status_bar_visible": true,
+	"status_bar_visible": false,
 	"template_settings":
 	{
 	}
