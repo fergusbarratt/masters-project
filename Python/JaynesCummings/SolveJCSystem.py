@@ -6,7 +6,9 @@ import math as m
 import qutip as qt
 import numpy as np
 from matplotlib import pyplot as plt
-plt.rcParams['image.cmap'] = 'seismic_r'
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+plt.rcParams['image.cmap'] = 'coolwarm'
 from matplotlib import animation
 import numbers
 import warnings
@@ -410,25 +412,47 @@ def plot_qps(sys, type='Q', infigsize=(12, 3), vec=np.linspace(-10, 10, 200)):
         plt.show()
 
 
-def draw_qps(sys, type='Q', ininterval=50, contno=100, save=False, infigsize=(
-        6, 6), xvec=np.linspace(-8, 7, 50), yvec=np.linspace(-10, 4, 50),
+def draw_qps(sys, type='Q', plottype='s', ininterval=50, contno=100,
+             save=False, infigsize=(
+        6, 6), xvec=np.linspace(-8, 7, 70), yvec=np.linspace(-10, 4, 70),
         form='mp4'):
 
     W = zip(sys.important_range, sys.qps(xvec, yvec, type))  # SYSTEM SPECIFIC
-
-    fig, axes = plt.subplots(1, 1, figsize=infigsize)
+    if plottype == 'c':
+        fig, axes = plt.subplots(1, 1, figsize=infigsize)
+    elif plottype == 's':
+        fig = plt.figure()
+        axes = fig.gca(projection='3d')
+        X, Y = np.meshgrid(xvec, yvec)
+        axes.set_zlim(0.0, 10.)
 
     def init():
-        cont = axes.contourf(xvec, yvec, W[0][1], contno)
-        return cont
+        if plottype == 'c':
+            plot = axes.contourf(xvec, yvec, W[0][1], contno)
+        elif plottype == 's':
+            Z = W[0][1]
+            plot = axes.plot_surface(
+                X, Y, Z, rstride=1, cstride=1, linewidth=0,
+                antialiased=True, shade=True, cmap = cm.coolwarm)
+        axes.set_zlim(0.0, 0.1)
+        if plottype == 'c':
+            plt.colorbar(plot)
+        return plot
 
     def animate(i):
         axes.cla()
         plt.cla()
         plt.title(sys.important_range_name +
                   ': %d' % W[i][0])  # SYSTEM SPECIFIC
-        cont = axes.contourf(xvec, yvec, W[i][1], contno)
-        return cont
+        if plottype == 'c':
+            plot = axes.contourf(xvec, yvec, W[i][1], contno)
+        elif plottype == 's':
+            Z = W[i][1]
+            plot = axes.plot_surface(
+                X, Y, Z, rstride=1, cstride=1, linewidth=0,
+                antialiased=False, shade=True, cmap = cm.coolwarm)
+        axes.set_zlim(0.0, 0.1)
+        return plot
 
     if len(W) != 1:
         with warnings.catch_warnings():
@@ -442,7 +466,7 @@ def draw_qps(sys, type='Q', ininterval=50, contno=100, save=False, infigsize=(
     else:
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
-            cont = axes.contourf(xvec, yvec, W[0], contno)
+            cont = axes.contourf(xvec, yvec, W[0][1], contno)
     if save and len(W) != 1:
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
@@ -475,11 +499,11 @@ def plot_exp(sys, expval='iphnum'):
 # drives, Q, C, D, c_op_params, g, N
 # build empty system and invoke reparams(drives, dets) for old way
 carmichael_system_params = JaynesCummingsParameters(
-    5, 100, 100, np.linspace(95, 105, 50), [1, 1], 10, 40).params()
+    5, np.linspace(90, 110, 21), 100, 100, [1, 1], 10, 40).params()
 
 carmichael_sys = SteadyStateJaynesCummingsModel(*carmichael_system_params)
 
-draw_qps(carmichael_sys, 'W', 50, 100, False)
+draw_qps(carmichael_sys, 'W', 's', save=False)
 # plot_qps(carmichael_sys, 'Q')
 # plot_exp(carmichael_sys)
 
