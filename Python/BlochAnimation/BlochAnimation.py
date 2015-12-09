@@ -40,7 +40,7 @@ sphere = Bloch(axes=ax)
 
 ## Animation
 fig = figure()
-ax = Axes3D(fig,azim=-40,elev=30)
+ax = Axes3D(fig)
 sphere = Bloch(axes=ax)
 def animate(i):
     sphere.clear()

@@ -279,14 +279,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/Users/fergusbarratt/Dropbox/NumericalAnalysis/LU Decomposition.py",
-			"settings":
-			{
-				"buffer_size": 4363,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "Packages/Python/Python.sublime-build",
 	"build_system_choices":
@@ -451,10 +443,26 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 82.0,
-		"last_filter": "toggle linter",
+		"height": 313.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"colorsublime",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"remove pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
 			[
 				"toggle linter",
 				"SublimeLinter: Toggle Linter"
@@ -534,10 +542,6 @@
 			[
 				"show",
 				"SublimeLinter: Show All Errors"
-			],
-			[
-				"remove",
-				"Package Control: Remove Package"
 			],
 			[
 				"git sts",
@@ -712,7 +716,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 512.0
+		"width": 601.0
 	},
 	"console":
 	{
@@ -733,12 +737,14 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/fergusbarratt/Dropbox/NumericalAnalysis"
+		"/Users/fergusbarratt/Dropbox/NumericalAnalysis",
+		"/Users/fergusbarratt/Dropbox/NumericalAnalysis/sse"
 	],
 	"file_history":
 	[
-		"/Users/fergusbarratt/Dropbox/NumericalAnalysis/EulerSolve.py",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/fergusbarratt/Dropbox/NumericalAnalysis/LU Decomposition.py",
+		"/Users/fergusbarratt/Dropbox/NumericalAnalysis/EulerSolve.py",
 		"/Users/fergusbarratt/Dropbox/NumericalAnalysis/sse/sse.cpp",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/JaynesCummings/SolveJCSystem.py",
 		"/Users/fergusbarratt/Dropbox/NumericalAnalysis/README.md",
@@ -863,12 +869,11 @@
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TeX/TheMasterEquation.tex",
 		"/Applications/MATLAB_R2015a.app/bin/matlab",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/CarmichaelPaperSummary.tex",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TheMasterEquation.aux",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Summary.tex"
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TheMasterEquation.aux"
 	],
 	"find":
 	{
-		"height": 70.0
+		"height": 29.0
 	},
 	"find_in_files":
 	{
@@ -883,6 +888,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"1.5",
 			"5",
 			"AttributeError(",
 			"raise ",
@@ -1009,8 +1015,7 @@
 			"n",
 			"N",
 			"detuning",
-			"drive",
-			"kappa, g, det, N"
+			"drive"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1030,46 +1035,14 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/Users/fergusbarratt/Dropbox/NumericalAnalysis/LU Decomposition.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4363,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								76,
-								76
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 30.0
+		"height": 29.0
 	},
 	"input":
 	{
@@ -1138,7 +1111,7 @@
 	"project": "NumericalAnalysis.sublime-project",
 	"replace":
 	{
-		"height": 114.0
+		"height": 54.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1191,8 +1164,8 @@
 	"show_minimap": false,
 	"show_open_files": true,
 	"show_tabs": false,
-	"side_bar_visible": true,
-	"side_bar_width": 184.0,
+	"side_bar_visible": false,
+	"side_bar_width": 119.0,
 	"status_bar_visible": false,
 	"template_settings":
 	{

@@ -48,8 +48,7 @@ def solve_jc_system(E, det, tlist, psi0, g=0.5, kappa=0.7):
     # Hamiltonian components
     # Bare + int
 
-    H0 = -det * (sm.dag() * sm + a.dag() * a) + \
-    g * (sm.dag() * a + sm * a.dag())
+    H0 = -det * (sm.dag() * sm + a.dag() * a) + g * (sm.dag() * a + sm * a.dag())
     # Drive
     H1 = E * (a + a.dag())
 

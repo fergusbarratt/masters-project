@@ -2,13 +2,16 @@
 Reparametrised system doesn't have i in interaction hamiltonian but
 unchanged sys does? Is this not a docstring?"""
 
+from __future__ import print_function
+import matplotlib
+matplotlib.use('Agg')
 import math as m
 import qutip as qt
 import numpy as np
 from matplotlib import pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
-plt.rcParams['image.cmap'] = 'coolwarm'
+plt.rcParams['image.cmap'] = 'seismic'
 from matplotlib import animation
 import numbers
 import warnings
@@ -30,6 +33,8 @@ class QuantumOpticsSystem:
         self.a_bare = qt.destroy(self.N_cavity_modes)
         self.sm_bare = qt.sigmam()
         self.sz_bare = qt.sigmaz()
+        self.sx_bare = qt.sigmax()
+        self.sy_bare = qt.sigmay()
 
         # for back compatibility
         self.N = N_cavity_modes
@@ -105,9 +110,10 @@ class JaynesCummingsSystem(QuantumOpticsSystem):
             omega_drive_range,
             c_op_params,
             g,
-            N):
+            N,
+            noisy=False):
         QuantumOpticsSystem.__init__(self, c_op_params, g, N)
-
+        self.noisy = noisy
         # Turn all ranges into numpy arrays
         if isinstance(drive_range, numbers.Number):
             self.drive_range = np.array([drive_range])
@@ -177,13 +183,15 @@ class JaynesCummingsSystem(QuantumOpticsSystem):
         # 1 atom 1 cavity operators
         self.a = qt.tensor(self.a_bare, self.idqubit)
         self.sm = qt.tensor(self.idcavity, self.sm_bare)
-
+        self.sx = qt.tensor(self.idcavity, self.sx_bare)
+        self.sy = qt.tensor(self.idcavity, self.sy_bare)
+        self.sz = qt.tensor(self.idcavity, self.sz_bare)
     def hamiltonian(self, drive_index=0, det_index=0):
         # bare and int
         if self.reparam:
             hamiltonian_bare_int = -self.det_range[det_index] * (
                 self.sm.dag() * self.sm + self.a.dag() * self.a) + self.g * (
-                self.sm.dag() * self.a + self.sm * self.a.dag())
+                    self.sm.dag() * self.a + self.sm * self.a.dag())
 
             hamiltonian_drive = self.drive_range[drive_index] * (
                 self.a + self.a.dag())
@@ -200,11 +208,16 @@ class JaynesCummingsSystem(QuantumOpticsSystem):
             self.c_q_det = (
                 self.omega_cavity_range -
                 self.omega_qubit_range)[det_index]
-
-            print '\ndrive strength: ',
-            self.drive_range[drive_index], '\ncavity-drive detuning: ',
-            self.c_d_det, '\nqubit-drive detuning: ', self.q_d_det,
-            '\ncavity-qubit detuning: ', self.c_q_det
+            if self.noisy:
+                print(
+                    '\ndrive strength: ',
+                    self.drive_range[drive_index],
+                    '\ncavity-drive detuning: ',
+                    self.c_d_det,
+                    '\nqubit-drive detuning: ',
+                    self.q_d_det,
+                    '\ncavity-qubit detuning: ',
+                    self.c_q_det)
 
             hamiltonian_bare = self.q_d_det * self.sm.dag() * self.sm + (
                 self.c_d_det * self.a.dag() * self.a)
@@ -339,6 +352,145 @@ class SteadyStateJaynesCummingsModel(JaynesCummingsSystem):
                 for drive in enumerate(self.drive_range)
                 for det in enumerate(self.omega_qubit_range)]
 
+    def plot_qps(self, type='Q', infigsize=(12, 3), vec=np.linspace(-10, 10, 200)):
+        W = self.qps(vec, vec, type)
+        plots = []
+
+        if len(W) == 1:
+            fig, axes = plt.subplots(1, len(W), figsize=(6, 6))
+            plots.append(axes.contourf(vec, vec, W[0], 100))
+        else:
+            fig, axes = plt.subplots(1, len(W), figsize=infigsize)
+            for i in range(len(W)):
+                plots.append(axes[i].contourf(vec, vec, W[i], 100))
+        # plot the results - suppress comparison warning
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            plt.show()
+
+
+    def draw_qps(self, type='Q', plottype='c', ininterval=50, contno=100,
+                 save=False, form='mp4', infigsize=(6, 6),
+                 xvec=np.linspace(-8, 7, 70), yvec=np.linspace(-10, 4, 70)):
+
+        W = list(zip(self.important_range, self.qps(xvec, yvec, type)))
+        if plottype == 'c':
+            fig, axes = plt.subplots(1, 1, figsize=infigsize)
+        elif plottype == 's':
+            fig = plt.figure()
+            axes = fig.gca(projection='3d')
+            X, Y = np.meshgrid(xvec, yvec)
+
+        def init():
+            if plottype == 'c':
+                plot = axes.contourf(xvec, yvec, W[0][1], contno)
+            elif plottype == 's':
+                Z = W[0][1]
+                plot = axes.plot_surface(
+                    X, Y, Z, rstride=1, cstride=1, linewidth=0,
+                    antialiased=True, shade=True, cmap=cm.coolwarm)
+                axes.set_zlim(0.0, 0.1)
+            if plottype == 'c':
+                plt.colorbar(plot)
+            return plot
+
+        def animate(i):
+            axes.cla()
+            plt.cla()
+            plt.title(self.important_range_name +
+                      ': %d' % W[i][0])
+            if plottype == 'c':
+                plot = axes.contourf(xvec, yvec, W[i][1], contno)
+            elif plottype == 's':
+                Z = W[i][1]
+                plot = axes.plot_surface(
+                    X, Y, Z, rstride=1, cstride=1, linewidth=0,
+                    antialiased=False, shade=True, cmap=cm.coolwarm)
+                axes.set_zlim(0.0, 0.4)
+            return plot
+
+        if len(W) != 1:
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore")
+                anim = animation.FuncAnimation(
+                    fig,
+                    animate,
+                    init_func=init,
+                    frames=len(W),
+                    interval=ininterval)
+        else:
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore")
+                cont = axes.contourf(xvec, yvec, W[0][1], contno)
+        if save and len(W) != 1:
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore")
+                if form == 'mp4':
+                    anim.save(
+                        'qp_anim.mp4', fps=30, extra_args=[
+                            '-vcodec', 'libx264'])
+                if form == 'gif':
+                    anim.save('qp_anim.gif', writer='imagemagick', fps=4)
+        plt.show()
+
+
+    def plot_exp(self, expval='iphnum'):
+        xs = self.important_range
+        if expval == 'iphnum':
+            ys = self.intracavity_photon_numbers()
+        elif expval == 'purities':
+            ys = self.purities()
+        else:
+            raise NameError('no such expectation value')
+        plt.plot(xs, ys)
+        plt.show()
+
+
+class TimeDependentJaynesCummingsModel(
+        SteadyStateJaynesCummingsModel):
+    def __init__(self,
+                 drive_range,
+                 omega_qubit_range,
+                 omega_cavity_range,
+                 omega_drive_range,
+                 c_op_params,
+                 g,
+                 N,
+                 tlist,
+                 initial_state=None):
+
+        SteadyStateJaynesCummingsModel.__init__(self,
+                                                drive_range,
+                                                omega_qubit_range,
+                                                omega_cavity_range,
+                                                omega_drive_range,
+                                                c_op_params,
+                                                g,
+                                                N)
+        self.tlist = tlist
+        if initial_state is None:
+            self.initial_state = qt.tensor(self.idcavity, self.idqubit)
+        else:
+            self.initial_state = initial_state
+
+    def solve(self, exps=[]):
+        return qt.mesolve(self.hamiltonian(), self.initial_state, self.tlist, self.c_ops(), exps)
+
+    def show_time_dependence(self, exps):
+        plt.plot(self.tlist, self.solve(exps).expect[0])
+        plt.show()
+
+    def draw_bloch_sphere(self, ininterval=1, contno=100,
+                 save=False, form='mp4', infigsize=(6, 6)):
+        soln = self.solve([self.sx, self.sy, self.sz])
+        sx, sy, sz = soln.expect[0], soln.expect[1], soln.expect[2]
+        vecs = [np.real(qt.Qobj([[sx[i], sy[i], sz[i]]]).unit().full())[0] for i in range(1,len(sx))]
+        fig = plt.figure()
+        ax = Axes3D(fig)
+        sphere = qt.Bloch(axes=ax, fig=fig)
+        sphere.add_vectors(vecs[3])
+        sphere.show()
+
 
 class JaynesCummingsParameters:
     ''' interface to ssjcm class for unpacking parameters and
@@ -357,7 +509,8 @@ class JaynesCummingsParameters:
                 1,
                 1],
             g=10,
-            N=40):
+            N=40,
+            tlist=None):
         # defaults move through critical on zero det
         self.drives = drives
         self.omega_qubits = omega_qubits
@@ -366,16 +519,28 @@ class JaynesCummingsParameters:
         self.c_op_params = c_op_params
         self.g = g
         self.N = N
+        self.tlist = tlist
 
     def params(self):
-        return (
-            self.drives,
-            self.omega_qubits,
-            self.omega_cavities,
-            self.omega_drives,
-            self.c_op_params,
-            self.g,
-            self.N)
+        if self.tlist is None:
+            return(
+                self.drives,
+                self.omega_qubits,
+                self.omega_cavities,
+                self.omega_drives,
+                self.c_op_params,
+                self.g,
+                self.N)
+        else:
+            return(
+                self.drives,
+                self.omega_qubits,
+                self.omega_cavities,
+                self.omega_drives,
+                self.c_op_params,
+                self.g,
+                self.N,
+                self.tlist)
 
     def re_params(self, drives=[4, 5, 6], dets=0):
         # Completely untested
@@ -394,156 +559,32 @@ class JaynesCummingsParameters:
             self.g,
             self.N)
 
-
-def plot_qps(sys, type='Q', infigsize=(12, 3), vec=np.linspace(-10, 10, 200)):
-    W = sys.qps(vec, vec, type)
-    plots = []
-
-    if len(W) == 1:
-        fig, axes = plt.subplots(1, len(W), figsize=(6, 6))
-        plots.append(axes.contourf(vec, vec, W[0], 100))
-    else:
-        fig, axes = plt.subplots(1, len(W), figsize=infigsize)
-        for i in range(len(W)):
-            plots.append(axes[i].contourf(vec, vec, W[i], 100))
-    # plot the results - suppress comparison warning
-    with warnings.catch_warnings():
-        warnings.simplefilter("ignore")
-        plt.show()
-
-
-def draw_qps(sys, type='Q', plottype='s', ininterval=50, contno=100,
-             save=False, infigsize=(
-        6, 6), xvec=np.linspace(-8, 7, 70), yvec=np.linspace(-10, 4, 70),
-        form='mp4'):
-
-    W = zip(sys.important_range, sys.qps(xvec, yvec, type))  # SYSTEM SPECIFIC
-    if plottype == 'c':
-        fig, axes = plt.subplots(1, 1, figsize=infigsize)
-    elif plottype == 's':
-        fig = plt.figure()
-        axes = fig.gca(projection='3d')
-        X, Y = np.meshgrid(xvec, yvec)
-        axes.set_zlim(0.0, 10.)
-
-    def init():
-        if plottype == 'c':
-            plot = axes.contourf(xvec, yvec, W[0][1], contno)
-        elif plottype == 's':
-            Z = W[0][1]
-            plot = axes.plot_surface(
-                X, Y, Z, rstride=1, cstride=1, linewidth=0,
-                antialiased=True, shade=True, cmap = cm.coolwarm)
-        axes.set_zlim(0.0, 0.1)
-        if plottype == 'c':
-            plt.colorbar(plot)
-        return plot
-
-    def animate(i):
-        axes.cla()
-        plt.cla()
-        plt.title(sys.important_range_name +
-                  ': %d' % W[i][0])  # SYSTEM SPECIFIC
-        if plottype == 'c':
-            plot = axes.contourf(xvec, yvec, W[i][1], contno)
-        elif plottype == 's':
-            Z = W[i][1]
-            plot = axes.plot_surface(
-                X, Y, Z, rstride=1, cstride=1, linewidth=0,
-                antialiased=False, shade=True, cmap = cm.coolwarm)
-        axes.set_zlim(0.0, 0.1)
-        return plot
-
-    if len(W) != 1:
-        with warnings.catch_warnings():
-            warnings.simplefilter("ignore")
-            anim = animation.FuncAnimation(
-                fig,
-                animate,
-                init_func=init,
-                frames=len(W),
-                interval=ininterval)
-    else:
-        with warnings.catch_warnings():
-            warnings.simplefilter("ignore")
-            cont = axes.contourf(xvec, yvec, W[0][1], contno)
-    if save and len(W) != 1:
-        with warnings.catch_warnings():
-            warnings.simplefilter("ignore")
-            if form == 'mp4':
-                anim.save(
-                    'qp_anim.mp4', fps=30, extra_args=[
-                        '-vcodec', 'libx264'])
-            if form == 'gif':
-                anim.save('qp_anim.gif', writer='imagemagick', fps=4)
-    plt.show()
-
-
-def plot_exp(sys, expval='iphnum'):
-    xs = sys.important_range
-    if expval == 'iphnum':
-        ys = sys.intracavity_photon_numbers()
-    elif expval == 'purities':
-        ys = sys.purities()
-    else:
-        raise NameError('no such expectation value')
-    plt.plot(xs, ys)
-    plt.show()
-
-# omega_cavity_range, omega_qubit_range, N_qubits, N_cavity_modes,
-# c_op_params, g
-# dicke = SteadyStateDickeModel(2, 2, 3, 10, [1, 1], 10)
-# plot_qps(dicke)
-# print dicke.hamiltonian()
-
 # drives, Q, C, D, c_op_params, g, N
 # build empty system and invoke reparams(drives, dets) for old way
-carmichael_system_params = JaynesCummingsParameters(
-    5, np.linspace(90, 110, 21), 100, 100, [1, 1], 10, 40).params()
+def explore_carmichael_system(draw_bloch_sphere=False, time_dependent=False, draw_qps=False, plot_exp=False):
+    # time dependent and non time dependent systems
+    carmichael_system_params = JaynesCummingsParameters(
+        5, 100, 100, np.linspace(90, 110, 20), [1, 1], 10, 40).params()
+    carmichael_sys = SteadyStateJaynesCummingsModel(*carmichael_system_params)
 
-carmichael_sys = SteadyStateJaynesCummingsModel(*carmichael_system_params)
+    time_dependent_carmichael_sys_params = JaynesCummingsParameters(5, 100, 100, 102, [1, 1], 10, 40, np.linspace(0, 4, 100)).params()
+    time_dependent_carmichael_sys = TimeDependentJaynesCummingsModel(*time_dependent_carmichael_sys_params)
 
-draw_qps(carmichael_sys, 'W', 's', save=False)
-# plot_qps(carmichael_sys, 'Q')
-# plot_exp(carmichael_sys)
+    #expectation number operator
+    num = time_dependent_carmichael_sys.a.dag()*time_dependent_carmichael_sys.a
 
+    if time_dependent:
+        # time_dependent_carmichael_sys.show_time_dependence(num)
+        if draw_bloch_sphere:
+            time_dependent_carmichael_sys.draw_bloch_sphere()
+        if draw_qps:
+            time_dependent_carmichael_sys.draw_qps()
+        if plot_exp:
+            carmichael_sys.plot_exp()
+    else:
+        if draw_qps:
+            carmichael_sys.draw_qps()
+        if plot_exp:
+            carmichael_sys.plot_exp()
 
-def draw_figs(estart, estep, estop, detstart, detstep, detstop):
-    '''broken'''
-    fig = plt.figure()
-    ax = plt.axes()
-    line, = ax.plot([], [])
-
-    def init():
-        line.set_data([], [])
-        return line,
-
-    def animate(frame):
-        system = SteadyStateJaynesCummingsModel(*JaynesCummingsParameters(
-            estart+frame/(1/estep), 100, 100,
-            np.linspace(detstart, detstop, 1 / detstep),
-            [1, 1], 10, 10).params())
-        # line.set_data(sys.important_range, sys.intracavity_photon_numbers())
-        xs, ys = system.important_range, system.intracavity_photon_numbers()
-        return plt.plot(xs, ys)
-
-    # def animate(i):
-    #     x = np.linspace(0, 2, 1000)
-    #     y = np.sin(2 * np.pi * (x - 0.01 * i))
-    #     line.set_data(x, y)
-    #     return line,
-
-    anim = animation.FuncAnimation(
-        fig,
-        animate,
-        init_func=init,
-        frames=int(estop),
-        interval=20,
-        blit=False,
-        repeat=False)
-
-    plt.show()
-
-# INTERESTING
-# carmichael_system_params = JaynesCummingsParameters(5, np.linspace(60, 140,
-# 20), 100, 100, [1, 0.8], 10, 40).params()
+explore_carmichael_system(time_dependent=True, draw_bloch_sphere=True)

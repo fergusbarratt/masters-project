@@ -4,6 +4,58 @@
 		"selected_items":
 		[
 			[
+				"type",
+				"type〔class〕"
+			],
+			[
+				"sx",
+				"sx_bare〔variable〕"
+			],
+			[
+				"initi",
+				"initial_state"
+			],
+			[
+				"time",
+				"time_dependent_carmichael_sys〔variable〕"
+			],
+			[
+				"time_depende",
+				"time_dependent_carmichael_sys_params"
+			],
+			[
+				"sho",
+				"show_time_dependence"
+			],
+			[
+				"id",
+				"idcavity〔variable〕"
+			],
+			[
+				"ida",
+				"idqubit〔variable〕"
+			],
+			[
+				"H",
+				"Hamiltonian	(BlochAnimationJC.py)"
+			],
+			[
+				"Steady",
+				"SteadyStateJaynesCummingsModel"
+			],
+			[
+				"lin",
+				"linspace"
+			],
+			[
+				"draw",
+				"draw_figs〔function〕"
+			],
+			[
+				"init",
+				"init_func"
+			],
+			[
 				"PL",
 				"PLU_decomposition〔function〕"
 			],
@@ -251,17 +303,6 @@
 	},
 	"buffers":
 	[
-		{
-			"contents": "Package Control Messages\n========================\n\nSublimeLinter-flake8\n--------------------\n\n  SublimeLinter-flake8\n  -------------------------------\n  This linter plugin for SublimeLinter provides an interface to flake8.\n  \n  ** IMPORTANT! **\n  \n  Before this plugin will activate, you *must*\n  follow the installation instructions here:\n  \n  https://github.com/SublimeLinter/SublimeLinter-flake8\n",
-			"settings":
-			{
-				"buffer_size": 399,
-				"line_ending": "Unix",
-				"name": "Package Control Messages",
-				"read_only": true,
-				"scratch": true
-			}
-		}
 	],
 	"build_system": "Anaconda Python Builder",
 	"build_system_choices":
@@ -398,17 +439,29 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 82.0,
-		"last_filter": "toggle linter",
+		"height": 400.0,
+		"last_filter": "install",
 		"selected_items":
 		[
 			[
-				"toggle linter",
-				"SublimeLinter: Toggle Linter"
-			],
-			[
 				"install",
 				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"install the",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"insa",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"toggle linter",
+				"SublimeLinter: Toggle Linter"
 			],
 			[
 				"insta",
@@ -659,7 +712,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 512.0
+		"width": 476.0
 	},
 	"console":
 	{
@@ -682,13 +735,25 @@
 	[
 		"/Users/fergusbarratt/Dropbox/University/Masters project",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/JaynesCummings"
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimation",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/JaynesCummings",
+		"/Users/fergusbarratt/Documents/qotoolbox"
 	],
 	"file_history":
 	[
-		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/Users/fergusbarratt/Dropbox/NumericalAnalysis/sse/sse.cpp",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/JaynesCummings/SolveJCSystem.py",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/JaynesCummings/temp1/bloch_0.png",
+		"/Users/fergusbarratt/.pyenv/versions/3.5.0/lib/python3.5/site-packages/qutip/bloch.py",
+		"/Users/fergusbarratt/.pyenv/versions/3.5.0/lib/python3.5/site-packages/matplotlib/transforms.py",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimation/BlochAnimationJC.py",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Python.sublime-settings",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/JaynesCummingModel.tex",
+		"/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/qutip/bloch_redfield.py",
+		"/Users/fergusbarratt/Dropbox/QuantEcon/white_noise.py",
+		"/Users/fergusbarratt/.matplotlib/matplotlibrc",
+		"/Users/fergusbarratt/Dropbox/NumericalAnalysis/sse/sse.cpp",
 		"/Users/fergusbarratt/Dropbox/NumericalAnalysis/README.md",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/NumericalAnalysis/LU Decomposition.py",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/.gitignore",
@@ -726,16 +791,13 @@
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/LaTeX.sublime-settings",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/TheMasterEquation.tex",
 		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/JSON.sublime-settings",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review/JaynesCummingModel.tex",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/PlotQPSeries.m",
 		"/Users/fergusbarratt/Documents/qotoolbox/@qo/qfunc.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/QFunctionsPlot.fig",
 		"/Users/fergusbarratt/Dropbox/RubyProject/sample_app/test/test_helper.rb",
 		"/Users/fergusbarratt/Dropbox/RubyProject/sample_app/test/controllers/static_pages_controller_test.rb",
-		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Python.sublime-settings",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/README.md",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimation.py",
-		"/Users/fergusbarratt/Library/Application Support/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Readme.md",
 		"/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/qutip/bloch.py",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/rhoss.m",
@@ -806,18 +868,11 @@
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/plotseries.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Matlab/Qss.m",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Mathematica/Quasi Probability Functions.nb",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TeX/QuasiProbabilityDistributions.tex",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TeX/Summary.tex",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TeX/TheMasterEquation.tex",
-		"/Applications/MATLAB_R2015a.app/bin/matlab",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/CarmichaelPaperSummary.tex",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TheMasterEquation.aux",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/Summary.tex",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TheMasterEquation.tex"
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Summary/TeX/QuasiProbabilityDistributions.tex"
 	],
 	"find":
 	{
-		"height": 30.0
+		"height": 32.0
 	},
 	"find_in_files":
 	{
@@ -832,6 +887,34 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"0",
+			"dims",
+			"s",
+			"linspace",
+			"0",
+			"sys",
+			"SYS",
+			"sys",
+			"SYS",
+			"sys",
+			"shape",
+			"2",
+			"_steadystate_direct_sparse",
+			"_steady_state_direct_sparse",
+			"direct_sparse",
+			"steady",
+			"ArithmeticError",
+			"hamiltonian",
+			"noisy",
+			"print",
+			"drive",
+			"seismic",
+			"coolwarm",
+			"[i]",
+			"plot_surface",
+			"seismic_r",
+			"ax",
+			"cont",
 			"2",
 			"P2",
 			"l",
@@ -931,35 +1014,7 @@
 			"3",
 			"bar",
 			"scroll",
-			"live",
-			"]",
-			"[H]",
-			"equation",
-			"ref",
-			"equation",
-			"quation",
-			"\\qexp{\\sigma_z}",
-			"\\qexp{\\atann}",
-			"\\qexp{\\ann}",
-			"qexp{\\ann}",
-			"concrit",
-			"det",
-			"d",
-			"t",
-			"N, g, kappa",
-			"n",
-			"N",
-			"detuning",
-			"drive",
-			"kappa, g, det, N",
-			"e",
-			"E",
-			"e",
-			"E",
-			"e",
-			"E",
-			"e",
-			"E"
+			"live"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -979,46 +1034,14 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 399,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								102,
-								102
-							]
-						],
-						"settings":
-						{
-							"auto_indent": false,
-							"default_dir": "/Users/fergusbarratt/Dropbox/University/Masters project",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_width": 2,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 30.0
+		"height": 32.0
 	},
 	"input":
 	{
@@ -1049,7 +1072,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 280.0
+		"height": 148.0
 	},
 	"output.find_results":
 	{
@@ -1083,11 +1106,11 @@
 	{
 		"height": 144.0
 	},
-	"pinned_build_system": "",
+	"pinned_build_system": "Anaconda Python Builder",
 	"project": "MastersProject.sublime-project",
 	"replace":
 	{
-		"height": 56.0
+		"height": 60.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1098,7 +1121,7 @@
 		[
 			[
 				"",
-				"Masters project/.gitignore"
+				"Masters project/Python/JaynesCummings/SolveJCSystem.py"
 			],
 			[
 				"spre",
@@ -1140,8 +1163,8 @@
 	"show_minimap": true,
 	"show_open_files": true,
 	"show_tabs": true,
-	"side_bar_visible": true,
-	"side_bar_width": 184.0,
+	"side_bar_visible": false,
+	"side_bar_width": 194.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
