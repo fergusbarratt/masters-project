@@ -18,12 +18,12 @@ function [iphnumvals] = iphnumvals(Eplotvals, Dplotvals, varargin)
 	try 
 		expectertype = varargin{1};
 	catch
-		expectertype = 'iphnum';
+		expectertype = '22';
 	end
 	try
 		N = varargin{2};
 	catch
-		N = 80;
+		N = 40;
 	end
 	try
 		g = varargin{3};
@@ -49,11 +49,16 @@ function [iphnumvals] = iphnumvals(Eplotvals, Dplotvals, varargin)
 	function [expecter] = expecter(rho)
 		% function to evaluate at each rho
 		% TODO: multiple functions evaluated
+		atom = ptrace(rho, 2);
 		switch expectertype
 		 	case 'iphnum'
 		 		expecter = real(expect(C1dC1, rho)/(kappa)); % Intracavity Photon Number
 		 	case 'purity'
 				expecter = real(trace(rho^2)); % Purity
+			case '11'
+				expecter = abs(atom(1, 1));
+			case '22'
+				expecter = abs(atom(2, 2));
 		 	otherwise
 		 		'no such expecter function'
 		 end 
@@ -87,7 +92,8 @@ function [iphnumvals] = iphnumvals(Eplotvals, Dplotvals, varargin)
 		 row = zeros(1, es); %create a row of the right length
 
 		for colind = 1:es % for each d/col index
-			row(colind) = expecter(rhos(Hi, Hb, Eplotvals(colind)/kappa, Dplotvals(rowind)/kappa, C1, C1dC1)); % set the values at (rowind, colind) to the value of expecter
+			row(colind) = expecter(rhos(Hi, Hb, Eplotvals(colind)/kappa, Dplotvals(rowind)/kappa, C1, C1dC1));
+			ptrace(rhos(Hi, Hb, Eplotvals(colind)/kappa, Dplotvals(rowind)/kappa, C1, C1dC1), 2) % set the values at (rowind, colind) to the value of expecter
 			% dispstat(D);
 			fprintf('|');
 		end

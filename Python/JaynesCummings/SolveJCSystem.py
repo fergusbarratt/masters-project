@@ -4,7 +4,6 @@ unchanged sys does? Is this not a docstring?"""
 
 from __future__ import print_function
 import matplotlib
-matplotlib.use('Agg')
 import math as m
 import qutip as qt
 import numpy as np
@@ -62,14 +61,20 @@ class DickeSystem(QuantumOpticsSystem):
         QuantumOpticsSystem.__init__(
             self, c_op_params, g, N_cavity_modes, N_qubits)
         # sort out omega ranges
-        if isinstance(omega_cavity_range, numbers.Number):
-            self.omega_cavity_range = np.array([omega_cavity_range])
+        self.omega_qubit_range = np.atleast_1d(np.asarray(omega_qubit_range))
+        self.omega_cavity_range = np.atleast_1d(np.asarray(omega_cavity_range))
+
+        # replicate non important range to length of important one
+        if len(np.atleast_1d(self.omega_cavity_range)) == len(np.atleast_1d(self.omega_qubit_range)):
+            self.important_range = self.omega_cavity_range
+        elif len(np.atleast_1d(omega_cavity_range)) == 1:
+            self.important_range = self.omega_qubit_range
+            self.omega_cavity_range = self.omega_cavity_range[0]*np.ones_like(self.omega_qubit_range)
+        elif len(np.atleast_1d(self.omega_qubit_range)) == 1:
+            self.important_range = self.omega_cavity_range
+            self.omega_qubit_range = self.omega_qubit_range*np.ones_like(self.omega_cavity_range)
         else:
-            self.omega_cavity_range = np.array(omega_cavity_range)
-        if isinstance(omega_qubit_range, numbers.Number):
-            self.omega_qubit_range = np.array([omega_qubit_range])
-        else:
-            self.omega_qubit_range = np.array(omega_qubit_range)
+            raise ArithmeticError('wrong input form')
 
         # tensor together N identities or sigmams or sigmazs
         self.idqubits = qt.tensor(
@@ -83,6 +88,7 @@ class DickeSystem(QuantumOpticsSystem):
             raise ArithmeticError('dimensions issues')
 
     def hamiltonian(self, det_index=0):
+        print(self.omega_cavity_range[0], self.omega_qubit_range[0])
         H_bare = self.omega_cavity_range[det_index] * (self.a.dag() * self.a)
         + self.omega_qubit_range[det_index] * self.sz
         H_int = self.g * (self.a.dag() * self.sm + self.a * self.sm.dag())
@@ -265,7 +271,7 @@ class SteadyStateDickeModel(DickeSystem):
 
     def qps(self, xvec, yvec, type='Q'):
         qps = []
-        for det_index in range(len(self.omega_qubit_range)):
+        for det_index in range(len(self.important_range)):
             if type != 'Q':
                 qps.append(
                     qt.wigner(
@@ -278,11 +284,11 @@ class SteadyStateDickeModel(DickeSystem):
 
     def intracavity_photon_numbers(self):
         return [qt.expect(self.rho(det[0]), self.a.dag() * self.a)
-                for det in enumerate(self.omega_qubit_range)]
+                for det in enumerate(self.important_range)]
 
     def purities(self):
         return [(self.rho(det[0]) ** 2).tr()
-                for det in enumerate(self.omega_qubit_range)]
+                for det in enumerate(self.important_range)]
 
 
 class SteadyStateJaynesCummingsModel(JaynesCummingsSystem):
@@ -446,8 +452,7 @@ class SteadyStateJaynesCummingsModel(JaynesCummingsSystem):
         plt.show()
 
 
-class TimeDependentJaynesCummingsModel(
-        SteadyStateJaynesCummingsModel):
+class TimeDependentJaynesCummingsModel(SteadyStateJaynesCummingsModel):
     def __init__(self,
                  drive_range,
                  omega_qubit_range,
@@ -561,13 +566,13 @@ class JaynesCummingsParameters:
 
 # drives, Q, C, D, c_op_params, g, N
 # build empty system and invoke reparams(drives, dets) for old way
-def explore_carmichael_system(draw_bloch_sphere=False, time_dependent=False, draw_qps=False, plot_exp=False):
+def explore_carmichael_system(draw_bloch_sphere=False, time_dependent=False, draw_qps=False, plot_exp=False, ham=False):
     # time dependent and non time dependent systems
     carmichael_system_params = JaynesCummingsParameters(
-        5, 100, 100, np.linspace(90, 110, 20), [1, 1], 10, 40).params()
+        100, 100, 100, 100, [1, 1], 10, 40).params()
     carmichael_sys = SteadyStateJaynesCummingsModel(*carmichael_system_params)
 
-    time_dependent_carmichael_sys_params = JaynesCummingsParameters(5, 100, 100, 102, [1, 1], 10, 40, np.linspace(0, 4, 100)).params()
+    time_dependent_carmichael_sys_params = JaynesCummingsParameters(5, 100, 100, 100, [1, 1], 10, 40, np.linspace(0, 4, 100)).params()
     time_dependent_carmichael_sys = TimeDependentJaynesCummingsModel(*time_dependent_carmichael_sys_params)
 
     #expectation number operator
@@ -586,5 +591,16 @@ def explore_carmichael_system(draw_bloch_sphere=False, time_dependent=False, dra
             carmichael_sys.draw_qps()
         if plot_exp:
             carmichael_sys.plot_exp()
+        if ham:
+            print(carmichael_sys.hamiltonian())
 
-explore_carmichael_system(time_dependent=True, draw_bloch_sphere=True)
+
+
+def explore_dicke_system(intracavity_photon_numbers=False):
+    dicke_system = SteadyStateDickeModel(100, 100, 1, 40, [1, 1], 10)
+
+    if intracavity_photon_numbers:
+        return dicke_system.hamiltonian()
+
+print(explore_dicke_system(True))
+explore_carmichael_system(ham=True)
