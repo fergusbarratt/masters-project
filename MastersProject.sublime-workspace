@@ -324,9 +324,10 @@
 	"buffers":
 	[
 		{
+			"file": "Python/FokkerPlanck.py",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 1430,
 				"line_ending": "Unix"
 			}
 		}
@@ -761,14 +762,15 @@
 	"expanded_folders":
 	[
 		"/Users/fergusbarratt/Dropbox/University/Masters project",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Functions and Scripts",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Plots",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python",
+		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimation",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/JaynesCummings",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX"
+		"/Users/fergusbarratt/Dropbox/University/Masters project/TeX/Literature Review"
 	],
 	"file_history":
 	[
+		"/Users/fergusbarratt/Dropbox/University/Masters project/README.md",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/JaynesCummings/spectrum.py",
 		"/Users/fergusbarratt/Dropbox/Projects/QuantEcon/LLN.py",
 		"/Users/fergusbarratt/Dropbox/Projects/QuantEcon/SchellingSegregation.py",
@@ -828,7 +830,6 @@
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/QFunctionsPlot.fig",
 		"/Users/fergusbarratt/Dropbox/RubyProject/sample_app/test/test_helper.rb",
 		"/Users/fergusbarratt/Dropbox/RubyProject/sample_app/test/controllers/static_pages_controller_test.rb",
-		"/Users/fergusbarratt/Dropbox/University/Masters project/README.md",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Python/BlochAnimation.py",
 		"/Users/fergusbarratt/Dropbox/University/Masters project/Matlab/Readme.md",
 		"/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/qutip/bloch.py",
@@ -1067,27 +1068,29 @@
 			[
 				{
 					"buffer": 0,
-					"semi_transient": false,
+					"file": "Python/FokkerPlanck.py",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 1430,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1051,
+								1051
 							]
 						],
 						"settings":
 						{
-							"default_dir": "/Users/fergusbarratt/Dropbox/University/Masters project",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 534.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1129,7 +1132,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 247.0
+		"height": 30.0
 	},
 	"output.find_results":
 	{
@@ -1221,7 +1224,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": false,
-	"side_bar_width": 230.0,
+	"side_bar_width": 192.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
