@@ -1,13 +1,8 @@
-.DS_Store
-*.log
-*.fdb_latexmk
-*.aux
-*.bbl
-*.bcf
-*.blg
-*.synctex.gz
-*.xml
-*.synctex
-/TeX/*.pdf
-TeX/Literature Review/*.pdf
+*.pdf
+*.png
+*.jpg
+*.djvu
 *.nb
+*.fls
+
+

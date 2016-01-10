@@ -1,0 +1,36 @@
+% title data
+\documentclass[reqno]{amsart}
+\title{Progress Report}
+\author{Fergus Barratt}
+\date{\today}
+
+% packages
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage[margin=0.7in]{geometry}
+% \usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage[backend=biber, style=ieee]{biblatex}
+\usepackage{todonotes}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{grffile}
+\usepackage{cleveref}
+
+\addbibresource{Bibliography.bib}
+
+% macros
+\newcommand{\Epsilon}{\mathcal{E}}
+
+\begin{document}
+  \maketitle
+  \section{Done}
+  We have reproduced a large number of the results that Carmichael presented in his 2015 paper \autocite{Carmichael} including deriving steady states for the Maxwell Bloch equations for the system in the presence and the absence of detuning, including several approximations to computationally handle the far-detuned, and high photon number limits. We have computationally solved the master equation for the system in the steady state, using the steady state LU solver in qotoolbox, a Matlab toolbox for solving Quantum Optics problems, producing similar results to those in Carmichael's earlier paper \autocite{Alsing}, in which they solve the equation using a fourth order Runge-Kutta scheme. We have produced comparative plots of intracavity photon number in drive-detuning parameter space, as well as illustrations of the development of bistability in the system Q and Wigner representations for variation through second and first order phase transitions. All of the above have been evaluated in the presence and the absence of the spontaneous emission parameter, and the coupling of the two distinct Jaynes-Cummings energy ladders has been established via this parameter. The existence of a second order critical point at $\gamma = \frac{\Epsilon}{2}$ has been confirmed by time-dependent simulations of the approach of the system to its steady state both close to and far from the organising centre.
+  \section{ToDo}
+  After Christmas, we plan to focus on the system in the dispersive limit, with greater collaboration with the other Masters student on the project who is investigating quantum trajectory simulations. For now, more background reading is a priority, a
+
+
+  \printbibliography\
+\end{document}
