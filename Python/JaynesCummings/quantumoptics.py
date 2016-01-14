@@ -1,22 +1,20 @@
-""" IF qps is given an array of dets and drives it will go along dets
-Reparametrised system doesn't have i in interaction hamiltonian but
-unchanged sys does? Is this not a docstring?"""
+""" a module for defining quantum optical systems. Wrap up interesting parameters using the wrapper class and feed them to the interesting model, and use available methods on that model object"""
 
 from __future__ import print_function
-import matplotlib
 import math as m
 import qutip as qt
 import numpy as np
 from matplotlib import pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
-from matplotlib import cm
-plt.rcParams['image.cmap'] = 'seismic'
 from matplotlib import animation
 import numbers
 import warnings
+from matplotlib import cm
+plt.rcParams['image.cmap'] = 'viridis'
 
 
 class QuantumOpticsSystem:
+
     '''superclass for all qoptics systems'''
 
     def __init__(self, c_op_params, g, N_cavity_modes, N_qubits=1):
@@ -35,11 +33,12 @@ class QuantumOpticsSystem:
         self.sx_bare = qt.sigmax()
         self.sy_bare = qt.sigmay()
 
-        # for back compatibility
+        # for back compatibility TOFIX (N cavity modes)
         self.N = N_cavity_modes
 
 
 class QuantumOpticsModel:
+
     '''superclass for all models'''
 
     def __init__(self):
@@ -47,6 +46,7 @@ class QuantumOpticsModel:
 
 
 class DickeSystem(QuantumOpticsSystem):
+
     '''http://rsta.royalsocietypublishing.org/content/roypta/369/19
     39/1137.full.pdf'''
 
@@ -65,14 +65,18 @@ class DickeSystem(QuantumOpticsSystem):
         self.omega_cavity_range = np.atleast_1d(np.asarray(omega_cavity_range))
 
         # replicate non important range to length of important one
-        if len(np.atleast_1d(self.omega_cavity_range)) == len(np.atleast_1d(self.omega_qubit_range)):
+        if len(
+               np.atleast_1d(self.omega_cavity_range)) == len(
+               np.atleast_1d(self.omega_qubit_range)):
             self.important_range = self.omega_cavity_range
         elif len(np.atleast_1d(omega_cavity_range)) == 1:
             self.important_range = self.omega_qubit_range
-            self.omega_cavity_range = self.omega_cavity_range[0]*np.ones_like(self.omega_qubit_range)
+            self.omega_cavity_range = self.omega_cavity_range[
+                0]*np.ones_like(self.omega_qubit_range)
         elif len(np.atleast_1d(self.omega_qubit_range)) == 1:
             self.important_range = self.omega_cavity_range
-            self.omega_qubit_range = self.omega_qubit_range*np.ones_like(self.omega_cavity_range)
+            self.omega_qubit_range = self.omega_qubit_range * \
+                np.ones_like(self.omega_cavity_range)
         else:
             raise ArithmeticError('wrong input form')
 
@@ -105,8 +109,9 @@ class DickeSystem(QuantumOpticsSystem):
 
 
 class JaynesCummingsSystem(QuantumOpticsSystem):
+
     '''Jaynes Cummings System. Takes parameter ranges, builds hamiltonians at
-    each value'''
+    each value. JaynesCummingsParameters for wrapping'''
 
     def __init__(
             self,
@@ -144,7 +149,8 @@ class JaynesCummingsSystem(QuantumOpticsSystem):
         if not (len(self.omega_drive_range) == len(
                 self.omega_qubit_range) == len(self.omega_cavity_range)):
             # test if lengths of freq vectors are the same. Correct if two
-            # scalars and one vector, else raise
+            # scalars and one vector, else raise - bad to mix important
+            # range name business and parameters TOFIX
             if len(
                     self.omega_cavity_range) == 1 and len(
                     self.omega_drive_range) == 1:
@@ -192,6 +198,7 @@ class JaynesCummingsSystem(QuantumOpticsSystem):
         self.sx = qt.tensor(self.idcavity, self.sx_bare)
         self.sy = qt.tensor(self.idcavity, self.sy_bare)
         self.sz = qt.tensor(self.idcavity, self.sz_bare)
+
     def hamiltonian(self, drive_index=0, det_index=0):
         # bare and int
         if self.reparam:
@@ -234,7 +241,8 @@ class JaynesCummingsSystem(QuantumOpticsSystem):
             hamiltonian_drive = self.drive_range[drive_index] * (
                 self.a.dag() + self.a)
 
-            hamiltonian = hamiltonian_bare + hamiltonian_int + hamiltonian_drive
+            hamiltonian = hamiltonian_bare + \
+                hamiltonian_int + hamiltonian_drive
             return hamiltonian
 
     def c_ops(self):
@@ -247,6 +255,7 @@ class JaynesCummingsSystem(QuantumOpticsSystem):
 
 
 class SteadyStateDickeModel(DickeSystem):
+
     '''does steady state things to Dicke model'''
 
     def __init__(
@@ -292,6 +301,7 @@ class SteadyStateDickeModel(DickeSystem):
 
 
 class SteadyStateJaynesCummingsModel(JaynesCummingsSystem):
+
     '''does steadystate things to the super jaynes cummings system'''
 
     def __init__(
@@ -358,7 +368,8 @@ class SteadyStateJaynesCummingsModel(JaynesCummingsSystem):
                 for drive in enumerate(self.drive_range)
                 for det in enumerate(self.omega_qubit_range)]
 
-    def plot_qps(self, type='Q', infigsize=(12, 3), vec=np.linspace(-10, 10, 200)):
+    def plot_qps(self, type='Q', infigsize=(12, 3),
+                 vec=np.linspace(-10, 10, 200)):
         W = self.qps(vec, vec, type)
         plots = []
 
@@ -373,7 +384,6 @@ class SteadyStateJaynesCummingsModel(JaynesCummingsSystem):
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
             plt.show()
-
 
     def draw_qps(self, type='Q', plottype='c', ininterval=50, contno=100,
                  save=False, form='mp4', infigsize=(6, 6),
@@ -439,7 +449,6 @@ class SteadyStateJaynesCummingsModel(JaynesCummingsSystem):
                     anim.save('qp_anim.gif', writer='imagemagick', fps=4)
         plt.show()
 
-
     def plot_exp(self, expval='iphnum'):
         xs = self.important_range
         if expval == 'iphnum':
@@ -453,6 +462,7 @@ class SteadyStateJaynesCummingsModel(JaynesCummingsSystem):
 
 
 class TimeDependentJaynesCummingsModel(SteadyStateJaynesCummingsModel):
+
     def __init__(self,
                  drive_range,
                  omega_qubit_range,
@@ -479,17 +489,19 @@ class TimeDependentJaynesCummingsModel(SteadyStateJaynesCummingsModel):
             self.initial_state = initial_state
 
     def solve(self, exps=[]):
-        return qt.mesolve(self.hamiltonian(), self.initial_state, self.tlist, self.c_ops(), exps)
+        return qt.mesolve(self.hamiltonian(), self.initial_state,
+                          self.tlist, self.c_ops(), exps)
 
     def show_time_dependence(self, exps):
         plt.plot(self.tlist, self.solve(exps).expect[0])
         plt.show()
 
     def draw_bloch_sphere(self, ininterval=1, contno=100,
-                 save=False, form='mp4', infigsize=(6, 6)):
+                          save=False, form='mp4', infigsize=(6, 6)):
         soln = self.solve([self.sx, self.sy, self.sz])
         sx, sy, sz = soln.expect[0], soln.expect[1], soln.expect[2]
-        vecs = [np.real(qt.Qobj([[sx[i], sy[i], sz[i]]]).unit().full())[0] for i in range(1,len(sx))]
+        vecs = [np.real(qt.Qobj([[sx[i], sy[i], sz[i]]]).unit().full())[0]
+                for i in range(1, len(sx))]
         fig = plt.figure()
         ax = Axes3D(fig)
         sphere = qt.Bloch(axes=ax, fig=fig)
@@ -498,63 +510,64 @@ class TimeDependentJaynesCummingsModel(SteadyStateJaynesCummingsModel):
 
 
 class JaynesCummingsParameters:
+
     ''' interface to ssjcm class for unpacking parameters and
     reparametrising'''
 
     def __init__(
             self,
-            drives=[
-                4,
-                5,
-                6],
-            omega_qubits=1,
-            omega_cavities=1,
-            omega_drives=1,
-            c_op_params=[
-                1,
-                1],
             g=10,
-            N=40,
-            tlist=None):
-        # defaults move through critical on zero det
-        self.drives = drives
-        self.omega_qubits = omega_qubits
-        self.omega_cavities = omega_cavities
-        self.omega_drives = omega_drives
-        self.c_op_params = c_op_params
+            N=40):
         self.g = g
         self.N = N
-        self.tlist = tlist
 
-    def params(self):
-        if self.tlist is None:
-            return(
-                self.drives,
-                self.omega_qubits,
-                self.omega_cavities,
-                self.omega_drives,
-                self.c_op_params,
-                self.g,
-                self.N)
-        else:
-            return(
-                self.drives,
-                self.omega_qubits,
-                self.omega_cavities,
-                self.omega_drives,
-                self.c_op_params,
-                self.g,
-                self.N,
-                self.tlist)
+    def params(self,
+               drives,
+               omega_cavities,
+               omega_drives,
+               omega_qubits,
+               c_op_params,
+               ):
+        return (drives,
+        omega_qubits,
+        omega_cavities,
+        omega_drives,
+        c_op_params,
+        self.g,
+        self.N)
 
-    def re_params(self, drives=[4, 5, 6], dets=0):
+    def t_d_params(self,
+               drives,
+               omega_cavities,
+               omega_drives,
+               omega_qubits,
+               c_op_params,
+               tlist):
+        return (drives,
+        omega_qubits,
+        omega_cavities,
+        omega_drives,
+        c_op_params,
+        self.g,
+        self.N,
+        tlist)
+
+    def det_params(self,
+                  drive_strengths,
+                  drive_cavity_detunings,
+                  qubit_cavity_detunings,
+                  c_op_params,
+                  omega_cavity=1000000):
         # Completely untested
         # allows setting just drives and detunings.
-        if isinstance(dets, numbers.Number):
-            self.dets = [dets]
-        self.omega_qubits = np.ones(len(self.dets))
-        self.omega_cavities = self.omega_qubits
-        self.omega_drives = self.omega_qubits + np.array(self.dets)
+        self.drives = drive_strengths
+        self.omega_qubits = np.asarray(
+                                       [omega_cavity + \
+                                        qcd for qcd in np.atleast_1d(qubit_cavity_detunings)])
+        self.omega_drives = np.asarray([omega_cavity + \
+                                        dcd for dcd in np.atleast_1d(drive_cavity_detunings)])
+        self.omega_cavities = np.asarray([omega_cavity])
+        self.c_op_params = c_op_params
         return (
             self.drives,
             self.omega_qubits,
@@ -564,43 +577,36 @@ class JaynesCummingsParameters:
             self.g,
             self.N)
 
-# drives, Q, C, D, c_op_params, g, N
-# build empty system and invoke reparams(drives, dets) for old way
-def explore_carmichael_system(draw_bloch_sphere=False, time_dependent=False, draw_qps=False, plot_exp=False, ham=False):
-    # time dependent and non time dependent systems
-    carmichael_system_params = JaynesCummingsParameters(
-        100, 100, 100, 100, [1, 1], 10, 40).params()
-    carmichael_sys = SteadyStateJaynesCummingsModel(*carmichael_system_params)
+class TestSystem(object):
+    def __init__(self, system):
+        self.system = system
 
-    time_dependent_carmichael_sys_params = JaynesCummingsParameters(5, 100, 100, 100, [1, 1], 10, 40, np.linspace(0, 4, 100)).params()
-    time_dependent_carmichael_sys = TimeDependentJaynesCummingsModel(*time_dependent_carmichael_sys_params)
+    def test_jaynes_cummings_system(sys_type='normal', draw_bloch_sphere=False, time_dependent=False, draw_qps=False, plot_exp=False, ham=False):
 
-    #expectation number operator
-    num = time_dependent_carmichael_sys.a.dag()*time_dependent_carmichael_sys.a
+        # time dependent and non time dependent systems
+        def test_sys(sys_type):
+            '''produces a system, either 'normal' (parameters given explicitly)
+            time_dependent, or det_param (parameters given as default middle and
+            two detunings)'''
+            if sys_type=='normal':
+                carmichael_system_params = \
+                    JaynesCummingsParameters(10, 40).params(5, 100, 100, 100, [1, 1])
+                return SteadyStateJaynesCummingsModel(*carmichael_system_params)
+            elif sys_type=='time_dependent':
+                time_dependent_carmichael_sys_params = \
+                    JaynesCummingsParameters(10, 40).t_d_params(5, 100, 100, 100, [1, 1], np.linspace(0, 4, 100))
+                return TimeDependentJaynesCummingsModel(*time_dependent_carmichael_sys_params)
+            elif sys_type=='det_param':
+                det_sys_params = \
+                    JaynesCummingsParameters(10, 40).det_params(5, np.linspace(-3, 3, 20), 1000, [1, 1])
+                return SteadyStateJaynesCummingsModel(*det_sys_params)
 
-    if time_dependent:
         # time_dependent_carmichael_sys.show_time_dependence(num)
-        if draw_bloch_sphere:
-            time_dependent_carmichael_sys.draw_bloch_sphere()
+        if draw_bloch_sphere and sys_type=='time_dependent':
+            test_sys(sys_type).draw_bloch_sphere()
         if draw_qps:
-            time_dependent_carmichael_sys.draw_qps()
+            test_sys(sys_type).draw_qps()
         if plot_exp:
-            carmichael_sys.plot_exp()
-    else:
-        if draw_qps:
-            carmichael_sys.draw_qps()
-        if plot_exp:
-            carmichael_sys.plot_exp()
+            test_sys(sys_type).plot_exp()
         if ham:
             print(carmichael_sys.hamiltonian())
-
-
-
-def explore_dicke_system(intracavity_photon_numbers=False):
-    dicke_system = SteadyStateDickeModel(100, 100, 1, 40, [1, 1], 10)
-
-    if intracavity_photon_numbers:
-        return dicke_system.hamiltonian()
-
-print(explore_dicke_system(True))
-explore_carmichael_system(ham=True)
