@@ -1,4 +1,6 @@
-""" a module for defining quantum optical systems. Wrap up interesting parameters using the wrapper class and feed them to the interesting model, and use available methods on that model object"""
+""" a module for defining quantum optical systems.
+Wrap up interesting parameters using the wrapper class and feed them
+to the interesting model, and use available methods on that model object"""
 
 from __future__ import print_function
 import math as m
@@ -385,9 +387,7 @@ class SteadyStateJaynesCummingsModel(JaynesCummingsSystem):
             warnings.simplefilter("ignore")
             plt.show()
 
-    def draw_qps(self, type='Q', plottype='c', ininterval=50, contno=100,
-                 save=False, form='mp4', infigsize=(6, 6),
-                 xvec=np.linspace(-8, 7, 70), yvec=np.linspace(-10, 4, 70)):
+    def draw_qps(self, type='Q', plottype='c', ininterval=50, contno=100, save=False, form='mp4', infigsize=(6, 6), xvec=np.linspace(-8, 7, 70), yvec=np.linspace(-10, 4, 70)):
 
         W = list(zip(self.important_range, self.qps(xvec, yvec, type)))
         if plottype == 'c':
@@ -457,8 +457,15 @@ class SteadyStateJaynesCummingsModel(JaynesCummingsSystem):
             ys = self.purities()
         else:
             raise NameError('no such expectation value')
-        plt.plot(xs, ys)
-        plt.show()
+        try:
+            if len(xs)==1:
+                raise TypeError
+        except TypeError:
+            plt.scatter(0, xs)
+            plt.show()
+        else:
+            plt.plot(xs, ys)
+            plt.show()
 
 
 class TimeDependentJaynesCummingsModel(SteadyStateJaynesCummingsModel):
