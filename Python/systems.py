@@ -23,7 +23,7 @@ carmichael_system = SteadyStateJaynesCummingsModel(
     *carmichael_parameters)
 
 bishop_parameters = JaynesCummingsParameters(coupling_strength, matrix_size).det_params(
-                              drive_strengths=[norm_e(e) for e in np.linspace(90, 1000, 100)],
+                              drive_strengths=[norm_e(e) for e in np.linspace(90, 1000, 1000)],
                               drive_cavity_detunings=norm_det(300, c_q_det),
                               qubit_cavity_detunings=c_q_det,
                               c_op_params=[kappa, gamma],
@@ -39,5 +39,5 @@ def absAs(sys, xvec=np.linspace(-5, 5, 100), yvec=np.linspace(-5, 5, 100)):
 # print(absAs(carmichael_system))
 # print(absAs(bishop_system))
 
-plt.plot(np.linspace(90, 1000, 10), absAs(bishop_system))
+plt.plot(np.linspace(0, 1000, 1000), absAs(bishop_system))
 plt.show()
