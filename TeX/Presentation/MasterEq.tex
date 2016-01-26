@@ -1,0 +1,27 @@
+\documentclass[reqno]{amsart}
+
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\begin{document}
+  \section{Jaynes-Cummings Hamiltonian}
+  \begin{equation}
+    \mathscr{H}^{int}_{JC} = -\hbar\Delta\omega(a^\dagger a + \sigma_+ \sigma_-)
+     + \hbar g ( a\sigma_+ + a^\dagger \sigma_- ) + \hbar E ( a^\dagger + a )
+  \end{equation}
+  \section{Master Equation}
+  \begin{equation}
+    \dot{\rho} = \frac{1}{i\hbar} [\mathscr{H}^{int}_{JC}, \rho] + \kappa (2a\rho a^\dagger - a^\dagger a\rho - \rho a^\dagger a)+ \frac{\gamma}{2}(2\sigma_- \rho \sigma_+ - \sigma_+ \sigma_- \rho - \rho \sigma_+ \sigma_-)
+  \end{equation}
+  \section{Neoclassical Equations}
+  \begin{align}
+    \frac{d \alpha}{dt} &= -(\kappa - i \Delta\omega)\alpha - g\beta -iE \\
+    \frac{d \beta}{dt} &= i\Delta\omega\beta + ig\alpha\zeta \\
+    \frac{d \zeta}{dt} &= 2ig(\alpha^*\beta - \alpha\beta^*)
+  \end{align}
+  \section{Maxwell-Bloch Equations}
+  \begin{align}
+    \frac{d \alpha}{dt} &= -(\kappa - i \Delta\omega)\alpha - g\beta -iE \\
+    \frac{d \beta}{dt} &= -(\frac{\gamma}{2} - i\Delta\omega)\beta + ig\alpha\zeta \\
+    \frac{d \zeta}{dt} &= -\gamma(\zeta+1) + 2ig(\alpha^*\beta - \alpha\beta^*)
+  \end{align}
+\end{document}

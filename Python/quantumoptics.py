@@ -564,7 +564,7 @@ class JaynesCummingsParameters:
                   drive_cavity_detunings,
                   qubit_cavity_detunings,
                   c_op_params,
-                  omega_cavity=1000000):
+                  omega_cavity=10):
         # Completely untested
         # allows setting just drives and detunings.
         self.drives = drive_strengths
