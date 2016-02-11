@@ -1,0 +1,123 @@
+%Title Data
+\documentclass[reqno]{amsart}
+\title{Master's Thesis}
+\author{Fergus Barratt}
+\date{\today}
+\thanks{First Supervisor: Marzena Szymanska \\Second Supervisor: Themis Mavrogordatos}
+%Packages
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage[margin=0.7in]{geometry}
+% \usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage[backend=biber, ordering=none, style=phys]{biblatex}
+\usepackage{todonotes}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{grffile}
+\usepackage{cleveref}
+\graphicspath{ {./Images} }
+
+% section hack
+\makeatletter
+\@addtoreset{section}{part}
+\def\@part[#1]#2{%
+    \ifnum \c@secnumdepth >\m@ne
+          \refstepcounter{part}%
+      \addcontentsline{toc}{part}{\thepart\hspace{1em}#1}%
+    \else
+      \addcontentsline{toc}{part}{#1}%
+    \fi
+    {\parindent \z@ \raggedright
+     \interlinepenalty \@M
+     \normalfont\centering
+     \ifnum \c@secnumdepth >\m@ne
+       \LARGE\bfseries \partname\nobreakspace\thepart
+       \par\nobreak
+     \fi
+     \huge \bfseries #2%
+     \markboth{}{}\par}%
+    \nobreak
+    \vskip 3ex
+    \@afterheading}
+\renewcommand\partname{Section}
+\makeatother
+
+\addbibresource{/Users/fergusbarratt/bibTex/library.bib}
+
+%Operator,math and QM shorthands
+\newcommand{\ham}{\hat{\mathscr{H}}}
+\newcommand{\cre}{\hat{a}^\dagger}
+\newcommand{\ann}{\hat{a}}
+\newcommand{\atann}{\hat{\sigma}_-}
+\newcommand{\atcre}{\hat{\sigma}_+}
+\newcommand{\dens}{\hat{\rho}}
+\newcommand{\ket}[1]{| #1 \rangle}
+\newcommand{\bra}[1]{\langle#1 |}
+\newcommand{\braket}[2]{\langle#1 | #2 \rangle}
+\newcommand{\bratens}[2]{\bra{#1} \otimes\bra{#2}}
+\newcommand{\kettens}[2]{\ket{#1} \otimes\ket{#2}}
+\newcommand{\qexp}[1]{\langle#1 \rangle}
+\newcommand{\Epsilon}{\mathcal{E}}
+\newcommand{\schro}[2]{i \hbar\ket{#1} = #2 \ket{#1}}
+
+\begin{document}
+\maketitle
+%\include{TitlePage}
+ %-------------------------------------------------------------------------------------------------------------------------------
+% \todo[inline]{Change HJC section to definition via $\Omega_n$}
+% \todo[inline]{justification of Lindblad form}
+% \todo[inline]{dispersive regime}
+ %--------------------------------------------------------------------------------------------------------------------------------
+\part{Introduction}
+\section{Outline}
+  % In this project we investigate the behaviour of the Jaynes-Cummings system \cite{Jaynes1963a}, in the presence of dissipation of various forms, and under the influence of a coherent drive. We reproduce a large number of the results of papers Carmichael, Alsing and Savage \cite{Carmichael2015} \cite{Savage1988} \cite{Alsing1990}
+\part{Thesis}
+\section{The Statistical Interpretation of Quantum Mechanics\autocite{Breuer2002}}
+Consider a statistical ensemble $\varepsilon$ consisting of a suitably large number N of identically prepared quantum systems
+\begin{equation}
+  \varepsilon = \{S^1, S^2, \ldots, S^N\}
+\end{equation}
+Such a statistical ensemble represents a particular set of experimental conditions, whose realisation in each instance generates a particular member $S^i$ of  $\varepsilon$
+
+The first postulate of the statistical interpretation of quantum mechanics is that a complete characterisation of such a statistical ensemble can be represented by a normalised state vector $| \psi \rangle$ in an associated Hilbert space $\mathcal{H}$
+
+The second postulate is that all the possible outcomes of measurements on such an ensemble are represented by self-adjoint operators on $\mathcal{H}$. The outcome of the measurement corresponding to an operator $\hat{R}$ represents a real valued random variable R with cumulative distribution function $F_{\hat{R}}$ defined via the family of orthogonal projection operators that constitute the spectral decomposition of $\hat{R}$:
+\begin{equation}
+  \hat{R} = \int_{-\infty}^\infty rdE_r
+\end{equation}
+as
+\begin{equation}
+  F_{\hat{R}} = \langle \psi |E_r | \psi \rangle
+\end{equation}
+This characterisation of the possible statistical variation of a quantum system is not yet complete, for it neglects classical uncertainty associated with which statistical ensemble $\varepsilon$ represents a given quantum system. To generate the most general possible representation of a quantum statistical ensemble, a number of possible quantum ensembles $\varepsilon_\alpha$ of the above type are mixed with weights $w_\alpha$ (these weights are probabilities in the classical, not quantum sense). A self-adjoint operator now yields a random variable R with cumulative distribution function
+\begin{equation}
+  F_{\hat{R}} = \sum_\alpha w_\alpha \langle \psi_\alpha | E_r | \psi_\alpha \rangle
+\end{equation}
+for convenience, the \emph{density operator} $\rho$ can be introduced thus
+\begin{equation}
+  \dens = \sum_\alpha w_\alpha |\psi_\alpha \rangle \langle \psi_\alpha |
+\end{equation}
+and the cumulative distribution written:
+\begin{equation}
+  F_{\hat{R}} = tr\{E_r \dens \}
+\end{equation}
+by a similar mixing argument and using the spectral decomposition of $\hat{R}$ the mean and variance of the random variable associated with $\hat{R}$ as above are as follows
+\begin{align}
+  \langle \hat{R} \rangle &= tr\{\hat{R} \dens \} \\
+  var(\hat{R}) &= \langle \hat{R}^2 \rangle - {\langle \hat{R} \rangle}^2
+\end{align}
+The density matrix constitutes a complete description of the statistical properties of an open quantum system. Thus, the dynamics of such a system can be described by the time evolution of its density operator.
+%----------------------------------------------------------------------------------------------------------------------------------
+\include{TheMasterEquation}
+%----------------------------------------------------------------------------------------------------------------------------------
+\include{JaynesCummingModel}
+%----------------------------------------------------------------------------------------------------------------------------------
+\include{QuasiProbabilityDistributions}
+%----------------------------------------------------------------------------------------------------------------------------------
+\include{CarmichaelPaperSummary}
+
+\printbibliography\
+\end{document}

@@ -1,6 +1,6 @@
 """ a module for defining quantum optical systems.
 Wrap up interesting parameters using the wrapper class and feed them
-to the interesting model, and use available methods on that model object"""
+to the model, and use available methods on that model object"""
 
 from __future__ import print_function
 import math as m
@@ -24,7 +24,8 @@ class QuantumOpticsSystem:
         # Instantiate cavity and qubit parameters
         self.g = g
         self.kappa = c_op_params[0]
-        self.gamma = c_op_params[1]
+        if len(c_op_params)>1:
+            self.gamma = c_op_params[1]
         self.N_cavity_modes = N_cavity_modes
         self.N_qubits = N_qubits
         self.idcavity = qt.qeye(self.N_cavity_modes)
@@ -104,9 +105,11 @@ class DickeSystem(QuantumOpticsSystem):
     def c_ops(self):
         c_ops = []
         c1 = m.sqrt(2 * self.kappa) * self.a
-        c2 = m.sqrt(2 * self.gamma) * self.sm
+        if hasattr(self, 'gamma'):
+            c2 = m.sqrt(2 * self.gamma) * self.sm
         c_ops.append(c1)
-        c_ops.append(c2)
+        if c2 in locals():
+            c_ops.append(c2)
         return c_ops
 
 
@@ -250,9 +253,11 @@ class JaynesCummingsSystem(QuantumOpticsSystem):
     def c_ops(self):
         c_ops = []
         c1 = m.sqrt(2 * self.kappa) * self.a
-        c2 = m.sqrt(2 * self.gamma) * self.sm
+        if hasattr(self, 'gamma'):
+            c2 = m.sqrt(2 * self.gamma) * self.sm
         c_ops.append(c1)
-        c_ops.append(c2)
+        if 'c2' in locals():
+            c_ops.append(c2)
         return c_ops
 
 
@@ -361,7 +366,19 @@ class SteadyStateJaynesCummingsModel(JaynesCummingsSystem):
                     drive[0],
                     det[0]),
                 self.a.dag() *
-                self.a) for drive in enumerate(
+                self.a
+                ) for drive in enumerate(
+                self.drive_range) for det in enumerate(
+                    self.omega_qubit_range)]
+
+    def abs_cavity_field(self):
+        return [
+            qt.expect(
+                self.rhos(
+                    drive[0],
+                    det[0]),
+                self.a
+                ) for drive in enumerate(
                 self.drive_range) for det in enumerate(
                     self.omega_qubit_range)]
 
