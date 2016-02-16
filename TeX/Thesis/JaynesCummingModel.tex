@@ -1,13 +1,13 @@
-%!TEX root = LiteratureReview.tex
+%!TEX root = Thesis.tex
 
 \section{The Jayes-Cumming Hamiltonian}
-The Jaynes-Cumming model in quantum optics is an important example of an open quantum system. It consists of a two level atom interacting with a single quantized mode of an optical cavity. It is solvable, provided several widely applicable approximations are made. 
+The Jaynes-Cumming model in quantum optics is an important example of an open quantum system. It consists of a two level atom interacting with a single quantized mode of an optical cavity. It is solvable, provided several widely applicable approximations are made.
 We start with the total Hamiltonian
 \begin{equation}
 	\mathscr{H} = \mathscr{H}_A + \mathscr{H}_F +\mathscr{V}_{int}
 \end{equation}
 \subsection{The Dipole Approximation}
-In full generality, the field will interact with all the higher order dipole moments of the atom. However, given that the spatial variation of typical optical fields is minimal on the order of an atom ($\sim$ \AA), the interaction hamiltonian can be approximated by the interaction of the electric field only with the electric dipole moment of the atom 
+In full generality, the field will interact with all the higher order dipole moments of the atom. However, given that the spatial variation of typical optical fields is minimal on the order of an atom ($\sim$ \AA), the interaction hamiltonian can be approximated by the interaction of the electric field only with the electric dipole moment of the atom
 \begin{equation}
 	\hat{\mathscr{V}}_{int} = -\vec{\hat{d}} \cdot \vec{\hat{E}}
 \end{equation}
@@ -32,7 +32,7 @@ $\vec{\hat{d}} = e \vec{\hat{r}}$ can be expanded in the space of atomic levels 
 \begin{equation}
 	\vec{\hat{d}} = e \sum_{a, b} | a \rangle \langle a | \vec{\hat{r} }| b \rangle \langle b |
 \end{equation}
-since we consider only two levels, the sum can be truncated: 
+since we consider only two levels, the sum can be truncated:
 \begin{equation}
 	\vec{\hat{d}} = e\{| 1 \rangle \langle 1|\vec{\hat{r}} | 1 \rangle \langle 1 | + | 1 \rangle \langle 1|\vec{\hat{r}} | 2 \rangle \langle 2 | + | 2 \rangle \langle 2|\vec{\hat{r}} | 1 \rangle \langle 1 | + | 2 \rangle \langle 2|\vec{\hat{r}} | 2 \rangle \langle 2 | \}
 \label{eq:25}
@@ -52,7 +52,7 @@ The atom energy, neglecting centre of mass motion and considering only populatio
 	\ham = \frac {1} {2} \hbar \omega_A \sigma_z
 \end{equation}
 where $\omega_A$ is the frequency of the bare atomic transition
-Assuming sinusoidal mode functions with polarisation $\varepsilon_\Omega$, and incorporating constants into new dipole matrix elements $g = \frac{m \varepsilon_\Omega sin(Kz)} {2 \hbar}$, the total hamiltonian takes the form 
+Assuming sinusoidal mode functions with polarisation $\varepsilon_\Omega$, and incorporating constants into new dipole matrix elements $g = \frac{m \varepsilon_\Omega sin(Kz)} {2 \hbar}$, the total hamiltonian takes the form
 \begin{equation}
 	\ham = \hbar \omega \cre \hat{a} +\frac{1}{2} \hbar \omega_A \sigma_Z + \hbar (\ann +\cre)(g\atann+g^*\atcre)
 \end{equation}
@@ -74,7 +74,7 @@ We first move to an interaction picture rotating with the bare system, partition
 	\ham_{II} &= -\hbar \Delta + \hbar g (\cre \atann + \hat{a} \atcre) \\
 	\ham_{JC} &= \ham_I+\ham_{II}
 \end{align}
-with $\Delta = \omega-\omega_A$,   $\hat{N}_e = \ket{2} \bra{2} + \ket{1} \bra{2} $ the (conserved) electron number and $\hat{P}_E = \cre\ann + \ket{2}\bra{2} $ the (conserved) excitation number. We allow the kets and observables to evolve with the conserved part, and solve for the interesting dynamics in the interaction part. 
+with $\Delta = \omega-\omega_A$,   $\hat{N}_e = \ket{2} \bra{2} + \ket{1} \bra{2} $ the (conserved) electron number and $\hat{P}_E = \cre\ann + \ket{2}\bra{2} $ the (conserved) excitation number. We allow the kets and observables to evolve with the conserved part, and solve for the interesting dynamics in the interaction part.
 \subsection{Unitary, zero detuning}
 We consider first evolution of the Jaynes-Cumming system in the absence of decay, dephasing and detuning, with the atom initially excited $\ket{2}$ and the field in a Fock state $\ket{n}$. Since field only couples successive levels of the combined atom-field system, the state of the closed system can be described by
 \begin{equation}

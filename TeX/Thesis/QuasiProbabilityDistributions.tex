@@ -1,7 +1,5 @@
-%!TEX root = LiteratureReview.tex
-
 \section{Quasi-Probability Distributions}
-Probability distributions in the classical theory of probability are subject to 3 important restrictions, which derive from the Kolmogorov axioms on the system probability measure. The transition to a quantum theory of probability relaxes one or more of these axioms, and quasi-probability distributions result-these are not necessarily everywhere positive, and regions integrated under such distributions do not in general represent mutually exclusive states as do the analogous regions under true probability distributions. This corresponds to the relaxation of the first and third of Kolmogorov's axioms. 
+Probability distributions in the classical theory of probability are subject to 3 important restrictions, which derive from the Kolmogorov axioms on the system probability measure. The transition to a quantum theory of probability relaxes one or more of these axioms, and quasi-probability distributions result-these are not necessarily everywhere positive, and regions integrated under such distributions do not in general represent mutually exclusive states as do the analogous regions under true probability distributions. This corresponds to the relaxation of the first and third of Kolmogorov's axioms.
 
 Several different quasi-probability distribution representations are possible\autocite{Walls2008}, and to each is associated a theorem known as the \emph{Optical equivalence theorem} \autocite{Sudarshan1963}, for a power series of annihilation and creation operators in a given ordering. The optical equivalence theorem is concisely stated as follows
 \begin{equation}
@@ -36,7 +34,7 @@ It is a necessary and suffient condition for this expression for P ($\alpha$) to
 	Q = \frac{\langle \alpha | \dens | \alpha \rangle}{\pi}
 	\label{qdef}
 \end{equation}
-The Q function is a nonnegative, the density function being a positive operator. It is also bounded above 
+The Q function is a nonnegative, the density function being a positive operator. It is also bounded above
 \begin{equation}
 	Q \leq \frac{1}{\pi}
 \end{equation}
@@ -60,17 +58,17 @@ The above functions are equivalently derived from the antinormal, normal, and sy
 \begin{align}
 	\chi_{A} (\eta) &= tr\{\dens e^{-\eta^* \hat{a}}e^{\eta \cre } \} \\
 	\chi_{N} (\eta) &= tr\{\dens e^{\eta \cre}e^{-\eta^* \hat{a} } \} \\
-	\chi_{S} (\eta) &= tr\{\dens e^{\eta^* \hat{a}-\eta \cre } \} 
+	\chi_{S} (\eta) &= tr\{\dens e^{\eta^* \hat{a}-\eta \cre } \}
 \end{align}
 with the corresponding quasiprobability distributions retrieved as the inverse Fourier transform of the corresponding characteristic function
  \begin{equation}
  	\{P|Q|W\} = \hat{\mathscr{F}}^{-1} [\chi_{\{N|A|S\}}]
 \end{equation}
-The existence of the inverse transform is necessary condition for the existence of a particular representation in terms of non-generalised functions. 
+The existence of the inverse transform is necessary condition for the existence of a particular representation in terms of non-generalised functions.
 \subsection{Coherent State Representations}
 The form of the density matrix for a system in pure coherent state $ | \alpha_0 \rangle $  is:
 \begin{equation}
- 	\dens = | \alpha_0 \rangle \langle \alpha_0 | 
+ 	\dens = | \alpha_0 \rangle \langle \alpha_0 |
  \end{equation}
  \subsubsection{P-function}
  From the properties of the delta function, the form of the P-function is evident:
@@ -89,7 +87,7 @@ The Wigner function is recovered from the Wigner transform of $\ket{\alpha_0}\br
 \end{equation}
 \begin{figure}[h]
 	\begin{minipage}[b]{.5\linewidth}
-		\centering \large \includegraphics[width=1\textwidth]{Images/Q Function-Coherent.png} 
+		\centering \large \includegraphics[width=1\textwidth]{Images/Q Function-Coherent.png}
 		\subcaption{W function for the Coherent state $\alpha=1+i$}\label{fig:Qcoh}
 	\end{minipage}%
 	\begin{minipage}[b]{.5\linewidth}
@@ -113,7 +111,7 @@ Despite the pathological nature of the Fock state P-function the Q-function is q
 \end{align}
 \begin{figure}[h]
 	\begin{minipage}[b]{.5\linewidth}
-		\centering \large \includegraphics[width=1\textwidth]{Images/Q Function-n=0.png} 
+		\centering \large \includegraphics[width=1\textwidth]{Images/Q Function-n=0.png}
 		\subcaption{n=0}\label{fig:Qn=0}
 	\end{minipage}%
 	\begin{minipage}[b]{.5\linewidth}
@@ -130,7 +128,7 @@ The Wigner transform of $\ket{n}\bra{n}$ is\autocite[65]{Walls2008}
 Where $\mathscr{L}_n$ is the nth Laguerre Polynomial.
 \begin{figure}[h]
 	\begin{minipage}[b]{.5\linewidth}
-		\centering \large \includegraphics[width=1\textwidth]{Images/W Function-n=0.png} 
+		\centering \large \includegraphics[width=1\textwidth]{Images/W Function-n=0.png}
 		\subcaption{n=0}\label{fig:n=0}
 	\end{minipage}%
 	\begin{minipage}[b]{.5\linewidth}

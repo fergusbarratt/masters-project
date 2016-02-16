@@ -3,11 +3,11 @@ function [plo] = prettyplot(Xrange, Yrange, h, varargin)
     plot(Xrange, h)
   elseif iscolumn(h)
     plot(Yrange, h)
-  else 
+  else
     plo = surf(Xrange, Yrange, h);
     plo.LineStyle = 'none';
     view(3);
-    colormap('jet');
+    colormap('parula');
     colorbar
     % ylim=get(gca,'YLim');
     % xlim=get(gca,'XLim');
