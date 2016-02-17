@@ -98,7 +98,7 @@ and from \cref{eq:pseudospin}
 \implies \frac{d \zeta}{dt} &= -\frac{g^2}{\kappa} (1-\zeta^2)
 \end{align}
 We recover the non exponential decay of neoclassical radiation theory
-% \begin{figure}
+% \begin{}
 %   \centering
 %   \includegraphics[width=0.5\textwidth]{Images/NeoclassicalDecay.png}
 %   \caption{Non-exponential decay of $\zeta$, $\frac{g}{\kappa} = 50, \zeta(0) \approx 1$} \label{fig:neoclassical}
@@ -129,19 +129,19 @@ with $\alpha$ a solution to
   \begin{minipage}{.5\linewidth}
     \centering
     \includegraphics[width=1\textwidth]{Images/MeanFieldBelowCritical.png}
-    \subcaption{$\zeta$ approaches zero with increasing drive strength (positive branch)}\label{fig:zeta}
+    \caption{$\zeta$ approaches zero with increasing drive strength (positive branch)}\label{fig:zeta}
   \end{minipage}%
   \begin{minipage}{.5\linewidth}
     \centering
     \includegraphics[width=1\textwidth]{Images/MeanFieldAboveCritical.png}
-    \subcaption{Phase of $\beta$ with increasing drive greater than critical}\label{fig:alpha}
+    \caption{Phase of $\beta$ with increasing drive greater than critical}\label{fig:alpha}
   \end{minipage}
   \caption{$\alpha$ and $\zeta$ as the drive strength $\Epsilon$ moves up to through and beyond the critical point}
 \end{figure}
 
 in \cref{fig:alpha} the phase bistability above the critical point is obvious. The two $\beta$ solution branches start coincident in phase ($\pi$ and $-\pi$) at drive strengths just above critical and quickly move to opposite sides of the Bloch sphere ($-\frac{\pi}{2}$ and $\frac{\pi}{2}$).
 
-The phase of $\beta$ above the critical point follows the phase of $\alpha$, either aligned or antialigned. This spontaneous development of phase bistability Alsing and Carmichael call `Spontaneous Dressed State Polarisation' \autocite{Alsing1990}. Referred to the fully quantum model, each of the two phases corresponds to a the system ascending different sets of rungs of the Jaynes Cummings ladder, either $\ket{E_{n, U}}$ or $\ket{E_{n, L}}$
+The phase of $\beta$ above the critical point follows the phase of $\alpha$, either aligned or antialigned. This spontaneous development of phase bistability Alsing and Carmichael call `Spontaneous Dressed State Polarisation' \cite{Alsing1990}. Referred to the fully quantum model, each of the two phases corresponds to a the system ascending different sets of rungs of the Jaynes Cummings ladder, either $\ket{E_{n, U}}$ or $\ket{E_{n, L}}$
 \subsubsection{Non-zero detuning}
 Solving \cref{eq:alpha}, \cref{eq:beta}, \cref{eq:zeta} in the steady state gives
 \begin{align}
@@ -158,40 +158,38 @@ The expression for $\alpha$ is a Lorentzian, in which is obvious a nonlinear dis
 
 A surface plot of $|\alpha|^2 \approx n$ is shown in \ref{fig:MeanFieldvsQuantum}.
 \subsection{Numerics}
-\begin{figure}[ht]
- \centering
- \includegraphics[width=1\textwidth]{Images/MeanFieldvsQuantum.png}
+\begin{figure*}
+ \includegraphics[width=\textwidth]{Images/MeanFieldvsQuantum.png}
  \caption{Comparison of mean field and fully quantum contour plots with critical points at $\frac{\Epsilon}{2}$ highlighted}\label{fig:MeanFieldvsQuantum}
- \end{figure}
+ \end{figure*}
 
 Truncating the master equation density matrix Fock state expansion produces a finite set of coupled differential equations for the components, from which for low photon occupation expectation values in full quantum generality can be generated to high accuracy. This method does however scale incredible poorly in the system size (the number of elements in the density matrix $\propto N^2$, where N is the dimension of the system Hilbert space. The method of quantum trajectories scales much better \cite{Molmer1993} $\propto N$ by considering the wavefunction stochastically). Setting the time derivatives to zero here yields a matrix equation, which given the positive definiteness and hermiticity conditions on the density matrix yields to a Cholesky solver \cite{Press1992}. We use the Matlab and Python solvers as exposed by QuTiP \cite{Johansson2013a} and qotoolbox\cite{Tan1999a}. For the time dependent solutions, we also use fourth order runge-kutta methods provided in both libaries.
 
-The multiple peaks in the bilorentzian (at the bottom of \autocite[Figure 1]{Carmichael2015}) as we move from large to little detuning are a mark of multiphoton blockades and their breaking through.
+The multiple peaks in the bilorentzian (at the bottom of \cite[Figure 1]{Carmichael2015}) as we move from large to little detuning are a mark of multiphoton blockades and their breaking through.
 
 The sides of the Lorentzians correspond to domains of coexistence between the near vacuum state and the high occupation state \cite{Carmichael2015}, and the phase transition between the two at this boundary is of first order, its discontinuity relating to the breaking down of blockade. The transition as the drive strength moves through the critical point is of second order, as indicated in the plots of the approach to equilibrium below, where critical slowing in the approach close to the critical point reveals its nature.
 
 All such features are obvious in our plots in \cref{fig:MeanFieldvsQuantum}, where the quantum results in \cite{Carmichael2015} have been reproduced. Computationally solving the for $\alpha$ in the meanfield condition above yields the first plot.
 
-Numerical calculation of the Q function along the walls of the bilorentzian show a marked bimodality in amplitudeThe development of this Q function bimodality is echoed in the Wigner representation, and is clear in \cref{fig:Qbistabilities}, although the parameters are different to those in \cref{fig:MeanFieldvsQuantum} and in \autocite{Carmichael2015}. Moving through the critical point in the drive, the Q function bifurcates, this time in phase, where two coexistent gaussian peaks in phase space mark the phase bistability discussed above.
-\begin{figure}[h]
+Numerical calculation of the Q function along the walls of the bilorentzian show a marked bimodality in amplitudeThe development of this Q function bimodality is echoed in the Wigner representation, and is clear in \cref{fig:Qbistabilities}, although the parameters are different to those in \cref{fig:MeanFieldvsQuantum} and in \cite{Carmichael2015}. Moving through the critical point in the drive, the Q function bifurcates, this time in phase, where two coexistent gaussian peaks in phase space mark the phase bistability discussed above.
+\begin{figure}
  \begin{minipage}{.5\linewidth}
   \centering
   \includegraphics[width=1\textwidth]{Images/Q-Bistability-OnResonance.png}
-  \subcaption{Development of phase bistability in the W function for fixed detuning, with drive moving through the critical point at $\frac{\Epsilon}{2}$}
+  \caption{Development of phase bistability in the W function for fixed detuning, with drive moving through the critical point at $\frac{\Epsilon}{2}$}
   \end{minipage}%
   \begin{minipage}{.5\linewidth}
       \centering
       \includegraphics[width=1\textwidth]{Images/Q-Bistability.png}
-      \subcaption{W functions with changing detuning and fixed drive. Note the probability fringes to the right connecting the peaks by spontaneous emission}
+      \caption{W functions with changing detuning and fixed drive. Note the probability fringes to the right connecting the peaks by spontaneous emission}
   \end{minipage}
   \caption{Q-bistabilities}\label{fig:Qbistabilities}
 \end{figure}
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=1\textwidth]{Images/CriticalSlowing.png}
+\begin{figure*}
+  \includegraphics[width=\textwidth]{Images/CriticalSlowing.png}
   \caption{Time Dependent Solutions with g=0.5, $\kappa$ = 0.01, blue line is (0.24, 1), red line is (0.1, 1)}\label{fig:CriticalSlowing}
-\end{figure}
+\end{figure*}
 
 \subsection{Spontaneous Emission}.
 
@@ -258,18 +256,17 @@ From Hamilton's equations for the (semi-) classical Hamiltonian
         \frac{d\mathscr{H}}{dX} &= \frac{dP}{dt}\\
         \frac{d\mathscr{H}}{dP} &= -\frac{dX}{dt}
 \end{align}
-in the steady state, setting the second derivatives of the quadratures X \& P to zero and solving for the amplitude $A = X^1 + P^2$, we find 
+in the steady state, setting the second derivatives of the quadratures X \& P to zero and solving for the amplitude $A = X^1 + P^2$, we find
 \begin{equation}
         A^2 = \frac{\omega_d^2\xi}{\{\omega_d^2 - [\omega_c - \chi (A) ]^2 \}^2+ \kappa^2 \omega_d^2}
 \end{equation}
-where 
+where
 \begin{equation}
         \chi(A) = \sigma_z \frac{g^2}{\sqrt{2g^2(A^2 + \sigma_z) + \delta^2}}
 \end{equation}
 inverting the equation and solving for $\xi$ as a function of $A^2$, we retrieve for the amplitude as a function of the detuning and the drive strength:
-\begin{figure}[h]
-        \centering
-        \includegraphics[width=0.8\textwidth]{Images/SemiclassicalBistability.png}
+\begin{figure*}
+        \includegraphics[width=\textwidth]{Images/SemiclassicalBistability.png}
         \caption{Semiclassical Amplitude as a function of drive and detuning}
-\end{figure}
-Areas where the amplitude is not 1-1 (for given drive) indicate the existence of bistability, where the negative gradient intermediate state is metastable, and the system is stable along the upper and lower curves. These regions in the quantum case are washed out by switching induced by quantum fluctuations, and the amplitude in the quantum case can be qualitatively expected to 'average out' the bistability and lie between the two stable states on this plot. Indeed, this effect is visible in the next plot. We see more interesting features here too, most notably a dip in the quantum amplitude, where there is destructive interference between the two stable paths. In a sense, the quantum amplitude is characterised by the switching rate, where at a given detuning, the upwards switching drags the curve upwards and the downwards downwards.  
+\end{figure*}
+Areas where the amplitude is not 1-1 (for given drive) indicate the existence of bistability, where the negative gradient intermediate state is metastable, and the system is stable along the upper and lower curves. These regions in the quantum case are washed out by switching induced by quantum fluctuations, and the amplitude in the quantum case can be qualitatively expected to 'average out' the bistability and lie between the two stable states on this plot. Indeed, this effect is visible in the next plot. We see more interesting features here too, most notably a dip in the quantum amplitude, where there is destructive interference between the two stable paths. In a sense, the quantum amplitude is characterised by the switching rate, where at a given detuning, the upwards switching drags the curve upwards and the downwards downwards.

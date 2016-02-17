@@ -1,25 +1,15 @@
-%Title Data
-\documentclass[reqno]{amsart}
-\title{Phase Transitions and Bimodality in the Jaynes Cummings System}
-\author{Fergus Barratt}
-\date{\today}
-\thanks{First Supervisor: Marzena Szymanska \\Second Supervisor: Themis Mavrogordatos}
+\documentclass[reprint, aps, prl, reprint]{revtex4-1}
 %Packages
 \usepackage{amsmath}
 \usepackage{mathrsfs}
 \usepackage[margin=0.7in]{geometry}
-% \usepackage{fullpage}
 \usepackage{graphicx}
-\usepackage[backend=biber, style=phys, bibencoding=utf8]{biblatex}
 \usepackage{todonotes}
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage{caption}
-\usepackage{subcaption}
 \usepackage{grffile}
 \usepackage{cleveref}
 \graphicspath{ {./Images} }
-
 % section hack
 \makeatletter
 \@addtoreset{section}{part}
@@ -45,8 +35,6 @@
 \renewcommand\partname{Section}
 \makeatother
 
-\addbibresource{/Users/fergusbarratt/bibTex/library.bib}
-
 %Operator,math and QM shorthands
 \newcommand{\ham}{\hat{\mathscr{H}}}
 \newcommand{\cre}{\hat{a}^\dagger}
@@ -64,10 +52,11 @@
 \newcommand{\schro}[2]{i \hbar\ket{#1} = #2 \ket{#1}}
 
 \begin{document}
-\maketitle
-\part{Introduction \& Outline}
+\title{Phase Transitions \& Bimodality in the Jaynes-Cummings Model}
+\author{Fergus Barratt}
+\affiliation{First Supervisor: Marzena Szymanska \\Second Supervisor: Themis Mavrogordatos}
+
 \include{Introduction}
-\part{Background}
 \include{StatisticalInterpretation}
 %----------------------------------------------------------------------------------------------------------------------------------
 \include{TheMasterEquation}
@@ -77,6 +66,5 @@
 \include{JaynesCummingModel}
 %----------------------------------------------------------------------------------------------------------------------------------
 \include{CarmichaelPaperSummary}
-
-\printbibliography\
+\bibliography{/Users/fergusbarratt/bibTex/library}\
 \end{document}
