@@ -10,30 +10,6 @@
 \usepackage{grffile}
 \usepackage{cleveref}
 \graphicspath{ {./Images} }
-% section hack
-\makeatletter
-\@addtoreset{section}{part}
-\def\@part[#1]#2{%
-    \ifnum \c@secnumdepth >\m@ne
-          \refstepcounter{part}%
-      \addcontentsline{toc}{part}{\thepart\hspace{1em}#1}%
-    \else
-      \addcontentsline{toc}{part}{#1}%
-    \fi
-    {\parindent \z@ \raggedright
-     \interlinepenalty \@M
-     \normalfont\centering
-     \ifnum \c@secnumdepth >\m@ne
-       \LARGE\bfseries \partname\nobreakspace\thepart
-       \par\nobreak
-     \fi
-     \huge \bfseries #2%
-     \markboth{}{}\par}%
-    \nobreak
-    \vskip 3ex
-    \@afterheading}
-\renewcommand\partname{Section}
-\makeatother
 
 %Operator,math and QM shorthands
 \newcommand{\ham}{\hat{\mathscr{H}}}
@@ -52,19 +28,25 @@
 \newcommand{\schro}[2]{i \hbar\ket{#1} = #2 \ket{#1}}
 
 \begin{document}
-\title{Phase Transitions \& Bimodality in the Jaynes-Cummings Model}
-\author{Fergus Barratt}
-\affiliation{First Supervisor: Marzena Szymanska \\Second Supervisor: Themis Mavrogordatos}
 
-\include{Introduction}
-\include{StatisticalInterpretation}
+\begin{abstract}
+\input{Introduction}
+\end{abstract}
+
+\title{Phase Transitions and Bimodality in the Jaynes-Cummings Model}
+\author{Fergus Barratt}
+\affiliation{First Supervisor: Themis Mavrogordatos, Second Supervisor: Marzena Szymanska}
+\date{\today}
+\maketitle
+
+\input{StatisticalInterpretation}
 %----------------------------------------------------------------------------------------------------------------------------------
-\include{TheMasterEquation}
+\input{TheMasterEquation}
 %----------------------------------------------------------------------------------------------------------------------------------
-\include{QuasiProbabilityDistributions}
+\input{QuasiProbabilityDistributions}
 %----------------------------------------------------------------------------------------------------------------------------------
-\include{JaynesCummingModel}
+\input{JaynesCummingModel}
 %----------------------------------------------------------------------------------------------------------------------------------
-\include{CarmichaelPaperSummary}
+\input{CarmichaelPaperSummary}
 \bibliography{/Users/fergusbarratt/bibTex/library}\
 \end{document}
