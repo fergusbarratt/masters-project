@@ -184,11 +184,6 @@ class JaynesCummingsSystem(QuantumOpticsSystem):
             else:
                 raise ArithmeticError(
                     'Frequency ranges are not of equal length')
-        # normalise parameters to kappa
-        self.drive_range = self.drive_range / self.kappa
-        self.omega_cavity_range = self.omega_cavity_range / self.kappa
-        self.omega_qubit_range = self.omega_qubit_range / self.kappa
-        self.omega_drive_range = self.omega_drive_range / self.kappa
 
         # reparametrise - set flag if sys has not been reparametrised
         self.reparam = False
@@ -299,7 +294,7 @@ class SteadyStateDickeModel(DickeSystem):
         return qps
 
     def intracavity_photon_numbers(self):
-        return [qt.expect(self.rho(det[0]), self.a.dag() * self.a)
+        return [qt.expect(self.a.dag() * self.a, self.rho(det[0]))
                 for det in enumerate(self.important_range)]
 
     def purities(self):
@@ -362,25 +357,25 @@ class SteadyStateJaynesCummingsModel(JaynesCummingsSystem):
     def intracavity_photon_numbers(self):
         return [
             qt.expect(
+                self.a.dag() *
+                self.a,
                 self.rho(
                     drive[0],
                     det[0]),
-                self.a.dag() *
-                self.a
                 ) for drive in enumerate(
                 self.drive_range) for det in enumerate(
                     self.omega_qubit_range)]
 
     def abs_cavity_field(self):
-        return [
+        return np.absolute([
             qt.expect(
-                self.rhos(
+                self.a,
+                self.rho(
                     drive[0],
                     det[0]),
-                self.a
                 ) for drive in enumerate(
                 self.drive_range) for det in enumerate(
-                    self.omega_qubit_range)]
+                    self.omega_qubit_range)])
 
     def purities(self):
         return [(self.rho(drive[0], det[0]) ** 2).tr()
@@ -581,7 +576,7 @@ class JaynesCummingsParameters:
                   drive_cavity_detunings,
                   qubit_cavity_detunings,
                   c_op_params,
-                  omega_cavity=10):
+                  omega_cavity):
         # Completely untested
         # allows setting just drives and detunings.
         self.drives = drive_strengths
