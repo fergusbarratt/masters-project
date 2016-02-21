@@ -1,7 +1,7 @@
 %!TEX root = Thesis.tex
 
 \section{Driving \& Dissipation}
-We now introduce a driving term into the Jaynes Cummings Hamiltonian. It is added coherently i.e. the system evolves unitarily with the drive, rather than the more general incoherent case \cite{Xu2014}, and the Hamiltonian reads:
+We now introduce a driving term into the Jaynes Cummings Hamiltonian. It is added coherently i.e.\ the system evolves unitarily with the drive, rather than the more general incoherent case \cite{Xu2014}, and the Hamiltonian reads:
 \begin{align}
         \ham_{JC} &= \hbar \omega_d \cre \ann + \hbar \omega_q \atann \atcre +\hbar g (\cre \atann+ \hat{a} \atcre)\\
                    & + \hbar \Epsilon (\cre e^{i\omega_d t} + \ann e^{-i\omega_d t})
@@ -131,14 +131,12 @@ with $\alpha$ a solution to
   \begin{minipage}{.5\linewidth}
     \centering
     \includegraphics[width=1\textwidth]{Images/MeanFieldBelowCritical.png}
-    \caption{$\zeta$ approaches zero with increasing drive strength (positive branch)}\label{fig:zeta}
   \end{minipage}%
   \begin{minipage}{.5\linewidth}
     \centering
     \includegraphics[width=1\textwidth]{Images/MeanFieldAboveCritical.png}
-    \caption{Phase of $\beta$ with increasing drive greater than critical}\label{fig:alpha}
   \end{minipage}
-  \caption{$\alpha$ and $\zeta$ as the drive strength $\Epsilon$ moves up to through and beyond the critical point}
+  \caption{$\alpha$ and $\zeta$ as the drive strength $\Epsilon$ moves up to through and beyond the critical point (a) $\zeta$ approaches zero with increasing drive strength (positive branch)\label{fig:zeta} (b) Phase of $\beta$ with increasing drive greater than critical}\label{fig:alpha}
 \end{figure}
 
 in \cref{fig:alpha} the phase bistability above the critical point is obvious. The two $\beta$ solution branches start coincident in phase ($\pi$ and $-\pi$) at drive strengths just above critical and quickly move to opposite sides of the Bloch sphere ($-\frac{\pi}{2}$ and $\frac{\pi}{2}$).
@@ -165,7 +163,7 @@ A surface plot of $|\alpha|^2 \approx n$ is shown in \ref{fig:MeanFieldvsQuantum
  \caption{Comparison of mean field and fully quantum contour plots with critical points at $\frac{\Epsilon}{2}$ highlighted}\label{fig:MeanFieldvsQuantum}
 \end{figure}
 
-Truncating the master equation density matrix Fock state expansion produces a finite set of coupled differential equations for the components, from which for low photon occupation expectation values in full quantum generality can be generated to high accuracy. This method does however scale incredible poorly in the system size (the number of elements in the density matrix $\propto N^2$, where N is the dimension of the system Hilbert space. The method of quantum trajectories scales much better \cite{Molmer1993} $\propto N$ by considering the wavefunction stochastically). Setting the time derivatives to zero here yields a matrix equation, which given the positive definiteness and hermiticity conditions on the density matrix yields to a Cholesky solver \cite{Press1992}. We use the Matlab and Python solvers as exposed by QuTiP \cite{Johansson2013a} and qotoolbox\cite{Tan1999a}. For the time dependent solutions, we also use fourth order runge-kutta methods provided in both libaries.
+Truncating the master equation density matrix Fock state expansion produces a finite set of coupled differential equations for the components, from which for low photon occupation expectation values in full quantum generality can be generated to high accuracy. This method does however scale incredible poorly in the system size (the number of elements in the density matrix $\propto N^2$, where N is the dimension of the system Hilbert space. The method of quantum trajectories scales much better \cite{Molmer1993} $\propto N$ by considering the wavefunction stochastically). Setting the time derivatives to zero here yields a matrix equation, which given the positive definiteness and hermiticity conditions on the density matrix yields to a Cholesky solver \cite{Press1992}. We use the Matlab and Python solvers as exposed by QuTiP \cite{Johansson2013a} and qotoolbox\cite{Tan}.For the time dependent solutions, we also use fourth order runge-kutta methods provided in both libaries.
 
 The multiple peaks in the bilorentzian (at the bottom of \cite[Figure 1]{Carmichael2015}) as we move from large to little detuning are a mark of multiphoton blockades and their breaking through.
 
@@ -175,25 +173,21 @@ All such features are obvious in our plots in \cref{fig:MeanFieldvsQuantum}, whe
 
 Numerical calculation of the Q function along the walls of the bilorentzian show a marked bimodality in amplitudeThe development of this Q function bimodality is echoed in the Wigner representation, and is clear in \cref{fig:Qbistabilities}, although the parameters are different to those in \cref{fig:MeanFieldvsQuantum} and in \cite{Carmichael2015}. Moving through the critical point in the drive, the Q function bifurcates, this time in phase, where two coexistent gaussian peaks in phase space mark the phase bistability discussed above.
 \begin{figure}
- \begin{minipage}{.4\linewidth}
-  \centering
-  \includegraphics[width=1\textwidth]{Images/Q-Bistability-OnResonance.png}
-  \caption{Development of phase bistability in the W function for fixed detuning, with drive moving through the critical point at $\frac{\Epsilon}{2}$}
+ \begin{minipage}{.5\linewidth}
+     \includegraphics[width=1\textwidth]{Images/Q-Bistability-OnResonance.png}
   \end{minipage}%
-  \begin{minipage}{.4\linewidth}
-      \centering
+  \begin{minipage}{.5\linewidth}
       \includegraphics[width=1\textwidth]{Images/Q-Bistability.png}
-      \caption{W functions with changing detuning and fixed drive. Note the probability fringes to the right connecting the peaks by spontaneous emission}
   \end{minipage}
-  \caption{Q-bistabilities}\label{fig:Qbistabilities}
+  \caption{(a) Development of phase bistability in the W function for fixed detuning, with drive moving through the critical point at $\frac{\Epsilon}{2}$ \label{fig:Qbistabilities}(b) W functions with changing detuning and fixed drive. Note the probability fringes to the right connecting the peaks by spontaneous emission}
 \end{figure}
 
-\begin{figure*}
- \includegraphics[width=\textwidth]{Images/CriticalSlowing.png}
+\begin{figure}
+ \includegraphics[width=0.5\textwidth]{Images/CriticalSlowing.png}
   \caption{Time Dependent Solutions with g=0.5, $\kappa$ = 0.01, blue line is (0.24, 1), red line is (0.1, 1)}\label{fig:CriticalSlowing}
-\end{figure*}
+\end{figure}
 
-\subsection{Spontaneous Emission}.
+\subsection{Spontaneous Emission}
 
 We now reintroduce the spontaneous emission parameter, both in the mean-field and the quantum case. In \ref{fig:Qbistabilities} we show Q functions along the inner walls of the bilorentzian in \ref{fig:MeanFieldvsQuantum} and through the critical point in the drive, with the spontaneous emission parameter present.
 
@@ -240,7 +234,7 @@ which is notably not the same as \cref{eq:alphacondnotdet}.
 \Cref{eq:alphadetdiss} is the classical solution for the steady state of a saturable two level transition, with a saturation photon number ($I \propto |\alpha|^2 \approx n_{sat}$) of $n_{sat} = \frac{\gamma^2}{8g^2}$.
 
 \subsection{Dispersion}
-We now move to the dispersive regime, where the cavity qubit detuning $\delta_{cq}$ is very large compared to the other frequencies in the problem. Following the work of Ginossar and Bishop \cite{Bishop2010}, we build a semiclassical model for the system
+We now move to the dispersive regime, where the cavity qubit detuning $\delta_{cq}$ is very large compared to the other frequencies in the problem. Following the work of Ginossar and Bishop \cite{Bishop2010}, we build a semiclassical model for the system, with quantum Hamiltonian.
 \begin{equation}
 \mathscr{H} = \omega_c \cre \ann + ( \omega_c - \Delta ) \sigma_z /2 + \frac{\chi}{\sqrt{2}} (\ann + \cre ) cos(\omega_d t)
 \end{equation}
@@ -249,9 +243,10 @@ which is solvable but for the term $\Delta$, defined
         \Delta = \sqrt{\delta^2 +4 g ^2 N}
 \end{equation}
 In which the operator $N = \cre \ann $ appears non-trivially. Rewriting the hamiltonian in terms of the generalised coordinates
-\begin{equation}
-        \mathscr{H} = \omega_c/1 (X^2 + P^2 + \sigma_z) + \xi X cos(\omega_d t) - \sigma_z /2 \sqrt{2g^2(X^2+P^2+\sigma_z) + \delta^2}
-\end{equation}
+\begin{align}
+        \mathscr{H} &= \omega_c/1 (X^2 + P^2 + \sigma_z) + \xi X cos(\omega_d t)\\
+                    & - \sigma_z /2 \sqrt{2g^2(X^2+P^2+\sigma_z) + \delta^2}
+\end{align}
 where the $\delta$ term has been split. We make the semiclassical approximation by treating P and X as numbers, and make the claim that such an assumption holds for all N (intracavity photon number) much greater than $N_{crit}$, where $N_{crit}$ is equal to $\frac{\delta^2}{g^2}$.
 From Hamilton's equations for the (semi-) classical Hamiltonian
 \begin{align}
@@ -267,9 +262,22 @@ where
         \chi(A) = \sigma_z \frac{g^2}{\sqrt{2g^2(A^2 + \sigma_z) + \delta^2}}
 \end{equation}
 inverting the equation and solving for $\xi$ as a function of $A^2$, we retrieve for the amplitude as a function of the detuning and the drive strength:
-\begin{figure}[h]
-        \centering
+\begin{figure}
+        \label{SemiclassicalBistability}
         \includegraphics[width=0.5\textwidth]{Images/SemiclassicalBistability.png}
         \caption{Semiclassical Amplitude as a function of drive and detuning}
 \end{figure}
 Areas where the amplitude is not 1-1 (for given drive) indicate the existence of bistability, where the negative gradient intermediate state is metastable, and the system is stable along the upper and lower curves. These regions in the quantum case are washed out by switching induced by quantum fluctuations, and the amplitude in the quantum case can be qualitatively expected to 'average out' the bistability and lie between the two stable states on this plot. Indeed, this effect is visible in the next plot. We see more interesting features here too, most notably a dip in the quantum amplitude, where there is destructive interference between the two stable paths. In a sense, the quantum amplitude is characterised by the switching rate, where at a given detuning, the upwards switching drags the curve upwards and the downwards downwards.
+\begin{figure}
+        \label{QuantumDispersiveBistability}
+        \includegraphics[width=0.5\textwidth]{Images/QuantumDispersiveBistability.png}
+\caption{intracavity absolute field amplitude vs detuning, calculated at $\frac{\xi}{C1} = 6.3$ via calculation of the numerical Q function and from the master equation}
+\end{figure}
+\subsection{Bistable ``leaf''}
+In ~\ref{SemiclassicalBistability}, we see that increasing the drive opens and closes a region of dispersive bistability. By considering the derivatives of detuning with respect to drive, with $\xi$ as a parameter, we can demarcate this onset of bistability, and the draw the region in detuning/drive space in which bistability sets in.
+\begin{figure}
+        \label{BistabilityLeaf}
+        \includegraphics[width=0.5\textwidth]{Images/BistabilityLeaf.png}
+        \caption{Edges of the region of dispersive bistability}
+\end{figure}
+        

@@ -1,5 +1,7 @@
+%!TEX root = Thesis.tex
 \section{Quasi-Probability Distributions}
 Probability distributions in the classical theory of probability are subject to 3 important restrictions, which derive from the Kolmogorov axioms on the system probability measure. The transition to a quantum theory of probability relaxes one or more of these axioms, and quasi-probability distributions result-these are not necessarily everywhere positive, and regions integrated under such distributions do not in general represent mutually exclusive states as do the analogous regions under true probability distributions. This corresponds to the relaxation of the first and third of Kolmogorov's axioms.
+
 
 Several different quasi-probability distribution representations are possible\cite{Walls2008}, and to each is associated a theorem known as the \emph{Optical equivalence theorem} \cite{Sudarshan1963}, for a power series of annihilation and creation operators in a given ordering. The optical equivalence theorem is concisely stated as follows
 \begin{equation}
@@ -44,7 +46,7 @@ Antinormally ordered expectation values can be evaluated as follows:
 \end{equation}
 The Q function exists for states which admit no P representation, and unlike the P or W function is always positive
 \subsection{Symmetric Ordering}
-The first quasi-probability distribution to be introduced and the most popular in the literature is the \emph{Wigner Function} \cite{Wigner1932}, which satisfies the OET for symmetrically ordered products: those of the form $\frac{\ann \cre + \cre \ann}{2}$
+The first quasi-probability distribution to be introduced and the most popular in the literature is the \emph{Wigner Function} \cite{Wigner1932} , which satisfies the OET for symmetrically ordered products: those of the form $\frac{\ann \cre + \cre \ann}{1}$
 
 True probability distributions for generalised position and momentum are only possible independently $\rho(x) = |\braket{x}{\psi}|^2$, $\rho(p) = |\braket{p}{\psi}|^2$. This is fundamental principle of quantum mechanics. A joint statistical treatment is however available through the Wigner quasi-probability distribution
 \begin{equation}
@@ -76,29 +78,29 @@ The form of the density matrix for a system in pure coherent state $ | \alpha_0 
 	P(\alpha) = \delta^2(\alpha-\alpha_0)
 \end{equation}
 \subsubsection{Q-function}
-The Q-function is evaluated through its definition \cref{qdef}:
+The Q-function is evaluated from the definition: 
 \begin{equation}
 	Q(\alpha) = \frac{\langle \alpha | \alpha_0 \rangle \langle \alpha_0 | \alpha \rangle}{\pi} = \frac{{|\langle \alpha | \alpha_0 \rangle |}^2}{\pi} =  \frac{e^{-{|\alpha_0 - \alpha |}^2}}{\pi}
 \end{equation}
 \subsubsection{Wigner Function}
 The Wigner function is recovered from the Wigner transform of $\ket{\alpha_0}\bra{\alpha_0} = \ket{X_1+iX_2}\bra{X_1+iX_2}$
 \begin{equation}
-	W(x_1, x_2) = \frac{2}{ \pi} e^{-\frac{1}{2}[{(x_1-X_1)}^2+{(x_2-X_2)}^2]}
+	W(x_1, x_2) = \frac{2}{\pi} e^{-\frac{1}{2}[{(x_1-X_1)}^2+{(x_2-X_2)}^2]}
 \end{equation}
-\begin{figure}[h]
-	\begin{minipage}[b]{.5\linewidth}
-		\centering \large \includegraphics[width=1\textwidth]{Images/Q Function-Coherent.png}
-		\caption{W function for the Coherent state $\alpha=1+i$}\label{fig:Qcoh}
+
+\begin{figure}
+  \begin{minipage}{0.25\textwidth}
+          \includegraphics[width=\textwidth]{Images/Q Function-Coherent.png}
 	\end{minipage}%
-	\begin{minipage}[b]{.5\linewidth}
-		\centering\large \includegraphics[width = 1\textwidth]{Images/W Function-Coherent.png}
-		\caption{Q function for the Coherent state $\alpha=2+4i$}\label{fig:Wcoh}
+  \begin{minipage}{0.25\textwidth}
+          \includegraphics[width=\textwidth]{Images/W Function-Coherent.png}
 	\end{minipage}
-	% \caption{Coherent State Representations}\label{Coherents}
+  \caption{(a) Q function (orange) and Wigner Function (green) for the coherent states $\alpha = 1+i$ and $\alpha = 5+3i$}
 \end{figure}
+
 \subsection{Fock state representations}
 \subsubsection{P-function}
-Since Fock states have no classical analogue, we would expect the P function associated with the Fock state density matrix $\ket{n}\bra{n}$ should be highly singular or negative. From \cref{mehta}, P ($\alpha$) is non-singular (not more singular than a $\delta$-function) if and only if $ \bra{\beta} \dens \ket{\beta} e^{|\beta|^2} $ is square integrable. But, using the Fock state expansion of the coherent states
+Since Fock states have no classical analogue, we would expect the P function associated with the Fock state density matrix $\ket{n}\bra{n}$ should be highly singular or negative. From \cite{Mehta1967}  P ($\alpha$) is non-singular (not more singular than a $\delta$-function) if and only if $ \bra{\beta} \dens \ket{\beta} e^{|\beta|^2} $ is square integrable. But, using the Fock state expansion of the coherent states
 \begin{align}
 	 \bra{\beta} \dens \ket{\beta} e^{|\beta|^2}  &= e^{-|\beta|^2} \sum_{k=0}^\infty \frac {{\beta^*}^k}{k!} \braket{k}{n}\braket{n}{k} \sum_{k=0}^\infty \frac {\beta^k}{k!}e^{|\beta|^2} \\ &= e^{-|\beta|^2} \frac{|\beta|^{2n}}{{n!}^2} e^{|\beta|^2} \\ &= \frac{|\beta|^{2n}}{{n!}^2}
 \end{align}
@@ -112,13 +114,11 @@ Despite the pathological nature of the Fock state P-function the Q-function is q
 \begin{figure}[h]
 	\begin{minipage}[b]{.5\linewidth}
 		\centering \large \includegraphics[width=1\textwidth]{Images/Q Function-n=0.png}
-		\caption{n=0}\label{fig:Qn=0}
 	\end{minipage}%
 	\begin{minipage}[b]{.5\linewidth}
 		\centering\large \includegraphics[width = 1\textwidth]{Images/Q Function-n=3.png}
-		\caption{n=5}\label{fig:Qn=5}
 	\end{minipage}
-	\caption{Fock State Q Functions}\label{Qfunctions}
+  \caption{Fock State Q Functions for n=0 and n=5}\label{Qfunctions}
 \end{figure}
 \subsubsection{Wigner function}
 The Wigner transform of $\ket{n}\bra{n}$ is\cite[65]{Walls2008}
@@ -129,13 +129,11 @@ Where $\mathscr{L}_n$ is the nth Laguerre Polynomial.
 \begin{figure}[h]
 	\begin{minipage}[b]{.5\linewidth}
 		\centering \large \includegraphics[width=1\textwidth]{Images/W Function-n=0.png}
-		\caption{n=0}\label{fig:n=0}
 	\end{minipage}%
 	\begin{minipage}[b]{.5\linewidth}
 		\centering\large \includegraphics[width = 1\textwidth]{Images/W Function-n=10.png}
-		\caption{n=10}\label{fig:n=10}
 	\end{minipage}
-	\caption{Fock State Wigner Functions}\label{Wfunctions}
+	\caption{Fock State Wigner Functions for n=0 and n=10}\label{Wfunctions}
 \end{figure}
 
 
