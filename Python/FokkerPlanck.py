@@ -1,4 +1,4 @@
-'''1d linear fokker planck solutions'''
+'1d linear fokker planck solutions'''
 
 import matplotlib
 matplotlib.use('TkAgg')
