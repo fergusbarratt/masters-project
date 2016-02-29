@@ -14,4 +14,3 @@ def spectrum(W, W0, gamma, E, g, kappa):
 
 plt.plot(*spectrum(np.linspace(80, 120, 100), 100, 5, 5, 10, 1))
 plt.show()
-

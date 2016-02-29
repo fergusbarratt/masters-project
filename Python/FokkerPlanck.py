@@ -45,4 +45,3 @@ o, = plt.plot(X, Z)
 plt.xlabel("Time")
 plt.ylabel("Value")
 plt.show()
-#
