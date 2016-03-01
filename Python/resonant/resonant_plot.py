@@ -11,7 +11,6 @@ mpl.rcParams['figure.figsize'] = 12, 8
 import numpy as np
 import qutip as qt
 
-import time as T
 import importlib
 import quantumoptics as qo
 qo = importlib.reload(qo)

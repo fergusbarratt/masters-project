@@ -31,9 +31,12 @@ chi0=coupling_strength**2/abs(c_q_det)
 
 def disp_drive(A, omega_cavity, omega_drive, sigmaz, det, g, kappa):
   '''self-consistently determine xi from A'''
+
   def chi(A):
     return sigmaz*(g**2)/np.sqrt(2*g**2*(A**2+sigmaz)+det**2)
-  return np.sqrt(A**2 * (1/omega_cavity**2)*(
+
+  return np.sqrt(
+          A**2 * (1/omega_cavity**2)*(
             (omega_drive**2-(omega_cavity-chi(A))**2)**2 + kappa_disp**2*omega_drive**2))
 
 ## Semiclassical 
