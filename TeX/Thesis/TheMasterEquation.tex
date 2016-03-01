@@ -20,7 +20,6 @@ For a mixed state of a closed system, an equation of motion for the density matr
 can be found by propagating each normalised $| \psi_\alpha (t) \rangle$ with the unitary time evolution operator given by solving the Schr\"odinger equation, the net result of which is more concisely expressed
 \begin{equation}
 	\dens (t) = U(t, 0)\dens (0) U^\dagger (t, 0)
-	\label{eq:timeprop}
 \end{equation}
 which, when differentiated with respect to time yields the \emph{Liouville-Von Neumann} equation
 \begin{equation}
@@ -34,7 +33,7 @@ We start with the Hamiltonian for a closed, potentially mixed, potentially time 
 \end{equation}
 The partial trace operation is an operator-valued function that takes a operator on a larger Hilbert space and discards its action on all but a smaller Hilbert space, colloquially ``tracing over'' the degrees of freedom of the discarded subsystem to leave the operator on a smaller subsystem.
 
-Starting from \ref{eq:timeprop} and tracing over the environment
+Starting from the equation for the unitary time evolution and tracing over the environment
 \begin{equation}
 	\dens_S (t) = tr_E \{U(t, 0) \dens_S (0) U^\dagger (t, 0) \}
 \end{equation}
@@ -49,12 +48,12 @@ One general theory of non unitary evolution is furnished by the generalised theo
 The standard formulations of quantum mechanics considers measurements via the Von-Neumann-L\"uders Projection Postulate\cite{Dirac1927}
 \newtheorem{definition}{Definition}
 \begin{definition}
-    The result of a measurement of operator $A$ with spectral decomposition $A = \sum_\lambda \lambda \hat{\Pi}_\lambda $, (for $A$ with discrete, non-degenerate spectrum) is an eigenvalue $lambda$, and state of the system conditioned on receiving such a value is given by 
+    The result of a measurement of operator $A$ with spectral decomposition $A = \sum_\lambda \lambda \hat{\Pi}_\lambda $, (for $A$ with discrete, non-degenerate spectrum) is an eigenvalue $lambda$, and state of the system conditioned on receiving such a value is given by
     \begin{equation}
         \rho_\lambda = \frac{\hat{\Pi}_\lambda \rho \hat{\Pi}_\lambda}{Tr[\rho\hat{\Pi}_\lambda]}
     \end{equation}
 \end{definition}
-The quantum analog of the Bayesian rule for the update of probabilities. 
+The quantum analog of the Bayesian rule for the update of probabilities.
 In general, such a description does not represent the measurements that experimentalists perform on quantum systems, and nor does it consider the coupling of every real quantum system to its environment. More generally, we deal with the formalism of Operators \& Effects.
 
 We consider a probe (or pointer/meter/apparatus) system through which we measure the system of interest. Let the initial state of the combined probe-system state be a pure product of probe-system kets
@@ -65,15 +64,15 @@ We let the coupled system evolve unitarily for some time $t_1$, entangling the s
 \begin{equation}
     | \Psi_\lambda (t+T) \rangle = \frac{\pi_\lambda U(t_1) |\Psi(t)\rangle}{P}
 \end{equation}
-where P is the probability that we obtain result $\lambda$ when measuring the probe. 
+where P is the probability that we obtain result $\lambda$ when measuring the probe.
 
-Measuring the entangled state projectively disentangles the probe and the system and represents an operation on the system space given by 
+Measuring the entangled state projectively disentangles the probe and the system and represents an operation on the system space given by
 \begin{equation}
 \Psi_\lambda = | \lambda \rangle \hat{M}_\lambda | \psi(t) \rangle / P
 \end{equation}
- where we implicitly consider nondegenerate spectra by decomposing the projector $\Pi_\lambda = |\lambda \rangle \langle \lambda |$, and where 
+ where we implicitly consider nondegenerate spectra by decomposing the projector $\Pi_\lambda = |\lambda \rangle \langle \lambda |$, and where
  \begin{equation}
-     \hat{M}_\lambda = \langle \lambda | U(t_1) | \theta(t) \rangle 
+     \hat{M}_\lambda = \langle \lambda | U(t_1) | \theta(t) \rangle
  \end{equation}
  is the \emph{measurement operator}, which now acts only only on the system Hilbert space. The normalisation factor P is expressed in terms of these operators
  \begin{equation}
@@ -84,7 +83,7 @@ Measuring the entangled state projectively disentangles the probe and the system
  \begin{equation}
  | \psi_\lambda (t + T) \rangle = \hat{M}_\lambda | \psi(t) \rangle /P
  \end{equation}
- and the probability that the system takes some state is given through the \emph{effects} (probability operators) $ \mathscr{E}_\lambda = \hat{M}_\lambda^\dagger \hat{M}_\lambda $ as 
+ and the probability that the system takes some state is given through the \emph{effects} (probability operators) $ \mathscr{E}_\lambda = \hat{M}_\lambda^\dagger \hat{M}_\lambda $ as
  \begin{equation}
      P^2 = \mathscr{P}_\lambda = \langle \psi_\lambda (t) | \mathscr{E}_\lambda | \psi_\lambda \rangle
  \end{equation}
@@ -92,18 +91,18 @@ Measuring the entangled state projectively disentangles the probe and the system
 
  We now consider a finite sequence of quantum measurements of this kind. From the above, after some given timestep T, (we now consider propagating mixed states rather than pure states)
  \begin{equation}
-     \rho_\lambda (T) = \mathscr{F}[\hat{M}_\lambda] \rho(0) / \mathscr{P}_\lambda 
+     \rho_\lambda (T) = \mathscr{F}[\hat{M}_\lambda] \rho(0) / \mathscr{P}_\lambda
  \end{equation}
  With $\mathscr{F}[\hat{M}_\lambda] ( \hat{O} ) =  \hat{M}_\lambda \hat{O} \hat{M}_\lambda ^ \dagger$ a \emph{superoperator}
- This superoperator is an \emph{operation} for the value $\lambda$. We consider the superoperators that represent physical time evolution. 
- \subsubsection{Physical Dynamical Maps} 
+ This superoperator is an \emph{operation} for the value $\lambda$. We consider the superoperators that represent physical time evolution.
+ \subsubsection{Physical Dynamical Maps}
 A dynamical map is a map that takes a dynamical system at a time t to the same system at a time t'. In considering such a map on density matrices $\Phi$, we require that it meet certain criteria
 \begin{enumerate}
     \item \emph{Linearity}. We require that moving a system forwards in time respects the tensor product structure of quantum mechanics
         \begin{equation}
             \Phi_T[\alpha\rho(t) + \beta\rho'(t')] = \alpha \Phi_T[\rho(t) + \beta \Phi_T[\rho'(t')]
         \end{equation}
-    \item \emph{Complete Positivity}. We require that density matrices remain positive for all time. More strictly, we require that the operation of propagating some subsystem leaves the density matrix of the supersystem positive. 
+    \item \emph{Complete Positivity}. We require that density matrices remain positive for all time. More strictly, we require that the operation of propagating some subsystem leaves the density matrix of the supersystem positive.
         \begin{align}
             p & \in  spectrum \{\Phi_T[\rho(t)]\} \geq  0\quad \forall p, T, t\\
             p & \in  spectrum \{\Phi_T \otimes \hat{I} [\rho_A(t) \otimes\rho_B(t) ] \} \geq 0 \quad \forall p, T, t
@@ -118,7 +117,7 @@ It is a fundamental theorem of Kraus \cite{Kraus1983} that any such superoperato
 \begin{equation}
     \Phi[\rho] = \sum_k \mathscr{E}_k^\dagger \rho \mathscr{E}_k
 \end{equation}
-where $\mathscr{E}_k $ are known as Kraus Operators, but are exactly the measurement operators $\mathscr{E}_\lambda$ derived above. This decomposition is known as the Operator-Sum representation\cite{Nielsen2010}, and operators satisfying the above conditions are CPTP (Completely Positive, Trace-Preserving) maps. The problem of describing the time evolution of a density operator reduces to finding the Kraus operators that represent the superoperator that generates the system time evolution. 
+where $\mathscr{E}_k $ are known as Kraus Operators, but are exactly the measurement operators $\mathscr{E}_\lambda$ derived above. This decomposition is known as the Operator-Sum representation\cite{Nielsen2010}, and operators satisfying the above conditions are CPTP (Completely Positive, Trace-Preserving) maps. The problem of describing the time evolution of a density operator reduces to finding the Kraus operators that represent the superoperator that generates the system time evolution.
 
 This process admits a clear interpretation. The nonunitary time evolution of a system corresponds to a countable series of measurement steps, where the system is non-orthogonally projected at each time step by the POVM consisting of the Kraus operators that give its time evolution.
 \subsection{Quantum Dynamical Semigroups}

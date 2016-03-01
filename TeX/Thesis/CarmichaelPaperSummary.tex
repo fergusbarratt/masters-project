@@ -127,14 +127,14 @@ with $\alpha$ a solution to
   \label{eq:alphacondnotdet}
 \end{equation}
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \begin{minipage}{.5\linewidth}
     \centering
-    \includegraphics[width=1\textwidth]{Images/MeanFieldBelowCritical.png}
+    \includegraphics[width=1\textwidth]{01:03:2016 - MeanFieldBelowCritical.png}
   \end{minipage}%
   \begin{minipage}{.5\linewidth}
     \centering
-    \includegraphics[width=1\textwidth]{Images/MeanFieldAboveCritical.png}
+    \includegraphics[width=1\textwidth]{01:03:2016 - MeanFieldAboveCritical.png}
   \end{minipage}
   \caption{$\alpha$ and $\zeta$ as the drive strength $\Epsilon$ moves up to through and beyond the critical point (a) $\zeta$ approaches zero with increasing drive strength (positive branch)\label{fig:zeta} (b) Phase of $\beta$ with increasing drive greater than critical}\label{fig:alpha}
 \end{figure}
@@ -158,8 +158,8 @@ The expression for $\alpha$ is a Lorentzian, in which is obvious a nonlinear dis
 
 A surface plot of $|\alpha|^2 \approx n$ is shown in \ref{fig:MeanFieldvsQuantum}.
 \subsection{Numerics}
-\begin{figure}[h]
- \includegraphics[width=0.4\textwidth]{Images/MeanFieldvsQuantum.png}
+\begin{figure}[ht]
+ \includegraphics[width=0.4\textwidth]{01:03:2016 - MatlabMeanFieldvsQuantum.png}
  \caption{Comparison of mean field and fully quantum contour plots with critical points at $\frac{\Epsilon}{2}$ highlighted}\label{fig:MeanFieldvsQuantum}
 \end{figure}
 
@@ -174,16 +174,16 @@ All such features are obvious in our plots in \cref{fig:MeanFieldvsQuantum}, whe
 Numerical calculation of the Q function along the walls of the bilorentzian show a marked bimodality in amplitudeThe development of this Q function bimodality is echoed in the Wigner representation, and is clear in \cref{fig:Qbistabilities}, although the parameters are different to those in \cref{fig:MeanFieldvsQuantum} and in \cite{Carmichael2015}. Moving through the critical point in the drive, the Q function bifurcates, this time in phase, where two coexistent gaussian peaks in phase space mark the phase bistability discussed above.
 \begin{figure}
  \begin{minipage}{.5\linewidth}
-     \includegraphics[width=1\textwidth]{Images/Q-Bistability-OnResonance.png}
+     \includegraphics[width=1\textwidth]{Q-Bistability-OnResonance.png}
   \end{minipage}%
   \begin{minipage}{.5\linewidth}
-      \includegraphics[width=1\textwidth]{Images/Q-Bistability.png}
+      \includegraphics[width=1\textwidth]{Q-Bistability-OffResonance.png}
   \end{minipage}
   \caption{(a) Development of phase bistability in the W function for fixed detuning, with drive moving through the critical point at $\frac{\Epsilon}{2}$ \label{fig:Qbistabilities}(b) W functions with changing detuning and fixed drive. Note the probability fringes to the right connecting the peaks by spontaneous emission}
 \end{figure}
 
 \begin{figure}
- \includegraphics[width=0.5\textwidth]{Images/CriticalSlowing.png}
+ \includegraphics[width=0.5\textwidth]{01:03:2016 - MatlabCriticalSlowing.png}
   \caption{Time Dependent Solutions with g=0.5, $\kappa$ = 0.01, blue line is (0.24, 1), red line is (0.1, 1)}\label{fig:CriticalSlowing}
 \end{figure}
 
@@ -264,20 +264,15 @@ where
 inverting the equation and solving for $\xi$ as a function of $A^2$, we retrieve for the amplitude as a function of the detuning and the drive strength:
 \begin{figure}
         \label{SemiclassicalBistability}
-        \includegraphics[width=0.5\textwidth]{Images/SemiclassicalBistability.png}
+        \includegraphics[width=0.5\textwidth]{DispersiveMeanFieldPhotonNumber.png}
         \caption{Semiclassical Amplitude as a function of drive and detuning}
 \end{figure}
 Areas where the amplitude is not 1-1 (for given drive) indicate the existence of bistability, where the negative gradient intermediate state is metastable, and the system is stable along the upper and lower curves. These regions in the quantum case are washed out by switching induced by quantum fluctuations, and the amplitude in the quantum case can be qualitatively expected to 'average out' the bistability and lie between the two stable states on this plot. Indeed, this effect is visible in the next plot. We see more interesting features here too, most notably a dip in the quantum amplitude, where there is destructive interference between the two stable paths. In a sense, the quantum amplitude is characterised by the switching rate, where at a given detuning, the upwards switching drags the curve upwards and the downwards downwards.
-\begin{figure}
-        \label{QuantumDispersiveBistability}
-        \includegraphics[width=0.5\textwidth]{Images/QuantumDispersiveBistability.png}
-\caption{intracavity absolute field amplitude vs detuning, calculated at $\frac{\xi}{C1} = 6.3$ via calculation of the numerical Q function and from the master equation}
-\end{figure}
 \subsection{Bistable ``leaf''}
 In ~\ref{SemiclassicalBistability}, we see that increasing the drive opens and closes a region of dispersive bistability. By considering the derivatives of detuning with respect to drive, with $\xi$ as a parameter, we can demarcate this onset of bistability, and the draw the region in detuning/drive space in which bistability sets in.
 \begin{figure}
         \label{BistabilityLeaf}
-        \includegraphics[width=0.5\textwidth]{Images/BistabilityLeaf.png}
+        \includegraphics[width=0.5\textwidth]{01:03:2016 - BishopBimodalityLeaf.png}
         \caption{Edges of the region of dispersive bistability}
 \end{figure}
-        
+

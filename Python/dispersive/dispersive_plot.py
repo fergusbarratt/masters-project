@@ -5,7 +5,7 @@ from matplotlib import gridspec
 import seaborn as sb
 sb.set(style='whitegrid', context='talk', rc={'image.cmap': 'viridis'})
 import matplotlib as mpl
-mpl.rcParams['figure.figsize'] = 15, 15
+mpl.rcParams['figure.figsize'] = 12, 8
 
 import numpy as np
 import qutip as qt
@@ -109,11 +109,13 @@ bishop_systems = [qo.SteadyStateJaynesCummingsModel(*b_params,
                   for b_params in bishop_parameters]
 
 print("\nquantum setup done")
-
+field_data = np.empty((len(bishop_systems), len(q_disp_detrange)))
 # Plot all absolute cavity fields with colors from semiclassical contours
 for sys in enumerate(bishop_systems):
+    cav_field = sys[1].abs_cavity_field()**2
+    field_data[sys[0]] = cav_field
     print('{} / {}'.format(sys[0]+1, len(bishop_systems)))
-    disp_ax[1].plot(q_disp_detrange, sys[1].abs_cavity_field(),
+    disp_ax[1].plot(q_disp_detrange, cav_field, 
                 linewidth=1.0, 
                 c=disp_childs[0].get_colors()[sys[0]])
 
@@ -127,10 +129,14 @@ disp_ax[1].set_ylabel('$\left | \langle a \\rangle \\right|$')
 
 print("field done")
 
+correlator_data = np.empty((len(bishop_systems), len(q_disp_detrange)))
+
 # Plot correlators for all systems
 for sys in enumerate(bishop_systems):
+    corr = sys[1].correlator()
+    correlator_data[sys[0]] = corr
     print('{} / {}'.format(sys[0]+1, len(bishop_systems)))
-    disp_ax[2].plot(q_disp_detrange, sys[1].correlator(), 
+    disp_ax[2].plot(q_disp_detrange, corr, 
             linewidth=1.0, 
             c=disp_childs[0].get_colors()[sys[0]])
 
@@ -147,4 +153,9 @@ print("correlator done")
 
 # Update grid spacings
 gs.update(wspace=1, hspace=1)
+np.save('correlator_data.npy', correlator_data)
+np.save('field_data.npy', field_data)
+disp_fig.suptitle('Dispersive Bistability', x=0.2, y=0.93,
+        verticalalignment='bottom', fontsize=16)
+disp_fig.savefig('dispersive.pdf')
 plt.show()

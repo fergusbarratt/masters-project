@@ -78,7 +78,7 @@ The form of the density matrix for a system in pure coherent state $ | \alpha_0 
 	P(\alpha) = \delta^2(\alpha-\alpha_0)
 \end{equation}
 \subsubsection{Q-function}
-The Q-function is evaluated from the definition: 
+The Q-function is evaluated from the definition:
 \begin{equation}
 	Q(\alpha) = \frac{\langle \alpha | \alpha_0 \rangle \langle \alpha_0 | \alpha \rangle}{\pi} = \frac{{|\langle \alpha | \alpha_0 \rangle |}^2}{\pi} =  \frac{e^{-{|\alpha_0 - \alpha |}^2}}{\pi}
 \end{equation}
@@ -90,10 +90,10 @@ The Wigner function is recovered from the Wigner transform of $\ket{\alpha_0}\br
 
 \begin{figure}
   \begin{minipage}{0.25\textwidth}
-          \includegraphics[width=\textwidth]{Images/Q Function-Coherent.png}
+          \includegraphics[width=\textwidth]{Q Function-Coherent.png}
 	\end{minipage}%
   \begin{minipage}{0.25\textwidth}
-          \includegraphics[width=\textwidth]{Images/W Function-Coherent.png}
+          \includegraphics[width=\textwidth]{W Function-Coherent.png}
 	\end{minipage}
   \caption{(a) Q function (orange) and Wigner Function (green) for the coherent states $\alpha = 1+i$ and $\alpha = 5+3i$}
 \end{figure}
@@ -111,12 +111,12 @@ Despite the pathological nature of the Fock state P-function the Q-function is q
 \begin{align}
 	 Q(\alpha) = \bra{\alpha} \dens \ket{\alpha}  &= \sum_{k=0}^\infty \frac {{\alpha^*}^k}{k!} \braket{k}{n}\braket{n}{k} \sum_{k=0}^\infty \frac {\alpha^k}{k!}e^{-|\alpha|^2} \\ &= \frac{|\alpha|^{2n}}{{n!}^2} e^{-|\alpha|^2}
 \end{align}
-\begin{figure}[h]
+\begin{figure}[ht]
 	\begin{minipage}[b]{.5\linewidth}
-		\centering \large \includegraphics[width=1\textwidth]{Images/Q Function-n=0.png}
+        \centering \large \includegraphics[width=1\textwidth]{Q Function-n=0.png}
 	\end{minipage}%
 	\begin{minipage}[b]{.5\linewidth}
-		\centering\large \includegraphics[width = 1\textwidth]{Images/Q Function-n=3.png}
+		\centering\large \includegraphics[width = 1\textwidth]{Q Function-n=3.png}
 	\end{minipage}
   \caption{Fock State Q Functions for n=0 and n=5}\label{Qfunctions}
 \end{figure}
@@ -126,12 +126,12 @@ The Wigner transform of $\ket{n}\bra{n}$ is\cite[65]{Walls2008}
 	W(x_1, x_2) = \frac{2}{\pi} {(-1)}^n \mathscr{L}_n(4(x_1^2+x_2^2))e^{-2(x_1^2+x_2^2)}
 \end{equation}
 Where $\mathscr{L}_n$ is the nth Laguerre Polynomial.
-\begin{figure}[h]
+\begin{figure}[ht]
 	\begin{minipage}[b]{.5\linewidth}
-		\centering \large \includegraphics[width=1\textwidth]{Images/W Function-n=0.png}
+		\centering \large \includegraphics[width=1\textwidth]{W Function-n=0.png}
 	\end{minipage}%
 	\begin{minipage}[b]{.5\linewidth}
-		\centering\large \includegraphics[width = 1\textwidth]{Images/W Function-n=10.png}
+		\centering\large \includegraphics[width = 1\textwidth]{W Function-n=10.png}
 	\end{minipage}
 	\caption{Fock State Wigner Functions for n=0 and n=10}\label{Wfunctions}
 \end{figure}
