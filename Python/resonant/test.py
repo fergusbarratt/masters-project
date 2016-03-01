@@ -16,10 +16,11 @@ import quantumoptics as qo
 qo = importlib.reload(qo)
 
 ### Parameters
-matrix_size = 2 
+matrix_size = 70
 
 # Resonant
 kappa=1
+gamma=1
 g=10
 
 def res_drive(alphasq, detuning, kappa, g):
@@ -49,8 +50,8 @@ print('done')
 ### Contour plot in top right
 ## Semiclassical
 print('starting semiclassical ... ', end='')
-width = 200
-res_alpha = np.linspace(0, 0.15, 100)
+width = 100
+res_alpha = np.linspace(0, 1, 100)
 res_detrange = np.linspace(-20, 20, width)
 res_drives = np.array(
         [[res_drive(a, det, kappa, g) for det in res_detrange] 
@@ -86,11 +87,11 @@ res_childs[0].set_linewidths(20)
 
 q_res_detrange = res_detrange
 
-carmichael_parameters = [qo.JaynesCummingsParameters(10, matrix_size).det_params(
+carmichael_parameters = [qo.JaynesCummingsParameters(g, matrix_size).det_params(
           drive_strengths=q_res_drive,
           drive_cavity_detunings=q_res_detrange,
           qubit_cavity_detunings=0,
-          c_op_params=[1, 1],
+          c_op_params=[kappa, gamma],
           omega_cavity=10) 
           for q_res_drive in q_res_drives]
 
@@ -142,26 +143,21 @@ print('starting qps ', end='', flush=True)
 xvec = np.linspace(-8, 8, 100)
 yvec = np.linspace(-8, 8, 100)
 
-def plot_drive_QPs(syss, ind, xvec, yvec):
-    return [sys.qps(xvec, yvec)[ind] for sys in syss]
-
-for qp in enumerate(plot_drive_QPs(carmichael_systems[::2][0:4], 
-                                   width//2, 
-                                   xvec, 
-                                   yvec)):
+for sys in enumerate(carmichael_systems[::2][0:4]): 
     '''for every other system, truncated to four. 
     get colors for qp backgrounds from lines'''
+    qp = qt.qfunc(sys[1].rhos_ss[width//2].ptrace(0), xvec, yvec)
     print('.', end='', flush=True)
-    ax[qp[0]+2].contour(xvec, yvec, qp[1], 40, 
+    ax[sys[0]+2].contour(xvec, yvec, qp, 40, 
             linewidths=0.8, 
             cmap='inferno')
 
     # Set plot parameters
-    ax[qp[0]+2].set_xlabel('Im(Q)')
-    ax[qp[0]+2].set_ylabel('Re(Q)')
-    ax[qp[0]+2].set_title('Q', 
+    ax[sys[0]+2].set_xlabel('Im(Q)')
+    ax[sys[0]+2].set_ylabel('Re(Q)')
+    ax[sys[0]+2].set_title('Q', 
                       loc='right', 
-                      fontdict={'fontsize':12, 'verticalalignment':'bottom', 'color': res_childs[0].get_colors()[::2][0:4][qp[0]], 
+                      fontdict={'fontsize':12, 'verticalalignment':'bottom', 'color': res_childs[0].get_colors()[::2][0:4][sys[0]], 
                       'weight':'bold'})
 
 print('done') 

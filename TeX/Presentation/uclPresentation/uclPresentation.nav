@@ -13,17 +13,9 @@
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {3}{3}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {0}{0}{4}{4/4}{}{0}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\beamer@framepages {4}{4}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {0}{0}{5}{5/5}{}{0}}
+\headcommand {\slideentry {0}{0}{4}{5/5}{}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {5}{5}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {0}{0}{6}{6/6}{}{0}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\beamer@framepages {6}{6}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\sectionentry {1}{References}{7}{References}{0}}
 \defcounter {refsection}{0}\relax 
@@ -38,4 +30,4 @@
 \headcommand {\beamer@subsectionpages {1}{8}}
 \headcommand {\beamer@sectionpages {1}{8}}
 \headcommand {\beamer@documentpages {8}}
-\headcommand {\def \inserttotalframenumber {5}}
+\headcommand {\def \inserttotalframenumber {3}}

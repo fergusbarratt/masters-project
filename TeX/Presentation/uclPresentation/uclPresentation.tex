@@ -6,6 +6,7 @@
 \usepackage{lmodern}
 \usepackage{amsmath}
 \usepackage{mathrsfs}
+\usepackage{pdfpages}
 \usepackage[backend=biber, style=nature]{biblatex}
 \addbibresource{/Users/fergusbarratt/bibTex/library.bib}
 \graphicspath{ {../../../Images/Presentation/} }
@@ -14,6 +15,9 @@
 \author{Fergus Barratt}
 
 \begin{document}
+\setbeamercolor{block title}{bg=}
+\setbeamercolor{block body}{bg=}
+\setbeamercolor{background canvas}{bg=}
 \maketitle
 \begin{frame}
         \frametitle{The Dissipative-Driven Jaynes-Cummings System}
@@ -40,10 +44,10 @@
 \end{center}
 Single cavity mode interacting with two level system in the RWA. Add coherent drive, dissipation via cavity loss $\kappa$ \& spontaneous emission rate $\gamma$
         \begin{block}{Interaction Hamiltonian}
-                $\hat{\mathscr{H}} = \hbar \delta_{cd} \hat{a}^\dagger \hat{a} + \hbar \delta_{qd}\sigma_+ \sigma_- + \hbar g ( \hat{a} \sigma_+ + \hat{a}^\dagger \sigma_- ) + \hbar \xi (\hat{a} + \hat{a}^\dagger) $
+                $\mathscr{H} = \hbar \delta_{cd} a^\dagger a + \hbar \delta_{qd}\sigma_+ \sigma_- + \hbar g ( a \sigma_+ + a^\dagger \sigma_- ) + \hbar \xi (a + a^\dagger) $
         \end{block}
         \begin{block}{Master Equation}
-                $\dot{\hat{\rho_S}} = \frac{i}{\hbar} [ \mathscr{H}, \rho_S] + \mathscr{L}_{\gamma} [\rho_S] + \mathscr{L}_{\kappa}[\rho_S]$
+                $\dot{\rho_S} = \frac{i}{\hbar} [ \mathscr{H}, \rho_S] + \mathscr{L}_{\gamma} [\rho_S] + \mathscr{L}_{\kappa}[\rho_S]$
         \end{block}
 \end{frame}
 \begin{frame}
@@ -53,17 +57,13 @@ Single cavity mode interacting with two level system in the RWA. Add coherent dr
             \footfullcite{Carmichael2015}
     \end{block}
 \end{frame}
-\begin{frame}
-    \includegraphics[width=\linewidth, height=\textheight, keepaspectratio]{resonant.pdf}
-\end{frame}
+\includepdf{resonant.pdf}
 \begin{frame}
     \begin{block}{Dispersive}
             $\gamma \ll \kappa \ll g \ll \delta_{cq} \ll \omega_c$
             \footfullcite{Bishop2010}
     \end{block}
 \end{frame}
-\begin{frame}
-    \includegraphics[width=\linewidth, height=\textheight, keepaspectratio]{dispersive.pdf}
-\end{frame}
+\includepdf{dispersive.pdf}
 \printbibliography\
 \end{document}
