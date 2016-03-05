@@ -19,7 +19,6 @@ bis_sys = qo.JaynesCummingsParameters(coupling_strength, N).det_params(
         c_op_params=[kappa_disp],
         omega_cavity=cavity_freq)
 
-bishop_system = qo.TimeDependentJaynesCummingsModel(*bis_sys, np.linspace(0, 1000, 1000))
-ode_res = bishop_system.trajectory()
-plt.plot(np.abs(ode_res.expect[0]))
+bishop_system = qo.TimeDependentJaynesCummingsModel(*bis_sys, np.linspace(0, 100, 100), noisy=True)
+ode_res = bishop_system.trajectory(draw=True)
 plt.show()

@@ -5,6 +5,7 @@ import quantumoptics as qo
 import seaborn as sns
 sns.set(context='paper', style='white')
 
+ip.
 q_res_drives = 10
 q_res_detrange = 0.01 
 t_list = np.linspace(0, 10, 20)
