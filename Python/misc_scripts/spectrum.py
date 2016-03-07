@@ -3,7 +3,6 @@ matplotlib.use('TkAgg')
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 def spectrum(W, W0, gamma, E, g, kappa):
     np.asarray(W)
     Y1 = (abs(E) / g)**4 * (((2 * (0.5 * (kappa + gamma / 2))**3 / np.pi) / ((0.5 * (kappa + (gamma / 2)))**2 + (W - W0 + g) ** 2)**2) + 2 * (0.5 * ((kappa+(gamma/2)))**3/np.pi)/((0.5 * (kappa + gamma / 2))**2 + (W-W0-g)**2)**2)

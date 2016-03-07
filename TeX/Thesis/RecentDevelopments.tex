@@ -1,7 +1,7 @@
 %!TEX root = Thesis.tex
 
 \section{Driving \& Dissipation}
-We now introduce a driving term into the Jaynes Cummings Hamiltonian. It is added coherently i.e.\ the system evolves unitarily with the drive, rather than the more general incoherent case \cite{Xu2014}, and the Hamiltonian reads:
+We now introduce a driving term into the Jaynes Cummings Hamiltonian. It is added coherently i.e.\ the system evolves unitarily with the drive, rather than the more general incoherent case (for example as \cite{Xu2014}), and the Hamiltonian reads:
 \begin{align}
         \ham_{JC} &= \hbar \omega_d \cre \ann + \hbar \omega_q \atann \atcre +\hbar g (\cre \atann+ \hat{a} \atcre)\\
                    & + \hbar \Epsilon (\cre e^{i\omega_d t} + \ann e^{-i\omega_d t})
@@ -54,6 +54,7 @@ and
 \begin{equation}
   \Delta E_l = -\frac{\hbar g}{2 \sqrt{n}}
 \end{equation}
+
 \subsection{Quantum, Coherent Driving}
 We now consider analytically the system driven by a coherent field.
 
@@ -63,27 +64,7 @@ The Hamiltonian is diagonalised via a Bogliubov transformation\footnote{A Bogliu
   e_{n, -} &= - \sqrt{n} \hbar g {\left \{1 - {\left ({\frac{2\Epsilon}{g}} \right )}^2 \right \}}^{\frac{3}{4}}
 \end{align}
 A critical point in the spectrum appears at $\frac{2\Epsilon}{g} = 1$, where the quasienergy splitting collapses to zero.
-\subsection{The absence of fluctuations}
 
-We now consider the extent to which quantum fluctuations affect the dynamics by deriving an effective mean-field theory.
-
-Taking expectation values $\langle \dot{O} \rangle = tr\{\dot{\rho} O \}$ of the operators $a, \atann, \sigma_z$ we obtain
-
-\begin{align}
-  \langle \dot{\ann} \rangle & = i(-\delta_{qd}\langle a \rangle - ig \langle \atann \rangle -i\Epsilon) -\kappa \langle a \rangle \\
-  \langle \dot{\sigma_-} \rangle & = i(-\delta_{ad}\atann - ig \langle a \sigma_z \rangle) - \gamma \langle \atann \rangle \\
-  \langle \dot{\sigma_z} \rangle & = -2g ( \langle \cre \sigma \rangle + \langle \ann \sigma^\dagger \rangle) - 2 \gamma \langle \sigma_z \rangle - 2 \gamma
-\end{align}
-we now make the assumption that all expectation values of products of operators factorize. This corresponds to the assumption that there are no correlations between different operators - this is patently non-physical, but the approximation yields equations in which the quantum fluctuation effects of these correlations are averaged out, and the qualitative behaviour remains the same to high order \cite{Jaynes1963a}. Defining $\langle \ann \rangle = \alpha, \langle \atann \rangle = \beta, \langle \sigma_z \rangle = \zeta$, setting $\delta_{cd} = \delta_{qd}$ i.e. qubit-cavity resonance, neglecting spontaneous emission $\gamma=0$ \footnote{ Interestingly, setting $\gamma$ equal to zero at this point yields different asymptotic solutions to those for the system with $\gamma$ included and set to zero in the solution \cite{Carmichael2015}}, and adiabatically eliminating the drive, we attain what are known as the optical Bloch equations
-\begin{align}
-  &\frac{d \alpha}{dt} = -(\kappa -i \Delta \omega) \alpha-ig \beta \label{eq:alpha}\\
-  &\frac{d \beta}{dt} = i \Delta \omega \beta +ig \alpha \zeta \label{eq:beta}\\
-  &\frac{d \zeta}{dt} = 2 i g(\alpha^* \beta -\alpha \beta^*)\label{eq:zeta}
-\end{align}
-Since the length of the pseudo-spin is conserved in the absence of dissipation (here $\kappa$ is added phenomenologically and has no mixing effect) we have also a fourth equation
-\begin{equation}
-  4|\beta|^2+\zeta^2 = 1 \label{eq:pseudospin}
-\end{equation}
 \subsubsection{Neoclassical Radiation Theory}
 In the absence of drive and detuning and with the cavity field derivative set to zero
 \begin{align}
@@ -100,11 +81,7 @@ and from \cref{eq:pseudospin}
 \implies \frac{d \zeta}{dt} &= -\frac{g^2}{\kappa} (1-\zeta^2)
 \end{align}
 We recover the non exponential decay of neoclassical radiation theory
-% \begin{figure}
-%   \centering
-%   \includegraphics[width=0.5\textwidth]{Images/NeoclassicalDecay.png}
-%   \caption{Non-exponential decay of $\zeta$, $\frac{g}{\kappa} = 50, \zeta(0) \approx 1$} \label{fig:neoclassical}
-% \end{figure}
+
 \subsubsection{Steady State}
 We now set all derivatives to zero, and consider the asymptotic solutions to the mean-field equations, which must satisfy:
 \begin{align}
@@ -156,36 +133,11 @@ for $\beta$ and $\zeta$, where $sgn(\Delta \omega)$ is the sign of the detuning 
 
 The expression for $\alpha$ is a Lorentzian, in which is obvious a nonlinear dispersion which diverges as $|\alpha|^2 \rightarrow 0$
 
-A surface plot of $|\alpha|^2 \approx n$ is shown in \ref{fig:MeanFieldvsQuantum}.
-\subsection{Numerics}
-\begin{figure}[ht]
- \includegraphics[width=0.4\textwidth]{01:03:2016 - MatlabMeanFieldvsQuantum.png}
- \caption{Comparison of mean field and fully quantum contour plots with critical points at $\frac{\Epsilon}{2}$ highlighted}\label{fig:MeanFieldvsQuantum}
-\end{figure}
-
-Truncating the master equation density matrix Fock state expansion produces a finite set of coupled differential equations for the components, from which for low photon occupation expectation values in full quantum generality can be generated to high accuracy. This method does however scale incredible poorly in the system size (the number of elements in the density matrix $\propto N^2$, where N is the dimension of the system Hilbert space. The method of quantum trajectories scales much better \cite{Molmer1993} $\propto N$ by considering the wavefunction stochastically). Setting the time derivatives to zero here yields a matrix equation, which given the positive definiteness and hermiticity conditions on the density matrix yields to a Cholesky solver \cite{Press1992}. We use the Matlab and Python solvers as exposed by QuTiP \cite{Johansson2013a} and qotoolbox\cite{Tan}.For the time dependent solutions, we also use fourth order runge-kutta methods provided in both libaries.
-
-The multiple peaks in the bilorentzian (at the bottom of \cite[Figure 1]{Carmichael2015}) as we move from large to little detuning are a mark of multiphoton blockades and their breaking through.
 
 The sides of the Lorentzians correspond to domains of coexistence between the near vacuum state and the high occupation state \cite{Carmichael2015}, and the phase transition between the two at this boundary is of first order, its discontinuity relating to the breaking down of blockade. The transition as the drive strength moves through the critical point is of second order, as indicated in the plots of the approach to equilibrium below, where critical slowing in the approach close to the critical point reveals its nature.
 
-All such features are obvious in our plots in \cref{fig:MeanFieldvsQuantum}, where the quantum results in \cite{Carmichael2015} have been reproduced. Computationally solving the for $\alpha$ in the meanfield condition above yields the first plot.
 
 Numerical calculation of the Q function along the walls of the bilorentzian show a marked bimodality in amplitudeThe development of this Q function bimodality is echoed in the Wigner representation, and is clear in \cref{fig:Qbistabilities}, although the parameters are different to those in \cref{fig:MeanFieldvsQuantum} and in \cite{Carmichael2015}. Moving through the critical point in the drive, the Q function bifurcates, this time in phase, where two coexistent gaussian peaks in phase space mark the phase bistability discussed above.
-\begin{figure}
- \begin{minipage}{.5\linewidth}
-     \includegraphics[width=1\textwidth]{Q-Bistability-OnResonance.png}
-  \end{minipage}%
-  \begin{minipage}{.5\linewidth}
-      \includegraphics[width=1\textwidth]{Q-Bistability-OffResonance.png}
-  \end{minipage}
-  \caption{(a) Development of phase bistability in the W function for fixed detuning, with drive moving through the critical point at $\frac{\Epsilon}{2}$ \label{fig:Qbistabilities}(b) W functions with changing detuning and fixed drive. Note the probability fringes to the right connecting the peaks by spontaneous emission}
-\end{figure}
-
-\begin{figure}
- \includegraphics[width=0.5\textwidth]{01:03:2016 - MatlabCriticalSlowing.png}
-  \caption{Time Dependent Solutions with g=0.5, $\kappa$ = 0.01, blue line is (0.24, 1), red line is (0.1, 1)}\label{fig:CriticalSlowing}
-\end{figure}
 
 \subsection{Spontaneous Emission}
 
