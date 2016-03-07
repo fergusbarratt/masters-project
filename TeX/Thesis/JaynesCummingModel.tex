@@ -65,7 +65,7 @@ Applying all of the above leads to a hamiltonian $\ham_{JC}$ of the form:
 \begin{equation}
 	\ham_{JC} = \hbar \omega \cre \hat{a} +\frac{1}{2} \hat{\sigma}_Z \omega_A + \hbar g (\cre \atann + \hat{a} \atcre)
 \end{equation}
-\subsection{Solving the Jaynes Cumming system}
+\subsection{Solving the Jaynes Cumming system in the absence of drive}
 We first move to an interaction picture rotating with the bare system, partitioning the Hamiltonian
 \begin{align}
 	\ham_I &= \hbar \omega \hat{N}_e + \hbar(\frac{\omega_A}{2}-\omega)\hat{P}_E \\
@@ -74,9 +74,9 @@ We first move to an interaction picture rotating with the bare system, partition
 \end{align}
 with $\Delta = \omega-\omega_A$,   $\hat{N}_e = \ket{2} \bra{2} + \ket{1} \bra{2} $ the (conserved) electron number and $\hat{P}_E = \cre\ann + \ket{2}\bra{2} $ the (conserved) excitation number. We allow the kets and observables to evolve with the conserved part, and solve for the interesting dynamics in the interaction part.
 \subsection{Unitary, zero detuning}
-We consider first evolution of the Jaynes-Cumming system in the absence of decay, dephasing and detuning, with the atom initially excited $\ket{2}$ and the field in a Fock state $\ket{n}$. Since field only couples successive levels of the combined atom-field system, the state of the closed system can be described by
+We consider first evolution of the Jaynes-Cumming system in the absence of decay, dephasing and detuning, with the atom initially excited $\ket{2}$ and the field in a Fock state $\ket{n}$. Since field only couples successive levels of the combined atom-field system, the state of the closed system can be described in the restricted two level Hilbert space
 \begin{equation}
-	\ket{\psi(t)} = C_1(t) \kettens{n+1}{1} + C_2(t) \kettens{n}{2}
+	\ket{\psi(t)} = C_1(t) \kettens{1}{g} + C_2(t) \kettens{0}{e}
 \end{equation}
 where $\ket{\psi}$ is understood to be an element of the atom-field Hilbert space. We solve the interaction schrodinger equation to determine the time dependent coefficients $C_1(t)$ and $C_2(t)$
 \begin{equation}
@@ -87,4 +87,3 @@ and get two coupled differential equations for the level amplitudes:
 	\frac{d C_2(t)}{dt} &= -i g \sqrt{n+1}C_1(t)\\
 	\frac{d C_1(t)}{dt} &= -i g \sqrt{n+1}C_2(t)
 \end{align}
-\subsection{Dispersive Approximation}\cite{Lukin2006}\cite{Meystre2007}
