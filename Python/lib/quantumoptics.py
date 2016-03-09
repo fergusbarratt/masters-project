@@ -13,23 +13,30 @@ import warnings
 from matplotlib import cm
 plt.rcParams['image.cmap'] = 'viridis'
 
-class QuantumOpticsSystem:
+class QuantumOpticsSystem(object):
 
     '''superclass for all qoptics systems'''
 
     def __init__(self,
+                 N_field_levels,
                  c_op_params,
-                 N_field_modes,
                  N_qubits=1,
-                 coupling=0):
+                 coupling=None):
 
-        # Instantiate cavity and qubit parameters
-        self.g = coupling
+        # basic parameters
+        self.N = N_field_levels
+        self.N_qubits = N_qubits
+
+        if coupling is None:
+            self.g = 0
+        else:
+            self.g = coupling
+
         self.kappa = c_op_params[0]
         if len(c_op_params)>1:
             self.gamma = c_op_params[1]
-        self.N_field_modes = N_field_modes
-        self.N_qubits = N_qubits
+
+        # bare operators
         self.idcavity = qt.qeye(self.N_field_modes)
         self.idqubit = qt.qeye(2)
         self.a_bare = qt.destroy(self.N_field_modes)
@@ -38,117 +45,20 @@ class QuantumOpticsSystem:
         self.sx_bare = qt.sigmax()
         self.sy_bare = qt.sigmay()
 
-        # for back compatibility TOFIX (N cavity modes)
-        self.N = N_field_modes
+        # 1 atom 1 cavity operators
+        self.a = qt.tensor(self.a_bare, self.idqubit)
+        self.sm = qt.tensor(self.idcavity, self.sm_bare)
+        self.sx = qt.tensor(self.idcavity, self.sx_bare)
+        self.sy = qt.tensor(self.idcavity, self.sy_bare)
+        self.sz = qt.tensor(self.idcavity, self.sz_bare)
 
         # Figure, axes
         self.fig = plt.figure()
         self.ax = plt.axes3D(fig, azim=-40, elev=30)
 
-class QuantumOpticsModel:
-
-    '''superclass for all models'''
-
-    def __init__(self):
-        pass
-
-
-class DickeSystem(QuantumOpticsSystem):
-
-    '''http://rsta.royalsocietypublishing.org/content/roypta/369/19
-    39/1137.full.pdf'''
-
-    def __init__(
-            self,
-            omega_cavity_range,
-            omega_qubit_range,
-            N_qubits,
-            N_field_modes,
-            c_op_params,
-            g):
-        QuantumOpticsSystem.__init__(
-            self, c_op_params, g, N_field_modes, N_qubits)
-        # sort out omega ranges
-        self.omega_qubit_range = np.atleast_1d(np.asarray(omega_qubit_range))
-        self.omega_cavity_range = np.atleast_1d(np.asarray(omega_cavity_range))
-
-        # replicate non important range to length of important one
-        if len(
-               np.atleast_1d(self.omega_cavity_range)) == len(
-               np.atleast_1d(self.omega_qubit_range)):
-            self.important_range = self.omega_cavity_range
-        elif len(np.atleast_1d(omega_cavity_range)) == 1:
-            self.important_range = self.omega_qubit_range
-            self.omega_cavity_range = self.omega_cavity_range[
-                0]*np.ones_like(self.omega_qubit_range)
-        elif len(np.atleast_1d(self.omega_qubit_range)) == 1:
-            self.important_range = self.omega_cavity_range
-            self.omega_qubit_range = self.omega_qubit_range * \
-                np.ones_like(self.omega_cavity_range)
-        else:
-            raise ArithmeticError('wrong input form')
-
-        # tensor together N identities or sigmams or sigmazs
-        self.idqubits = qt.tensor(
-            *tuple(self.idqubit for qubit in range(N_qubits)))
-        self.sz = qt.tensor(self.idcavity, qt.tensor(
-            *tuple(self.sz_bare for qubit in range(N_qubits))))
-        self.sm = qt.tensor(self.idcavity, qt.tensor(
-            *tuple(self.sm_bare for qubit in range(N_qubits))))
-        self.a = qt.tensor(self.a_bare, self.idqubits)
-        if self.a.dims != self.sm.dims != self.sz.dims:
-            raise ArithmeticError('dimensions issues')
-
-    def hamiltonian(self, det_index=0):
-        print(self.omega_cavity_range[0], self.omega_qubit_range[0])
-        H_bare = self.omega_cavity_range[det_index] * (self.a.dag() * self.a)
-        + self.omega_qubit_range[det_index] * self.sz
-        H_int = self.g * (self.a.dag() * self.sm + self.a * self.sm.dag())
-        H = H_bare + H_int
-        return H
-
-    def c_ops(self):
-        c_ops = []
-        c1 = m.sqrt(2 * self.kappa) * self.a
-        if hasattr(self, 'gamma'):
-            c2 = m.sqrt(2 * self.gamma) * self.sm
-        c_ops.append(c1)
-        if c2 in locals():
-            c_ops.append(c2)
-        return c_ops
-
-class QuantumDuffingOscillator(QuantumOpticsSystem):
-
-    ''' Walls, Drummond, Quantum Theory of Optical Bistability I Model '''
-
-    def __init__(self, cavity_freqs, anharmonicity_parameter):
-        self.omega_cavity_range = cavity_freq
-        self.anharmonicity_parameter=anharmonicity_parameter
-
-    def hamiltonian(self, drive_index=0, det_index=0):
-        return self.omega_c * self.a.dag() * self.a + self.anharmonicity_parameter * self.a.dag() ** 2 * self.a ** 2
-
-
-class JaynesCummingsSystem(QuantumOpticsSystem):
-
-    '''Jaynes Cummings System. Takes parameter ranges, builds hamiltonians
-    at each value. JaynesCummingsParameters for wrapping'''
-
-    def __init__(
-            self,
-            drive_range,
-            omega_qubit_range,
-            omega_cavity_range,
-            omega_drive_range,
-            c_op_params,
-            g,
-            N,
-            noisy=False):
-
-        QuantumOpticsSystem.__init__(self, c_op_params, N, coupling=g)
-
-        self.noisy = noisy
-
+    def _to_even_arrays(self, arrays):
+        ''' Takes a list of arrays and pads them all with zeros to
+        the length of the longest'''
         def to_arrays(arrs):
             ret = []
             for arr in arrs:
@@ -158,134 +68,49 @@ class JaynesCummingsSystem(QuantumOpticsSystem):
                     ret.append(np.asarray(arr))
             return ret
 
-        (self.drive_range,
-         self.omega_drive_range,
-         self.omega_cavity_range,
-         self.omega_qubit_range) = to_arrays([drive_range,
-                                             omega_drive_range,
-                                             omega_cavity_range,
-                                             omega_qubit_range])
-
-        # set the important range data and name - for plotting against etc.
-        # drive_range by default, changes in block below
-        self.important_range = self.drive_range
-        self.important_range_name = 'Drive'
-        if not (len(self.omega_drive_range) == len(
-                self.omega_qubit_range) == len(self.omega_cavity_range)):
-            # test if lengths of freq vectors are the same. Correct if two
-            # scalars and one vector, else raise - bad to mix important
-            # range name business and parameters TOFIX
-            if len(
-                    self.omega_cavity_range) == 1 and len(
-                    self.omega_drive_range) == 1:
-                self.omega_cavity_range = np.ones_like(
-                    omega_qubit_range) * self.omega_cavity_range[0]
-                self.omega_drive_range = np.ones_like(
-                    omega_qubit_range) * self.omega_drive_range[0]
-                self.important_range = self.omega_qubit_range
-                self.important_range_name = 'Omega Qubit'
-            elif len(self.omega_qubit_range) == 1 and (
-                    len(self.omega_cavity_range)) == 1:
-                self.omega_qubit_range = np.ones_like(
-                    omega_drive_range) * self.omega_qubit_range[0]
-                self.omega_cavity_range = np.ones_like(
-                    omega_drive_range) * self.omega_cavity_range[0]
-                self.important_range = self.omega_drive_range
-                self.important_range_name = 'Omega Drive'
-            elif (len(self.omega_qubit_range)) == 1 and (
-                    len(self.omega_drive_range)) == 1:
-                self.omega_drive_range = np.ones_like(
-                    omega_cavity_range) * self.omega_drive_range[0]
-                self.omega_qubit_range = np.ones_like(
-                    omega_cavity_range) * self.omega_qubit_range[0]
-                self.important_range = self.omega_cavity_range
-                self.important_range_name = 'Omega Cavity'
+        def pad_arr(arr, new_len):
+            if len(arr) > new_len:
+                return np.asarray(arr[:new_len])
             else:
-                raise ArithmeticError(
-                    'Frequency ranges are not of equal length')
+                return np.append(arr, np.zeros(new_len-len(arr)))
 
-        # reparametrise - set flag if sys has not been reparametrised
-        self.reparam = False
-        if not (self.omega_cavity_range - self.omega_qubit_range).any():
-            # any non zero cavity-qubit detunings
-            self.reparam = True
-            self.det_range = self.omega_cavity_range - self.omega_drive_range
+        arrs = to_arrays(arrays)
 
-        # 1 atom 1 cavity operators
-        self.a = qt.tensor(self.a_bare, self.idqubit)
-        self.sm = qt.tensor(self.idcavity, self.sm_bare)
-        self.sx = qt.tensor(self.idcavity, self.sx_bare)
-        self.sy = qt.tensor(self.idcavity, self.sy_bare)
-        self.sz = qt.tensor(self.idcavity, self.sz_bare)
+        ret_arrs = []
+        max_len = max(map(len, arrs))
 
-    def hamiltonian(self, drive_index=0, det_index=0):
-        """hamiltonian
-        Build the steadystate hamiltonian.
+        for arr in enumerate(arrs):
+            if len(arr) < max_len:
+                arrs[arr[0]] = pad_arr(arr[1], max_len)
+        return arrs
 
-        :param drive_index: chooses system drive for hamiltonian. Defaults to zero
-        :param det_index: chooses system detuning for hamiltonian. Defaults to zero
-        """
-        # bare and int
-        if self.reparam:
-            hamiltonian_bare_int = -self.det_range[det_index] * (
-                self.sm.dag() * self.sm + self.a.dag() * self.a) + self.g * (
-                    self.sm.dag() * self.a + self.sm * self.a.dag())
+class SteadyStateSystem(QuantumOpticsSystem):
 
-            hamiltonian_drive = self.drive_range[drive_index] * (
-                self.a + self.a.dag())
+    def __init__(self,
+                 param_indices,
+                 N_field_levels,
+                 c_op_params,
+                 N_qubits=1,
+                 coupling=None):
+        QuantumOpticsSystem.__init__(self,
+                                     N_field_levels,
+                                     c_op_params,
+                                     N_qubits=1,
+                                     coupling=None):
 
-            hamiltonian = hamiltonian_bare_int + hamiltonian_drive
-            return hamiltonian
-        else:
-            self.q_d_det = (
-                self.omega_qubit_range -
-                self.omega_drive_range)[det_index]
-            self.c_d_det = (
-                self.omega_cavity_range -
-                self.omega_drive_range)[det_index]
-            self.c_q_det = (
-                self.omega_cavity_range -
-                self.omega_qubit_range)[det_index]
-            if self.noisy:
-                print(
-                    '\ndrive strength: ',
-                    self.drive_range[drive_index],
-                    '\ncavity-drive detuning: ',
-                    self.c_d_det,
-                    '\nqubit-drive detuning: ',
-                    self.q_d_det,
-                    '\ncavity-qubit detuning: ',
-                    self.c_q_det)
+        self.rhos_ss = []
+        for index in enumerate(param_indices):
+            self.rhos_ss.append(self.rho(*index))
 
-            hamiltonian_bare = self.q_d_det * self.sm.dag() * self.sm + (
-                self.c_d_det * self.a.dag() * self.a)
-
-            hamiltonian_int = 1j * self.g * (self.a.dag() * self.sm -
-                                             self.sm.dag() * self.a)
-
-            hamiltonian_drive = self.drive_range[drive_index] * (
-                self.a.dag() + self.a)
-
-            hamiltonian = hamiltonian_bare + \
-                hamiltonian_int + hamiltonian_drive
-            return hamiltonian
-
-    def rho(self, drive_index=0, det_index=0):
-        """rho
-        Solve for the steady state system density matrix using the drive-detuning
-        parameters at drive_index, det_index
-        :param drive_index: index of Drive in internal list of drives. Defaults to
-        zero
-        :param det_index: index of Detuning in internal detunings lists. Defaults
-        to zero
-        """
+    def rho(self, index):
+        '''rho
+        return steadystate density matrices at param_indices'''
         return qt.steadystate(
             self.hamiltonian(
-                drive_index,
-                det_index),
-            self.c_ops())
+                *index),
+            self._c_ops())
 
-    def c_ops(self):
+    def _c_ops(self):
         """c_ops
         Build list of collapse operators
         """
@@ -298,34 +123,104 @@ class JaynesCummingsSystem(QuantumOpticsSystem):
             c_ops.append(c2)
         return c_ops
 
-    def qps(self, xvec, yvec, type='Q'):
+
+    def qps(self, xvec, yvec, rhos=None, functype='Q', slice = None):
         """qps
-        returns an array of Q or W functions for all system parameters.
-        :param xvec: X vector over which function is evaluated F(X+iY)
-        :param yvec: Y vector over which function is evaluated F(X+iY)
-        :param type: 'Q' or 'W' : Husimi Q or Wigner
+        overrides ssm qps to use precalculated density matrices if
+        available
+        pass slice or rhos kwarg to generate only a subset
+        :param xvec: list of xvalues to calculate QP function at
+        :param yvec: list of yvalues to calculate QP function at
         """
-        qps = []
-        for drive_index in range(len(self.drive_range)):
-            for det_index in range(len(self.omega_qubit_range)):
-                if type != 'Q':
-                    qps.append(
-                        qt.wigner(
-                            self.rho(
-                                drive_index,
-                                det_index).ptrace(0),
-                            xvec,
-                            yvec))
-                else:
-                    qps.append(
-                        qt.qfunc(
-                            self.rho(
-                                drive_index,
-                                det_index).ptrace(0),
-                            xvec,
-                            yvec))
+
+        class qp_list(object):
+            """qps
+            returns an array of Q or W functions for all 
+            system parameters.
+            :param xvec: X vector over which function is evaluated 
+            F(X+iY)
+            :param yvec: Y vector over which function is evaluated 
+            F(X+iY)
+            :param type: 'Q' or 'W' : Husimi Q or Wigner
+            """
+            def __init__(self,
+                         xvec,
+                         yvec,
+                         density_matrix_list,
+                         functype='Q'):
+
+                self.xvec = xvec
+                self.yvec = yvec
+                self.functype = functype
+                self.density_matrix_list = density_matrix_list
+
+            def _qps(self, new_dens_mat_list=None):
+                if new_dens_mat_list == None:
+                    new_dens_mat_list = self.density_matrix_list
+                self.qps = []
+                for rho in new_dens_mat_list:
+                    if self.functype != 'Q':
+                        self.qps.append(
+                            qt.wigner(
+                                rho,
+                                self.xvec,
+                                self.yvec))
+                    else:
+                        qps.append(
+                            qt.qfunc(
+                                rho,
+                                self.xvec,
+                                self.yvec))
+                return self.qps
+
+        def __getitem__(self, slice):
+            '''calculates the q functions only along the 
+            requested slice'''
+            return self._qps(self.xvec, self.yvec, 
+                    self.density_matrix_list[slice], 
+                    self.functype)
+
+        if rhos=None:
+            rhos = self.rhos_ss
+
+        if slice is None:
+            qps = self.qp_list(xvec, yvec, rhos, functype)[:]
+        else:
+            qps = self.qp_list(xvec, yvec, rhos, functype)[slice]
         return qps
 
+    def draw_bloch_sphere(self):
+        """draw the qubit bloch sphere for the system steady states"""
+        self.rhos_qb_ss = [rho.ptrace(1) for rho in self.rhos_ss]
+        self.b_sphere = qt.Bloch()
+        self.b_sphere.add_states(self.rhos_qb_ss)
+        self.b_sphere.show()
+
+    def correlator(self):
+        """correlator
+        Measure of quantum vs semiclassical"""
+        return np.abs(np.asarray([qt.expect(self.a*self.sm,
+                rho)
+                for rho in self.rhos_ss])-\
+                np.asarray([qt.expect(self.a,
+                rho)
+                for rho in self.rhos_ss])*\
+                np.asarray([qt.expect(self.sm,
+                rho)
+                for rho in self.rhos_ss]))
+
+    def abs_cavity_field(self):
+        """abs_cavity_field
+        Convenience function, calculates abs(expect(op(a)))"""
+        return np.absolute([qt.expect(self.a,
+                rho)
+            for rho in self.rhos_ss])
+
+    def purities(self):
+        """purities
+        Convenience function, calculates Tr(rho^2)"""
+        return np.asarray(
+                [(rho** 2).tr() for rho in self.rhos_ss])
     def draw_qps(self,
                  type='Q',
                  plottype='c',
@@ -337,7 +232,8 @@ class JaynesCummingsSystem(QuantumOpticsSystem):
                  xvec=np.linspace(-8, 7, 70),
                  yvec=np.linspace(-10, 4, 70)):
         '''draw_qps
-        Animate the system quasiprobability function list using matplotlib
+        Animate the system quasiprobability function list using
+        matplotlib
         builtins. kwargs are pretty similar to matplotlib options.
         frame rate gets set by a range length vs the ininterval
         parameter'''
@@ -403,12 +299,37 @@ class JaynesCummingsSystem(QuantumOpticsSystem):
                     anim.save('qp_anim.gif', writer='imagemagick', fps=4)
         plt.show()
 
+class QuantumDuffingOscillator(SteadyStateSystem):
+    ''' Walls, Drummond, Quantum Theory Optical Bistability I Model '''
 
-class SteadyStateJaynesCummingsModel(JaynesCummingsSystem):
-    """SteadyStateJaynesCummingsModel
-    Steady state modelling of the Jaynes Cummings system. Contains
-    convenience functions for easy calculation of: the absolute
-    cavity field, the purity"""
+    def __init__(self,
+                 cavity_freqs,
+                 anharmonicity_parameter,
+                 N_field_levels,
+                 c_op_params,
+                 N_qubits=1,
+                 coupling=None):
+
+        SteadyStateSystem.__init__(N_field_levels,
+                 c_op_params,
+                 N_qubits=1,
+                 coupling=None)
+
+        self.params = self._to_even_arrays([cavity_freqs,
+                                            anharmonicity_parameter])
+        self.param_indices = ((a, b) 
+                for a in range(len(self.params[0]))
+                for b in range(len(self.params[1])))
+
+    def hamiltonian(self):
+
+        hamiltonians = np.asarray([self.params[0][omega_index] * self.a.dag() * self.a + \
+        self.params[1][anh_index] * self.a.dag() ** 2 * self.a ** 2 
+        for omega_index, anh_index in self.param_indices])
+
+        return hamiltonians
+
+class JaynesCummingsSystem(QuantumOpticsSystem):
 
     def __init__(
             self,
@@ -418,113 +339,57 @@ class SteadyStateJaynesCummingsModel(JaynesCummingsSystem):
             omega_drive_range,
             c_op_params,
             g,
-            N,
-	    noisy=False):
-        JaynesCummingsSystem.__init__(
-            self,
-            drive_range,
-            omega_qubit_range,
-            omega_cavity_range,
-            omega_drive_range,
-            c_op_params,
-            g,
-            N)
-        '''precalculates steady state density matrices. set
-	noisy flag for progress bar'''
-        self.rhos_ss = []
-        for drive in enumerate(self.drive_range):
-            if noisy:
-                print(
- '\ndrive={0:.4f}, len(drives)={1}, len(detunings)={2}, N={3}'.format(
-     drive[1],
-     len(self.drive_range),
-     len(self.omega_drive_range),
-     self.N))
-            for det in enumerate(self.omega_drive_range):
-                if noisy:
-                    print('|', end='', flush=True)
-                self.rhos_ss.append(self.rho(drive[0], det[0]))
+            N):
 
-    class qp_list(object):
-        '''calculate on demand list'''
-        def __init__(self, xvec, yvec, density_matrix_list, functype='Q'):
-            self.xvec = xvec
-            self.yvec = yvec
-            self.functype = functype
-            self.density_matrix_list = density_matrix_list
+        QuantumOpticsSystem.__init__(self, c_op_params, N, coupling=g)
 
-        def _qps(self, new_dens_mat_list=None):
-            if new_dens_mat_list == None:
-                new_dens_mat_list = self.density_matrix_list
-            self.qps = []
-            for rho in new_dens_mat_list:
-                if self.functype != 'Q':
-                    self.qps.append(
-                        qt.wigner(
-                            rho,
-                            self.xvec,
-                            self.yvec))
-                else:
-                    qps.append(
-                        qt.qfunc(
-                            rho,
-                            self.xvec,
-                            self.yvec))
-            return self.qps
+         self.params = self._to_even_arrays([drive_range,
+                                             omega_drive_range,
+                                             omega_cavity_range,
+                                             omega_qubit_range])
+         (self.drive_range,
+          self.omega_drive_range,
+          self.omega_cavity_range,
+          self.omega_qubit_range) = self.params
 
-        def __getitem__(self, slice):
-            '''calculates the q functions only along the 
-            requested slice'''
-            return self._qps(self.xvec, self.yvec, 
-                    self.density_matrix_list[slice], 
-                    self.functype)
+        self.param_indices = ((a, b) 
+                for a in range(len(self.params[0])) 
+                for b in range(len(self.params[1])))
 
-    def qps(self, xvec, yvec, functype='Q', slice = None):
-        """qps
-        overrides jcm qps to use precalculated density matrices if available
-        pass slice kwarg to generate only a subset
-        :param xvec: list of xvalues to calculate QP function at
-        :param yvec: list of yvalues to calculate QP function at
+    def hamiltonian(self):
+        """hamiltonian
+        Build the steadystate hamiltonians.
         """
-        self.rhos_cav_ss = [rho.ptrace(0) for rho in self.rhos_ss]
-        if slice is None:
-            qps = self.qp_list(xvec, yvec, self.rhos_cav_ss, functype)[:]
-        else:
-            qps = self.qp_list(xvec, yvec, self.rhos_cav_ss, functype)[slice]
-        return qps 
+        self.q_d_det = (
+            self.omega_qubit_range -
+            self.omega_drive_range)
+        self.c_d_det = (
+            self.omega_cavity_range -
+            self.omega_drive_range)
+        self.c_q_det = (
+            self.omega_cavity_range -
+            self.omega_qubit_range)
 
-    def draw_bloch_sphere(self):
-        """draw the qubit bloch sphere for the system steady states"""
-        self.rhos_qb_ss = [rho.ptrace(1) for rho in self.rhos_ss]
-        self.b_sphere = qt.Bloch()
-        self.b_sphere.add_states(self.rhos_qb_ss)
-        self.b_sphere.show()
+        hamiltonian_bare = np.asarray(
+                [q_d_det * self.sm.dag() * self.sm + (
+            c_d_det * self.a.dag() * self.a) 
+            for q_d_det in self.q_d_det
+            for c_d_det in self.c_d_det]
 
-    def correlator(self):
-        """correlator
-        Measure of quantum vs semiclassical"""
-        return np.abs(np.asarray([qt.expect(self.a*self.sm,
-                rho)
-                for rho in self.rhos_ss])-\
-                np.asarray([qt.expect(self.a,
-                rho)
-                for rho in self.rhos_ss])*\
-                np.asarray([qt.expect(self.sm,
-                rho)
-                for rho in self.rhos_ss]))
+        hamiltonian_int = np.ones_like(hamiltonian_bare)*\
+             1j * self.g * (self.a.dag() * self.sm -
+                            self.sm.dag() * self.a)
 
-    def abs_cavity_field(self):
-        """abs_cavity_field
-        Convenience function, calculates abs(expect(op(a)))"""
-        return np.absolute([qt.expect(self.a,
-                rho)
-            for rho in self.rhos_ss])
+        hamiltonian_drive = np.asarray([
+            drive * (
+            self.a.dag() + self.a)
+            for drive in self.drive_range]) 
 
-    def purities(self):
-        """purities
-        Convenience function, calculates Tr(rho^2)"""
-        return np.asarray(
-                [(rho** 2).tr() for rho in self.rhos_ss])
+        hamiltonians = hamiltonian_bare + \
+            hamiltonian_int + hamiltonian_drive
+
+        return hamiltonians
+
 
 class TimeDependentJaynesCummingsModel(JaynesCummingsSystem):
     """TimeDependentJaynesCummingsModel
@@ -545,14 +410,14 @@ class TimeDependentJaynesCummingsModel(JaynesCummingsSystem):
                  noisy=False):
 
         JaynesCummingsSystem.__init__(self,
-                                                drive_range,
-                                                omega_qubit_range,
-                                                omega_cavity_range,
-                                                omega_drive_range,
-                                                c_op_params,
-                                                g,
-                                                N,
-                                                noisy)
+                                      drive_range,
+                                      omega_qubit_range,
+                                      omega_cavity_range,
+                                      omega_drive_range,
+                                      c_op_params,
+                                      g,
+                                      N,
+                                      noisy)
         self.tlist = tlist
         if initial_state is None:
             self.initial_state = qt.tensor(self.idcavity, self.idqubit)
