@@ -131,7 +131,7 @@ class SteadyStateSystem(QuantumOpticsSystem):
         return np.asarray([qt.steadystate(ham,
             self._c_ops()) for ham in self.hamiltonian()])
 
-    def qps(self, xvec, yvec, tr=None, nslice=None, functype='Q'):
+    def qps(self, xvec, yvec, nslice=None, tr=None, functype='Q'):
         
         class qp_list(object):
             """qps
@@ -172,12 +172,20 @@ class SteadyStateSystem(QuantumOpticsSystem):
 
         if not self.precalc:
             self._calculate_rhos_ss(nslice)
-        if tr=='cavity':
-            rhos = [rho.ptrace(0) for rho in self.rhos_ss]
-        elif tr=='qubit':
-            rhos = [rho.ptrace(1) for rho in self.rhos_ss]
+        if nslice is not None:
+            if tr=='cavity':
+                rhos = [rho.ptrace(0) for rho in self.rhos_ss][nslice]
+            elif tr=='qubit':
+                rhos = [rho.ptrace(1) for rho in self.rhos_ss][nslice]
+            else:
+                rhos = self.rhos_ss[nslice]
         else:
-            rhos = self.rhos_ss
+            if tr=='cavity':
+                rhos = [rho.ptrace(0) for rho in self.rhos_ss]
+            elif tr=='qubit':
+                rhos = [rho.ptrace(1) for rho in self.rhos_ss]
+            else:
+                rhos = self.rhos_ss
 
         qps = qp_list(xvec, yvec, 
                       rhos, 
