@@ -3,21 +3,42 @@ import numpy as np
 import quantumoptics as qo
 import matplotlib.pyplot as plt
 import seaborn as sns
-sns.set(context='talk')
+sns.set(context='talk', 
+        style='whitegrid', 
+        palette='pastel',
+        rc={'image.cmap': 'inferno', 'figure.figsize':(9, 9.5)})
 
-xvec, yvec = np.linspace(-5, 5, 100), np.linspace(-5, 5, 100)
+xvec, yvec = np.linspace(-5 ,5, 100), np.linspace(-4, 4, 100)
 
-sys_0 = qo.QuantumDuffingOscillator(6, 1, 40, [])
+c_freq = 10
+anh = 0.02
+kappa = 1
+drive = 28
+dets = np.linspace(-15, 15, 100)
+sys_0 = qo.QuantumDuffingOscillator(drive, 
+                                    c_freq+dets, 
+                                    c_freq, 
+                                    anh, 
+                                    40, 
+                                    [kappa])
 
-plt.contour(sys_0.qps(xvec, yvec)[0])
+plt.plot(dets, sys_0.abs_cavity_field())
+
+plt.savefig('''Images/c_freq={c_freq}.anh={anh}.kappa={kappa}.pdf'''.format(c_freq=c_freq, 
+       anh=anh, 
+       kappa=kappa))
+
 plt.show()
 
+### Q functions
+#fig, axes = plt.subplots(sys_0.length, 1)
 
-#jc_sys_1 = qo.JaynesCummingsSystem([4.5, 5.5], 10, 10, 10, [1, 1], 10, 40)
+#try:
+#    axes[0]
+#except:
+#    axes = [axes]
 
-#xvec, yvec = np.linspace(-10, 10, 100), np.linspace(-10, 10, 100)
-
-#fig, ax = plt.subplots(2)
-#ax[0].contourf(xvec, yvec, jc_sys_1.qps(xvec, yvec, tr='cavity')[0], 100, cmap='viridis')
-#ax[1].contourf(xvec, yvec, jc_sys_1.qps(xvec, yvec, tr='cavity')[1], 100, cmap='viridis')
+#for ax in enumerate(axes):
+#    mble = ax[1].contour(xvec, yvec, sys_0.qps(xvec, yvec)[ax[0]], 10)
+#    plt.colorbar(mble, ax=ax[1])
 #plt.show()

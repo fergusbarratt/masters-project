@@ -54,10 +54,10 @@ class QuantumOpticsSystem(object):
         self.jc_sz = qt.tensor(self.idcavity, self.sz_bare)
 
     def _to_even_arrays(self, arrays):
-        ''' Takes a list of arrays and pads them all with 
+        ''' Takes a list of arrays and pads them all with
         last element to the length of the longest'''
         def to_arrays(arrs):
-            ''' convert list of numbers and arrays to 1 
+            ''' convert list of numbers and arrays to 1
             and many element arrays'''
             ret = []
             for arr in arrs:
@@ -72,7 +72,7 @@ class QuantumOpticsSystem(object):
             if len(arr) > new_len:
                 return np.asarray(arr[:new_len])
             else:
-                return np.append(arr, 
+                return np.append(arr,
                                  arr[-1]*np.ones(new_len-len(arr)))
 
         arrs = to_arrays(arrays)
@@ -101,7 +101,7 @@ class SteadyStateSystem(QuantumOpticsSystem):
         if precalc:
             self._calculate()
             self.precalc = precalc
-    
+
     def _calculate(self):
         self.rhos_ss = self.rhos()
 
@@ -110,7 +110,7 @@ class SteadyStateSystem(QuantumOpticsSystem):
         Build list of collapse operators
         """
         c_ops = []
-        if hasattr(self, 'kappa')
+        if hasattr(self, 'kappa'):
             c1 = m.sqrt(2 * self.kappa) * self.a
         if hasattr(self, 'gamma'):
             c2 = m.sqrt(2 * self.gamma) * self.sm
@@ -123,6 +123,7 @@ class SteadyStateSystem(QuantumOpticsSystem):
     def rhos(self, nslice=None):
         '''rho
         return steadystate density matrices'''
+        precalc=True
         if nslice is not None:
             return np.asarray([qt.steadystate(ham,
             self._c_ops()) 
@@ -187,7 +188,7 @@ class SteadyStateSystem(QuantumOpticsSystem):
     def correlator(self):
         """correlator
         Measure of quantum vs semiclassical"""
-        if not precalc:
+        if not self.precalc:
             self._calculate_rhos_ss()
         return np.abs(np.asarray([qt.expect(self.a*self.sm,
                 rho)
@@ -202,6 +203,8 @@ class SteadyStateSystem(QuantumOpticsSystem):
     def abs_cavity_field(self):
         """abs_cavity_field
         Convenience function, calculates abs(expect(op(a)))"""
+        if not self.precalc:
+            self._calculate_rhos_ss()
         return np.absolute([qt.expect(self.a,
                 rho)
             for rho in self.rhos_ss])
@@ -209,7 +212,7 @@ class SteadyStateSystem(QuantumOpticsSystem):
     def purities(self):
         """purities
         Convenience function, calculates Tr(rho^2)"""
-        if not precalc:
+        if not self.precalc:
             self._calculate_rhos_ss()
         return np.asarray(
                     [(rho** 2).tr() for rho in self.rhos_ss])
@@ -230,7 +233,7 @@ class SteadyStateSystem(QuantumOpticsSystem):
         builtins. kwargs are pretty similar to matplotlib options.
         frame rate gets set by a range length vs the ininterval
         parameter'''
-        if not precalc:
+        if not self.precalc:
             self._calculate_rhos_ss()
         W = enumerate(self.qps(xvec, yvec, type))
         if plottype == 'c' or plottype == 'cf':
@@ -307,15 +310,21 @@ class QuantumDuffingOscillator(SteadyStateSystem):
     ''' Walls, Drummond, Quantum Theory Optical Bistability I Model '''
 
     def __init__(self,
+                 drive_strengths,
                  cavity_freqs,
-                 anharmonicity_parameter,
+                 drive_freqs,
+                 anharmonicity_parameters,
                  N_field_levels,
                  c_op_params,
                  N_qubits=1,
                  coupling=None):
 
         self.params = np.asarray(self._to_even_arrays([cavity_freqs,
-                                        anharmonicity_parameter])).T
+                                        drive_freqs,
+                                        drive_strengths,
+                                        anharmonicity_parameters])).T
+
+        self.length = len(self.params)
 
         super().__init__(N_field_levels,
                          c_op_params,
@@ -323,7 +332,7 @@ class QuantumDuffingOscillator(SteadyStateSystem):
                          coupling)
 
     def __def_ops(self):
-        
+
         self.a = self.a_bare
         self.sm = self.sm_bare
         self.sx = self.sx_bare
@@ -333,10 +342,23 @@ class QuantumDuffingOscillator(SteadyStateSystem):
     def hamiltonian(self):
 
         self.__def_ops() 
-        hamiltonians = np.asarray(
-                        [omega_c * self.a.dag() * self.a + \
-                         anh * self.a.dag() ** 2 * self.a ** 2 
-                            for omega_c, anh in self.params])
+
+        hamiltonians_bare = np.asarray(
+                        [(omega_c-omega_d) * self.a.dag() * self.a + \
+                         anh * self.a.dag() ** 2 * self.a ** 2
+                            for omega_c, 
+                                omega_d, 
+                                _,
+                                anh in self.params])
+    
+        hamiltonians_drive = np.asarray(
+                        [dr_str * (self.a.dag() + self.a)
+                            for _,
+                                _,
+                                dr_str,
+                                _,  in self.params])
+
+        hamiltonians = hamiltonians_bare + hamiltonians_drive
 
         return hamiltonians
 
@@ -360,6 +382,8 @@ class JaynesCummingsSystem(SteadyStateSystem):
          self.omega_drive_range,
          self.omega_cavity_range,
          self.omega_qubit_range) = self.params
+        
+        self.length = len(self.params)
         
         super().__init__(N_field_levels, 
                          c_op_params, 
