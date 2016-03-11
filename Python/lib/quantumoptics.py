@@ -126,19 +126,19 @@ class SteadyStateSystem(QuantumOpticsSystem):
         precalc=True
         if nslice is not None:
             return np.asarray([qt.steadystate(ham,
-            self._c_ops()) 
+            self._c_ops())
             for ham in list(self.hamiltonian())[nslice]])
         return np.asarray([qt.steadystate(ham,
             self._c_ops()) for ham in self.hamiltonian()])
 
     def qps(self, xvec, yvec, nslice=None, tr=None, functype='Q'):
-        
+
         class qp_list(object):
             """qps
-            lazy calculate qps 
-            :param xvec: X vector over which function is evaluated 
+            lazy calculate qps
+            :param xvec: X vector over which function is evaluated
             F(X+iY)
-            :param yvec: Y vector over which function is evaluated 
+            :param yvec: Y vector over which function is evaluated
             F(X+iY)
             :param type: 'Q' or 'W' : Husimi Q or Wigner
             """
@@ -187,8 +187,8 @@ class SteadyStateSystem(QuantumOpticsSystem):
             else:
                 rhos = self.rhos_ss
 
-        qps = qp_list(xvec, yvec, 
-                      rhos, 
+        qps = qp_list(xvec, yvec,
+                      rhos,
                       functype).qps()
 
         return qps
@@ -259,11 +259,11 @@ class SteadyStateSystem(QuantumOpticsSystem):
             elif plottype == 's':
                 Z = W[0][1]
                 plot = axes.plot_surface(X, Y, Z,
-                                         rstride=1, 
-                                         cstride=1, 
+                                         rstride=1,
+                                         cstride=1,
                                          linewidth=0,
-                                         antialiased=True, 
-                                         shade=True, 
+                                         antialiased=True,
+                                         shade=True,
                                          cmap=cm.coolwarm)
                 axes.set_zlim(0.0, 0.1)
             return plot
@@ -278,12 +278,12 @@ class SteadyStateSystem(QuantumOpticsSystem):
                 plot = axes.contourf(xvec, yvec, W[i][1], contno)
             elif plottype == 's':
                 Z = W[i][1]
-                plot = axes.plot_surface(X, Y, Z, 
-                                         rstride=1, 
-                                         cstride=1, 
+                plot = axes.plot_surface(X, Y, Z,
+                                         rstride=1,
+                                         cstride=1,
                                          linewidth=0,
-                                         antialiased=False, 
-                                         shade=True, 
+                                         antialiased=False,
+                                         shade=True,
                                          cmap=cm.coolwarm)
                 axes.set_zlim(0.0, 0.4)
             return plot
@@ -305,12 +305,12 @@ class SteadyStateSystem(QuantumOpticsSystem):
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore")
                 if form == 'mp4':
-                    anim.save('qp_anim.mp4', 
-                              fps=30, 
+                    anim.save('qp_anim.mp4',
+                              fps=30,
                               extra_args=['-vcodec', 'libx264'])
                 if form == 'gif':
-                    anim.save('qp_anim.gif', 
-                              writer='imagemagick', 
+                    anim.save('qp_anim.gif',
+                              writer='imagemagick',
                               fps=4)
         plt.show()
 
@@ -349,16 +349,16 @@ class QuantumDuffingOscillator(SteadyStateSystem):
 
     def hamiltonian(self):
 
-        self.__def_ops() 
+        self.__def_ops()
 
         hamiltonians_bare = np.asarray(
                         [(omega_c-omega_d) * self.a.dag() * self.a + \
                          anh * self.a.dag() ** 2 * self.a ** 2
-                            for omega_c, 
-                                omega_d, 
+                            for omega_c,
+                                omega_d,
                                 _,
                                 anh in self.params])
-    
+
         hamiltonians_drive = np.asarray(
                         [dr_str * (self.a.dag() + self.a)
                             for _,
@@ -390,15 +390,15 @@ class JaynesCummingsSystem(SteadyStateSystem):
          self.omega_drive_range,
          self.omega_cavity_range,
          self.omega_qubit_range) = self.params
-        
+
         self.length = len(self.params)
-        
-        super().__init__(N_field_levels, 
-                         c_op_params, 
+
+        super().__init__(N_field_levels,
+                         c_op_params,
                          coupling)
-        
+
     def __def_ops(self):
-        
+
         self.a = self.jc_a
         self.sm = self.jc_sm
         self.sx = self.jc_sx
@@ -406,7 +406,7 @@ class JaynesCummingsSystem(SteadyStateSystem):
         self.sz = self.jc_sz
 
     def hamiltonian(self):
-        
+
         self.__def_ops()
 
         self.q_d_det = (
@@ -421,7 +421,7 @@ class JaynesCummingsSystem(SteadyStateSystem):
 
         self.hamiltonian_bare = np.asarray(
                 [q_d_det * self.sm.dag() * self.sm + (
-                 c_d_det * self.a.dag() * self.a) 
+                 c_d_det * self.a.dag() * self.a)
             for q_d_det, c_d_det in zip(self.q_d_det, self.c_d_det)])
 
         self.hamiltonian_int = np.ones_like(self.hamiltonian_bare)*\
@@ -431,7 +431,7 @@ class JaynesCummingsSystem(SteadyStateSystem):
         self.hamiltonian_drive = np.asarray([
             drive * (
             self.a.dag() + self.a)
-            for drive in self.drive_range]) 
+            for drive in self.drive_range])
 
         hamiltonians = self.hamiltonian_bare + \
             self.hamiltonian_int + self.hamiltonian_drive
