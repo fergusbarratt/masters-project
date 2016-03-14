@@ -44,39 +44,52 @@
 \begin{frame}
     \frametitle{Cooper Pair Box (CPB)}
 
-    \begin{columns}[T]
-        \begin{column}{0.5\linewidth}
-            \includegraphics{cpb.png}
+    \begin{columns}[c]
+        \begin{column}{0.4\linewidth}
+            \includegraphics[scale=0.8]{cpb.png}
         \end{column}
-        \begin{column}{0.5\linewidth}
+        \begin{column}{0.6\linewidth}
             \begin{itemize}
 
                 \item The CPB is a charge qubit implementation where 
                     information is encoded in the occupation of a 
                     superconducting `island'
 
+                \item The CPB has Hamiltonian 
+                    $
+                    \mathscr{H} = 4 E_c \left(N - N_g\right)^2 
+                    - E_J \cos \varphi
+                    $
+                    with N the difference in pair occupation, 
+                    $\varphi$ the gauge-invariant phase difference
+                
             \end{itemize}
         \end{column}
     \end{columns}
 
 \end{frame}
 \begin{frame}
+
     \frametitle{The Transmon}
 
-    \begin{columns}[T]
+    \begin{columns}[c]
 
-        \begin{column}{0.35\linewidth}
-    \includegraphics[scale=0.20, angle=-90, origin=c]{transmon.pdf}
-        \end{column}
+    \begin{column}{0.4\linewidth}
 
-        \begin{column}{0.5\linewidth}
-    \includegraphics[scale=0.22, angle=-90, origin=c]{anharmonicity.pdf}
-        \end{column}
+            \begin{block}{}
+                \vspace{-0.5cm}
+    \includegraphics[scale=0.25]{transmon.png}
+            \end{block}
 
-    \end{columns}
+    \end{column}
 
+    \begin{column}{0.6\linewidth}
+    
         \begin{itemize}
-
+            
+            \item The transmon consists again of a single island, 
+                    coupled by two Josephson junctions with an
+                    additional parallel capacitance. 
             \item Figure of merit for qubit candidates is level 
                     anharmonicity. 
             \item Increasing anharmonicity increases noise.
@@ -85,18 +98,39 @@
                     
         \end{itemize}
 
+    \end{column}
+
+    \end{columns}
+
 \end{frame}
 \begin{frame}
 
     \frametitle{Two-Level approximation}
 
-    \begin{itemize}
-        \item If we increase the anharmonicity we can have negligible 
-                population of higher levels and an effective qubit.
-        \item We put the transmon in a cavity and couple 
-                the preferred mode to light.
-        \item This is the Jaynes-Cummings model of Quantum Optics. 
-    \end{itemize}
+    \begin{columns}[c]
+
+        \begin{column}{0.5\linewidth}
+
+            \begin{block}{}
+    \vspace{-.7cm}
+    \includegraphics[scale=0.25, angle=-90, origin=c]{anharmonicity.pdf}
+            \end{block}
+
+        \end{column}
+        \begin{column}{0.5\linewidth}
+
+            \begin{itemize}
+                \item If we increase the anharmonicity we can 
+                        have negligible population of higher levels 
+                        and an effective qubit.
+                \item We put the transmon in a cavity and couple 
+                        the preferred mode to light.
+                \item This is the Jaynes-Cummings model of 
+                        Quantum Optics. 
+            \end{itemize}
+
+        \end{column}
+    \end{columns}
 
 \end{frame}
 \begin{frame}
