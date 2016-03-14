@@ -42,15 +42,37 @@
 \end{frame}
 
 \begin{frame}
+    \frametitle{Cooper Pair Box (CPB)}
+
+    \begin{columns}[T]
+        \begin{column}{0.5\linewidth}
+            \includegraphics{cpb.png}
+        \end{column}
+        \begin{column}{0.5\linewidth}
+            \begin{itemize}
+
+                \item The CPB is a charge qubit implementation where 
+                    information is encoded in the occupation of a 
+                    superconducting `island'
+
+            \end{itemize}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+\begin{frame}
     \frametitle{The Transmon}
 
     \begin{columns}[T]
+
         \begin{column}{0.35\linewidth}
     \includegraphics[scale=0.20, angle=-90, origin=c]{transmon.pdf}
         \end{column}
+
         \begin{column}{0.5\linewidth}
     \includegraphics[scale=0.22, angle=-90, origin=c]{anharmonicity.pdf}
         \end{column}
+
     \end{columns}
 
         \begin{itemize}
@@ -134,13 +156,18 @@
     \end{block}
 
 \end{frame}
+\begin{frame}
 
     \includepdf{resonant.pdf}
 
+\end{frame}
 \begin{frame}
 
     \begin{block}{Dispersive}
-        $\gamma \ll \kappa \ll g \ll \delta_{cq} \ll \omega_c$
+        $
+        \gamma \ll \kappa \ll g \ll \delta_{cq} \ll \omega_c
+        $
+        \footfullcite{Bishop2010}
     \end{block}
 
 \end{frame}
@@ -148,27 +175,29 @@
 
     \frametitle{Effect of the detuned qubit}
 
-    \begin{block}{Eigenenergies of the undriven Hamiltonian}
+    \begin{block}{Exact Hamiltonian}
 
-        $\mathscr{E}_{\pm} = (n+1) \hbar \omega_c \pm 
-            \frac{\hbar}{2} \sqrt{4g^2 ( n+1 ) + \delta_{cq}^2}$
-
-    we expand in $\frac{g}{\delta_{cq}}$ and transform with 
-
-        $U = \exp \left \{\frac{g}{\delta_{cq}} 
-            ( a \sigma_+ - a ^ \dagger \sigma_- ) \right \}$
+        $
+        \mathscr{H} = \hbar \delta_{cd} a^\dagger a + 
+        \hbar \delta_{qd}\sigma_+ \sigma_- + 
+        \hbar g ( a \sigma_+ + a^\dagger \sigma_- ) 
+        $
 
     \end{block}
+    \begin{block}{Dispersive Hamiltonian}
+        we expand in $\frac{g}{\delta_{cq}}$ and transform with 
+        $
+        U = \exp \left \{\frac{g}{\delta_{cq}} 
+            ( a \sigma_+ - a ^ \dagger \sigma_- ) \right \}
+        $
 
-    \begin{block}{Hamiltonian} 
-
-    $ 
-    U\mathscr{H}U ^ \dagger = \hbar 
-    \left\{ \omega_c + \frac{g^2}{\delta_{cq}} \sigma_z \right\}
-    a ^ \dagger a + 
-    \frac{\hbar}{2} \left\{ \omega_q + \frac{g^2}{\delta_{cq}} \right\}
-    \sigma_z 
-    $
+        $ 
+        U\mathscr{H}U ^ \dagger \approx \hbar 
+        \left\{ \omega_c + \frac{g^2}{\delta_{cq}} \sigma_z \right\}
+        a ^ \dagger a + 
+        \frac{\hbar}{2} \left\{ \omega_q + \frac{g^2}{\delta_{cq}} \right\}
+        \sigma_z 
+        $
     
     The qubit pulls the cavity frequency (and the cavity the qubit)
 
@@ -177,7 +206,7 @@
 \end{frame}
 \begin{frame}
 
-    \frametitle{QND Measurements}
+    \frametitle{Why the dispersive regime?}
 
     \begin{block}{Qubit Readout \& Control}
         \begin{itemize}
@@ -211,16 +240,17 @@
         \end{column}
 
     \end{columns}
+
     \begin{block}{}
-    \begin{itemize}
+        \begin{itemize}
 
-        \item Unlike the Duffing nonlinearity 
-            \footfullcite{Drummond1979},
-            the JC nonlinearity closes with increasing drive
-            \footfullcite{Bishop2010}.
+            \item Unlike the Duffing nonlinearity 
+                \footfullcite{Drummond1979},
+                the JC nonlinearity softens with increasing drive
+                \footfullcite{Bishop2010}.
 
-    \end{itemize}
-\end{block}
+        \end{itemize}
+    \end{block}
 
 \end{frame}
 \begin{frame}
