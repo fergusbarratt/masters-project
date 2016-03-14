@@ -44,13 +44,15 @@
 \begin{frame}
     \frametitle{The Transmon}
 
-    \begin{block}{transmon}
+    \begin{columns}[T]
+        \begin{column}{0.35\linewidth}
+    \includegraphics[scale=0.20, angle=-90, origin=c]{transmon.pdf}
+        \end{column}
+        \begin{column}{0.5\linewidth}
+    \includegraphics[scale=0.22, angle=-90, origin=c]{anharmonicity.pdf}
+        \end{column}
+    \end{columns}
 
-    \includegraphics[scale=0.18, angle=-90, origin=c]{transmon.pdf}
-    \includegraphics[scale=0.20, angle=-90, origin=c]{anharmonicity.pdf}
-
-    \end{block}
-    \begin{block}
         \begin{itemize}
 
             \item Figure of merit for qubit candidates is level 
@@ -60,7 +62,6 @@
                     can be suppressed with small anharmonicity losses. 
                     
         \end{itemize}
-    \end{block}
 
 \end{frame}
 \begin{frame}
@@ -106,32 +107,36 @@
     spontaneous emission rate $\gamma$
 
     \begin{block}{Interaction Hamiltonian}
-        $\mathscr{H} = \hbar \delta_{cd} a^\dagger a + 
+        $
+        \mathscr{H} = \hbar \delta_{cd} a^\dagger a + 
         \hbar \delta_{qd}\sigma_+ \sigma_- + 
         \hbar g ( a \sigma_+ + a^\dagger \sigma_- ) + 
-        \hbar \xi (a + a^\dagger) $
+        \hbar \xi (a + a^\dagger) 
+        $
     \end{block}
 
     \begin{block}{Master Equation}
-        $\dot{\rho_S} = \frac{i}{\hbar} [ \mathscr{H}, \rho_S] +
-        \mathscr{L}_{\gamma} [\rho_S] + \mathscr{L}_{\kappa}[\rho_S]$
+        $
+        \dot{\rho_S} = \frac{i}{\hbar} [ \mathscr{H}, \rho_S ] +
+        \mathscr{L}_{\gamma} [\rho_S] + \mathscr{L}_{\kappa}[ \rho_S ]
+        $
     \end{block}
 
 \end{frame}
 \begin{frame}
 
     \begin{block}{Resonant}
-        $\delta_{cq} = \delta_{cd}=0$
-            \footfullcite{Alsing1990}
-            \footfullcite{Carmichael2015}
+        $
+        \delta_{cq} = \delta_{cd}=0
+        $
+        \footfullcite{Alsing1990}
+        \footfullcite{Carmichael2015}
     \end{block}
 
 \end{frame}
-\begin{frame}
 
     \includepdf{resonant.pdf}
 
-\end{frame}
 \begin{frame}
 
     \begin{block}{Dispersive}
@@ -141,7 +146,7 @@
 \end{frame}
 \begin{frame}
 
-    \frametitle{Effect of the detuned atom}
+    \frametitle{Effect of the detuned qubit}
 
     \begin{block}{Eigenenergies of the undriven Hamiltonian}
 
@@ -157,65 +162,76 @@
 
     \begin{block}{Hamiltonian} 
 
-    $ U\mathscr{H}U ^ \dagger = \hbar 
+    $ 
+    U\mathscr{H}U ^ \dagger = \hbar 
     \left\{ \omega_c + \frac{g^2}{\delta_{cq}} \sigma_z \right\}
     a ^ \dagger a + 
-
     \frac{\hbar}{2} \left\{ \omega_q + \frac{g^2}{\delta_{cq}} \right\}
-    \sigma_z $
+    \sigma_z 
+    $
     
-    The atom pulls the cavity frequency (and the cavity the atom)
+    The qubit pulls the cavity frequency (and the cavity the qubit)
 
     \end{block}
 
 \end{frame}
 \begin{frame}
 
-    \frametitle{QND Qubit Readout}
+    \frametitle{QND Measurements}
 
-    \begin{itemize}
+    \begin{block}{Qubit Readout \& Control}
+        \begin{itemize}
 
-        \item We can read out the state of the qubit 
-                without destroying it\footfullcite{Blais2004a}. 
-        \item In the dispersive regime the qubit pulls the 
-                cavity frequency up or down based on its state.
-        \item Irradiating the cavity at what was cavity 
-                resonance encodes the qubit superposition 
-                in the transmitted photons. 
-        \item Irradiating the qubit can be used to coherently 
-                control the qubit state. 
+            \item We can read out the state of the qubit 
+                    without destroying it\footfullcite{Blais2004a}. 
+            \item In the dispersive regime the qubit pulls the 
+                    cavity frequency up or down based on its state.
+            \item Driving the cavity at what was cavity 
+                    resonance encodes the qubit superposition 
+                    in the transmitted photons. 
+            \item Driving the qubit can be used to coherently 
+                    control the qubit state. 
 
-    \end{itemize}
+        \end{itemize}
+    \end{block}
 
 \end{frame}
 \begin{frame}
 
     \frametitle{The Duffing Oscillator}
 
-    \begin{block}{dispersive}
-        \begin{columns}[c]
-                \column{5.5cm}
-                \includegraphics[scale=0.4]{leaf.png}
-                \column{5cm}
-                \includegraphics[scale=0.4]{scurve.png}
-        \end{columns]
-    \end{block}
+    \begin{columns}[c]
 
+        \begin{column}{0.5\linewidth}
+            \includegraphics[scale=0.5]{leaf.png}
+        \end{column}
+
+        \begin{column}{0.5\linewidth}
+            \includegraphics[scale=0.4]{scurve.png}
+        \end{column}
+
+    \end{columns}
+    \begin{block}{}
     \begin{itemize}
+
         \item Unlike the Duffing nonlinearity 
             \footfullcite{Drummond1979},
             the JC nonlinearity closes with increasing drive
             \footfullcite{Bishop2010}.
+
     \end{itemize}
+\end{block}
 
 \end{frame}
 \begin{frame}
 
-    \includepdf{dispersive.pdf}
+        \includepdf{dispersive.pdf}
 
 \end{frame}
-\begin{frame}[allowframebreaks]
+\begin{frame}
+
     \printbibliography
+
 \end{frame}
 
 \end{document}
