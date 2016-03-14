@@ -1,0 +1,88 @@
+\documentclass{amsart}
+
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage[backend=biber]{biblatex}
+\usepackage[margin=1in]{geometry}
+\addbibresource{ /Users/fergusbarratt/bibTex/library.bib }
+
+\title{Jaynes Cummings Model and the Duffing Oscillator}
+\author{Fergus Barratt}
+\date{\today}
+
+\begin{document}
+    
+    \maketitle
+
+    \begin{equation}
+        \mathscr{H} = \omega_c a^ \dagger a
+        + (\omega_c - \Delta)) \sigma_z/2
+        + \xi / \sqrt{2} (a + a ^ \dagger ) \cos( \omega_d t )
+    \end{equation}
+    where
+    \begin{align}
+        \Delta &= \sqrt{\delta_{cq}^2 + 4g^2 N}\\
+               &= \delta_{cq} \sqrt{1 + \frac{4g^2N}{\delta_{cq}^2}}\\
+               &= \delta_{cq} \sqrt{1 + \frac{N}{N_{crit}}}\\
+               & \approx \delta \left(
+                 1
+                 + \frac{1}{2}\frac{N}{N_{crit}}
+                 + (1/8) \frac{N^2}{N^2_{crit}}
+                 \right)
+    \end{align}
+    where 
+    \begin{align}
+        &N = a ^ \dagger a + \sigma_z/2 + 1/2\\
+        &N_{crit} = \frac{\delta_{cq}^2}{4g^2}
+    \end{align}
+    \begin{align}
+        \mathscr{H} &= \omega_c a ^ \dagger a
+        + (\omega_q/2) \sigma_z
+        +  \xi/\sqrt{2} (a + a^\dagger) \cos(\omega_d t)\\
+        &- \frac{4g^2}{\delta_{cq}}\left(a^\dagger a 
+        +  \frac{\sigma_z}{2} + \frac{1}{2}\right)\sigma_z\\
+        &- \frac{g^4}{\delta_{cq}^3}\left(
+        \left(a^\dagger a\right)^2
+        + \left(\frac{\sigma_z}{2}\right)^2
+        + \left(\frac{1}{2}\right)^2
+        + \frac{1}{2} \left(
+                        a^\dagger a \sigma_z + \sigma_z a^\dagger a
+                      \right)
+        + a^\dagger a + \frac{\sigma_z}{2}
+        \right)
+        \sigma_z
+    \end{align}
+    \section{First Order in $\frac{N}{N_{crit}}$}
+    freezing the qubit $\sigma_z=-1$,
+    defining $\chi_{JC} = -1/N_{crit}$,
+    rescaling energy levels (drop $ \omega_q/2$)
+    \begin{align}
+        \mathscr{H} &= (\omega_c
+        - \frac{4g^2\sigma_z}{\delta_{cq}}) a ^ \dagger a
+        + (\omega_q/2 - \frac{2g^2}{\delta_{cq}} (\sigma_z + 1))\sigma_z
+        + \xi/\sqrt{2} (a + a^\dagger)\cos(\omega_d t)\\
+        \mathscr{H} &= \left(\omega_c-\chi_{JC}\right) a ^ \dagger a
+        + \xi/\sqrt{2} ( a + a^\dagger ) \cos(\omega_d t)
+    \end{align}
+    the bare cavity hamiltonian with a frequency shift
+    
+    \section{Second Order in $\frac{N}{N_{crit}}$}
+    defining
+    \begin{align}
+        \omega_c^{JC} &= \omega_c - \frac{4g^2}{\delta_{cq}}\\
+        \mathscr{A}_{JC} &= \frac{g^2}{\delta_{cq}^3}
+    \end{align}
+    \begin{align}
+        \mathscr{H} &= \omega_c^{JC} a ^ \dagger a
+        + \mathscr{A}_{JC}\left(a^\dagger a\right)^2
+        + \xi/\sqrt{2} ( a + a^\dagger ) \cos(\omega_d t)\\
+        \mathscr{H} &= \omega_c' a^\dagger a
+        + \mathscr{A} : a ^ \dagger a a ^ \dagger a :
+        + \xi'/\sqrt{2}(a+a^\dagger)\cos(\omega_d t)\label{duff}
+    \end{align}
+    compare the driven Duffing model in eq. \ref{duff}
+    where $\mathscr{A}$ is the second order dispersion\cite{Drummond1979}
+
+\printbibliography
+
+\end{document}

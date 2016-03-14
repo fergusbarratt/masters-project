@@ -21,11 +21,8 @@
 \maketitle
 
 \begin{frame}
-
     \frametitle{Superconducting circuit QED}         
-
     \begin{itemize}
-
         \item CQED is a promising paradigm for the implementation of 
                 quantum computers. 
         \item One critical component is the qubit implementation.
@@ -36,89 +33,54 @@
         \item One suggestion is the \emph{transmon}
                 \footfullcite{Blais2004a} 
                 a compound system of Josephson qubits.
-
     \end{itemize}
-
 \end{frame}
-
 \begin{frame}
     \frametitle{Cooper Pair Box (CPB)}
-
     \begin{columns}[c]
         \begin{column}{0.4\linewidth}
             \includegraphics[scale=0.8]{cpb.png}
         \end{column}
         \begin{column}{0.6\linewidth}
             \begin{itemize}
-
                 \item The CPB is a charge qubit implementation where 
                     information is encoded in the occupation of a 
                     superconducting `island'
-
-                \item The CPB has Hamiltonian 
-                    $
-                    \mathscr{H} = 4 E_c \left(N - N_g\right)^2 
-                    - E_J \cos \varphi
-                    $
-                    with N the difference in pair occupation, 
-                    $\varphi$ the gauge-invariant phase difference
-                
             \end{itemize}
         \end{column}
     \end{columns}
-
 \end{frame}
 \begin{frame}
-
     \frametitle{The Transmon}
-
     \begin{columns}[c]
-
-    \begin{column}{0.4\linewidth}
-
+        \begin{column}{0.4\linewidth}
             \begin{block}{}
                 \vspace{-0.5cm}
-    \includegraphics[scale=0.25]{transmon.png}
+                \includegraphics[scale=0.25]{transmon.png}
             \end{block}
-
-    \end{column}
-
-    \begin{column}{0.6\linewidth}
-    
-        \begin{itemize}
-            
-            \item The transmon consists again of a single island, 
-                    coupled by two Josephson junctions with an
-                    additional parallel capacitance. 
-            \item Figure of merit for qubit candidates is level 
-                    anharmonicity. 
-            \item Increasing anharmonicity increases noise.
-            \item The transmon can be operated in a regime where noise 
-                    can be suppressed with small anharmonicity losses. 
-                    
-        \end{itemize}
-
-    \end{column}
-
+        \end{column}
+        \begin{column}{0.6\linewidth}
+            \begin{itemize}
+                \item The transmon consists again of a single island, 
+                        coupled by two Josephson junctions with an
+                        additional parallel capacitance. 
+                \item Figure of merit for qubit candidates is level 
+                        anharmonicity. 
+                \item Increasing anharmonicity increases noise.
+                \item The transmon can be operated in a regime 
+                        where noise can be suppressed with small 
+                        anharmonicity losses. 
+            \end{itemize}
+        \end{column}
     \end{columns}
-
 \end{frame}
 \begin{frame}
-
     \frametitle{Two-Level approximation}
-
     \begin{columns}[c]
-
-        \begin{column}{0.5\linewidth}
-
-            \begin{block}{}
-    \vspace{-.7cm}
-    \includegraphics[scale=0.25, angle=-90, origin=c]{anharmonicity.pdf}
-            \end{block}
-
+        \begin{column}{0.55\linewidth}
+    \includegraphics[scale=0.22, angle=-90, origin=c]{anharmonicity.pdf}
         \end{column}
-        \begin{column}{0.5\linewidth}
-
+        \begin{column}{0.45\linewidth}
             \begin{itemize}
                 \item If we increase the anharmonicity we can 
                         have negligible population of higher levels 
@@ -128,15 +90,11 @@
                 \item This is the Jaynes-Cummings model of 
                         Quantum Optics. 
             \end{itemize}
-
         \end{column}
     \end{columns}
-
 \end{frame}
 \begin{frame}
-
     \frametitle{The Jaynes-Cummings Model}
-
     \begin{center}
         \begin{tikzpicture}[xscale=2]
                 \draw (0, 1) -- (0, 0);
@@ -157,11 +115,9 @@
                 \draw (1.4, 0.6) -- (1.6, 0.6);
         \end{tikzpicture}
     \end{center}
-
     Single cavity mode interacting with two level system in the RWA.
     Add coherent drive, dissipation via cavity loss $\kappa$ \& 
     spontaneous emission rate $\gamma$
-
     \begin{block}{Interaction Hamiltonian}
         $
         \mathscr{H} = \hbar \delta_{cd} a^\dagger a + 
@@ -170,17 +126,38 @@
         \hbar \xi (a + a^\dagger) 
         $
     \end{block}
-
     \begin{block}{Master Equation}
         $
         \dot{\rho_S} = \frac{i}{\hbar} [ \mathscr{H}, \rho_S ] +
         \mathscr{L}_{\gamma} [\rho_S] + \mathscr{L}_{\kappa}[ \rho_S ]
         $
     \end{block}
-
 \end{frame}
 \begin{frame}
-
+    \frametitle{Methods}
+    \begin{columns}[T]
+        \begin{column}{0.5\linewidth}
+            \begin{block}{Meanfield}
+\begin{align}
+&\frac{d \alpha}{dt} = -(\kappa -i \Delta \omega) \alpha-ig \beta\\ 
+&\frac{d \beta}{dt} = i \Delta \omega \beta +ig \alpha \zeta\\ 
+&\frac{d \zeta}{dt} = 2 i g(\alpha^* \beta -\alpha \beta^*)
+\end{align}
+            \end{block}
+        \end{column}
+        \begin{column}{0.5\linewidth}
+            \begin{block}{Master Equation}
+\begin{align} 
+    \mathscr{H} = &\hbar \delta (a^\dagger a + 
+    \sigma_z) + \\ \nonumber
+    &\hbar g ( a \sigma_+ + a^\dagger \sigma_- ) + \\ \nonumber
+    &\hbar \xi (a + a^\dagger) 
+\end{align}
+            \end{block}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}
     \begin{block}{Resonant}
         $
         \delta_{cq} = \delta_{cd}=0
@@ -188,63 +165,22 @@
         \footfullcite{Alsing1990}
         \footfullcite{Carmichael2015}
     \end{block}
-
 \end{frame}
 \begin{frame}
-
     \includepdf{resonant.pdf}
-
 \end{frame}
 \begin{frame}
-
     \begin{block}{Dispersive}
         $
         \gamma \ll \kappa \ll g \ll \delta_{cq} \ll \omega_c
         $
         \footfullcite{Bishop2010}
     \end{block}
-
 \end{frame}
 \begin{frame}
-
-    \frametitle{Effect of the detuned qubit}
-
-    \begin{block}{Exact Hamiltonian}
-
-        $
-        \mathscr{H} = \hbar \delta_{cd} a^\dagger a + 
-        \hbar \delta_{qd}\sigma_+ \sigma_- + 
-        \hbar g ( a \sigma_+ + a^\dagger \sigma_- ) 
-        $
-
-    \end{block}
-    \begin{block}{Dispersive Hamiltonian}
-        we expand in $\frac{g}{\delta_{cq}}$ and transform with 
-        $
-        U = \exp \left \{\frac{g}{\delta_{cq}} 
-            ( a \sigma_+ - a ^ \dagger \sigma_- ) \right \}
-        $
-
-        $ 
-        U\mathscr{H}U ^ \dagger \approx \hbar 
-        \left\{ \omega_c + \frac{g^2}{\delta_{cq}} \sigma_z \right\}
-        a ^ \dagger a + 
-        \frac{\hbar}{2} \left\{ \omega_q + \frac{g^2}{\delta_{cq}} \right\}
-        \sigma_z 
-        $
-    
-    The qubit pulls the cavity frequency (and the cavity the qubit)
-
-    \end{block}
-
-\end{frame}
-\begin{frame}
-
     \frametitle{Why the dispersive regime?}
-
-    \begin{block}{Qubit Readout \& Control}
+    \begin{block}{Qubit Readout \& Control - Quantum Non-demolition}
         \begin{itemize}
-
             \item We can read out the state of the qubit 
                     without destroying it\footfullcite{Blais2004a}. 
             \item In the dispersive regime the qubit pulls the 
@@ -254,48 +190,57 @@
                     in the transmitted photons. 
             \item Driving the qubit can be used to coherently 
                     control the qubit state. 
-
         \end{itemize}
     \end{block}
-
 \end{frame}
 \begin{frame}
-
-    \frametitle{The Duffing Oscillator}
-
-    \begin{columns}[c]
-
-        \begin{column}{0.5\linewidth}
-            \includegraphics[scale=0.5]{leaf.png}
-        \end{column}
-
-        \begin{column}{0.5\linewidth}
-            \includegraphics[scale=0.4]{scurve.png}
-        \end{column}
-
-    \end{columns}
-
-    \begin{block}{}
-        \begin{itemize}
-
-            \item Unlike the Duffing nonlinearity 
-                \footfullcite{Drummond1979},
-                the JC nonlinearity softens with increasing drive
-                \footfullcite{Bishop2010}.
-
-        \end{itemize}
+    \frametitle{Effect of the detuned qubit}
+    \begin{block}{Exact Hamiltonian}
+        $
+        \mathscr{H} = \hbar \delta_{cd} a^\dagger a + 
+        \hbar \delta_{qd}\sigma_+ \sigma_- + 
+        \hbar g ( a \sigma_+ + a^\dagger \sigma_- ) 
+        +\hbar \xi (a+a^\dagger)
+        $
     \end{block}
-
+    \begin{block}{Dispersive Hamiltonian}
+    We unitarily decouple the qubit and cavity 
+    and expand to second order in $\frac{g}{\delta_{cq}}$. Defining 
+    $\chi = \frac{g^2}{\delta_{cq}}$
+    $\mathscr{A}_{JC} = \frac{g^2}{\delta_{cq}^3}$, 
+    and freezing the qubit degree of freedom 
+    $\sigma_z = -1$
+    \begin{align}
+    U\mathscr{H}U ^ \dagger \approx& 
+         \left(\omega_c - \chi\right) a ^ \dagger a
+        + \mathscr{A}_{JC}\left(a^\dagger a\right)^2
+        + \xi/\sqrt{2} ( a + a^\dagger ) \\
+    \mathscr{H}_{duffing} &= \omega_c' a^\dagger a 
+        + \mathscr{A} \left(a^\dagger a\right)^2 
+        + \xi'/\sqrt{2}\left(a+a^\dagger\right)
+    \end{align} 
+    The qubit pulls the cavity frequency. 
+    To second order there is excitation dependent 
+    duffing nonlinearity.
+    \end{block}
 \end{frame}
 \begin{frame}
-
-        \includepdf{dispersive.pdf}
-
+    \begin{center}
+        \includegraphics[scale=0.5]{leaf.png}
+    \end{center}
+    \begin{itemize}
+        \item Unlike the Duffing nonlinearity 
+            \footfullcite{Drummond1979},
+            the nonperturbative JC nonlinearity softens with 
+            increasing drive
+            \footfullcite{Bishop2010}.
+        \item The qubit participates in the system dynamics
+    \end{itemize}
 \end{frame}
 \begin{frame}
-
-    \printbibliography
-
+    \includepdf{dispersive.pdf}
 \end{frame}
-
+\begin{frame}
+    \printbibliography\
+\end{frame}
 \end{document}
