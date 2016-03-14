@@ -1,6 +1,4 @@
-""" a module for defining quantum optical systems.
-Wrap up interesting parameters using the wrapper class and feed them
-to the model, and use available methods on that model object"""
+""" a module for defining quantum optical systems."""
 
 import qutip as qt
 import math as m

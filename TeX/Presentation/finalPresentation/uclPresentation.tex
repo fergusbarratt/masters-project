@@ -1,5 +1,4 @@
 \documentclass{beamer}
-\usefonttheme[onlymath]{serif}
 \usepackage{tikz}
 \usepackage{graphicx}
 \usetheme{metropolis}
@@ -23,30 +22,45 @@
 
 \begin{frame}
 
-    \frametitle{Superconducting QED}         
+    \frametitle{Superconducting circuit QED}         
 
     \begin{itemize}
-        \item Superconducting CQED is a promising paradigm for the implementation of quantum computers. 
+
+        \item CQED is a promising paradigm for the implementation of 
+                quantum computers. 
         \item One critical component is the qubit implementation.
-        \item In sCQED the canonical example is the Josephson junction qubit, which comes in three kinds, charge, flux, and phase.\footfullcite{Makhlin2001} 
+        \item CQED the canonical example is the Josephson junction 
+                qubit, which come in three kinds, charge, flux, and 
+                phase\footfullcite{Makhlin2001}. 
         \item Decoherence is a key problem.
-        \item One suggestion is the \emph{transmon}\footfullcite{Blais2004a} a compound system of Josephson qubits.
+        \item One suggestion is the \emph{transmon}
+                \footfullcite{Blais2004a} 
+                a compound system of Josephson qubits.
+
     \end{itemize}
 
 \end{frame}
 
 \begin{frame}
-
     \frametitle{The Transmon}
+
+    \begin{block}{transmon}
 
     \includegraphics[scale=0.18, angle=-90, origin=c]{transmon.pdf}
     \includegraphics[scale=0.20, angle=-90, origin=c]{anharmonicity.pdf}
 
-    \begin{itemize}
-        \item Figure of merit for qubit candidates is the level anharmonicity 
-        \item Increasing anharmonicity generally increases noise.
-        \item The transmon can be operated in a regime where noise can be suppressed with only small decreases in anharmonicity  
-    \end{itemize}
+    \end{block}
+    \begin{block}
+        \begin{itemize}
+
+            \item Figure of merit for qubit candidates is level 
+                    anharmonicity. 
+            \item Increasing anharmonicity increases noise.
+            \item The transmon can be operated in a regime where noise 
+                    can be suppressed with small anharmonicity losses. 
+                    
+        \end{itemize}
+    \end{block}
 
 \end{frame}
 \begin{frame}
@@ -54,9 +68,11 @@
     \frametitle{Two-Level approximation}
 
     \begin{itemize}
-        \item If we tune the parameters in the problem we can have negligible population of higher levels and an effective qubit.
-        \item We put the transmon in a cavity and couple it to light.
-        \item This situation is well-described by the Jaynes-Cummings model.
+        \item If we increase the anharmonicity we can have negligible 
+                population of higher levels and an effective qubit.
+        \item We put the transmon in a cavity and couple 
+                the preferred mode to light.
+        \item This is the Jaynes-Cummings model of Quantum Optics. 
     \end{itemize}
 
 \end{frame}
@@ -85,14 +101,20 @@
         \end{tikzpicture}
     \end{center}
 
-    Single cavity mode interacting with two level system in the RWA. Add coherent drive, dissipation via cavity loss $\kappa$ \& spontaneous emission rate $\gamma$
+    Single cavity mode interacting with two level system in the RWA.
+    Add coherent drive, dissipation via cavity loss $\kappa$ \& 
+    spontaneous emission rate $\gamma$
 
     \begin{block}{Interaction Hamiltonian}
-        $\mathscr{H} = \hbar \delta_{cd} a^\dagger a + \hbar \delta_{qd}\sigma_+ \sigma_- + \hbar g ( a \sigma_+ + a^\dagger \sigma_- ) + \hbar \xi (a + a^\dagger) $
+        $\mathscr{H} = \hbar \delta_{cd} a^\dagger a + 
+        \hbar \delta_{qd}\sigma_+ \sigma_- + 
+        \hbar g ( a \sigma_+ + a^\dagger \sigma_- ) + 
+        \hbar \xi (a + a^\dagger) $
     \end{block}
 
     \begin{block}{Master Equation}
-        $\dot{\rho_S} = \frac{i}{\hbar} [ \mathscr{H}, \rho_S] + \mathscr{L}_{\gamma} [\rho_S] + \mathscr{L}_{\kappa}[\rho_S]$
+        $\dot{\rho_S} = \frac{i}{\hbar} [ \mathscr{H}, \rho_S] +
+        \mathscr{L}_{\gamma} [\rho_S] + \mathscr{L}_{\kappa}[\rho_S]$
     \end{block}
 
 \end{frame}
@@ -105,9 +127,11 @@
     \end{block}
 
 \end{frame}
+\begin{frame}
 
-\includepdf{resonant.pdf}
+    \includepdf{resonant.pdf}
 
+\end{frame}
 \begin{frame}
 
     \begin{block}{Dispersive}
@@ -117,20 +141,81 @@
 \end{frame}
 \begin{frame}
 
-    \frametitle{The Duffing Oscillator}
+    \frametitle{Effect of the detuned atom}
 
-    \includegraphics[scale=0.4]{leaf.png}
-    \includegraphics[scale=0.4]{scurve.png}
+    \begin{block}{Eigenenergies of the undriven Hamiltonian}
+
+        $\mathscr{E}_{\pm} = (n+1) \hbar \omega_c \pm 
+            \frac{\hbar}{2} \sqrt{4g^2 ( n+1 ) + \delta_{cq}^2}$
+
+    we expand in $\frac{g}{\delta_{cq}}$ and transform with 
+
+        $U = \exp \left \{\frac{g}{\delta_{cq}} 
+            ( a \sigma_+ - a ^ \dagger \sigma_- ) \right \}$
+
+    \end{block}
+
+    \begin{block}{Hamiltonian} 
+
+    $ U\mathscr{H}U ^ \dagger = \hbar 
+    \left\{ \omega_c + \frac{g^2}{\delta_{cq}} \sigma_z \right\}
+    a ^ \dagger a + 
+
+    \frac{\hbar}{2} \left\{ \omega_q + \frac{g^2}{\delta_{cq}} \right\}
+    \sigma_z $
+    
+    The atom pulls the cavity frequency (and the cavity the atom)
+
+    \end{block}
+
+\end{frame}
+\begin{frame}
+
+    \frametitle{QND Qubit Readout}
 
     \begin{itemize}
-        \item Transforming the Jaynes Cummings Hamiltonian, dropping terms suppressed with $\frac{1}{\delta_{cq}}$, and ``freezing'' the qubit leaves an approximation to the quantum Duffing Oscillator.
-        \item Unlike the Duffing nonlinearity \footfullcite{Drummond1979}, the JC nonlinearity closes with increasing drive\footfullcite{Bishop2010}.
+
+        \item We can read out the state of the qubit 
+                without destroying it\footfullcite{Blais2004a}. 
+        \item In the dispersive regime the qubit pulls the 
+                cavity frequency up or down based on its state.
+        \item Irradiating the cavity at what was cavity 
+                resonance encodes the qubit superposition 
+                in the transmitted photons. 
+        \item Irradiating the qubit can be used to coherently 
+                control the qubit state. 
+
     \end{itemize}
 
 \end{frame}
+\begin{frame}
 
-\includepdf{dispersive.pdf}
+    \frametitle{The Duffing Oscillator}
 
-\printbibliography\
+    \begin{block}{dispersive}
+        \begin{columns}[c]
+                \column{5.5cm}
+                \includegraphics[scale=0.4]{leaf.png}
+                \column{5cm}
+                \includegraphics[scale=0.4]{scurve.png}
+        \end{columns]
+    \end{block}
+
+    \begin{itemize}
+        \item Unlike the Duffing nonlinearity 
+            \footfullcite{Drummond1979},
+            the JC nonlinearity closes with increasing drive
+            \footfullcite{Bishop2010}.
+    \end{itemize}
+
+\end{frame}
+\begin{frame}
+
+    \includepdf{dispersive.pdf}
+
+\end{frame}
+\begin{frame}[allowframebreaks]
+    \printbibliography
+\end{frame}
 
 \end{document}
