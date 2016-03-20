@@ -1,15 +1,15 @@
-\documentclass[reprint, aps, prl]{revtex4-1}
+\documentclass[11pt, rmp, reprint, aps, floatfix]{revtex4-1}
 
 %Packages
 \usepackage{amsmath}
 \usepackage{mathrsfs}
 \usepackage{graphicx}
-\usepackage{todonotes}
-\usepackage{graphicx}
 \usepackage{float}
 \usepackage{grffile}
 \usepackage{cleveref}
-\graphicspath{ {../../Images/Thesis/qpFunctions/} {../../Images/Thesis/carmichaelPaper/} {../../Images/Thesis/bishopPaper/} }
+\usepackage{todo}
+% \usepackage{todonotes}
+\graphicspath{ {../../Images/Thesis/Background/} {../../Images/Thesis/Background/qpFunctions/} {../../Images/Thesis/carmichaelPaper/} {../../Images/Thesis/bishopPaper/} }
 
 %Operator,math and QM shorthands
 \newcommand{\ham}{\hat{\mathscr{H}}}
@@ -34,7 +34,7 @@
     \input{Abstract}
 \end{abstract}
 
-\title{Phase Transitions and Bimodality in the Jaynes-Cummings Model}
+\title{Phase Transitions and Bimodality in the Dissipative-Driven Jaynes-Cummings Model}
 \author{Fergus Barratt}
 \affiliation{First Supervisor: Themis Mavrogordatos, Second Supervisor: Marzena Szymanska}
 \date{\today}
@@ -44,9 +44,9 @@
 %------------------------------------------------------------------------
 \input{Background}
 %------------------------------------------------------------------------
-\input{RecentDevelopments}
-%------------------------------------------------------------------------
 \input{Results}
+%------------------------------------------------------------------------
+\input{Appendix}
 
 \bibliography{/Users/fergusbarratt/bibTex/library}\
 

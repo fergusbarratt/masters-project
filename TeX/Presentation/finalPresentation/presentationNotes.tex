@@ -1,4 +1,7 @@
-\documentclass{beamer}
+\documentclass[xetex]{beamer}
+% \setbeameroption{show only notes}
+\usefonttheme[onlymath]{serif}
+\usefonttheme{serif}
 \usepackage{tikz}
 \usepackage{graphicx}
 \usetheme{metropolis}
@@ -9,20 +12,19 @@
 \usepackage[backend=biber, style=science]{biblatex}
 \addbibresource{/Users/fergusbarratt/bibTex/library.bib}
 \graphicspath{ {../../../Images/Presentation/} }
-
-----------------------------------------------------------------------
+%----------------------------------------------------------------------
 \title{The Dissipative-Driven Jaynes-Cummings System}
+\subtitle{The dispersive regime and  circuit QED}
 \date{\today}
 \author{Fergus Barratt}
-----------------------------------------------------------------------
-
-----------------------------------------------------------------------
+%----------------------------------------------------------------------
+%----------------------------------------------------------------------
 \begin{document}
 \setbeamercolor{block title}{bg=}
 \setbeamercolor{block body}{bg=}
 \setbeamercolor{background canvas}{bg=}
 \maketitle
-----------------------------------------------------------------------
+%----------------------------------------------------------------------
 \begin{frame}
     \frametitle{Superconducting circuit QED}         
     \begin{itemize}
@@ -37,8 +39,24 @@
                 \footfullcite{Blais2004a} 
                 a compound system of Josephson qubits.
     \end{itemize}
+    
 \end{frame}
-----------------------------------------------------------------------
+%-------------------------------------------------------------------------
+% Notes
+    \note{
+      \begin{itemize}
+        \item Intro to cavity QED
+        \item DiVincenzo Criterion
+          \begin{enumerate}
+            \item scalable, well characterised qubits
+            \item initialization
+            \item decoherence times longer than gate times
+            \item universal set of gates
+            \item readout
+          \end{enumerate}
+      \end{itemize}
+        }
+%----------------------------------------------------------------------
 \begin{frame}
     \frametitle{Cooper Pair Box (CPB)}
     \begin{columns}[c]
@@ -54,7 +72,16 @@
         \end{column}
     \end{columns}
 \end{frame}
-----------------------------------------------------------------------
+%----------------------------------------------------------------------
+% Notes
+    \note{
+      \begin{itemize}
+        \item Problems  noise, can be operated at sweet spot
+        \item anharmonicity
+        \item 1/f
+      \end{itemize}
+        }
+%----------------------------------------------------------------------
 \begin{frame}
     \frametitle{The Transmon}
     \begin{columns}[c]
@@ -79,7 +106,15 @@
         \end{column}
     \end{columns}
 \end{frame}
-----------------------------------------------------------------------
+%----------------------------------------------------------------------
+% Notes
+    \note{
+      \begin{itemize}
+        \item unbalanced JJs?
+        \item Ej/Ec? Exponential vs Algebraic?
+      \end{itemize}
+        }
+%----------------------------------------------------------------------
 \begin{frame}
     \frametitle{Two-Level approximation}
     \begin{columns}[c]
@@ -99,7 +134,16 @@
         \end{column}
     \end{columns}
 \end{frame}
-----------------------------------------------------------------------
+%----------------------------------------------------------------------
+% Notes
+    \note{
+      \begin{itemize}
+         \item effective two level system
+         \item address only the preferred level with resonant cavity mode
+         \item How do we address the cavity?
+      \end{itemize}
+        }
+%----------------------------------------------------------------------
 \begin{frame}
     \frametitle{The Jaynes-Cummings Model}
     \begin{center}
@@ -140,7 +184,18 @@
         $
     \end{block}
 \end{frame}
-----------------------------------------------------------------------
+%----------------------------------------------------------------------
+% Notes
+    \note{
+      \begin{itemize}
+        \item no hats on operators.
+        \item without cavity g becomes rabi frequency
+        \item L are lindblad dissipators.
+        \item In interaction picture, in the Markow approximation,
+                with RWA, drive is coherent.
+      \end{itemize}
+        }
+%----------------------------------------------------------------------
 \begin{frame}
     \frametitle{Methods}
     \begin{columns}[T]
@@ -165,21 +220,47 @@
         \end{column}
     \end{columns}
 \end{frame}
-----------------------------------------------------------------------
+%----------------------------------------------------------------------
+% Notes
+    \note{
+      \begin{itemize}
+        \item Methods 
+        \item Mean field eqs don't have gamma in them (they should)
+      \end{itemize}
+        }
+%----------------------------------------------------------------------
 \begin{frame}
     \begin{block}{Resonant}
         $
-        \delta_{cq} = \delta_{cd}=0
+        \delta_{cq} = 0 \approx \delta_{cd}
         $
         \footfullcite{Alsing1990}
         \footfullcite{Carmichael2015}
     \end{block}
 \end{frame}
-----------------------------------------------------------------------
+%----------------------------------------------------------------------
+% Notes
+    \note{
+      \begin{itemize}
+        \item cd-det is only close to zero
+        \item Alsing, Carmichael, Savage
+      \end{itemize}
+    }
+%---------------------------------------------------------------------
 \begin{frame}
-    \includepdf{resonant.pdf}
+  \includepdf{resonant.pdf}
 \end{frame}
-----------------------------------------------------------------------
+%---------------------------------------------------------------------
+    % Notes
+    \note{
+      \begin{itemize}
+        \item photon blockade - single photon dresses qubit, shifts
+                resonance.
+        \item Two types of bistability, phase - increasing drive
+                amplitude - increase detuning
+      \end{itemize}
+        }
+%----------------------------------------------------------------------
 \begin{frame}
     \begin{block}{Dispersive}
         $
@@ -188,10 +269,17 @@
         \footfullcite{Bishop2010}
     \end{block}
 \end{frame}
-----------------------------------------------------------------------
+%----------------------------------------------------------------------
+% Notes
+    \note{
+      \begin{itemize}
+        \item Hierarchy of scales 
+      \end{itemize}
+        }
+%----------------------------------------------------------------------
 \begin{frame}
     \frametitle{Why the dispersive regime?}
-    \begin{block}{Qubit Readout \& Control - Quantum Non-demolition}
+    \begin{block}{Qubit Readout \& Control}
         \begin{itemize}
             \item We can read out the state of the qubit 
                     without destroying it\footfullcite{Blais2004a}. 
@@ -205,7 +293,15 @@
         \end{itemize}
     \end{block}
 \end{frame}
-----------------------------------------------------------------------
+%----------------------------------------------------------------------
+% Notes
+    \note{
+      \begin{itemize}
+        \item Readout and Control
+        \item Similar scheme for resonant case
+      \end{itemize}
+        }
+%----------------------------------------------------------------------
 \begin{frame}
     \frametitle{Effect of the detuned qubit}
     \begin{block}{Exact Hamiltonian}
@@ -227,17 +323,53 @@
     U\mathscr{H}U ^ \dagger \approx& 
          \left(\omega_c - \chi\right) a ^ \dagger a
         + \mathscr{A}_{JC}\left(a^\dagger a\right)^2
-        + \xi/\sqrt{2} ( a + a^\dagger ) \\
+        + \xi ( a + a^\dagger ) \\
     \mathscr{H}_{duffing} &= \omega_c' a^\dagger a 
         + \mathscr{A} \left(a^\dagger a\right)^2 
-        + \xi'/\sqrt{2}\left(a+a^\dagger\right)
+        + \xi'\left(a+a^\dagger\right)
     \end{align} 
     The qubit pulls the cavity frequency. 
     To second order there is excitation dependent 
     duffing nonlinearity.
     \end{block}
 \end{frame}
-----------------------------------------------------------------------
+%----------------------------------------------------------------------
+% Notes
+\note{
+    \begin{equation}
+        \mathscr{H} = \omega_c a^ \dagger a
+        + (\omega_c - \Delta)) \sigma_z/2
+        + \xi / \sqrt{2} (a + a ^ \dagger ) \cos( \omega_d t )
+    \end{equation}
+    where
+    \begin{equation}
+        \Delta = \sqrt{\delta_{cq}^2 + 4g^2 N}
+    \end{equation}
+    \begin{equation}
+        \mathscr{H} = (\omega_c
+        - \frac{4g^2\sigma_z}{\delta_{cq}}) a ^ \dagger a
+        + (\omega_q/2 - \frac{2g^2}{\delta_{cq}} (\sigma_z + 1))\sigma_z
+        + \xi/\sqrt{2} (a + a^\dagger)\cos(\omega_d t)
+    \end{equation}
+    \begin{align}
+        \mathscr{H} &= \omega_c a ^ \dagger a
+        + (\omega_q/2) \sigma_z
+        +  \xi/\sqrt{2} (a + a^\dagger) \cos(\omega_d t)\\
+        &- \frac{4g^2}{\delta_{cq}}\left(a^\dagger a 
+        +  \frac{\sigma_z}{2} + \frac{1}{2}\right)\sigma_z\\
+        &- \frac{g^4}{\delta_{cq}^3}\left(
+        \left(a^\dagger a\right)^2
+        + \left(\frac{\sigma_z}{2}\right)^2
+        + \left(\frac{1}{2}\right)^2
+        + \frac{1}{2} \left(
+                        a^\dagger a \sigma_z + \sigma_z a^\dagger a
+                      \right)
+        + a^\dagger a + \frac{\sigma_z}{2}
+        \right)
+        \sigma_z
+    \end{align}
+  }
+%------------------------------------------------------------------------
 \begin{frame}
     \begin{center}
         \includegraphics[scale=0.5]{leaf.png}
@@ -251,13 +383,29 @@
         \item The qubit participates in the system dynamics
     \end{itemize}
 \end{frame}
-----------------------------------------------------------------------
+%----------------------------------------------------------------------
+% Notes
+    \note{
+      \begin{itemize}
+        \item Duffing bistability region gets larger with 
+                increasing drive? 
+      \end{itemize}
+        }
+%----------------------------------------------------------------------
 \begin{frame}
     \includepdf{dispersive.pdf}
 \end{frame}
-----------------------------------------------------------------------
+%----------------------------------------------------------------------
+% Notes
+    \note{
+      \begin{itemize}
+        \item Switching rates
+        \item entanglement
+      \end{itemize}
+        }
+%----------------------------------------------------------------------
 \begin{frame}
     \printbibliography\
 \end{frame}
-----------------------------------------------------------------------
+%----------------------------------------------------------------------
 \end{document}

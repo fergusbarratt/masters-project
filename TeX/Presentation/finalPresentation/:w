@@ -49,7 +49,7 @@
             \begin{itemize}
                 \item The CPB is a charge qubit implementation where 
                     information is encoded in the occupation of a 
-                    superconducting `island'.
+                    superconducting `island'
             \end{itemize}
         \end{column}
     \end{columns}
