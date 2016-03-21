@@ -293,9 +293,15 @@ in the steady state, setting the second derivatives of the quadratures X \& P to
 where
 \begin{equation}
         \chi(A) = \sigma_z \frac{g^2}{\sqrt{2g^2(A^2 + \sigma_z) + \delta^2}}
+        \label{eq:sc_dispersive}
 \end{equation}
-inverting the equation and solving for $\xi$ as a function of $A^2$, we retrieve the amplitude as a function of the detuning and the drive strength. 
-This is plotted as the first pane of fig. dispersive \todo{sort this out}
+inverting the equation and solving for $\xi$ as a function of $A^2$, we plot the contours of constant drive in \cref{fig:sc_dispersive}.
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{DispersiveMeanfieldPhotonNumber.png}
+  \caption{Contours of constant drive solving \cref{eq:sc_dispersive}}
+  \label{fig:sc_dispersive}
+\end{figure}
 
 Areas where the amplitude is not 1-1 (for given drive) indicate the existence of bistability, where the negative gradient intermediate state is metastable, and the system is stable along the upper and lower curves.
 These regions in the quantum case are washed out by switching induced by quantum fluctuations, and the amplitude in the quantum case can be qualitatively expected to 'average out' the bistability and lie between the two stable states on this plot.

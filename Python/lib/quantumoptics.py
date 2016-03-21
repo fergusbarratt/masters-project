@@ -82,6 +82,21 @@ class QuantumOpticsSystem(object):
             arrs[arr[0]] = pad_arr(arr[1], max_len)
         return arrs
 
+    def _c_ops(self):
+        """_c_ops
+        Build list of collapse operators
+        """
+        _c_ops = []
+        if hasattr(self, 'kappa'):
+            c1 = m.sqrt(2 * self.kappa) * self.a
+        if hasattr(self, 'gamma'):
+            c2 = m.sqrt(2 * self.gamma) * self.sm
+        if 'c1' in locals():
+            _c_ops.append(c1)
+        if 'c2' in locals():
+            _c_ops.append(c2)
+        return _c_ops
+
 class SteadyStateSystem(QuantumOpticsSystem):
 
     def __init__(self,
@@ -102,21 +117,6 @@ class SteadyStateSystem(QuantumOpticsSystem):
 
     def _calculate(self):
         self.rhos_ss = self.rhos()
-
-    def _c_ops(self):
-        """c_ops
-        Build list of collapse operators
-        """
-        c_ops = []
-        if hasattr(self, 'kappa'):
-            c1 = m.sqrt(2 * self.kappa) * self.a
-        if hasattr(self, 'gamma'):
-            c2 = m.sqrt(2 * self.gamma) * self.sm
-        if 'c1' in locals():
-            c_ops.append(c1)
-        if 'c2' in locals():
-            c_ops.append(c2)
-        return c_ops
 
     def rhos(self, nslice=None):
         '''rho
@@ -458,8 +458,7 @@ class TimeDependentJaynesCummingsModel(JaynesCummingsSystem):
                  g,
                  N,
                  tlist,
-                 initial_state=None,
-                 noisy=False):
+                 initial_state=None):
 
         super().__init__(drive_range,
                          omega_qubit_range,
@@ -467,8 +466,8 @@ class TimeDependentJaynesCummingsModel(JaynesCummingsSystem):
                          omega_drive_range,
                          c_op_params,
                          g,
-                         N,
-                         noisy)
+                         N)
+
         self.tlist = tlist
         if initial_state is None:
             self.initial_state = qt.tensor(self.idcavity, self.idqubit)
@@ -482,8 +481,11 @@ class TimeDependentJaynesCummingsModel(JaynesCummingsSystem):
         each timestep.
         Defaults to empty.
         """
-        return qt.mesolve(self.hamiltonian(), self.initial_state,
-                          self.tlist, self.c_ops(), exps)
+        return qt.mesolve(self.hamiltonian()[0], 
+                          self.initial_state,
+                          self.tlist, 
+                          self._c_ops(), 
+                          exps)
 
     def mcsolve(self, ntrajs=500, exps=[], initial_state=None):
         """mcsolve
@@ -498,8 +500,8 @@ class TimeDependentJaynesCummingsModel(JaynesCummingsSystem):
             initial_state = qt.tensor(
                     qt.basis(self.N_field_levels, 0), qt.basis(2, 0))
         return qt.mcsolve(
-                self.hamiltonian(), initial_state,
-                self.tlist, self.c_ops(), exps, ntraj=ntrajs)
+                self.hamiltonian()[0], initial_state,
+                self.tlist, self._c_ops(), exps, ntraj=ntrajs)
 
     def trajectory(self, exps=None, initial_state=None, draw=False):
         '''for convenience. Calculates the trajectory of an
@@ -515,7 +517,7 @@ class TimeDependentJaynesCummingsModel(JaynesCummingsSystem):
 
         self.one_traj_soln = qt.mcsolve(
                 self.hamiltonian(), initial_state,
-                self.tlist, self.c_ops(), exps, ntraj=1)
+                self.tlist, self._c_ops(), exps, ntraj=1)
         if self.noisy:
             print(self.one_traj_soln.states[0][2].ptrace(1))
 
@@ -535,27 +537,21 @@ class JaynesCummingsParameters:
     ''' interface to ssjcm class for unpacking parameters and
     reparametrising'''
 
-    def __init__(
-            self,
-            g,
-            N):
-        self.g = g
-        self.N = N
-
     def params(self,
                drives,
                omega_cavities,
                omega_drives,
                omega_qubits,
                c_op_params,
-               ):
+               g,
+               N):
         return (drives,
         omega_qubits,
         omega_cavities,
         omega_drives,
         c_op_params,
-        self.g,
-        self.N)
+        g,
+        N)
 
     def t_d_params(self,
                drives,
@@ -563,14 +559,16 @@ class JaynesCummingsParameters:
                omega_drives,
                omega_qubits,
                c_op_params,
+               g,
+               N,
                tlist):
         return (drives,
         omega_qubits,
         omega_cavities,
         omega_drives,
         c_op_params,
-        self.g,
-        self.N,
+        g,
+        N,
         tlist)
 
     def det_params(self,
@@ -578,9 +576,10 @@ class JaynesCummingsParameters:
                   drive_cavity_detunings,
                   qubit_cavity_detunings,
                   c_op_params,
-                  omega_cavity):
-        # Completely untested
-        # allows setting just drives and detunings.
+                  omega_cavity,
+                  g,
+                  N):
+
         self.drives = drive_strengths
         self.omega_qubits = np.asarray(
      [omega_cavity + qcd for qcd in np.atleast_1d(qubit_cavity_detunings)])
@@ -594,8 +593,8 @@ class JaynesCummingsParameters:
             self.omega_cavities,
             self.omega_drives,
             self.c_op_params,
-            self.g,
-            self.N)
+            g,
+            N)
 
 if __name__ == '__main__':
     main()
