@@ -1,0 +1,130 @@
+%% dispersive results
+\section{Strong Dispersion}
+\begin{figure*}[ht]
+    \label{dispersive}
+    \includegraphics[width=\linewidth]{dispersive.pdf}
+    \caption{(a) Squared intracavity cavity amplitude in the semiclassical approximation. Top and bottom lines represent stable states, centre metastable. (b) Absolute intracavity amplitude, in the quantum regime, with a field Hilbert space truncated at 85 excitations. (c) Difference between factorised and unfactorised correlation functions}
+\end{figure*}
+\subsection{Quantum}
+We now move to the dispersive regime, where the cavity qubit detuning $\delta_{cq}$ is large compared to the other frequencies in the problem. 
+We perform a canonical transformation \cite{Carbonaro1979} of the JC hamiltonian, dropping small terms according to the hierarchy of scales.
+\begin{equation}
+\mathscr{H} = \omega_c \cre \ann + ( \omega_c - \Delta ) \sigma_z /2 + \frac{\chi}{\sqrt{2}} (\ann + \cre ) \cos(\omega_d t)
+\end{equation}
+which is solvable but for $\Delta$, defined
+\begin{equation}
+        \Delta = \sqrt{\delta^2 +4 g ^2 N}
+\end{equation}
+In which the operator $N = a ^ \dagger a + \sigma_z/2 + 1/2$ appears non-trivially. 
+We consider the bad-cavity, strong-dispersive regime, with $g\ll\delta_{cq}$, and perform an expansion in $N/N_{\text{crit}}$, where $N_{\text{crit}}$ is defined below.
+\begin{align}
+    \Delta &= \sqrt{\delta_{cq}^2 + 4g^2 N}\\
+           &= \delta_{cq} \sqrt{1 + \frac{4g^2N}{\delta_{cq}^2}}\\
+           &= \delta_{cq} \sqrt{1 + \frac{N}{N_{\text{crit}}}}\\
+           & \approx \delta \left(
+             1
+             + \frac{1}{2}\frac{N}{N_{\text{crit}}}
+             + (1/8) \frac{N^2}{N^2_{\text{crit}}}
+             \right)
+\end{align}
+where 
+\begin{align}
+    &N = a ^ \dagger a + \sigma_z/2 + 1/2\\
+    &N_{\text{crit}} = \frac{\delta_{cq}^2}{4g^2}
+\end{align}
+The hamiltonian becomes:
+\begin{align}
+    \mathscr{H} &= \omega_c a ^ \dagger a
+    + (\omega_q/2) \sigma_z
+    +  \xi/\sqrt{2} (a + a^\dagger) \cos(\omega_d t)\\
+    &- \frac{4g^2}{\delta_{cq}}\left(a^\dagger a 
+    +  \frac{\sigma_z}{2} + \frac{1}{2}\right)\sigma_z\\
+    &- \frac{g^4}{\delta_{cq}^3}\Big\{
+    \left(a^\dagger a\right)^2
+    + \left(\frac{\sigma_z}{2}\right)^2
+    + \left(\frac{1}{2}\right)^2\\
+    &+ \frac{1}{2} \left(
+                    a^\dagger a \sigma_z + \sigma_z a^\dagger a
+                  \right)
+    + a^\dagger a + \frac{\sigma_z}{2}
+    \Big\} 
+    \sigma_z
+\end{align}
+\subsubsection{First Order}
+At first order in $\frac{N}{N_{\text{crit}}}$ the hamiltonian is:
+\begin{align}
+  \mathscr{H} &= (\omega_c
+    - \frac{4g^2\sigma_z}{\delta_{cq}}) a ^ \dagger a
+    + (\omega_q/2 - \frac{2g^2}{\delta_{cq}} (\sigma_z + 1))\sigma_z\nonumber\\
+    &+ \mathscr{H}_{drive}
+\end{align}
+freezing the qubit $\sigma_z=-1$,
+defining $\chi_{JC} = -1/N_{\text{crit}}$,
+rescaling energy levels by dropping constant terms
+\begin{equation}
+    \mathscr{H} = \left(\omega_c-\chi_{JC}\right) a ^ \dagger a
+    + \xi/\sqrt{2} ( a + a^\dagger ) \cos(\omega_d t)
+\end{equation}
+the bare cavity hamiltonian with a frequency shift
+
+\subsubsection{Second Order in $\frac{N}{N_{\text{crit}}}$}
+defining
+\begin{align}
+    \omega_c^{JC} &= \omega_c - \frac{4g^2}{\delta_{cq}}\\
+    \mathscr{A}_{JC} &= \frac{g^2}{\delta_{cq}^3}
+\end{align}
+\begin{align}
+    \mathscr{H} &= \omega_c^{JC} a ^ \dagger a
+    + \mathscr{A}_{JC}\left(a^\dagger a\right)^2
+    + \xi/\sqrt{2} ( a + a^\dagger ) \cos(\omega_d t)\\
+    \mathscr{H} &= \omega_c' a^\dagger a
+    + \mathscr{A} : a ^ \dagger a a ^ \dagger a :
+    + \xi'/\sqrt{2}(a+a^\dagger)\cos(\omega_d t)\label{duff}
+\end{align}
+compare the driven Duffing model in eq. \ref{duff}
+where $\mathscr{A}$ is the second order dispersion\cite{Drummond1979}
+\subsection{Semiclassical}
+Following \cite{Bishop2010}, we build a semiclassical model.
+Rewriting the hamiltonian in terms of the generalised coordinates
+\begin{align}
+        \mathscr{H} &= \omega_c/1 (X^2 + P^2 + \sigma_z) + \xi X \cos(\omega_d t)\\
+                    & - \sigma_z /2 \sqrt{2g^2(X^2+P^2+\sigma_z) + \delta^2}
+\end{align}
+where the $\delta$ term has been split. We make the semiclassical approximation by treating P and X as numbers, and make the claim that such an assumption holds for all N (intracavity photon number) much greater than $N_{\text{crit}}$, where $N_{\text{crit}}$ is equal to $\frac{\delta^2}{g^2}$.
+From Hamilton's equations for the (semi-) classical Hamiltonian
+\begin{align}
+        \frac{d\mathscr{H}}{dX} &= \frac{dP}{dt}\\
+        \frac{d\mathscr{H}}{dP} &= -\frac{dX}{dt}
+\end{align}
+in the steady state, setting the second derivatives of the quadratures X \& P to zero and solving for the amplitude $A = X^2 + P^2$, we find the amplitude self consistency equation.
+\begin{equation}
+        A^2 = \frac{\omega_d^2\xi}{\{\omega_d^2 - [\omega_c - \chi (A) ]^2 \}^2+ \kappa^2 \omega_d^2}
+\end{equation}
+where
+\begin{equation}
+        \chi(A) = \sigma_z \frac{g^2}{\sqrt{2g^2(A^2 + \sigma_z) + \delta^2}}
+        \label{eq:sc_dispersive}
+\end{equation}
+inverting the equation and solving for $\xi$ as a function of $A^2$, we plot the contours of constant drive in \cref{fig:sc_dispersive}.
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{DispersiveMeanfieldPhotonNumber.png}
+  \caption{Contours of constant drive solving \cref{eq:sc_dispersive}}
+  \label{fig:sc_dispersive}
+\end{figure}
+\begin{figure}
+  \includegraphics[width=\linewidth]{scurve.pdf}  
+  \caption{Semiclassical bistability: drive region}
+\end{figure}
+Areas where the amplitude is not 1-1 (for given drive) indicate the existence of bistability, where the negative gradient intermediate state is metastable, and the system is stable along the upper and lower curves.
+These regions in the quantum case are washed out by switching induced by quantum fluctuations, and the amplitude in the quantum case can be qualitatively expected to 'average out' the bistability and lie between the two stable states on this plot.
+Indeed, this effect is visible in \cref{fig:sc_dispersive}.
+We see more interesting features here too, most notably a dip in the quantum amplitude. The nature of quantum probability means a probability distribution on the mean field curve will show interference effects between paths, here as amplitudes lower than the mean-field stable states.
+
+\subsection{Bistable ``leaf"}
+The drive opens and closes a region of dispersive bistability. By considering the derivatives of detuning with respect to drive, with $\xi$ as a parameter, we can demarcate this onset of bistability, and the draw the region in detuning/drive space in which bistability exists.
+\begin{figure}[ht]
+        \label{BistabilityLeaf}
+        \includegraphics[width=\linewidth]{01:03:2016 - BishopBimodalityLeaf.png}
+        \caption{Edges of the region of dispersive bistability}
+\end{figure}

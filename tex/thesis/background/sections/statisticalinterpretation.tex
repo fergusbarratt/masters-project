@@ -1,0 +1,39 @@
+\section{The Statistical Interpretation of Quantum Mechanics\cite{Breuer2002}}
+Consider a statistical ensemble $\varepsilon$ consisting of a suitably large number N of identically prepared quantum systems
+\begin{equation}
+  \varepsilon = \left\{S^1, S^2, \ldots, S^N\right\}
+\end{equation}
+Such a statistical ensemble represents a particular set of experimental conditions, whose realisation in each instance generates a particular member $S^i$ of  $\varepsilon$
+
+The first postulate of the statistical interpretation of quantum mechanics is that a complete characterisation of such a statistical ensemble can be represented by a normalised state vector $| \psi \rangle$ in an associated Hilbert space $\mathcal{H}$
+
+The second postulate is that all the possible outcomes of measurements on such an ensemble are represented by self-adjoint operators on $\mathcal{H}$.
+The outcome of the measurement corresponding to an operator $\hat{R}$ represents a real valued random variable R with cumulative distribution function $F_{\hat{R}}$ defined via the family of orthogonal projection operators that constitute the spectral decomposition of $\hat{R}$:
+\begin{equation}
+  \hat{R} = \int_{-\infty}^\infty r \dd{E_r}
+\end{equation}
+as
+\begin{equation}
+  F_{\hat{R}} = \expval{E_r}{\psi}
+\end{equation}
+This characterisation of the possible statistical variation of a quantum system is not yet complete, for it neglects classical uncertainty associated with which statistical ensemble $\varepsilon$ represents a given quantum system.
+To generate the most general possible representation of a quantum statistical ensemble, a number of possible quantum ensembles $\varepsilon_\alpha$ of the above type are mixed with weights $w_\alpha$ (these weights are probabilities in the classical, not quantum sense).
+A self-adjoint operator now yields a random variable R with cumulative distribution function
+\begin{equation}
+  F_{\hat{R}} = \sum_\alpha w_\alpha \expval{E_r}{\psi_\alpha} 
+\end{equation}
+for convenience, the \emph{density operator} $\dens$ can be introduced thus
+\begin{equation}
+  \dens = \sum_\alpha w_\alpha \ketbra{\psi_\alpha}{\psi_\alpha}
+\end{equation}
+and the cumulative distribution written:
+\begin{equation}
+  F_{\hat{R}} = \tr(E_r \dens)
+\end{equation}
+by a similar mixing argument and using the spectral decomposition of $\hat{R}$ the mean and variance of the random variable associated with $\hat{R}$ as above are as follows
+\begin{align}
+       \ev{\hat{R}} &= \tr(\hat{R} \dens ) \\
+\text{var}(\hat{R}) &= \ev{\hat{R}^2} - {\ev{\hat{R}}}^2
+\end{align}
+The density matrix constitutes a complete description of the statistical properties of an open quantum system.
+Thus, the dynamics of such a system can be described by the time evolution of its density operator.

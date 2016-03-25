@@ -10,7 +10,7 @@
 \usepackage{todo}
 \usepackage{physics}
 % \usepackage{todonotes}
-\graphicspath{ {../../Images/Thesis/Background/} {../../Images/Thesis/Background/qpFunctions/} {../../Images/Thesis/carmichaelPaper/} {../../Images/Thesis/bishopPaper/} }
+\graphicspath{ {../../images/Thesis/Background/} {../../images/Thesis/Background/qpFunctions/} {../../images/Thesis/carmichaelPaper/} {../../images/Thesis/bishopPaper/} }
 
 %Operator,math and QM shorthands
 \newcommand{\ham}{\hat{\mathscr{H}}}
@@ -28,7 +28,7 @@
 \begin{document}
 
 \begin{abstract}
-    \input{Abstract}
+    \input{other/abstract}
 \end{abstract}
 
 \title{Phase Transitions and Bimodality in the Dissipative-Driven Jaynes-Cummings Model}
@@ -37,13 +37,15 @@
 \date{\today}
 \maketitle
 
-\input{Introduction}
+\input{other/introduction}
 %------------------------------------------------------------------------
-\input{Background}
+\input{background/background}
 %------------------------------------------------------------------------
-\input{Results}
+\input{results/results}
 %------------------------------------------------------------------------
-\input{Appendix}
+\input{other/conclusion}
+\appendix
+\include{other/appendix}
 
 \bibliography{/Users/fergusbarratt/bibTex/library}\
 

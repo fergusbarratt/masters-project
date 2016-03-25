@@ -1,0 +1,57 @@
+\section{Circuit QED}
+Circuit QED (cQED) is a promising paradigm for the implementation of quantum computation, as well as in quantum information and simulation.
+The DiVincenzo Criteria \cite{DiVincenzo} provide a set of requirements for a scalable quantum computer. 
+Of them, the most important in cQED is decoherence. 
+\subsection{cQED qubits}
+There are several scalable well-characterised qubit candidates in superconducting circuits\cite{Makhlin2001}.
+They fall into distinct types based on the quantum degree of freedom they exploit: phase, charge, or flux.
+Here we look at a particular type of charge qubit: the \emph{transmon}.
+\subsection{Cooper Pair Box}
+The transmon is an improvement on the Cooper Pair Box(CPB) qubit.
+In the CPB, a superconducting island is coupled through a Josephson junction and a capacitance to a voltage.
+\begin{figure}[t]
+  \includegraphics[width=\linewidth]{cpb.png}
+  \caption{Schematic of a Cooper Pair Box. Island is demarcated by the dashed line.}
+\end{figure}
+The system is described by the Hamiltonian\cite{Makhlin2001}
+\begin{equation}
+  \mathscr{H} = 4E_C(n-n_g)^2 - E_J \cos \Theta
+\end{equation}
+where n is the number of excess cooper pairs on the island, $\Theta$ the (conjugate) phase of the island superconducting order parameter, $E_J$ is the Josephson energy, $E_C$ the charging energy, and $n_g$ the dimensionless gate charge.
+We can represent this hamiltonian in the charge basis:
+\begin{align}
+  \mathscr{H} &= \sum_n \Bigg\{ 4 E_C (n-n_g) \ketbra{n}{n}\\ 
+              &- \frac{1}{2} E_J \left( \ketbra{n}{n+1} 
+                                       + \ketbra{n+1}{n} \right) \Bigg\}
+\end{align}
+tuning $n_g$, we can select strongly just two states, and cast this hamiltonian into 2 level form.
+\begin{equation}
+  \mathscr{H} = 2E_C ( 1-2n_g ) \sigma_z - E_J \sigma_x 
+\end{equation}
+\subsection{Transmon}
+There are two conflicting goals for an effective qubit. 
+There must be a highly anharmonic level system, where one transition can be strongly addressed in isolation. 
+Noise must be suppressed so that the qubit state can be faithfully read out and controlled. 
+In the Cooper Pair Box, these goals are orthogonal.
+\begin{figure}[t]
+  \includegraphics[width=\linewidth]{anharmonicity.png}
+  \caption{CPB level scheme as a function of the dimensionless gate charge $n_g$ \cite{Koch2007}}
+  \label{anharmonicity}
+\end{figure}
+In \ref{anharmonicity} this behaviour is obvious. 
+For low $\frac{E_J}{E_C}$, The greatest level anharmonicity is achieved by operating the qubit at the half integer charge degeneracy points.
+At this point the gradient is zero and first order fluctuations are suppressed. 
+However, the change in the transition width with small changes in gate charge is great. 
+In contrast, for high $\frac{E_J}{E_C}$ this noise sensitivity disappears, at the cost of a great deal of level anharmonicity.
+The transmon exploits the fact that the decrease of charge noise with increasing $\frac{E_J}{E_C}$ is exponential, while the decrease in anharmonicity is algebraic.
+The transmon is a cooper pair box with an additional shunting capacitance $C_B$, and an additional parallel Josephson junction.
+\begin{figure}[t]
+  \includegraphics[width=\linewidth]{transmon.png}
+  \caption{Schematic of a transmon. Island is highlighted in dark blue\cite{Koch2007}.}
+\end{figure}
+The shunting capacitance changes the noise behaviour of the device significantly.
+While the transmon hamiltonian takes the same form as the CPB system, the additional capacitance suppresses the charging energy $E_C$ relative to the CPB.
+This changed charging energy suppresses system noise at the cost of only a small amount of anharmonicity. 
+
+We take these qualities as those of a qubit, and couple the two level transmon system to a single electromagnetic field mode.
+This is the Jaynes-Cummings system of Quantum Optics.
