@@ -165,6 +165,7 @@ The extension goes
 \begin{equation}
   \dens = \iint_{\alpha, \beta \in \mathscr{D}}P \left( \alpha, \beta \right) \hat{\mathscr{J}} 
           d \mu \left( \alpha, \beta \right)
+          \label{gen_p_rep}
 \end{equation}
 with
 \begin{equation}
@@ -191,9 +192,66 @@ We consider a surface integral over the whole $\alpha$-$\beta$ plane
 \end{equation}
 In this case the distribution is always positive, and always admits an interpretation as a genuine probability. 
 \subsection{Stochastic Processes \& Fokker-Planck Equations}
+\begin{equation}
+  \pdv{t}P(\alpha, \beta) = (\partial_\mu A_\mu (\alpha, \beta) + \frac{1}{2} \partial_\mu \partial_\nu D_{\mu\nu}) P(\alpha, \beta) 
+  \label{fokker_planck}
+\end{equation}
 Here we talk about stochastic processes and Fokker-Planck equations in quantum optics 
  \cite{Carmichael1992} 
  \cite{Carmichael2008} 
  \cite{Breuer2002} 
 \subsection{Application}
-Here we consider a cavity containing a nonlinear medium, driven by a coherent field. \cite{Drummond1979}
+The canonical quantisation of a system consisting of a nonlinear medium inside a cavity leads to a Hamiltonian of the form 
+\begin{equation}
+  \mathscr{H} = \hbar \delta_{cd} \cre \ann + \hbar \chi \cre{}^ 2 \ann{}^ 2 + \hbar \left( \ann \xi(t) + \cre \xi(t)^* \right) 
+\end{equation}
+after moving to a rotating frame at the drive frequency.
+with $\chi$ a function of the third order anharmonicity of the medium and the electric field mode functions, $\delta_{cd}$ the detuning of the drive from the resonant frequency of the cavity, and $\xi(t)$ the time varying drive envelope \cite{Drummond1979}.
+We form a master equation with lindblad dissipators $\mathscr{L}_{\kappa}[\dens]$ and $\mathscr{L}_{\text{therm}}[\dens] = \mathscr{L}_{\bar{n}+1}[\dens] +  \mathscr{L}_{\bar{n}}[\dens]$ representing the dissipation of the cavity field through the mirrors, and interaction with a finite temperature environment with mean photon number $\bar{n}$ respectively.
+\begin{equation}
+  \dot{\dens} = i\hbar\comm{\ham}{\dens} + \mathscr{L}_{\kappa}[\dens] + \mathscr{L}_{\text{therm}}[\dens]
+\end{equation}
+We insert the generalised P representation, defined in \cref{gen_p_rep}.
+\begin{align}
+  \pdv{t} P(\alpha, \beta)  &= \Bigg(\pdv{\alpha} (\kappa \alpha + 2 \chi^* \alpha^2 \beta - \xi(t) )\\ 
+                            &- \chi(t) \pdv[2]{\alpha} \alpha^2\\
+                            &+ \pdv{\beta} (\kappa^* \beta + 2\chi^* \beta^2 \alpha - \xi^*(t))\\
+                            &- \chi^*(t) \pdv[2]{\beta} \beta^2\\
+                            &+ (2(\kappa - i\delta_{cd})\bar{n} + \Gamma_E ) \pdv{}{\alpha}{\beta}\Bigg) P(\alpha, \beta)
+\end{align}
+where we have introduced a term $\Gamma_E$ which accounts for the fluctuation of the drive.
+
+\cite{Haken1975} provides a condition under which exact steady state solutions may be attained. It follows:
+For a Fokker-Planck equation of the standard form \cref{fokker_planck}, the potential
+\begin{equation}
+  V_\rho(\alpha, \beta) = D_{\rho\nu}(\alpha, \beta)^{-1} (2A_\nu(\alpha, \beta) + D_\sigma D_{\nu\sigma}(\alpha, \beta))
+\end{equation}
+must satisfy
+\begin{equation}
+  \partial_\mu V_\nu = \partial_\nu V_\mu
+\end{equation}
+In our case one can verify that the condition is satisfied in the limit $\Gamma = 2(\kappa - i\delta{cd})\bar{n} + \Gamma_E \ll \abs{\chi( \bar{n} + \bar{n}_{\text{cav}} )}$, where $\bar{n}_{\text{cav}}$ is the average photon number in the cavity.
+
+In this limit we can neglect $\Gamma$, the off-diagonal elements of the diffusion matrix for the fokker-planck equation.
+The diffusion matrix thus becomes positive-definite, and we have for the drift A and diffusion D
+\begin{align}
+  A  &= \begin{pmatrix}
+  \mqty{(\kappa - i\delta_{cd})\alpha + 2\chi\alpha^2 \beta - \xi(0)\\ (\kappa - i\delta_{cd})\alpha + 2\chi^* \beta^2 \alpha - \xi^*(0)}
+       \end{pmatrix}\\
+  D  &= \begin{pmatrix}
+       \mqty{-2\chi\alpha^2 & 0 \\ 0 & -2 \chi^* \beta^2 }
+       \end{pmatrix}
+\end{align}
+from which the potential condition can be easily verified. 
+From here, \cite{Haken1975} gives a prescription for evaluating the P function from the potential
+\begin{equation}
+  P(\alpha, \beta) = \exp \left( - \int^\alpha \int^\beta \dd{\beta}\dd{\alpha} V_\mu (\alpha, \beta) \right)
+\end{equation}
+for our parameters, the solution is 
+\begin{equation}
+  P(\alpha, \beta) = \alpha^{\frac{\kappa-i\delta_{cd}}{\chi}-2} \beta^{{\left[\frac{\kappa-i\delta_{cd}}{\chi}\right]}^*-2}\exp{\frac{\xi(0)}{\chi}\left(\frac{1}{\alpha} + \frac{1}{\beta}\right) + 2\alpha\beta}
+\end{equation}
+\subsubsection{Moments}
+The generalised P function has normal ordered expectation values as its moments, just as the diagonal representation.
+On the diagonal integration domain (i.e. $\ket{\alpha} \text{for } \alpha \in \mathbb{C}$) with the diagonal measure setting $\beta = \alpha^*$, there is a term in $\exp{\alpha\beta} = \exp{\abs{\alpha}^2}$ for which the integral on the domain is divergent.
+We take instead the complex measure, on two different contours.
