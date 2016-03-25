@@ -1,14 +1,8 @@
 \section{Methods}
-\subsection{Numerical}
-Truncating the master equation density matrix Fock state expansion produces a finite set of coupled differential equations for the components, from which for low photon occupation expectation values in full quantum generality can be generated to high accuracy.
-This method does however scale poorly in the system size (the number of elements in the density matrix $\propto N^2$, where N is the dimension of the system Hilbert space.
-The method of quantum trajectories scales much better \cite{Molmer1993} $\propto N$ by considering the wavefunction stochastically).
-Setting the time derivatives to zero here yields a matrix equation, which given the positive definiteness and hermiticity conditions on the density matrix yields to a Cholesky solver \cite{Press1992}.
-We use the Matlab and Python solvers as exposed by QuTiP \cite{Johansson2013a} and qotoolbox \cite{Tan}. For the time dependent solutions, we also use fourth order runge-kutta methods provided in both libaries.
 \subsection{Analytical}
-We consider the extent to which quantum fluctuations affect the dynamics by deriving an effective mean-field theory.
+We consider the extent to which quantum fluctuations affect dynamics by deriving an effective mean-field theory.
 
-Taking expectation values $\langle \dot{O} \rangle = tr\{\dot{\rho} O \}$ of the operators $a, \atann, \sigma_z$ we obtain
+Taking expectation values $\langle \dot{O} \rangle = \tr\{\dot{\rho} O \}$ of the operators $a, \atann, \sigma_z$ we obtain
 \begin{align}
   \langle \dot{\ann} \rangle & = i(-\delta_{qd}\langle a \rangle - ig \langle \atann \rangle -i\Epsilon) -\kappa \langle a \rangle \\
   \langle \dot{\sigma_-} \rangle & = i(-\delta_{ad}\atann - ig \langle a \sigma_z \rangle) - \gamma \langle \atann \rangle \\
@@ -51,6 +45,9 @@ and
 \begin{equation}
   \Delta E_l = -\frac{\hbar g}{2 \sqrt{n}}
 \end{equation}
-\subsection{Optical Bistability \& The Duffing Oscillator}
-\cite{Agrawal1979}
-
+\subsection{Numerical}
+Truncating the master equation density matrix Fock state expansion produces a finite set of coupled differential equations for the components, from which for low photon occupation expectation values in full quantum generality can be generated to high accuracy.
+This method does however scale poorly in the system size (the number of elements in the density matrix $\propto N^2$, where N is the dimension of the system Hilbert space.
+The method of quantum trajectories scales much better \cite{Molmer1993} $\propto N$ by considering the wavefunction stochastically).
+Setting the time derivatives to zero here yields a matrix equation, which given the positive definiteness and hermiticity conditions on the density matrix yields to a Cholesky solver \cite{Press1992}.
+We use the Matlab and Python solvers as exposed by QuTiP \cite{Johansson2013a} and qotoolbox \cite{Tan}. For the time dependent solutions, we also use fourth order runge-kutta methods provided in both libaries.
