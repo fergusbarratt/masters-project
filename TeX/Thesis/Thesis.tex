@@ -1,10 +1,12 @@
-\documentclass[11pt, rmp, reprint, aps, floatfix]{revtex4-1}
+\documentclass[11pt, prl, reprint, aps, floatfix]{revtex4-1}
 
 %Packages
 \usepackage{amsmath}
 \usepackage{mathrsfs}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{tikz}
+\usepackage{standalone}
 \usepackage{grffile}
 \usepackage{cleveref}
 \usepackage{todo}
@@ -26,6 +28,7 @@
 \newcommand{\Epsilon}{\mathcal{E}}
 \newcommand{\gpr}{\iint_{\alpha, \beta \in \mathscr{D}}P \left( \alpha, \beta \right) \hat{\mathscr{J}} \dd{\mu}(\alpha, \beta)} 
 \newcommand{\lindblad}[2]{\mathscr{L}_{#1}[#2]}
+\newcommand{\hres}[1]{\hat{R}^\dagger(#1) \hat{S} +\hat{S}^\dagger \hat{R}(#1)}
 
 \begin{document}
 

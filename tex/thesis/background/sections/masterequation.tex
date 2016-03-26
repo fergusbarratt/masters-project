@@ -30,19 +30,25 @@ which, when differentiated with respect to time yields the \emph{Liouville-Von N
 For open quantum systems, i.e. those coupled to other systems, the dynamics are in general not unitary. 
 Mathematically, we partition a larger, unitarily evolved system into system and environment, and perform a partial trace over the environment degrees of freedom.
 
-We start with the Hamiltonian for a closed, potentially mixed, potentially time dependent quantum system and partition it into components representing: a subsystem constituting the totality of the interesting dynamics: the \emph{system}, a subsystem representing the dynamics of the remaining subsystem the \emph{environment} or \emph{reservoir}, and a component representing the interaction between system and environment (there is an associated partitioning of the Hilbert space into the tensor product of system and environment Hilbert spaces, and in the equation below it is understood that operators with the subscript S operate only on the system degrees of freedom i.e. exist in the system Hilbert space and represent identity in the environment Hilbert space, and etc.)
+We start with the Hamiltonian for a closed, potentially mixed quantum system and partition it into components representing: a subsystem constituting the totality of the interesting dynamics: the \emph{system}, a subsystem representing the dynamics of the remaining degrees of freedom the \emph{environment} or \emph{reservoir}, and a component representing the interaction between system and environment (there is an associated partitioning of the Hilbert space into the tensor product of system and environment Hilbert spaces, and in the equation below it is understood that operators with the subscript S operate only on the system degrees of freedom i.e. exist in the system Hilbert space and represent identity in the environment Hilbert space, and etc.)
 \begin{equation}
 	\ham = \ham_S +\ham_R + \ham_I
 \end{equation}
-The partial trace operation is an operator-valued function that takes a operator on a larger Hilbert space and discards its action on all but a smaller Hilbert space, colloquially ``tracing over'' the degrees of freedom of the discarded subsystem to leave the operator on a smaller subsystem.
-
-Unitarily evolving the large system, and performing the partial trace
+The partial trace operation is an operator-valued function that takes a operator on a larger Hilbert space and discards its action on all but a smaller Hilbert space, colloquially ``tracing over'' the degrees of freedom of the discarded subsystem to leave the operator defined on the smaller subsystem.
+It is defined 
+\begin{equation}
+  \tr{\hat{O}} = \sum_\sigma\ev{\hat{O}}{\sigma}
+  \label{trace}
+\end{equation}
+where $\{\ket{\sigma}\}_{\sigma \in I}$ is a basis of the discarded space.
+Unitarily evolving the large system, and performing the partial trace over the environment.
 \begin{equation}
 	\dens_S (t) = tr_E \{U(t, 0) \dens (0) U^\dagger (t, 0) \}
 \end{equation}
 with $\dens_S = tr_E\{\dens \}$ we arrive at the most general form for evolution of a subsystem, also known as the reduced master equation
 \begin{equation}
 	\frac{d}{dt} \rho_S (t) = -itr_E\{[\ham(t), \dens_S(t)]\}
+        \label{general}
 \end{equation}
 Which is presented here in full generality. We now consider solvable approximations, and alternative conceptualisations.
 \subsection{Quantum Measurements}
@@ -136,21 +142,21 @@ This process admits a clear interpretation.
 The nonunitary time evolution of a system corresponds to a countable series of measurement steps, where the system is non-orthogonally projected at each time step by the POVM consisting of the Kraus operators that give its time evolution.
 
 \subsection{Quantum Dynamical Semigroups}
-Markovian processes are colloquially ``memoryless'', a classical example being Brownian Motion.
-Whilst the operator-sum representation can represent a more general time-evolution, most analytically solvable situations invoke what is known as the markov approximation.
-Here we derive the master equation in the Markov approximation via the theory of Dynamical Semigroups, and in a microscopic formulation
+Markowian processes are colloquially ``memoryless'', a classical example being Brownian Motion.
+Whilst the operator-sum representation can represent a more general time-evolution, most analytically solvable situations invoke what is known as the markow approximation.
+Here we derive the master equation in the Markow approximation via the theory of Dynamical Semigroups, and in a microscopic formulation
 
-\subsubsection{Markov Processes}
-Classical Markov processes are characterised by the invocation of the so-called semigroup property of the Chapman-Kolmogorov equation.
-The Markov transition probabilities $T(x, t|x', t')$ form a one parameter semigroup in t, because of the composition property $T(x, t|x, t')T(x, t'|x, t``) = T(x, t|,x, t``)$ which results from the conditions that memorylessness puts on their form.
-This memorylessness is also responsible for this being a \emph{semi}group, since there does not in general exist an inverse for each element-there exist irreversible Markov processes.
+\subsubsection{Markow Processes}
+Classical Markow processes are characterised by the invocation of the so-called semigroup property of the Chapman-Kolmogorov equation.
+The Markow transition probabilities $T(x, t|x', t')$ form a one parameter semigroup in t, because of the composition property $T(x, t|x, t')T(x, t'|x, t``) = T(x, t|,x, t``)$ which results from the conditions that memorylessness puts on their form.
+This memorylessness is also responsible for this being a \emph{semi}group, since there does not in general exist an inverse for each element-there exist irreversible Markow processes.
 
 This semigroup is in fact a "contracting" semigroup, in that the norm of a propagated probability is less than or equal to the probability.
 
-The generalisation of Markov processes to quantum mechanics analagously leads to the theory of \emph{quantum dynamical semigroups}
+The generalisation of Markow processes to quantum mechanics analagously leads to the theory of \emph{quantum dynamical semigroups}
 
 \subsubsection{Lindblad Form}
-The most general form \cite[119--122]{Breuer2002} for the reduced master equation in the Markov approximation is known as the \emph{Lindblad Form}
+The most general form \cite[119--122]{Breuer2002} for the reduced master equation in the Markow approximation is known as the \emph{Lindblad Form}
 \begin{align}
         \frac{d}{dt} \rho_S (t) =& -i[\ham (t), \dens (t)\notag]\\
                                  & + \sum_{k=1}^{N^2-1} \gamma_k \{ \hat{A}_k \dens_S \hat{A}_k -\frac{1}{2}  \hat{A}_k \dens_S \hat{A}_k -\frac{1}{2} \dens_S \hat{A}_k \hat{A}_k \}\\
@@ -158,6 +164,101 @@ The most general form \cite[119--122]{Breuer2002} for the reduced master equatio
 \end{align}
 with ${\{A_k\}}_{k \in I}$ some indexed complete orthonormal basis of operators on the system Hilbert space
 
-\subsection{The Quantum Optical Master Equation} \cite{Breuer2002} \cite{Walls2008}
-Here we give a microscopic derivation of the Markov approximation as used in Quantum Optics.
+\subsection{The Master Equation in Quantum Optics}
+We start with the most general form for the reduced master equation \cref{general}
+\begin{equation}
+	\frac{d}{dt} \rho_S (t) = -itr_E\{[\ham(t), \dens_S(t)]\}
+\end{equation}
+with the hamiltonian of the form 
+\begin{equation}
+  \ham = \ham_S + \ham_R + \ham_{I}
+\end{equation}
+We assume that the interaction hamiltonian will take the form of a bilinear product of system and reservoir operators\footnote{This form effectively represents decay via one channel. For decay via multiple channels, the derivation proceeds identically with a sum of reservoir operators of this form, provided that the different reservoir operators commute.}
+\begin{equation}
+  \ham_{I} = \hat{S}\hat{R}^\dagger (t)+ \hat{R}(t)\hat{S}^\dagger
+\end{equation}
+We have moved to the interaction picture, and expressed the time dependence of the operator only in the reservoir components.
+We make three assumptions about the form of the reservoir, collectively termed the \emph{Born-Markow Approximation}
+\begin{enumerate}
+  \item The reservoir is unaffected by the dynamics of the system.
+    \begin{itemize}
+      \item We take the reservoir state to be time independent.
+    \end{itemize}
+  \item The reservoir has a short correlation time (equivalently, a broad bandwidth).
+    \begin{itemize}
+      \item For $\tau_s$ a timescale characterising system dynamics, and $\tau_c$ the correlation time of the reservoir, we require $\tau_s \gg \tau_c$
+      \item The dynamics of the reservoir are Markowian.
+    \end{itemize}
+  \item The system and reservoir remain effectively unentangled as far as the system dynamics are concerned.
+    \begin{itemize}
+      \item Specifically, we assume 
+        \begin{align*}
+          &\dens(t) = \rho_S(t)  \otimes \rho_R(t) + \rho_{\text{er}}\quad \forall t,\\
+          &\\
+          &\text{where}\\
+          &\rho_{er} \rightarrow 0 \text{ as } \frac{\Delta t}{\tau_s} \rightarrow 0
+        \end{align*}
+      \item This is an interpretation of assumptions (1) and (2)
+    \end{itemize}
+\end{enumerate}
+We perform a coarse graining of the timescales, and discard dynamics on scales $<\Delta t$, where $\tau_c \ll \Delta t \ll \tau_s$
+Formally integrating \cref{general}
+\begin{equation}
+  \dens(t+\Delta t) - \dens(t) = -i \int_t^{t+\Delta t} \dd{t'} \comm{\ham_{I}(t')}{\dens(t')}
+  \label{integrodifferential}
+\end{equation}
+We expand $\dens(t')$ around $t$, since from the limits on the integral $t-t'<\Delta t$
+\begin{equation}
+  \dens(t') \approx \dens(t) - i\int^{t'}_t\dd{t''}\comm{\ham_I(t)}{\dens(t'')}
+\end{equation}
+and insert into \cref{integrodifferential}
+\begin{align*}
+  \dd{\dens} &= -i\int_t^{t+\Delta t} \dd{t'} \comm{\ham_I(t')}{\dens(t) - i\int^{t'}_t\dd{t''}\comm{\ham_I(t)}{\dens(t'')}}\\
+  \dd{\dens} &= -i\int_t^{t+\Delta t} \dd{t'} \comm{\ham_I(t')}{\dens(t)}\\
+             &+   \int_t^{t+\Delta t} \int_t^{t'} \dd{t'}\dd{t''} \comm{\ham_I(t')}{\comm{\ham_I(t'')}{\dens(t'')}}\\
+             &= \mathscr{I}_1 + \mathscr{I}_2
+\end{align*}
+We use the separability assumption, and perform the environment partial trace to simplify $\mathscr{I}_1$
+\begin{align*}
+  \mathscr{I}_1&= -i \int_t^{t+\Delta t} \dd{t'} \tr_E \comm{\hat{S}\hat{R}^\dagger (t')+\hat{R}(t')\hat{S}^\dagger}{\dens_S(t) \otimes \dens_R(t)}\\
+               &= -i \int_t^{t+\Delta t} \dd{t'} \Bigg\{\comm{\hat{S}}{\rho_S(t)} \otimes \ev{\hat{R}^\dagger (t')} \\
+               &\qquad \qquad \qquad \ \ - \comm{\hat{S}^\dagger}{\rho_S(t)} \otimes \ev{\hat{R}(t')}\Bigg\}\\
+               &=-i \int^{t+\Delta t}_t \dd{t'} \comm{\ham_{av}(t')}{\dens_S(t)}
+\end{align*}
+where
+\begin{equation}
+  \ham_{av} = \hat{S} \ev{\hat{R}^\dagger (t')} + \hat{S}^\dagger \ev{\hat{R}(t')}
+\end{equation}
+The average of the reservoir operator over system time scales is effectively constant, by the first assumption, and the integral is trivial. 
+If we further have a stationary reservoir fluctuation distribution, the first term vanishes altogether.
+Otherwise, it contributes some amount to the normal hamiltonian evolution, with modified hamiltonian $\ham = \ham + \ham_{av}$
 
+For the second term we expand the form of the interaction hamiltonian
+\begin{align*}
+  \mathscr{I}_2 &= -i\int_t^{t+\Delta t} \int_t^{t+\Delta t} \dd{t'} \dd{t''} \comm{\ham_I}{\comm{\ham_I}{\dens(t'')}}\\
+                &= -i\int_t^{t+\Delta t} \int_t^{t+\Delta t} \dd{t'} \dd{t''} \\
+                &\comm{\hres{t'}}{\comm{\hres{t''}}{\dens(t'')}}
+\end{align*}
+expanding out the commutator, and factorising the density operator, it is clear that the result will contain terms of the form $\tr{\hat{R}(t')\hat{R}(t'')\dens} = \ev{\hat{R}^\dagger(t') \hat{R}(t'')}$. Defining 
+\begin{align}
+  C^{--} &= \ev{\hat{R}(t') \hat{R}(t'')}\\
+  C^{+-} &= \ev{\hat{R}^\dagger(t') \hat{R}(t'')}\\
+  C^{-+} &= \ev{\hat{R}(t') \hat{R}^\dagger(t'')}\\
+  C^{++} &= \ev{\hat{R}^\dagger(t') \hat{R}^\dagger(t'')}
+\end{align}
+The expanded integral
+\begin{align}
+  \mathscr{I}_2 =  &-i\int_t^{t+\Delta t} \int_t^{t+\Delta t} \dd{t'}\dd{t''} \Bigg\{\\
+                   &C^{--}\Big(\hat{S}^\dagger \hat{S} \dagger \dens_S(t) - \hat{S}^\dagger \dens_S(t) \hat{S}^\dagger \Big)\\
+                   &C^{+-}\Big(\hat{S}^\dagger \hat{S} \dens_S(t) - \hat{S}^\dagger \dens_S(t) \hat{S} \Big)\\
+                   &C^{-+}\Big(\hat{S} \hat{S}^\dagger \dens_S(t) - \hat{S} \dens_S(t) \hat{S}^\dagger \Big)\\
+                   &C^{++}\Big(\hat{S} \hat{S} \dens_S(t) - \hat{S} \dens_S(t) \hat{S} \Big) \Bigg\}
+\end{align}
+For the interaction with the electromagnetic vacuum, we have $\hat{R} = \ann_j,\ j\ \in\ \mathbb{N}$, for which $C^{++}=C^{--}=0$ and $C^{+-}=C^{-+}+1$.
+To recover the Lindblad form, we perform the Wigner-Weisskopf approximation, as in i.e. \cite{Meystre2007} to perform the integral, and take the reservoir as a set of independent harmonic oscillators.
+\begin{align}
+  \dv{\dens_S}{t} &= \quad \ \ -\frac{\gamma}{2} \bar{n}(\omega) \left(\hat{S}\hat{S}^\dagger\dens_S - \hat{S}^\dagger \dens_S \hat{S}\right) + h.c. \\
+                  &- \frac{\gamma}{2} (\bar{n}(\omega) + 1) \left(\hat{S}^\dagger\hat{S}\dens_S - \hat{S} \dens_S \hat{S}^\dagger\right) + h.c.
+\end{align} 
+Where $\bar{n}(\omega)$ s the thermal occupation of the reservoir at frequency $\omega$. 
+It can be seen that this time evolution is trace-preserving \cite{Lukin2006}.

@@ -24,9 +24,9 @@ An operator ordering is \emph{normal} if in all products of annihilation and cre
 \begin{equation}
 	\dens = \int P(\alpha) | \alpha \rangle \langle \alpha | d^2 \alpha
 	\end{equation}
-where $d^2 \alpha = dRe\{\alpha \}dIm\{\alpha \}$, is used for evaluating expectations of normally ordered power series:
+        where $\dd[2]{\alpha} = \dd{Re\{\alpha \}}\dd{Im\{\alpha \}}$, is used for evaluating expectations of normally ordered power series:
 \begin{equation}
-	\langle \hat{a}^{\dagger n} \hat{a}^{m}  \rangle = \int \alpha^n \alpha^m P (\alpha, \alpha^*) d^2 \alpha
+  \langle \hat{a}^{\dagger n} \hat{a}^{m}  \rangle = \int \alpha^n \alpha^m P (\alpha, \alpha^*) \dd[2]{\alpha}
 \end{equation}
 P ($\alpha$) does not in general admit an interpretation as a classical probability distribution.
 However, the transition between quantum and classical systems is most clearly visible in the P representation; any system with a classical analogue (a coherent state, a chaotic state) has a non-negative, classically interpretable P function, and any with no classical analogue (Fock states, or states exhibiting squeezing, antibunching) will have a P function which is either negative or more singular than delta function.
@@ -53,7 +53,7 @@ It is also bounded above
 \end{equation}
 Antinormally ordered expectation values can be evaluated as follows:
 \begin{equation}
-	\langle \hat{a}^n \hat{a}^{\dagger m}  \rangle = \int \alpha^n \alpha^m Q (\alpha, \alpha^*) d^2 \alpha
+  \langle \hat{a}^n \hat{a}^{\dagger m}  \rangle = \int \alpha^n \alpha^m Q (\alpha, \alpha^*) \dd[2]{\alpha}
 \end{equation}
 The Q function exists for states which admit no P representation, and unlike the P or W function is always positive.
 It does not however always lead to a Fokker-Planck equation with a positive-definite diffusion matrix. 
@@ -63,7 +63,7 @@ True probability distributions for generalised position and momentum are only po
 This is fundamental principle of quantum mechanics.
 A joint statistical treatment is however available through the Wigner quasi-probability distribution
 \begin{equation}
-	W(X_1, X_2) = \frac{1}{4 \pi} \int_{-\infty}^\infty dX e^{\frac{-iXX_2}{2}} \bra{X_1+X} \dens \ket{X_1-X}
+  W(X_1, X_2) = \frac{1}{4 \pi} \int_{-\infty}^\infty \dd{X} e^{\frac{-iXX_2}{2}} \bra{X_1+X} \dens \ket{X_1-X}
 \end{equation}
 Expressed in terms of the generalised position and momentum in quantum optics: the field quadratures defined $\alpha = X_1 + iX_2$.
 Integrating over either quadrature yields the true probability distribution in the other quadrature.
@@ -164,7 +164,7 @@ This formalism is due to \cite{Drummond1980}.
 The extension goes 
 \begin{equation}
   \dens = \iint_{\alpha, \beta \in \mathscr{D}}P \left( \alpha, \beta \right) \hat{\mathscr{J}} 
-          d \mu \left( \alpha, \beta \right)
+  \dd{\mu \left( \alpha, \beta \right)}
           \label{gen_p_rep}
 \end{equation}
 with
@@ -181,14 +181,14 @@ $\alpha$ and $\beta = \alpha^*$ now take values on a two-dimensional subset of t
 \subsubsection{Complex}
 Letting $\beta, \alpha$ vary independently on two different complex contours $\mathscr{C}, \mathscr{C}'$, and taking as measure
 \begin{equation}
-  d\mu\left(\alpha, \beta\right) = d\alpha d\beta
+  d\mu\left(\alpha, \beta\right) = \dd{\alpha} \dd{\beta}
 \end{equation}
 The corresponding P function can take complex values.
 This representation has been used to derive the photon number distribution of a cavity containing a nonlinear medium \cite{Drummond1979}.
 \subsubsection{Positive}
 We consider a surface integral over the whole $\alpha$-$\beta$ plane
 \begin{equation}
-  d \mu(\alpha, \beta) = d^2 \alpha d^2 \beta
+  d \mu(\alpha, \beta) = \dd[2]{\alpha} \dd[2]{\beta}
 \end{equation}
 In this case the distribution is always positive, and always admits an interpretation as a genuine probability. 
 \subsection{Stochastic Processes \& Fokker-Planck Equations}
@@ -255,3 +255,45 @@ for our parameters, the solution is
 The generalised P function has normal ordered expectation values as its moments, just as the diagonal representation.
 On the diagonal integration domain (i.e. $\ket{\alpha} \text{for } \alpha \in \mathbb{C}$) with the diagonal measure setting $\beta = \alpha^*$, there is a term in $\exp{\alpha\beta} = \exp{\abs{\alpha}^2}$ for which the integral on the domain is divergent.
 We take instead the complex measure, on two different contours.
+The moments of the distribution are the same as the normalisation integral but for the $\alpha$ and $\beta$ exponents.
+We take a function with general exponents $c = (\kappa-i\delta_{cd}) / \chi + k $, $d = ((\kappa-i\delta_{cd}) /\chi)^*+q$, where $k, q \in \mathbb{N}$, and make the variable change $\gamma = \flatfrac{1}{\alpha}, \varphi = \flatfrac{1}{\beta}$
+\begin{align*}
+  P(\gamma, \varphi) &= \gamma^{-c-2} \varphi^{-d-2} \exp{\frac{1}{\gamma\varphi}} \exp{\frac{\xi(0)}{\chi}\left(\gamma + \varphi \right)}\\
+                     &= \sum_{n=0}^\infty\flatfrac{\left(\frac{1}{\gamma\varphi}\right)^n}{n!} \times \gamma^{-c-2}\varphi^{-d-2} \exp{\frac{\xi(0)}{\chi}(\gamma+\varphi)}\\
+                     &= \sum_{n=0}^\infty\flatfrac{2^n \gamma^{-c-2-n}\varphi^{-d-2-n} \exp{\frac{\xi(0)}{\chi}(\gamma+ \varphi)}}{n!}
+\end{align*}
+Integrating on contours $\mathscr{C}, \mathscr{C'}$
+\begin{align*}
+  I(c, d) = \iint_{\mathscr{C}, \mathscr{C}'} \dd{\gamma}\dd{\varphi} P(\gamma, \varphi) &= \sum_{n=0}^\infty\frac{1}{n!} \int_\mathscr{C} \dd{\gamma} \gamma^{-c-n} \exp{\frac{\xi(0)}{\chi}\gamma} \\ 
+                                                                                 & \qquad \ \ \times \int_{\mathscr{C}'}\dd{\varphi} \varphi^{-d-n} \exp{\frac{\xi(0)}{\chi}\varphi}
+\end{align*}
+We take for the contours Hankel paths from $-\infty$ to $-\infty$, anticlockwise, enclosing the origin \cite{Drummond1979}. 
+We have then gamma functions as in \cite{TISP}.
+\begin{equation}
+     \frac{1}{\Gamma(x)} = \left(\frac{t^{1-x}}{2\pi i}\right) \int_{\mathscr{C}} \dd{\eta}\eta^{-x} \exp{\eta x}
+\end{equation}
+thus
+\begin{equation}
+  I(c, d) = -4\pi^2 \sum_{n=0}^\infty \frac{2^n \{\flatfrac{\xi(0)}{\chi}\}^{c+d+2(n-1)}}{\Gamma(c+n)\Gamma(d+n)n!}
+\end{equation}
+using the form of the $_0F_2$ generalized hypergeometric function \cite{Slater1966} \cite{TISP}
+\begin{equation}
+  _0F_2(c, d, z) = \sum_{n=0}^\infty \left( \frac{ z^n \Gamma(c) \Gamma(d)}{\Gamma(c+n)\Gamma(d+n)n!} \right)
+\end{equation}
+we have 
+\begin{equation}
+  I(c, d) = \left( \frac{4\pi^2 \abs{\frac{\xi(0)}{\chi}}^{c+d-2}}{\Gamma(c)\Gamma(d)} \right) {}_0F_2 \left(c, d, 2\abs{\frac{\xi(0)}{\chi}}^2\right)
+\end{equation}
+Which gives expressions for all normally ordered moments 
+\begin{equation}
+  \ev{\cre{}^n \ann^m} = \displaystyle \frac{\displaystyle I\left(\frac{\kappa-i\delta_{cd}}{\chi}+n, \frac{\kappa+i\delta_{cd}}{\chi}+m\right)}{\displaystyle I\left(\frac{\kappa-i\delta_{cd}}{\chi}, \frac{\kappa+i\delta_{cd}}{\chi}\right)}
+\end{equation}
+particularly:
+\begin{widetext}
+  \begin{align}
+    &\text{The cavity field: }\nonumber\\ 
+    &\ev{\ann} = \frac{\chi}{\kappa-i\delta_{cd}} \abs{\frac{\xi(0)}{\chi}} {}_0F_2\left(1+ \frac{\kappa-i\delta_{cd}}{\chi}, \frac{\kappa+i\delta_{cd}}{\chi}, 2\abs{\frac{\xi(0)}{\chi}}^2\right) \Bigg/ {}_0F_2 \left(\frac{\kappa-i\delta_{cd}}{\chi}, \frac{\kappa+i\delta_{cd}}{\chi}, 2\abs{\frac{\xi(0)}{\chi}}^2\right)\label{field_duff}\\
+    &\text{The 2nd order correlation function: }\nonumber\\
+    g^{(2)}(0) =& \frac{\ev{\cre{}^2 \ann{}^2}}{\ev{\cre\ann}^2} =  \cfrac{(\kappa^2 + \delta_{cd}^2){}_0F_2 \left( \frac{\kappa - i \delta_{cd}}{\chi}, \frac{\kappa+i\delta_{cd}}{\chi}, 2\abs{\frac{\xi(0)}{\chi}}^2 \right) {}_0F_2 \left( \frac{\kappa-i\delta_{cd}}{\chi}+2, \frac{\kappa+i\delta_{cd}}{\chi}+2, 2\abs{\frac{\xi(0)}{\chi}}^2 \right)}{(\kappa^2 + \delta_{cd}^2 + 2 \kappa + 1) \left[{}_0F_2\left(\frac{\kappa-i\delta_{cd}}{\chi}+1, \frac{\kappa+i\delta_{cd}}{\chi}+1, 2\abs{\frac{\xi(0)}{\chi}}^2 \right)\right]^2} \label{g2_duff}
+  \end{align}
+\end{widetext}

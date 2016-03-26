@@ -6,13 +6,15 @@ Of them, the most important in cQED is decoherence.
 There are several scalable well-characterised qubit candidates in superconducting circuits \cite{Makhlin2001}.
 They fall into distinct types based on the quantum degree of freedom they exploit: phase, charge, or flux.
 Here we look at a particular type of charge qubit: the \emph{transmon}.
+\begin{figure}[t]
+  \centering
+  \resizebox{.83\linewidth}{!}{\input{tikz/cpb}}
+  \caption{Schematic of a Cooper Pair Box. Island is demarcated by the dashed line.}
+  \label{cooperpairbox}
+\end{figure}
 \subsection{Cooper Pair Box}
 The transmon is an improvement on the Cooper Pair Box(CPB) qubit.
 In the CPB, a superconducting island is coupled through a Josephson junction and a capacitance to a voltage.
-\begin{figure}[t]
-  \includegraphics[width=\linewidth]{cpb.png}
-  \caption{Schematic of a Cooper Pair Box. Island is demarcated by the dashed line.}
-\end{figure}
 The system is described by the Hamiltonian \cite{Makhlin2001}
 \begin{equation}
   \mathscr{H} = 4E_C(n-n_g)^2 - E_J \cos \Theta
@@ -34,8 +36,8 @@ There must be a highly anharmonic level system, where one transition can be stro
 Noise must be suppressed so that the qubit state can be faithfully read out and controlled. 
 In the Cooper Pair Box, these goals are orthogonal.
 \begin{figure}[t]
-  \includegraphics[width=\linewidth]{anharmonicity.png}
-  \caption{CPB level scheme as a function of the dimensionless gate charge $n_g$ \cite{Koch2007}}
+  \resizebox{1.0\linewidth}{!}{\input{tikz/transmon.tex}}
+  \caption{Schematic of a transmon. New island is couped via capacitance C and another Josephson junction.}
   \label{anharmonicity}
 \end{figure}
 In \ref{anharmonicity} this behaviour is obvious. 
@@ -45,13 +47,9 @@ However, the change in the transition width with small changes in gate charge is
 In contrast, for high $\frac{E_J}{E_C}$ this noise sensitivity disappears, at the cost of a great deal of level anharmonicity.
 The transmon exploits the fact that the decrease of charge noise with increasing $\frac{E_J}{E_C}$ is exponential, while the decrease in anharmonicity is algebraic.
 The transmon is a cooper pair box with an additional shunting capacitance $C_B$, and an additional parallel Josephson junction.
-\begin{figure}[t]
-  \includegraphics[width=\linewidth]{transmon.png}
-  \caption{Schematic of a transmon. Island is highlighted in dark blue \cite{Koch2007}.}
-\end{figure}
 The shunting capacitance changes the noise behaviour of the device significantly.
 While the transmon hamiltonian takes the same form as the CPB system, the additional capacitance suppresses the charging energy $E_C$ relative to the CPB.
-This changed charging energy suppresses system noise at the cost of only a small amount of anharmonicity. 
+This changed charging energy suppresses system noise at the cost of only a small amount of anharmonicity. \\
 
 We take these qualities as those of a qubit, and couple the two level transmon system to a single electromagnetic field mode.
 This is the Jaynes-Cummings system of Quantum Optics.
