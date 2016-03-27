@@ -63,6 +63,11 @@ and
 in the absence of spontaneous emission $\gamma=0$
 \footnote{ Interestingly, setting $\gamma$ equal to zero at this point yields different asymptotic solutions to those for the system with $\gamma$ included and set to zero in the solution \cite{Alsing1990}},
 A derivation can be found in the appendix.
+\begin{figure}[!htb]
+  \includegraphics[width=\linewidth]{sc_no_det.pdf}
+  \caption{$\alpha$ and $\zeta$ as the drive strength $\xi$ moves up to through and beyond the critical point (a) $\zeta$ approaches zero with increasing drive strength (positive branch)\label{fig:zeta} (b) development of field phase bistability}\label{fig:alpha}
+  \label{fig:sc_no_det}
+\end{figure}
 \subsubsection{Neoclassical Radiation Theory}
 In the absence of drive and detuning and with the cavity field derivative set to zero
 \begin{align}
@@ -80,6 +85,11 @@ and from \cref{eq:pseudospin}
 \end{align}
 We recover the non exponential decay of neoclassical radiation theory
 \subsubsection{Steady State}
+\begin{figure*}[!htb]
+    \includegraphics[width=\linewidth]{resonant.pdf}
+    \caption{(a) Intracavity photon number in the semiclassical approximation (b) Intracavity photon number, fully quantum, with a field Hilbert space truncated at 85 excitations (c) Q functions with increasing drive on resonance}
+    \label{resonant}
+\end{figure*}
 We now set all derivatives to zero, and consider the asymptotic solutions to the mean-field equations, which must satisfy:
 \begin{align}
   -ig \beta -i \xi &= 0 \\
@@ -100,11 +110,6 @@ with $\alpha$ a solution to
   \alpha = -i \xi{\left ( \kappa \pm i \frac{g}{2|\alpha|} \right )}^{-1}
   \label{eq:alphacondnotdet}
 \end{equation}
-\begin{figure}[ht]
-  \includegraphics[width=\linewidth]{sc_no_det.pdf}
-  \caption{$\alpha$ and $\zeta$ as the drive strength $\xi$ moves up to through and beyond the critical point (a) $\zeta$ approaches zero with increasing drive strength (positive branch)\label{fig:zeta} (b) development of field phase bistability}\label{fig:alpha}
-  \label{fig:sc_no_det}
-\end{figure}
 in \cref{fig:sc_no_det} the phase bistability above the critical point is obvious. The two $\beta$ solution branches start coincident in phase ($\pi$ and $-\pi$) at drive strengths just above critical and very quickly move to opposite sides of the Bloch sphere ($-\frac{\pi}{2}$ and $\frac{\pi}{2}$).
 
 The phase of $\beta$ above the critical point follows the phase of $\alpha$, either aligned or antialigned. This spontaneous development of phase bistability Alsing and Carmichael call `Spontaneous Dressed State Polarisation' \cite{Alsing1990}. Referred to the fully quantum model, each of the two phases corresponds to a the system ascending different sets of rungs of the Jaynes Cummings ladder, either $\ket{E_{n, U}}$ or $\ket{E_{n, L}}$
@@ -125,12 +130,11 @@ In the limit $\alpha \rightarrow \infty$ the system response returns to a rabi s
 The sides of the Lorentzians correspond to domains of coexistence between the near vacuum state and the high occupation state \cite{Carmichael2015}, and the phase transition between the two at this boundary is of first order. 
 Here, photon blockade breaks down discontinuously.
 The transition as the drive strength moves through the critical point is of second order, as indicated in the plots of the approach to steady state below, where critical slowing in the approach close to the critical point reveals its nature.
-
-\begin{figure*}[ht]
+\begin{figure}[!htb]
   \includegraphics[width=\linewidth]{critical_slowing.pdf}
   \caption{Time dependent solutions to the master equation for different parameters. Note the slow asymptotic approach of the green line to the steady state}
   \label{critical_slowing}
-\end{figure*}
+\end{figure}
 Numerical calculation of the Q function along the walls of the bilorentzian show a marked bimodality in amplitude. The development of this Q function bimodality is echoed in the Wigner representation. Moving through the critical point in the drive, the Q function bifurcates, this time in phase, where two coexistent gaussian peaks in phase space mark the phase bistability discussed above.
 \subsection{Spontaneous Emission}
 We now reintroduce the spontaneous emission parameter, both in the mean-field and the quantum case. 
@@ -166,11 +170,6 @@ putting the above together yields
   0&=-{(\kappa-i\Delta\omega)}\alpha-g\frac{ig(\frac{\gamma}{2}+i\Delta\omega)}{-2g^2|\alpha|^2-\frac{\gamma^2}{4}-\Delta\omega^2}\alpha-i\xi \\
 \implies \alpha &= -i\xi \frac{1}{\kappa-i\Delta\omega+\frac{g^2(\frac{\gamma}{2}+i\Delta\omega)}{\frac{\gamma^2}{4}+{\Delta\omega}^2+2g{|\alpha|}^2}}\label{eq:alphadetdiss}
 \end{align}
-\begin{figure*}[ht]
-    \includegraphics[width=\linewidth]{resonant.pdf}
-    \caption{(a) Intracavity photon number in the semiclassical approximation (b) Intracavity photon number, fully quantum, with a field Hilbert space truncated at 85 excitations (c) Q functions with increasing drive on resonance}
-    \label{resonant}
-\end{figure*}
 
 \Cref{eq:alphadetdiss} is the classical solution for the steady state of a saturable two level transition, with a saturation photon number ($I \propto |\alpha|^2 \approx n_{sat}$) of $n_{sat} = \frac{\gamma^2}{8g^2}$.  \\
 Compare $\alpha$ derived with $\gamma$ present to without

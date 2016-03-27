@@ -1,16 +1,10 @@
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
 import seaborn as sb
-sb.set(style='ticks', context='talk', rc={'image.cmap': 'viridis'})
+sb.set(style='whitegrid', context='talk', rc={'image.cmap': 'viridis'})
 import matplotlib as mpl
 mpl.rcParams['figure.figsize'] = 12, 8
-
 import numpy as np
-import qutip as qt
-
-import importlib
-import quantumoptics as qo
-qo = importlib.reload(qo)
 
 q_disp_drives = np.linspace(0.015, 0.025, 5)
 
@@ -44,20 +38,22 @@ disp_ax[0] = disp_fig.add_subplot(gs[0:7, :])
 
 ## Semiclassical 
 # determine drives from A
-disp_alphas = np.linspace(0, 100, 1000)
-disp_det = 0.005
-disp_drives = np.array([disp_drive(A, 
+disp_alphas = np.linspace(3, 6000, 2000)
+disp_dets = np.linspace(0.002, 0.0002, 6)
+disp_drives = np.asarray([np.array([disp_drive(A, 
                   cavity_freq, 
-                  cavity_freq+disp_det, 
+                  cavity_freq+dd, 
                   -1, 
                   c_q_det, 
                   coupling_strength, 
-                  kappa_disp) for A in disp_alphas])
-
-disp_ax[0].plot(disp_drives, disp_alphas)
+                  kappa_disp) for A in disp_alphas]) for dd in disp_dets])
+for da in enumerate(disp_drives):
+    disp_ax[0].plot(da[1], disp_alphas, label="{:0.4f}".format(disp_dets[da[0]]), c=sb.color_palette('viridis')[da[0]], linewidth=1)
+disp_ax[0].legend(loc='best')
 # disp_ax[0].set_xscale('log')
-disp_ax[0].set_xlim([0, 0.5])
-# disp_ax[0].set_yscale('log')
+disp_ax[0].set_xlim([0.22, 0.6])
+disp_ax[0].set_ylim([3, 1000])
+disp_ax[0].set_yscale('log')
 # Set plot parameters
 disp_ax[0].set_title('Semiclassical', 
                      loc='right', 
@@ -66,6 +62,5 @@ disp_ax[0].set_title('Semiclassical',
 disp_ax[0].set_xlabel('$\\xi$')
 disp_ax[0].set_ylabel('$\left|A\\right|^2$')
 
-sb.despine(disp_fig)
-plt.savefig('scurve|det:{}.pdf'.format(disp_det))
+plt.savefig('{}.pdf'.format(disp_dets[0]))
 plt.show()
