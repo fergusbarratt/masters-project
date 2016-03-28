@@ -1,10 +1,5 @@
-%% dispersive results
-\section{Strong Dispersion}
-\begin{figure*}[ht]
-    \label{dispersive}
-    \includegraphics[width=\linewidth]{dispersive.pdf}
-    \caption{(a) Squared intracavity cavity amplitude in the semiclassical approximation. Top and bottom lines represent stable states, centre metastable. (b) Absolute intracavity amplitude, in the quantum regime, with a field Hilbert space truncated at 85 excitations. (c) Difference between factorised and unfactorised correlation functions}
-\end{figure*}
+% dispersive results
+\section{Results: Strong Dispersion}
 We now move to the dispersive regime, where the cavity qubit detuning $\delta_{cq}$ is large compared to the other frequencies in the problem. 
 We also make the bad cavity assumption, that is $\kappa \gg \gamma, \gamma_\varphi$, where $\gamma_\varphi$ is the dephasing rate, which we assumed to be suppressed so much as to be negligible.
 The full hierarchy of scales goes
@@ -14,7 +9,7 @@ The full hierarchy of scales goes
 In this regime, there are several experimentally accessible schemes for qubit quantum non-demolition readout and control \cite{Blais2004a}, without restricting coherent control of the qubit.
 One such scheme is described in \cref{disp_QND_readout} 
 
-\subsection{Quantum}
+\subsection{Quantum: Perturbation expansion}
 We perform the canonical transformation of \cite{Carbonaro1979}, dropping small terms according to the hierarchy of scales.
 \begin{align*}
   \mathscr{N} &= \cre \ann + \sigma_z/2+ 1\\
@@ -64,7 +59,7 @@ The hamiltonian becomes:
     \Big\} 
     \sigma_z
 \end{align}
-\subsubsection{First Order}
+\subsubsection{First Order in $\flatfrac{\mathscr{N}}{\mathscr{N}_{\text{crit}}}$}
 To first order in $\frac{\mathscr{N}}{\mathscr{N}_{\text{crit}}}$ the hamiltonian is:
 \begin{align}
   \mathscr{H} &= \left(\omega_c
@@ -79,8 +74,21 @@ We define $\chi_{JC} = \flatfrac{4g^2}{\delta_{cq}}$, and rescale energy levels 
     \mathscr{H} = \left(\omega_c \pm \chi_{JC}\right) a ^ \dagger a
     + \xi/\sqrt{2} ( a + a^\dagger ) \cos(\omega_d t)
 \end{equation}
+\begin{figure*}[!bht]
+  \centering
+  \begin{minipage}{0.5\linewidth}
+    \vspace*{-0.5cm}
+    \hspace*{-1cm}
+    \includegraphics[width=1.35\linewidth]{dispersivebistability.pdf}
+  \end{minipage}%
+  \begin{minipage}{0.5\linewidth}
+    \includegraphics[width=\linewidth]{scurve.pdf}  
+  \end{minipage}
+  \caption{Level lines of \cref{eq:sc_dispersive} (a) Contours of constant drive (b) Contours of constant detuning}
+  \label{fig:sc_dispersive}
+\end{figure*}
 We are left with the bare cavity hamiltonian with a qubit-state dependent frequency shift
-\subsubsection{Second Order in $\frac{\mathscr{N}}{\mathscr{N}_{\text{crit}}}$}
+\subsubsection{Second Order in $\flatfrac{\mathscr{N}}{\mathscr{N}_{\text{crit}}}$}
 Keeping terms up to second order in the expansion of $\Delta$, we define shifted parameters
 \begin{align*}
     \omega_c^{JC} &= \omega_c \pm \frac{4g^2}{\delta_{cq}}\\
@@ -102,20 +110,23 @@ To second order, the dispersive Jaynes Cummings oscillator with the qubit frozen
 From (crossref section generalised P) we have analytical expressions for the normally ordered moments - the cavity field, the correlation functions. 
 Provided the second order behaviour persists in the non-perturbative limit, i.e. that this expansion is convergent, we would then expect a bunched photon transmission for a small range of detunings, followed by a broad region in which we have antibunched transmission.
 We also would expect to see a dip in the transmission at a critical detuning, where there is quantum interference between two stable mean field states.
-\begin{figure*}[pht]
-  \centering
-  \begin{minipage}{0.5\linewidth}
-    \vspace*{-0.5cm}
-    \includegraphics[width=1.35\linewidth]{dispersivebistability.pdf}
-  \end{minipage}%
-  \begin{minipage}{0.5\linewidth}
-    \includegraphics[width=\linewidth]{scurve.pdf}  
-  \end{minipage}
-  \caption{Level lines of \cref{eq:sc_dispersive} (a) Contours of constant drive (b) Contours of constant detuning}
-  \label{scurve}
-\end{figure*}
+\subsection{Quantum: Computational}
+We have the same master equation as in the resonant case, with hamiltonian. Computationally we now use the master equation containing the Hamiltonian with the transformation of  \cite{Carbonaro1979} applied.
+\begin{equation}
+  \ham = \omega_C \cre \ann + \left(\omega_c - \sqrt{\delta_{cq}^2 + \frac{4g^2}{N}}\right)\frac{\sigma_z}{2} + \frac{\xi}{\sqrt{2}} ( \ann + \cre ) \cos(\omega_d t) 
+\end{equation}
+The details of the numerics can be found in the appendix. 
+The result of scanning the detuning $\delta_{cd}$ for several drives to produce soluble steady state master equations, with parameters as in \cite{Bishop2010} i.e. $\omega_d = 10.5665\text{Ghz}, \  \kappa = 0.001 \text{Ghz}, \  \delta_{cq} = -1.0 \text{Ghz}, \  g = 0.2\text{Ghz}$ are shown in \cref{dispersive}, where expectation values are calculated by contracting the density matrix solution with truncated states.
 \subsection{Semiclassical}
-Following \cite{Bishop2010}, we build a semiclassical model.
+\begin{figure}[!hb]
+  \hspace*{-1cm}
+  \includegraphics[width=1.25\linewidth]{disp_optical_bloch_equations.pdf}
+  \caption{Mean field amplitude, versus detuning, from the steady state solutions to the optical Bloch equations. Here the qubit participates incoherently.} 
+  \label{fig:sc_dispersive_ob}
+\end{figure}
+
+\subsubsection{Hamilton's Equations}
+Following \cite{Bishop2010}, we build a semiclassical model based on fixing X and P as numbers, given that the qubit degree of freedom is frozen.
 Rewriting the hamiltonian in terms of the generalised coordinates $X = \frac{1}{\sqrt{2}}(\cre + \ann)$, $P = \frac{1}{\sqrt{2}}(\cre-\ann)$
 \begin{align}
         \mathscr{H} &= \omega_c/1 (X^2 + P^2 + \sigma_z) + \xi X \cos(\omega_d t)\nonumber\\
@@ -137,27 +148,45 @@ where
 \end{equation}
 inverting the equation and solving for $\xi$ as a function of $A^2$. 
 The level curve of $A^2$ defines a manifold on the drive-detuning parameter space. 
-The level set defines what is called a cusp catastrophe in the theory of dynamical systems.
+The level set defines what is called a cusp catastrophe in the theory of dynamical systems \cite{Stewart1982}.
 Trajectories on this manifold from the point of view of catastrophe theory are considered in \cite{Agrawal1979} .  
 The system exhibits hysteresis both in detuning and drive. 
-We plot the contours of constant drive in \cref{fig:sc_dispersive}, and of constant detuning in \cref{scurve}.
-These regions in the quantum case are washed out by switching induced by quantum fluctuations, and the amplitude in the quantum case can be qualitatively expected to 'average out' the bistability and lie between the two stable states on this plot.
-Indeed, this effect is visible in \cref{fig:sc_dispersive}.
-We see more interesting features here too, most notably a dip in the quantum amplitude. The nature of quantum probability means a probability distribution on the mean field curve will show interference effects between paths, here as amplitudes lower than the mean-field stable states.
+We plot the contours of constant drive in and of constant detuning in \cref{fig:sc_dispersive}.
+\subsubsection{Optical Bloch Equations}
+We use the standard methods described in the appendix to derive mean field equations.
+From the steady state solutions to these mean field equations, we have a self consistency equation for the field amplitude.
+We plot the contours of constant drive in the same way as we did for the Hamilton's equations method in \cref{fig:sc_dispersive_ob}. Compare \cref{fig:sc_dispersive}(a).
+\subsection{Analysis: Two different mean-field methods}
+We have used the mean-field approximation in two different ways.
+Firstly, we treated the field quadratures as numbers, phenomenologically added a dissipation term $\kappa$ to the now classical Hamiltonian, and fixed the derivatives to zero at second order. 
+With regards to the qubit, here we not only neglect it's quantum fluctuation, we treat it as a numerical constant of the motion, i.e. it remains fixed at $\pm1$ for the totality of the system dynamics. 
+This is the approach that in the low $\mathscr{N}/\mathscr{N}_\text{crit}$ limit becomes the Duffing oscillator. 
+
+By contrast, we also used dispersive solutions to the optical Bloch equations as derived in the appendix. Here the qubit affects the dynamics through its fluctuation averaged mean value, which is also free to change as the system evolves. 
+This then is a closer approximation to the real quantum system, in that only quantum qubit-field correlations are neglected. 
+
+However, compare \cref{fig:sc_dispersive} and \cref{fig:sc_dispersive_ob}. 
+It can be seen that the mean field photon number solutions of the two approximated system have qualitatively similar values. 
+Specifically, for fixed drive there is a region of bistability, due to a cavity pulling of the system resonance, that disappears as the drive is increased and the system response is dominated by the lorentzian. 
+For the first method, the extent of the region of bistability is analysed in the next section. 
+
+From this we can say that the statement that the qubit inversion is a constant of the motion is a fair approximation, at least in some parameter regimes. 
+Thus, the correspondence between the Jaynes-Cummings oscillator and the Duffing oscillator in the dispersive limit is not materially affected by the fluctuation averaged dynamics of the qubit. 
 \subsection{Bistable ``leaf"}
-\begin{figure}[ht]
-        \label{BistabilityLeaf}
+\begin{figure}[!htb]
         \includegraphics[width=\linewidth]{01:03:2016 - BishopBimodalityLeaf.png}
-        \caption{Edges of the region of dispersive bistability}
+        \caption{Edges of the region of dispersive bistability for parameters similar to those in \cite{Bishop2010} i.e. $\omega_d = 10.5665\text{Ghz}, \  \kappa = 0.001 \text{Ghz}, \  \delta_{cq} = -1.0 \text{Ghz}, \  g = 0.2\text{Ghz}$ }
+        \label{BistabilityLeaf}
 \end{figure}
-The drive opens and closes a region of dispersive bistability. By considering the derivatives of detuning with respect to drive, with $\xi$ as a parameter, we can demarcate this onset of bistability, and the draw the region in detuning/drive space in which bistability exists.
+The drive opens and closes a region of dispersive bistability. By considering the derivatives of detuning with respect to drive, with $\xi$ as a parameter, we can demarcate this onset of bistability, and mark the region in detuning/drive space in which bistability exists.
+From this boundary in \cref{BistabilityLeaf}, we see that the width of the region of bisability shrinks as the drive is increased. We have the same behaviour in the scanning of the detuning.
 \subsection{Dispersive QND Readout}
 \label{disp_QND_readout}
 \begin{figure}[ht]
-  \label{transmission}
   \centering
   \includegraphics[width=\linewidth]{transmission.pdf}
   \caption{qubit dependent transmission spectrum for dispersive system}
+  \label{transmission}
 \end{figure}
 The cavity resonance with the qubit dispersive shift reads $\omega_c - 4\flatfrac{g^2}{\delta_{cq}}\sigma_z$
 For a qubit in the ground state i.e. $\sigma_z = -1$, the system transmission spectrum is peaked at $\omega_c + 4\flatfrac{g^2}{\delta_{cq}}$.
@@ -176,3 +205,58 @@ Another of the key requirements of a quantum computing implementation is the pos
 Here, again, the dispersive regime is important. 
 Driving the qubit at its resonance will not affect the combined system i.e. does not constitute a measurement in the previous sense, because of the magnitude of $\delta_{cq}$.
 Provided we have the necessary precision in the laser frequency, qubit rotations can be performed with very high fidelity \cite{Blais2004a}.
+\subsection{Analysis: The Jaynes-Cummings \& Kerr/Duffing nonlinearities}
+\begin{figure}[!hbt]
+  \includegraphics[width=\linewidth]{duff.png}
+  \caption{quantum Duffing oscillator moments: dashed line: second order correlation function $g^(2)(0)$, showing antibunching and bunching, broken line: semiclassical cavity field amplitude $\abs{\alpha}$ showing bistability, solid line: quantum cavity field amplitude, showing interference dip. From \cite{Drummond1979}}
+\end{figure}
+\begin{figure*}[!htb]
+    \includegraphics[width=\linewidth]{dispersive.pdf}
+    \caption{(a) Squared intracavity cavity amplitude in the semiclassical approximation. Top and bottom lines represent stable states, centre metastable. (b) Absolute intracavity amplitude, in the quantum regime, with a field Hilbert space truncated at 85 excitations. (c) Difference between factorised and unfactorised correlation functions}
+    \label{dispersive}
+\end{figure*}
+\subsubsection{Kerr/Duffing}
+The driven quantum Duffing oscillator is discussed at length in \cite{Drummond1979} and in the background. 
+Specific interesting features include semiclassical bistability, where for broad region at large and little drive the system semiclassical equations for the cavity field amplitude have one stable solution and then two pitchfork bifurcations bounding a region with two stable and one metastable solutions.
+The bistability region broadens as the drive strength increases.
+In the quantum regime we have a positive definite Fokker-Planck equation with a well defined generalised P function solution, and a soluble integral for all possible normal ordered moments.
+The cavity field is single valued for all values of the drive, unlike in the semiclassical approximation.
+In the full quantum solution, the system fluctuates about the semiclassical solutions because of multi-operator correlations. 
+The magnitude of these fluctuations defines different types of systems, those well described by the mean field equations because the effect of quantum jumps is negligible, and those for which the fluctuations significantly affect the dynamics. 
+Here we are in the second regime.
+The quantum switching defines a complex probability distribution on the mean field curve.
+The nature of quantum probability means such a distribution will show interference effects between paths, here as amplitudes lower than the mean-field stable states.
+Specifically, we have a dip in the quantum intracavity amplitude at a critical value of the drive. 
+We have also a sharp peak in the second order correlation function, followed by a broad region where it is strictly less than one.
+The value of the second order correlation function at zero time ($g^{(2)}(0)$) defines the probability for two coincident photon detection effects (for example on a Hong-Ou-Mandel type interferometer \cite{Hong1987}).
+For $g^{(2)}(0) < 1$, we have a suppressed probability of coincident photon events. 
+We expect that photons will with higher probability hit the detector separated by a period of time.
+The property is a figure of merit for single photon sources \cite{Lodahl2014}, and is known as \emph{antibunching}.
+The converse, \emph{bunching}, has $g^{(2)}(0) > 1$, and describes an enhancement in the probability of detecting coincident photons.
+\subsubsection{Jaynes-Cummings}
+In the derivation of the exact correspondence between the Duffing oscillator and the Jaynes-Cummings oscillator, we assumed that terms of order $O(\{\mathscr{N}/\mathscr{N}_\text{crit}\}^3)$ were completely suppressed. 
+If this approximation holds, the systems are indistinguishable. 
+To some extent this correspondence holds. 
+We have the same semiclassical bistability as in the Duffing case in our semiclassical model (see \cref{fig:sc_dispersive}).
+We see the same dip in the cavity field amplitude in the computational solution to the Jaynes-Cummings master equation, as in the P function approach to the Duffing oscillator. 
+We see a bunching peak in the transmitted photons, and a broad region of antibunching (wrt. the drive axis). 
+
+However, there are distinctions to be made.
+The region of bistability in drive-detuning space for the quantum duffing oscillator broadens without bound as the drive is increased. 
+This is not the case even in our the semiclassical model. 
+For large drive strength, the system response is dominated by the cavity, and the transmission spectrum returns to a Lorentzian.  
+In this regime our assumption $\frac{\mathscr{N}}{\mathscr{N}_\text{crit}} \ll 1$ breaks down, and our perturbation expansion no longer converges. 
+The semiclassical approximation can be expected to hold further in this regime\cite{Bishop2010}, less fluctuation effects, and it is this method from which the closing of the region of bisability is derived. 
+
+The Jaynes-Cummings oscillator fundamentally has two degrees of freedom, the qubit and the cavity field. 
+In the correspondence we made, the qubit was frozen in its up or down state; in this respect it was treated purely classically, and as if its state was completely independent of the dynamics. 
+We showed that the correspondence is not materially affected by passing to a semiclassical method in which the qubit inversion is no longer constant.
+However, even this case does not account totally for the behaviour of the qubit.
+The qubit does participate coherently in the system dynamics and there are effects of qubit-field correlation functions.
+In \cref{dispersive}, this is pressingly clear. 
+In the dip in the cavity field amplitude in the quantum regime, the difference between the factorized and unfactorized correlation functions peaks.
+Here then, both semiclassical approximations miss the dynamics.
+The question then becomes, does this have a significant effect on the system observables? 
+Does the effect of the qubit spoil the Duffing oscillator analogy?
+\cite{Bishop2010} have shown that the correspondence fails for high drive strength, and thus high excitation numbers. 
+In what parameter regimes does it hold?

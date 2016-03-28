@@ -121,8 +121,8 @@ For consistency, we require that it meet certain criteria to be physical.
     \item \emph{Complete Positivity}.  We require that density matrices remain positive for all time.
         More strictly, we require that the operation of propagating some subsystem leaves the density matrix of the supersystem positive.
         \begin{align}
-            p & \in  spectrum \{\mathscr{F}_T[\rho(t)]\} \geq  0\quad \forall p, T, t\\
-            p & \in  spectrum \{\mathscr{F}_T \otimes \hat{I} [\rho_A(t) \otimes\rho_B(t) ] \} \geq 0 \quad \forall p, T, t
+          p & \in  \operatorname{spectrum} \{\mathscr{F}_T[\rho(t)]\} \geq  0\quad \forall p, T, t\\
+          p & \in  \operatorname{spectrum} \{\mathscr{F}_T \otimes \hat{I} [\rho_A(t) \otimes\rho_B(t) ] \} \geq 0 \quad \forall p, T, t
         \end{align}
         where the second inequality is true for all possible partitionings of the system into subsystems.
     \item \emph{Trace-Preserving}. We require that the trace of the density matrix is invariant under time propagation
@@ -133,6 +133,7 @@ For consistency, we require that it meet certain criteria to be physical.
 It is a fundamental theorem of Kraus \cite{Kraus1983} that any such superoperator can be represented \cite{Nielsen2010}
 \begin{equation}
     \mathscr{F}_T[\rho] = \sum_k \mathscr{E}_k^\dagger \rho \mathscr{E}_k
+    \label{kraus}
 \end{equation}
 where $\mathscr{E}_k $ are known as Kraus Operators, but are exactly the measurement operators $\mathscr{E}_\lambda$ derived above.
 This decomposition is known as the Operator-Sum representation \cite{Nielsen2010}, and operators satisfying the above conditions are CPTP (Completely Positive, Trace-Preserving) maps.
@@ -142,29 +143,109 @@ This process admits a clear interpretation.
 The nonunitary time evolution of a system corresponds to a countable series of measurement steps, where the system is non-orthogonally projected at each time step by the POVM consisting of the Kraus operators that give its time evolution.
 
 \subsection{Quantum Dynamical Semigroups}
-Markowian processes are colloquially ``memoryless'', a classical example being Brownian Motion.
-Whilst the operator-sum representation can represent a more general time-evolution, most analytically solvable situations invoke what is known as the markow approximation.
-Here we derive the master equation in the Markow approximation via the theory of Dynamical Semigroups, and in a microscopic formulation
+Markovian processes are colloquially ``memoryless'', a classical example being Brownian Motion.
+Whilst the operator-sum representation can represent a more general time-evolution, most analytically solvable situations invoke what is known as the Markov approximation.
+Here we derive the master equation in the Markov approximation via the theory of Dynamical Semigroups.
 
-\subsubsection{Markow Processes}
-Classical Markow processes are characterised by the invocation of the so-called semigroup property of the Chapman-Kolmogorov equation.
-The Markow transition probabilities $T(x, t|x', t')$ form a one parameter semigroup in t, because of the composition property $T(x, t|x, t')T(x, t'|x, t``) = T(x, t|,x, t``)$ which results from the conditions that memorylessness puts on their form.
-This memorylessness is also responsible for this being a \emph{semi}group, since there does not in general exist an inverse for each element-there exist irreversible Markow processes.
+\subsubsection{Markov Processes}
+Classical Markov processes are characterised by the so-called semigroup property, in the Chapman-Kolmogorov equation.
+The Markov transition probabilities $T(x, t|x', t')$ form a one parameter semigroup in t, because of the composition property $T(x, t|x, t')T(x, t'|x, t'') = T(x, t|,x, t'')$.  
+This is a ``contracting" semigroup, as each member of the semigroup is a contraction mapping.
 
-This semigroup is in fact a "contracting" semigroup, in that the norm of a propagated probability is less than or equal to the probability.
+Physical dynamical maps $\mathscr{F}_T$ form a one parameter family $\{\mathscr{F}_T\ |\ T \in \mathbb{R^+}\}$ describing the fully general evolution of a quantum system. 
+To make such a family into a semigroup we must have the property 
+\begin{equation}
+  \mathscr{F}_{T_1} \mathscr{F}_{T_2} = \mathscr{F}_{T_1+T_2}
+\end{equation}
+The assumption of this composition property is analogous to the Markov approximation in classical probability theory.
+The concrete approximations underlying the form of this equation for an atom-field system are explained in \cref{microscopic}.
+For now, we derive the most general form for the semigroup generator $\mathcal{L}$.
+\begin{align*}
+  \mathscr{F}_t &= \exp(\mathcal{L}t)\\
+  \implies \dv{t} \dens_S(t) &= \mathcal{L} \dens_S(t)
+\end{align*}
+For each quantum dynamical semigroup there exists some generator $\mathcal{L}$ which gives an exponential representation of the dynamical map characterising the system time evolution.
+We derive the general form of this operator for the case of a finite dimensional system Hilbert space, as in \cite{Breuer2002}. 
+The case where the dimension is countably infinite is treated in \cite{Lindblad1976}, given that the operator $\mathcal{L}$ is bounded.
 
-The generalisation of Markow processes to quantum mechanics analagously leads to the theory of \emph{quantum dynamical semigroups}
+We choose an orthonormal basis\footnote{ The existence of such a basis for finite dimensional spaces is a standard theorem of linear algebra \cite{Dummit1986}} for the space of operators on the finite dimensional system Hilbert space $\mathcal{H}_S$.
+\begin{equation}
+  \left\{F_i \ | \ i \in \{1, \dots , N \}, \langle F_i, F_j \rangle = \tr_s\left\{F_i^\dagger F_j\right\} = \delta_{ij} \right\}
+\end{equation}
+We expand the Kraus operators of \cref{kraus} in terms of our basis
+\begin{equation}
+  \mathscr{E}_k = \sum_{i=1}^{N^2} F_i \langle F_i, \mathscr{E}_k \rangle
+\end{equation}
+and use the Kraus representation of the superoperator $\mathscr{F}_t = \exp{\mathcal{L}t}$
+\begin{equation}
+  \exp{\mathcal{L}t} = \sum_{i, j=1}^{N^2} C_{ij} F_i \dens_S F_j^\dagger
+\end{equation}
+with 
+\begin{equation}
+  c_{ij}(t) = \sum_k \langle F_i, \mathscr{E}_k \rangle \langle F_j, \mathscr{E}_k \rangle^*
+\end{equation}
+which is by definition, hermitian and positive. 
+We have for the generator
+\begin{align}
+  \dv{t}\dens_S &= \lim_{h \rightarrow 0} \left\{ \frac{\mathscr{F}_h \dens_S - \dens_S}{h} \right\}\nonumber\\
+                &= \lim_{h \rightarrow 0} \Bigg\{ \frac{1}{N}\frac{c_{N^2N^2}(h) - N}{h} \nonumber\\
+                &+ \frac{1}{\sqrt{N}}\sum^{N^2-1}_{i=1} \left(\frac{c_{iN^2}(h)}{h}F_i\dens_S + \frac{c_{N^2i}(h)}{h}\dens_SF_i^\dagger \right) \nonumber\\
+                &+ \sum_{i, j = 1}^{N^2-1} \frac{c_{ij}(h)}{h}F_i \dens_S F_j^\dagger \Bigg\}
+  \label{gen_1}
+\end{align}
+defining
+\begin{align*}
+  a_{N^2N^2} &= \lim_{h \rightarrow 0} \frac{c_{N^2N^2}(h) - N}{h}\\
+  a_{iN^2} &= \lim_{h \rightarrow 0} \frac{c_{iN^2}(h)}{h} \\
+  a_{ij} &= \lim_{h \rightarrow 0} \frac{c_{ij}(h)}{h}
+\end{align*}
+where i and j take the limits on the sums in \cref{gen_1}, and the operators $F,\ G,\ H$
+\begin{align*}
+  F &= \frac{1}{\sqrt{N}} \sum_{i=1}^{N^2-1}a_{iN^2}F_i\\
+  G &= \frac{1}{2N}a_{N^2N^2}\mathbb{I} + \frac{1}{2}\left(F^\dagger + F\right)\\
+  H &= \frac{1}{2i}\left(F^\dagger - F \right)
+\end{align*}
+where $\mathbb{I}$ is the identity in the system hilbert space.
+We use these definitions to rewrite the generator $\mathcal{L}$ in terms of $G,\ H$
+\begin{equation}
+  \mathcal{L} \dens_S = -i \comm{H}{\dens_S} + \acomm{G}{\dens_S} + \sum_{i, j=1}^{N^2-1}a_{ij}F_i\dens_SF_J^\dagger
+\end{equation}
+From the trace preserving property of physical dynamical maps we have from $\tr_s\left\{\mathcal{L}\dens_S \right\} = 0$ that 
+\begin{equation}
+  G = -\frac{1}{2} \sum_{i, j=1}^{N^2-1} a_{ij} F_j^\dagger F_i
+\end{equation}
+and 
+\begin{equation}
+  \mathcal{L} \dens_S = -i \comm{H}{\dens_S} + \sum_{i, j=1}^{N^2-1}a_{ij}\left(F_i\dens_S F_j^\dagger - \frac{1}{2} \acomm{F_j^\dagger F_i}{\dens_S}\right)
+\end{equation}
 
 \subsubsection{Lindblad Form}
-The most general form \cite[119--122]{Breuer2002} for the reduced master equation in the Markow approximation is known as the \emph{Lindblad Form}
+We diagonalise the coefficient matrix $a_{ij}$. 
+Since it is positive it has positive eigenvalues $\gamma_k, k \in [1, 2, \dots, N]$
+The most general form \cite[119--122]{Breuer2002} for the reduced master equation in the Markov approximation is known as the \emph{Lindblad Form} \cite{Lindblad1976}.
 \begin{align}
-        \frac{d}{dt} \rho_S (t) =& -i[\ham (t), \dens (t)\notag]\\
-                                 & + \sum_{k=1}^{N^2-1} \gamma_k \{ \hat{A}_k \dens_S \hat{A}_k -\frac{1}{2}  \hat{A}_k \dens_S \hat{A}_k -\frac{1}{2} \dens_S \hat{A}_k \hat{A}_k \}\\
-        = & -i[\ham, \dens(t)]+ \sum_k \mathscr{L}_{\gamma_{k}} [\rho]
+  \mathcal{L} &= \frac{d}{dt} \rho_S (t) = -i[\ham (t), \dens (t)\notag]\\
+                                 & + \sum_{k=1}^{N^2-1} \gamma_k \{ \hat{A}_k \dens_S \hat{A}_k -\frac{1}{2}  \hat{A}_k \dens_S \hat{A}_k -\frac{1}{2} \dens_S \hat{A}_k \hat{A}_k \}
 \end{align}
-with ${\{A_k\}}_{k \in I}$ some indexed complete orthonormal basis of operators on the system Hilbert space
-
+Where $A_i$ are defined
+\begin{equation}
+  F_i = \sum_{k=1}^{N^2-1}u_{ki}A_k
+\end{equation}
+with the matrix $u_{ki}$ the diagonalising unitary transformation.
+We have identified the operator $H(t)$ with the system hamiltonian $\mathscr{H}(t)$.
+$H$ might generally contain additional coupling terms \cite{Breuer2002}, we ignore this fact here.
+The operators $A_k$ in the continuous measurement conceptualisation \cite{Carmichael1993} become 'collapse operators', sparking quantum jumps between different states which evolve between jumps under a modified non-hermitian hamiltonian.
+Here, the parameters $\{\gamma_k\}$ become jump rates associated with each collapse factor.
+We introduce the Lindblad dissipator for convenience
+\begin{equation}
+  \lindblad{\gamma_k}{\dens} = \gamma_k \left( A_k \dens_S A_k^\dagger - \frac{1}{2} A_k A_k^\dagger \dens_S - \frac{1}{2} \dens_S A_k^\dagger A_k \right)
+\end{equation}
+where now the evolution takes the form.
+\begin{equation}
+  \mathcal{L} \dens_S = -i[\ham, \dens(t)]+ \sum_k \mathscr{L}_{\gamma_{k}} [\rho]
+\end{equation}
 \subsection{The Master Equation in Quantum Optics}
+\label{microscopic}
 We start with the most general form for the reduced master equation \cref{general}
 \begin{equation}
 	\frac{d}{dt} \rho_S (t) = -itr_E\{[\ham(t), \dens_S(t)]\}
@@ -178,7 +259,7 @@ We assume that the interaction hamiltonian will take the form of a bilinear prod
   \ham_{I} = \hat{S}\hat{R}^\dagger (t)+ \hat{R}(t)\hat{S}^\dagger
 \end{equation}
 We have moved to the interaction picture, and expressed the time dependence of the operator only in the reservoir components.
-We make three assumptions about the form of the reservoir, collectively termed the \emph{Born-Markow Approximation}
+We make three assumptions about the form of the reservoir, collectively termed the \emph{Born-Markov Approximation}
 \begin{enumerate}
   \item The reservoir is unaffected by the dynamics of the system.
     \begin{itemize}
@@ -187,7 +268,7 @@ We make three assumptions about the form of the reservoir, collectively termed t
   \item The reservoir has a short correlation time (equivalently, a broad bandwidth).
     \begin{itemize}
       \item For $\tau_s$ a timescale characterising system dynamics, and $\tau_c$ the correlation time of the reservoir, we require $\tau_s \gg \tau_c$
-      \item The dynamics of the reservoir are Markowian.
+      \item The dynamics of the reservoir are Markovian.
     \end{itemize}
   \item The system and reservoir remain effectively unentangled as far as the system dynamics are concerned.
     \begin{itemize}
