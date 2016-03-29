@@ -41,7 +41,7 @@ except:
 
 axes[-1].plot(dets_0, sys_0.abs_cavity_field())
 
-plt.savefig('''Images/c_freq={c_freq}.anh={anh}.kappa={kappa}:{timestamp}.pdf'''.format(c_freq=c_freq,
+plt.savefig('''images_duffing/c_freq={c_freq}.anh={anh}.kappa={kappa}:{timestamp}.pdf'''.format(c_freq=c_freq,
        anh=anh,
        kappa=kappa,
        timestamp=t.time()))
@@ -55,7 +55,7 @@ for ax in enumerate(axes[:-1]):
        loc='right',
        fontdict={'verticalalignment':'bottom', 'fontsize': 16})
 
-plt.savefig('''Images/c_freq={c_freq}.anh={anh}.kappa={kappa}:{timestamp}.pdf'''.format(c_freq=c_freq,
+plt.savefig('''images_duffing/c_freq={c_freq}.anh={anh}.kappa={kappa}:{timestamp}.pdf'''.format(c_freq=c_freq,
        anh=anh,
        kappa=kappa,
        timestamp=t.time()))

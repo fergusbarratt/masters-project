@@ -95,9 +95,51 @@ and get two coupled differential equations for the level amplitudes:
 \subsubsection{Solutions}
 Here we plot the sin and cos solutions to the above. 
 \subsection{Initial Conditions}
-\subsubsection{Fock State}
-\subsubsection{Coherent State}
-\subsubsection{Rabi Flopping}
+\begin{enumerate}
+  \item Fock State
+  \item Coherent State
+  \item Rabi Flopping
+\end{enumerate}
 \subsection{Solving the Jaynes Cummings system in the presence of drive}
-Here we desribe the canonical transformation that we later use.
-We discuss coherent and incoherent driving.
+\subsection{Drive}
+\begin{enumerate}
+  \item Classical
+  \item Coherent
+  \item Incoherent
+\end{enumerate}
+\subsection{Photon Blockade}
+We add a coherent driving field to the Jaynes-Cummings hamiltonian. It is added coherently i.e.\ the system evolves unitarily with the drive, rather than the more general incoherent case (for example as \cite{Xu2014}), and the Hamiltonian reads:
+\begin{align}
+    \ham_{JC} &= \hbar \omega_d \cre \ann + \hbar \omega_q \atann \atcre +\hbar g (\cre \atann+ \hat{a} \atcre)\\
+    & + \hbar \xi (\cre e^{i\omega_d t} + \ann e^{-i\omega_d t})
+\end{align}
+We also consider the effect of dissipation via two collapse operators, the spontaneous decay of the atom via $\atann$, with strength $\gamma$ and the decay of the cavity field via $\ann$, with strength $\kappa$. The total master equation reads:
+\begin{equation}
+  \dot{\rho} = \frac{1}{i\hbar}[\ham_{JC}, \rho] + \mathscr{L}_\kappa[\rho] + \mathscr{L}_\gamma[\rho]
+\end{equation}
+where $\mathscr{L}$ represents the Lindblad dissipator for each collapse parameter. 
+We ignore pure dephasing.
+
+We first move to a frame rotating at the drive frequency, giving a hamiltonian:
+\begin{equation}
+  \ham = \delta_{qd} \cre \ann + \delta_{cd} \atcre \atann + \hbar g (\cre \atann + \ann \atcre) + \hbar (\ann + \cre)
+\end{equation}
+where the explicit time dependence has been removed.
+With the cavity field and the qubit on resonance ($\delta_{cd} = \Delta$), and for now neglecting the drive, the Jaynes Cummings Hamiltonian can be written.
+\begin{equation}
+  \ham_{JC} = \hbar \Delta (\cre \ann + \atann \atcre) +\hbar g (\cre \atann + \hat{a} \atcre)
+\end{equation}
+Diagonalising yields the \emph{dressed states}
+\begin{align}
+  \ket{E_{n, U}} & = \frac{1}{\sqrt{2}} (\kettens{n}{-}+\kettens{n-1}{+}) \\
+  \ket{E_{n, L}} & = \frac{1}{\sqrt{2}} (\kettens{n}{-}-\kettens{n-1}{+})
+\end{align}
+in the tensor product of the field fock space and the atomic eigenspace spanned by the bare eigenstates $\ket{+}, \ket{-}$. These dressed eigenstates are superpositions of the bare states $\kettens{n}{-}$ and $\kettens{n-1}{+}$ and are balanced only in the resonant case. The eigenenergies are
+\begin{align}
+  E_{n, U} &= n \hbar \omega_0 + \sqrt{n} \hbar g \\
+  E_{n, L} &= n \hbar \omega_0 - \sqrt{n} \hbar g
+\end{align}
+in which the Rabi splitting between the upper and lower dressed states is clear. In the absence of coupling to a dressing field $(g=0)$ the Jaynes-Cumming energies form a degenerate harmonic ladder; it is clear that the qubit coupling induces an anharmonicity via the characteristic $\sqrt{n}$ Rabi splitting.
+
+We now consider the effect of an external drive tuned to the $\ket{G} \rightarrow \ket{E_{1, U/L}}$ transition\footnote{Drive frequencies at multiphoton resonances induce the same effect} (where $\ket{G}$ is the coincident dressed ground state $\ket{E_{0, -}} = \kettens{0}{-}$) with frequency $\omega_D = \hbar \omega_0 \pm \hbar g$.
+The $\kettens{1}{U/L} \rightarrow \kettens{2}{U/L}$ step of the Jaynes Cummings ladder is now detuned from the drive by $E_{2, U/L} - E_{1, U/L} - \hbar \omega_D =  \mp(2-\sqrt{2}) \hbar g$. Thus for sufficiently large g and sufficiently small linewidth, the upper steps of the ladder are inaccessible, and the Jaynes Cumming system is opaque to further photon absorption until the photon is reemitted from the cavity through some loss process. This is the photon blockade effect.

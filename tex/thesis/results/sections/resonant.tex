@@ -1,54 +1,27 @@
 %% resonant results
 \section{Results: Resonant}
 We investigate the resonant regime, following ref \cite{Carmichael2015}, by computational solution of the master equation, mean-field methods, and monte-carlo simulations.
-
-First, we extend the Jaynes-Cummings Model
-
-\subsection{Driving \& Dissipation}
-We add a coherent driving field to the Jaynes-Cummings hamiltonian. It is added coherently i.e.\ the system evolves unitarily with the drive, rather than the more general incoherent case (for example as \cite{Xu2014}), and the Hamiltonian reads:
-\begin{align}
-    \ham_{JC} &= \hbar \omega_d \cre \ann + \hbar \omega_q \atann \atcre +\hbar g (\cre \atann+ \hat{a} \atcre)\\
-    & + \hbar \xi (\cre e^{i\omega_d t} + \ann e^{-i\omega_d t})
-\end{align}
-We also consider the effect of dissipation via two collapse operators, the spontaneous decay of the atom via $\atann$, with strength $\gamma$ and the decay of the cavity field via $\ann$, with strength $\kappa$. The total master equation reads:
+\subsection{Quantum: Computational}
+We have the hamiltonian 
 \begin{equation}
-  \dot{\rho} = \frac{1}{i\hbar}[\ham_{JC}, \rho] + \mathscr{L}_\kappa[\rho] + \mathscr{L}_\gamma[\rho]
+  \ham = \delta_{cd} \cre \ann + \delta_{qd} \sigma_z + g \left(\cre \atann + \atcre \ann \right) + \xi \left(\ann + \cre \right)
 \end{equation}
-where $\mathscr{L}$ represents the Lindblad dissipator for each collapse parameter. 
-We ignore pure dephasing.
-
-We first move to a frame rotating at the drive frequency, giving a hamiltonian:
+in the master equation
 \begin{equation}
-  \ham = \delta_{qd} \cre \ann + \delta_{cd} \atcre \atann + \hbar (\cre \atann + \ann \atcre) + \hbar (\ann + \cre)
+  \dot{\dens} = -i \comm{\ham}{\dens} + \lindblad{\kappa}{\dens} + \lindblad{\gamma}{\dens}
 \end{equation}
-where the explicit time dependence has been removed.
-\subsection{Photon Blockade}
-With the cavity field on resonance ($\delta_{cd} = \delta_{cd} = \Delta$) with the two level transition, and for now neglecting the drive, the Jaynes Cummings Hamiltonian can be written.
-\begin{equation}
-  \ham_{JC} = \hbar \Delta (\cre \ann + \atann \atcre) +\hbar g (\cre \atann + \hat{a} \atcre)
-\end{equation}
-Diagonalising yields the \emph{dressed states}
-\begin{align}
-  \ket{E_{n, U}} & = \frac{1}{\sqrt{2}} (\kettens{n}{-}+\kettens{n-1}{+}) \\
-  \ket{E_{n, L}} & = \frac{1}{\sqrt{2}} (\kettens{n}{-}-\kettens{n-1}{+})
-\end{align}
-in the tensor product of the field fock space and the atomic eigenspace spanned by the bare eigenstates $\ket{+}, \ket{-}$. These dressed eigenstates are superpositions of the bare states $\kettens{n}{-}$ and $\kettens{n-1}{+}$ and are balanced only in the resonant case. The eigenenergies are
-\begin{align}
-  E_{n, U} &= n \hbar \omega_0 + \sqrt{n} \hbar g \\
-  E_{n, L} &= n \hbar \omega_0 - \sqrt{n} \hbar g
-\end{align}
-in which the Rabi splitting between the upper and lower dressed states is clear. In the absence of coupling to a dressing field $(g=0)$ the Jaynes-Cumming energies form a degenerate harmonic ladder; it is clear that the qubit coupling induces an anharmonicity via the characteristic $\sqrt{n}$ Rabi splitting.
+We truncate the density matrix expansion at half the expected intracavity photon number, set the left hand side to zero and solve the resulting matrix equation in software (see the appendix).
 
-We now consider the effect of an external drive tuned to the $\ket{G} \rightarrow \ket{E_{1, U/L}}$ transition\footnote{Drive frequencies at multiphoton resonances induce the same effect} (where $\ket{G}$ is the coincident dressed ground state $\ket{E_{0, -}} = \kettens{0}{-}$) with frequency $\omega_D = \hbar \omega_0 \pm \hbar g$.
-The $\kettens{1}{U/L} \rightarrow \kettens{2}{U/L}$ step of the Jaynes Cummings ladder is now detuned from the drive by $E_{2, U/L} - E_{1, U/L} - \hbar \omega_D =  \mp(2-\sqrt{2}) \hbar g$. Thus for sufficiently large g and sufficiently small linewidth, the upper steps of the ladder are inaccessible, and the Jaynes Cumming system is opaque to further photon absorption until the photon is reemitted from the cavity through some loss process. This is the photon blockade effect.
-\subsection{Near Resonant Drive}
-Following \cite{Carmichael2015}, we treat the Jaynes-Cummings system with the cavity and qubit resonant, and demonstrate the existence of bimodalities in phase and amplitude.
-The Hamiltonian is diagonalised on resonance via a canonical transformation \cite{Alsing1992}, with (quasi-)energies.
+We also computationally calculate q and w functions.
+\subsection{Quantum: Analytical}
+With the system on resonance and in the strong coupling regime, the system does not permit any kind of system size or perturbation expansion \cite{Carmichael2015}.
+
+\cite{Alsing1992} derive a canonical transformation of the classically driven Hamiltonian which diagonalises the system on qubit-cavity resonance with (quasi-)energies.
 \begin{align}
   e_{n, +} &= + \sqrt{n} \hbar g {\left \{1 - {\left ({\frac{2\xi}{g}} \right )}^2 \right \}}^{\frac{3}{4}} \\
   e_{n, -} &= - \sqrt{n} \hbar g {\left \{1 - {\left ({\frac{2\xi}{g}} \right )}^2 \right \}}^{\frac{3}{4}}
 \end{align}
-A critical point in the spectrum appears at $\frac{2\xi}{g} = 1$, where the quasienergy splitting collapses to zero.
+We see a critical point at  $\frac{2\xi}{g} = 1$, where the quasienergy splitting collapses to zero.
 \subsection{Semiclassical}
 We investigate the semiclassical equations for the system.
 \begin{align}
@@ -85,11 +58,6 @@ and from \cref{eq:pseudospin}
 \end{align}
 We recover the non exponential decay of neoclassical radiation theory
 \subsubsection{Steady State}
-\begin{figure*}[!htb]
-    \includegraphics[width=\linewidth]{resonant.pdf}
-    \caption{(a) Intracavity photon number in the semiclassical approximation (b) Intracavity photon number, fully quantum, with a field Hilbert space truncated at 85 excitations (c) Q functions with increasing drive on resonance}
-    \label{resonant}
-\end{figure*}
 We now set all derivatives to zero, and consider the asymptotic solutions to the mean-field equations, which must satisfy:
 \begin{align}
   -ig \beta -i \xi &= 0 \\
@@ -125,23 +93,17 @@ and for $\beta$ and $\zeta$
 \end{align}
 for $\beta$ and $\zeta$, where $\operatorname{sgn}(\Delta \omega)$ is the sign of the detuning with $\operatorname{sgn}(0) = 1$.
 The expression for $\alpha$ is a lorentzian, with dispersive sign dependent shift $ \operatorname{sgn}(\Delta\omega)\flatfrac{g^2}{\sqrt{\Delta\omega^2+4g^2\abs{\alpha}^2}}$, which diverges on resonance as alpha goes to zero. 
-In the limit $\alpha \rightarrow \infty$ the system response returns to a rabi split ($\pm\flatfrac{g^2}{\Delta\omega}$) lorentzian.
+In the limit $\alpha \rightarrow \infty$ the system response returns to the cavity lorentzian.
 
-The sides of the Lorentzians correspond to domains of coexistence between the near vacuum state and the high occupation state \cite{Carmichael2015}, and the phase transition between the two at this boundary is of first order. 
-Here, photon blockade breaks down discontinuously.
-The transition as the drive strength moves through the critical point is of second order, as indicated in the plots of the approach to steady state below, where critical slowing in the approach close to the critical point reveals its nature.
-\begin{figure}[!htb]
-  \includegraphics[width=\linewidth]{critical_slowing.pdf}
-  \caption{Time dependent solutions to the master equation for different parameters. Note the slow asymptotic approach of the green line to the steady state}
-  \label{critical_slowing}
-\end{figure}
-Numerical calculation of the Q function along the walls of the bilorentzian show a marked bimodality in amplitude. The development of this Q function bimodality is echoed in the Wigner representation. Moving through the critical point in the drive, the Q function bifurcates, this time in phase, where two coexistent gaussian peaks in phase space mark the phase bistability discussed above.
 \subsection{Spontaneous Emission}
-We now reintroduce the spontaneous emission parameter, both in the mean-field and the quantum case. 
+\begin{figure*}[t]
+  \includegraphics[width=\linewidth]{amplitudebistability.pdf}
+  \caption{Development of amplitude bistability in Q function. Parameters $\omega_c=10,\ \omega_q=10,\ \xi=4,\ \kappa=1,\ g=10$. Value of $\omega_d$ marked.}
+  \label{amplitudebistability}
+\end{figure*}
 
-Deexcitation fringes are also clear in \cref{resonant} where a spontaneous emission rate $ \gamma = \frac{\kappa}{2}$ connects the peaks of both of the bistabilities: in phase and in amplitude. Given the interpretation of such bimodal quasi-probability functions in the zero detuning case as as having a probability peak for the occupation of each ladder, it is clear that spontaneous emission serves to induce ladder-switching. It is this ladder switching that washes out the semiclassical bistability in the quantum regime.
-
-We return to mean-field equations. The optical Bloch equations with spontaneous emission read (see \cref{sc_with_gamma})
+We now reintroduce the spontaneous emission parameter.
+The optical Bloch equations with spontaneous emission read (see \cref{sc_with_gamma})
 \begin{align}
   \frac{d \alpha}{dt} &= -(\kappa - i \Delta \omega)\alpha - ig \beta - i\xi\label{eq:alphase}\\
   \frac{d \beta}{dt} &= -(\frac{\gamma}{2}-i\Delta\omega)\beta+ig\alpha\zeta \label{eq:betase}\\
@@ -153,25 +115,25 @@ In the steady state \cref{eq:alphase} becomes
 \end{align}
 from which in \cref{eq:zetase} in steady-state
 \begin{align}
-  0 &= -\gamma(\zeta+1)+2ig\frac{ig|\alpha|^2\zeta\frac{\gamma}{2}2}{\frac{\gamma^2}{4}+\Delta\omega^2} \\
-  \implies \zeta &= \frac{1}{\frac{-2g^2|\alpha|^2}{\frac{\gamma^2}{4} +\Delta\omega^2}-1} \\
-  &= \frac{1}{\frac{-2g^2|\alpha|^2 - \frac{\gamma^2}{4}-\Delta\omega^2}{\frac{\gamma^2}{4} +\Delta\omega^2}}
+  0 &= -\gamma(\zeta+1)+2ig\frac{ig|\alpha|^2\zeta\frac{\gamma}{2}2}{\flatfrac{\gamma^2}{4}+\Delta\omega^2} \\
+  \implies \zeta &= \frac{1}{\frac{-2g^2|\alpha|^2}{\flatfrac{\gamma^2}{4} +\Delta\omega^2}-1} \\
+  &= \frac{1}{\frac{-2g^2|\alpha|^2 - \flatfrac{\gamma^2}{4}-\Delta\omega^2}{\flatfrac{\gamma^2}{4} +\Delta\omega^2}}
 \end{align}
 putting the above together yields
 \begin{align}
   \beta &= \frac{ig\alpha\zeta}{\frac{\gamma}{2}-i\Delta\omega}\\
-  &= \frac{ig\alpha}{\frac{(-2g^2|\alpha|^2-\frac{\gamma^2}{4}-\Delta\omega^2)(\frac{\gamma}{2}-i\Delta\omega)}{\frac{\gamma^2}{4}+\Delta\omega^2}}\\
-  &= \frac{ig\alpha}{\frac{-2g^2|\alpha|^2-\frac{\gamma^2}{4}-\Delta\omega^2}{\frac{\gamma}{2}+i\Delta\omega^2}}\\
-  &= \frac{ig\alpha(\frac{\gamma}{2}+i\Delta\omega)}{-2g^2|\alpha|^2-\frac{\gamma^2}{4}-\Delta\omega^2} \label{eq:betasolved}
+  &= \frac{ig\alpha}{\frac{(-2g^2|\alpha|^2-\flatfrac{\gamma^2}{4}-\Delta\omega^2)(\frac{\gamma}{2}-i\Delta\omega)}{\flatfrac{\gamma^2}{4}+\Delta\omega^2}}\\
+  &= \frac{ig\alpha}{\frac{-2g^2|\alpha|^2-\flatfrac{\gamma^2}{4}-\Delta\omega^2}{\frac{\gamma}{2}+i\Delta\omega^2}}\\
+  &= \frac{ig\alpha(\frac{\gamma}{2}+i\Delta\omega)}{-2g^2|\alpha|^2-\flatfrac{\gamma^2}{4}-\Delta\omega^2} \label{eq:betasolved}
 \end{align}
 \cref{eq:alphase} in the steady state with  \cref{eq:betasolved} becomes a condition for $\alpha$
 \begin{align} % Here be weird bugs
   0&=-(\kappa-i\Delta\omega)\alpha-ig\beta-i\xi \\
-  0&=-{(\kappa-i\Delta\omega)}\alpha-g\frac{ig(\frac{\gamma}{2}+i\Delta\omega)}{-2g^2|\alpha|^2-\frac{\gamma^2}{4}-\Delta\omega^2}\alpha-i\xi \\
-\implies \alpha &= -i\xi \frac{1}{\kappa-i\Delta\omega+\frac{g^2(\frac{\gamma}{2}+i\Delta\omega)}{\frac{\gamma^2}{4}+{\Delta\omega}^2+2g{|\alpha|}^2}}\label{eq:alphadetdiss}
+  0&=-{(\kappa-i\Delta\omega)}\alpha-g\frac{ig(\frac{\gamma}{2}+i\Delta\omega)}{-2g^2|\alpha|^2-\flatfrac{\gamma^2}{4}-\Delta\omega^2}\alpha-i\xi \\
+\implies \alpha &= -i\xi \frac{1}{\kappa-i\Delta\omega+\frac{g^2(\frac{\gamma}{2}+i\Delta\omega)}{\flatfrac{\gamma^2}{4}+{\Delta\omega}^2+2g{|\alpha|}^2}}\label{eq:alphadetdiss}
 \end{align}
 
-\Cref{eq:alphadetdiss} is the classical solution for the steady state of a saturable two level transition, with a saturation photon number ($I \propto |\alpha|^2 \approx n_{sat}$) of $n_{sat} = \frac{\gamma^2}{8g^2}$.  \\
+\Cref{eq:alphadetdiss} is the classical solution for the steady state of a saturable two level transition, with a saturation photon number ($I \propto |\alpha|^2 \approx n_{sat}$) of $n_{sat} = \flatfrac{\gamma^2}{8g^2}$.  \\
 Compare $\alpha$ derived with $\gamma$ present to without
 \begin{widetext}
   \begin{align}
@@ -193,3 +155,46 @@ The conservation law $4|\beta|^2 +\zeta^2 = 1$ is broken by the qubit relaxation
 The solutions in the case that the limit is taken after steady state requirement is imposed are those of absorptive optical bistability.
 In the limit $\frac{\gamma}{\kappa} \rightarrow 0$ the rate at which these steady states are approached becomes vanishingly small
  \cite{Alsing1990}.
+ \subsection{Analysis: Resonant Phase Transitions}
+We have two regions of bistability.
+\subsubsection{Amplitude}
+Here in order to break down photon blockade, we self consistently detune the driving field to address the split resonance. 
+The cavity field amplitude is a split lorentzian in the detuning, broadening wihth increasing drive, with a central valley along which the intracavity field increases smoothly as the drive is scanned through the critical point.
+Along the inner walls of this lorentzian (the outer walls of the valley) is a region of amplitude bistability. 
+There are two coexistent field states as we detune the drive towards the new resonance, the vacuum state where the photon blockade has remained in place, and a displaced squeezed state at nonzero amplitude, where the sufficient detuning has allowed the cavity to fill with light. 
+The transition from the dark to the bright cavity represents a single site phase transition, of first order \cite{Carmichael2015}
+Here, photon blockade breaks down discontinuously, the response of the cavity changes sharply from the unfilled to the filled state. 
+In \cref{amplitudebistability} we plot the Q function of the cavity field for a range of detunings, below the critical drive, without the presence of spontaneour emission.
+We see the second stable steady state develop with continouusly increasing probability amplitude. 
+Any of the other quasi-probability representations show the same things, the Q and Wigner being the most computationally accessible. 
+\subsubsection{Phase}
+It is possible to break down photon blockade without detuning the drive.
+
+We have demonstrated \cite{Carmichael2015} the existence on resonance of a critical point in the drive at $2\flatfrac{\xi}{g}=1$, where the quasienergy splitting of the transformed hamiltonian of \cite{Alsing1992} collapses to zero, and the semiclassical inversion becomes imaginary. 
+
+As the drive is scanned through this critical point, in the semiclassical case there develop two solutions from one.
+In \cref{phasebistability} we see that the Q function has two peaks, both with the same intracavity amplitude but with different field phase. 
+As the drive is scanned through critical, the system spontaneously takes one of the two probable states because of quantum fluctuations. 
+
+We saw how the cavity harmonic ladder was split into two distinct ladders with drive dependent splitting. 
+\cite{Carmichael2015} demonstrates that this bistability in phase corresponds to the ascension of distinct ladders by photons. 
+Past the critical point, the resolution of the system split energy levels prevents switching between ladders, and there are thus the two stable split states persist aymptotically. 
+Spontaneous emission serves to couple the distinct ladders across the energy splitting. 
+Here we have switching between the probability peaks, and this switching continues for all time. 
+We have then in the steady state Q functions \cref{phasebistability} a connecting fringe between the two phase peaks, where probability transfers between the peaks. 
+\begin{figure*}[t]
+  \includegraphics[width=\linewidth]{phasebistability.pdf}
+  \includegraphics[width=\linewidth]{phasebistability_with_gamma.pdf}
+  \caption{Development of phase bistability in Q function. Parameters $\omega_c = \omega_q = \omega_d ,\ \kappa=1,\ g=10$. Value of $\xi$ marked. (a) With spontaneous emission (b) without spontaneous emission}
+  \label{phasebistability}
+\end{figure*}
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{critical_slowing.pdf}
+  \caption{Time dependent solutions to the master equation for different parameters. Note the slow asymptotic approach of the green line to the steady state}
+  \label{critical_slowing}
+\end{figure}
+\begin{figure*}[!htb]
+    \includegraphics[width=\linewidth]{resonant.pdf}
+    \caption{(a) Intracavity photon number in the semiclassical approximation (upper, stable solution) (b) Intracavity photon number, fully quantum, with a field Hilbert space truncated at 85 excitations (c) Q functions with increasing drive on resonance}
+    \label{resonant}
+\end{figure*}

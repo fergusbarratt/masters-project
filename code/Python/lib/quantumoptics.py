@@ -8,6 +8,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import animation
 import numbers
 import warnings
+import time
 from matplotlib import cm
 plt.rcParams['image.cmap'] = 'viridis'
 
@@ -17,7 +18,6 @@ class QuantumOpticsSystem(object):
 
     def __init__(self,
                  N_field_levels,
-                 c_op_params,
                  coupling=None,
                  N_qubits=1):
 
@@ -29,11 +29,6 @@ class QuantumOpticsSystem(object):
             self.g = 0
         else:
             self.g = coupling
-
-        if len(c_op_params)>0:
-            self.kappa = c_op_params[0]
-        if len(c_op_params)>1:
-            self.gamma = c_op_params[1]
 
         # bare operators
         self.idcavity = qt.qeye(self.N_field_levels)
@@ -65,55 +60,42 @@ class QuantumOpticsSystem(object):
                     ret.append(np.asarray(arr))
             return ret
 
-        def pad_arr(arr, new_len):
-            '''pad arrays with final element of array'''
-            if len(arr) > new_len:
-                return np.asarray(arr[:new_len])
-            else:
-                return np.append(arr,
-                                 arr[-1]*np.ones(new_len-len(arr)))
-
         arrs = to_arrays(arrays)
-
-        ret_arrs = []
+        
         max_len = max(map(len, arrs))
 
-        for arr in enumerate(arrs):
-            arrs[arr[0]] = pad_arr(arr[1], max_len)
-        return arrs
+        def pad_arrs(arrs):
+            '''pad a group of arrays with their last elemenst 
+               to the maximum length'''
+            ret = []
+            for arr in arrs:
+                if len(arr) >= max_len:
+                    ret.append(np.asarray(arr[:max_len]))
+                else:
+                    ret.append(np.append(arr,
+                                         arr[-1]*np.ones(max_len-len(arr))))
+            return ret
 
-    def _c_ops(self):
-        """_c_ops
-        Build list of collapse operators
-        """
-        _c_ops = []
-        if hasattr(self, 'kappa'):
-            c1 = m.sqrt(2 * self.kappa) * self.a
-        if hasattr(self, 'gamma'):
-            c2 = m.sqrt(2 * self.gamma) * self.sm
-        if 'c1' in locals():
-            _c_ops.append(c1)
-        if 'c2' in locals():
-            _c_ops.append(c2)
-        return _c_ops
+        return ([arr for arr in arrs if len(arr)==max_len][0], 
+                 pad_arrs(arrs))
+
 
 class SteadyStateSystem(QuantumOpticsSystem):
 
     def __init__(self,
                  N_field_levels,
-                 c_op_params,
                  coupling=None,
                  N_qubits=1,
-                 precalc=True):
+                 precalc=False
+                 ):
 
         super().__init__(N_field_levels,
-                         c_op_params,
                          coupling,
                          N_qubits)
 
+        self.precalc=precalc
         if precalc:
             self._calculate()
-            self.precalc = precalc
 
     def _calculate(self):
         self.rhos_ss = self.rhos()
@@ -124,12 +106,14 @@ class SteadyStateSystem(QuantumOpticsSystem):
         precalc=True
         if nslice is not None:
             return np.asarray([qt.steadystate(ham,
-            self._c_ops())
-            for ham in list(self.hamiltonian())[nslice]])
-        return np.asarray([qt.steadystate(ham,
-            self._c_ops()) for ham in self.hamiltonian()])
+                                              self._c_ops())
+            for ham in list(self.hamiltonian())[nslice]]).T
+        else:
+            return np.asarray([qt.steadystate(ham,
+                                              self._c_ops()) 
+            for ham in self.hamiltonian()]).T
 
-    def qps(self, xvec, yvec, nslice=None, tr=None, functype='Q'):
+    def qps(self, xvec, yvec, start=None, stop=None, tr=None, functype='Q'):
 
         class qp_list(object):
             """qps
@@ -169,14 +153,14 @@ class SteadyStateSystem(QuantumOpticsSystem):
                 return self.qps
 
         if not self.precalc:
-            self._calculate_rhos_ss(nslice)
-        if nslice is not None:
+            self._calculate()
+        if start is not None and stop is not None:
             if tr=='cavity':
-                rhos = [rho.ptrace(0) for rho in self.rhos_ss][nslice]
+                rhos = [rho.ptrace(0) for rho in self.rhos_ss][start:stop]
             elif tr=='qubit':
-                rhos = [rho.ptrace(1) for rho in self.rhos_ss][nslice]
+                rhos = [rho.ptrace(1) for rho in self.rhos_ss][start:stop]
             else:
-                rhos = self.rhos_ss[nslice]
+                rhos = self.rhos_ss[start:stop]
         else:
             if tr=='cavity':
                 rhos = [rho.ptrace(0) for rho in self.rhos_ss]
@@ -195,7 +179,7 @@ class SteadyStateSystem(QuantumOpticsSystem):
         """correlator
         Measure of quantum vs semiclassical"""
         if not self.precalc:
-            self._calculate_rhos_ss()
+            self._calculate()
         return np.abs(np.asarray([qt.expect(self.a*self.sm,
                 rho)
                 for rho in self.rhos_ss])-\
@@ -210,7 +194,7 @@ class SteadyStateSystem(QuantumOpticsSystem):
         """abs_cavity_field
         Convenience function, calculates abs(expect(op(a)))"""
         if not self.precalc:
-            self._calculate_rhos_ss()
+            self._calculate()
         return np.absolute([qt.expect(self.a,
                 rho)
             for rho in self.rhos_ss])
@@ -219,97 +203,126 @@ class SteadyStateSystem(QuantumOpticsSystem):
         """purities
         Convenience function, calculates Tr(rho^2)"""
         if not self.precalc:
-            self._calculate_rhos_ss()
+            self._calculate()
         return np.asarray(
                     [(rho** 2).tr() for rho in self.rhos_ss])
 
     def draw_qps(self,
+                 animate=False,
+                 tr='cavity',
+                 colormap='inferno',
                  type='Q',
-                 plottype='c',
+                 plottype='cf',
                  ininterval=50,
-                 contno=100,
+                 contno=40,
                  save=False,
                  form='mp4',
-                 infigsize=(6, 6),
+                 infigsize=(3, 3),
                  xvec=np.linspace(-8, 7, 70),
-                 yvec=np.linspace(-10, 4, 70)):
+                 yvec=np.linspace(-7, 4, 70),
+                 suptitle="",
+                 fontdict={}):
         '''draw_qps
-        Animate the system quasiprobability function list using
+        Animate or plots the system quasiprobability function list using
         matplotlib
         builtins. kwargs are pretty similar to matplotlib options.
         frame rate gets set by a range length vs the ininterval
-        parameter'''
+        parameter,
+        infigsize gets tiled horizonally if not animating'''
         if not self.precalc:
-            self._calculate_rhos_ss()
-        W = enumerate(self.qps(xvec, yvec, type))
+            self._calculate()
+        W = self.qps(xvec, yvec, functype=type, tr='cavity')
         if plottype == 'c' or plottype == 'cf':
-            fig, axes = plt.subplots(1, 1, figsize=infigsize)
+            if animate:
+                fig, axes = plt.subplots(1, 1, figsize=infigsize)
+            else:
+                fig, axes = plt.subplots(1, 
+                                         len(W), 
+                                         figsize=(infigsize[0]*len(W), 
+                                                  infigsize[1]))
+                fig.suptitle(suptitle, fontdict=fontdict)
         elif plottype == 's':
+            if not animate:
+                raise Exception("surface subplots not implemented")
             fig = plt.figure()
             axes = fig.gca(projection='3d')
             X, Y = np.meshgrid(xvec, yvec)
+        if not animate:    
+            for ax in enumerate(axes):
+                if plottype=='c':
+                    mble=ax[1].contour(xvec, yvec, W[ax[0]], contno, cmap=colormap)
+                elif plottype=='cf':
+                    mble=ax[1].contourf(xvec, yvec, W[ax[0]], contno, cmap=colormap)
+                ax[1].set_title('{:0.2f}'.format(self.long_range[ax[0]]), loc='right')
+                ax[1].set_xlabel('$\\mathbb{R}e($' + type + ')')
+                ax[1].set_ylabel('$\\mathbb{I}m($' + type + ')')
 
-        def init():
-            if plottype == 'c':
-                plot = axes.contour(xvec, yvec, W[0][1], contno)
-            elif plottype == 'cf':
-                plot = axes.contourf(xvec, yvec, W[0][1], contno)
-            elif plottype == 's':
-                Z = W[0][1]
-                plot = axes.plot_surface(X, Y, Z,
-                                         rstride=1,
-                                         cstride=1,
-                                         linewidth=0,
-                                         antialiased=True,
-                                         shade=True,
-                                         cmap=cm.coolwarm)
-                axes.set_zlim(0.0, 0.1)
-            return plot
-
-        def animate(i):
-            axes.cla()
-            plt.cla()
-            plt.title(': %d' % W[i][0])
-            if plottype == 'c':
-                plot = axes.contour(xvec, yvec, W[i][1], contno)
-            elif plottype == 'cf':
-                plot = axes.contourf(xvec, yvec, W[i][1], contno)
-            elif plottype == 's':
-                Z = W[i][1]
-                plot = axes.plot_surface(X, Y, Z,
-                                         rstride=1,
-                                         cstride=1,
-                                         linewidth=0,
-                                         antialiased=False,
-                                         shade=True,
-                                         cmap=cm.coolwarm)
-                axes.set_zlim(0.0, 0.4)
-            return plot
-
-        if len(W) != 1:
-            with warnings.catch_warnings():
-                warnings.simplefilter("ignore")
-                anim = animation.FuncAnimation(
-                    fig,
-                    animate,
-                    init_func=init,
-                    frames=len(W),
-                    interval=ininterval)
+                plt.colorbar(mble, ax=ax[-1])
         else:
-            with warnings.catch_warnings():
-                warnings.simplefilter("ignore")
-                cont = axes.contour(xvec, yvec, W[0][1], contno)
-        if save and len(W) != 1:
-            with warnings.catch_warnings():
-                warnings.simplefilter("ignore")
-                if form == 'mp4':
-                    anim.save('qp_anim.mp4',
-                              fps=30,
-                              extra_args=['-vcodec', 'libx264'])
-                if form == 'gif':
-                    anim.save('qp_anim.gif',
-                              writer='imagemagick',
-                              fps=4)
+            def init():
+                if plottype == 'c':
+                    plot = axes.contour(xvec, yvec, W[0], contno, cmap=colormap)
+                elif plottype == 'cf':
+                    plot = axes.contourf(xvec, yvec, W[0], contno, cmap=colormap)
+                elif plottype == 's':
+                    Z = W[0][1]
+                    plot = axes.plot_surface(X, Y, Z,
+                                             rstride=1,
+                                             cstride=1,
+                                             linewidth=0,
+                                             antialiased=True,
+                                             shade=True,
+                                             cmap=cm.coolwarm)
+                    axes.set_zlim(0.0, 0.1)
+                return plot
+
+            def animate(i):
+                axes.cla()
+                plt.cla()
+                if plottype == 'c':
+                    plot = axes.contour(xvec, yvec, W[i], contno, cmap=colormap)
+                elif plottype == 'cf':
+                    plot = axes.contourf(xvec, yvec, W[i], contno, cmap=colormap)
+                elif plottype == 's':
+                    Z = W[i]
+                    plot = axes.plot_surface(X, Y, Z,
+                                             rstride=1,
+                                             cstride=1,
+                                             linewidth=0,
+                                             antialiased=False,
+                                             shade=True,
+                                             cmap=cm.coolwarm)
+                    axes.set_zlim(0.0, 0.4)
+                return plot
+
+            if len(list(W)) != 1:
+                with warnings.catch_warnings():
+                    warnings.simplefilter("ignore")
+                    anim = animation.FuncAnimation(
+                        fig,
+                        animate,
+                        init_func=init,
+                        frames=len(list(W)),
+                        interval=ininterval)
+            else:
+                with warnings.catch_warnings():
+                    warnings.simplefilter("ignore")
+                    cont = axes.contour(xvec, yvec, W[0], contno)
+            if save and len(list(W)) != 1:
+                with warnings.catch_warnings():
+                    warnings.simplefilter("ignore")
+                    if form == 'mp4':
+                        anim.save('qp_anim.mp4',
+                                  fps=30,
+                                  extra_args=['-vcodec', 'libx264'])
+                    if form == 'gif':
+                        anim.save('qp_anim.gif',
+                                  writer='imagemagick',
+                                  fps=4)
+        if not animate:
+            fig.tight_layout()
+            if save:
+                plt.savefig('t={}, qp_fig.pdf'.format(time.time()))
         plt.show()
 
 class QuantumDuffingOscillator(SteadyStateSystem):
@@ -323,19 +336,42 @@ class QuantumDuffingOscillator(SteadyStateSystem):
                  N_field_levels,
                  c_op_params,
                  N_qubits=1,
-                 coupling=None):
+                 coupling=None,
+                 precalc=True):
 
-        self.params = np.asarray(self._to_even_arrays([cavity_freqs,
-                                        drive_freqs,
-                                        drive_strengths,
-                                        anharmonicity_parameters])).T
+        (self.long_range,
+        self.params) = np.asarray(self._to_even_arrays([cavity_freqs,
+                                  drive_freqs,
+                                  drive_strengths,
+                                  anharmonicity_parameters])).T
 
         self.length = len(self.params)
 
         super().__init__(N_field_levels,
-                         c_op_params,
                          N_qubits,
-                         coupling)
+                         coupling,
+                         precalc)
+
+        if len(c_op_params)>0:
+            self.kappa = c_op_params[0]
+        if len(c_op_params)>1:
+            self.gamma = c_op_params[1]
+
+    def _c_ops(self):
+        """_c_ops
+        Build list of collapse operators
+        """
+        self.__def_ops()
+        _c_ops = []
+        if hasattr(self, 'kappa'):
+            c1 = m.sqrt(2 * self.kappa) * self.a
+        if hasattr(self, 'gamma'):
+            c2 = m.sqrt(2 * self.gamma) * self.sm
+        if 'c1' in locals():
+            _c_ops.append(c1)
+        if 'c2' in locals():
+            _c_ops.append(c2)
+        return _c_ops
 
     def __def_ops(self):
 
@@ -378,12 +414,14 @@ class JaynesCummingsSystem(SteadyStateSystem):
             omega_drive_range,
             c_op_params,
             coupling,
-            N_field_levels):
+            N_field_levels,
+            precalc=True):
 
-        self.params = self._to_even_arrays([drive_range,
-                                            omega_drive_range,
-                                            omega_cavity_range,
-                                            omega_qubit_range])
+        (self.long_range,
+        self.params) = self._to_even_arrays([drive_range,
+                                             omega_drive_range,
+                                             omega_cavity_range,
+                                             omega_qubit_range])
         (self.drive_range,
          self.omega_drive_range,
          self.omega_cavity_range,
@@ -391,9 +429,14 @@ class JaynesCummingsSystem(SteadyStateSystem):
 
         self.length = len(self.params)
 
-        super().__init__(N_field_levels,
-                         c_op_params,
+        super().__init__(
+                         N_field_levels,
                          coupling)
+
+        if len(c_op_params)>0:
+            self.kappa = c_op_params[0]
+        if len(c_op_params)>1:
+            self.gamma = c_op_params[1]
 
     def __def_ops(self):
 
@@ -402,6 +445,22 @@ class JaynesCummingsSystem(SteadyStateSystem):
         self.sx = self.jc_sx
         self.sy = self.jc_sy
         self.sz = self.jc_sz
+
+    def _c_ops(self):
+        """_c_ops
+        Build list of collapse operators
+        """
+        self.__def_ops()
+        _c_ops = []
+        if hasattr(self, 'kappa'):
+            c1 = m.sqrt(2 * self.kappa) * self.a
+        if hasattr(self, 'gamma'):
+            c2 = m.sqrt(2 * self.gamma) * self.sm
+        if 'c1' in locals():
+            _c_ops.append(c1)
+        if 'c2' in locals():
+            _c_ops.append(c2)
+        return _c_ops
 
     def hamiltonian(self):
 
@@ -595,6 +654,3 @@ class JaynesCummingsParameters:
             self.c_op_params,
             g,
             N)
-
-if __name__ == '__main__':
-    main()
