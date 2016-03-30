@@ -15,7 +15,7 @@ import quantumoptics as qo
 qo = importlib.reload(qo)
 
 ### Parameters
-matrix_size = 85 
+matrix_size = 80 
 
 # Dispersive
 c_q_det = (8.1831-10.5665)
@@ -48,12 +48,13 @@ q_disp_drives = np.linspace(0.015, 0.025, 5)
 
 # Make all the axes
 disp_fig = plt.figure()
-gs = gridspec.GridSpec(6, 12)
-disp_ax = [None, None, None]
+gs = gridspec.GridSpec(8, 12)
+disp_ax = [None, None, None, None]
 disp_ax[0] = disp_fig.add_subplot(gs[0:2, :-1])
 disp_ax[1] = disp_fig.add_subplot(gs[2:4, :-1], sharex=disp_ax[0])
 disp_ax[2] = disp_fig.add_subplot(gs[4:6, :-1], sharex=disp_ax[1])
-cbar_ax = disp_fig.add_subplot(gs[0:6, -1:])
+disp_ax[3] = disp_fig.add_subplot(gs[6:8, :-1], sharex=disp_ax[2])
+cbar_ax = disp_fig.add_subplot(gs[0:8, -1:])
 
 # determine drives from A
 disp_alphas = np.linspace(0, 13, 200)
@@ -79,7 +80,7 @@ disp_ax[0].set_title('Semiclassical',
                      fontdict={'fontsize': 12, 
                                'verticalalignment': 'bottom'})
 disp_ax[0].set_xlabel('$\omega_c - \omega_d$')
-disp_ax[0].set_ylabel('$\left|A\\right|^2$')
+disp_ax[0].set_ylabel('$\left|A\\right|$')
 
 
 if len(q_disp_drives) > 1:
@@ -96,26 +97,25 @@ print("Semiclassical done")
 ## Quantum
 # set parameters for each q_disp_drive
 q_disp_detrange = disp_detrange
-bishop_parameters = [qo.JaynesCummingsParameters(
-    coupling_strength, 
-    matrix_size).det_params(
+bishop_parameters = [qo.JaynesCummingsParameters().det_params(
                             drive_strengths=q_disp_drive, 
                             drive_cavity_detunings=q_disp_detrange,
                             qubit_cavity_detunings=c_q_det,
                             c_op_params=[kappa_disp],
-                            omega_cavity=cavity_freq) 
+                            omega_cavity=cavity_freq,
+                            g=coupling_strength,
+                            N=matrix_size) 
                      for q_disp_drive in q_disp_drives]
 
 # Build system for each q_disp_drive
-bishop_systems = [qo.SteadyStateJaynesCummingsModel(*b_params,
-                                                    noisy=True)
+bishop_systems = [qo.JaynesCummingsSystem(*b_params)
                   for b_params in bishop_parameters]
 
 print("\nquantum setup done")
 field_data = np.empty((len(bishop_systems), len(q_disp_detrange)))
 # Plot all absolute cavity fields with colors from semiclassical contours
 for sys in enumerate(bishop_systems):
-    cav_field = sys[1].abs_cavity_field()**2
+    cav_field = sys[1].abs_cavity_field()
     field_data[sys[0]] = cav_field
     print('{} / {}'.format(sys[0]+1, len(bishop_systems)))
     disp_ax[1].plot(q_disp_detrange, cav_field, 
@@ -153,6 +153,23 @@ disp_ax[2].set_title('Quantum',
                      'verticalalignment':'bottom'})
 
 print("correlator done")
+print("starting g2")
+
+for sys in enumerate(bishop_systems):
+    g2 = sys[1].g2()
+    print('{} / {}'.format(sys[0]+1, len(bishop_systems)))
+    disp_ax[3].plot(q_disp_detrange, g2,
+            linewidth=1.0,
+            c=disp_childs[0].get_colors()[sys[0]])
+
+disp_ax[3].set_xlabel('$\omega_c-\omega_d$')
+disp_ax[3].set_ylabel('$g^{(2)}(0)$')
+disp_ax[3].set_title('Quantum',
+                     loc='right',
+                     fontdict={'fontsize' : 12,
+                    'verticalalignment':'bottom'})
+
+print("g2 done")
 
 # Update grid spacings
 gs.update(wspace=1, hspace=1)

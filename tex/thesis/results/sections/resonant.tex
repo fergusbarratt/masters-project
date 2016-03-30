@@ -12,7 +12,7 @@ in the master equation
 \end{equation}
 We truncate the density matrix expansion at half the expected intracavity photon number, set the left hand side to zero and solve the resulting matrix equation in software (see the appendix).
 
-We also computationally calculate q and w functions.
+We also computationally calculate Q and W functions.
 \subsection{Quantum: Analytical}
 With the system on resonance and in the strong coupling regime, the system does not permit any kind of system size or perturbation expansion \cite{Carmichael2015}.
 
@@ -36,7 +36,7 @@ and
 in the absence of spontaneous emission $\gamma=0$
 \footnote{ Interestingly, setting $\gamma$ equal to zero at this point yields different asymptotic solutions to those for the system with $\gamma$ included and set to zero in the solution \cite{Alsing1990}},
 A derivation can be found in the appendix.
-\begin{figure}[!htb]
+\begin{figure}[htb]
   \includegraphics[width=\linewidth]{sc_no_det.pdf}
   \caption{$\alpha$ and $\zeta$ as the drive strength $\xi$ moves up to through and beyond the critical point (a) $\zeta$ approaches zero with increasing drive strength (positive branch)\label{fig:zeta} (b) development of field phase bistability}\label{fig:alpha}
   \label{fig:sc_no_det}
@@ -96,7 +96,7 @@ The expression for $\alpha$ is a lorentzian, with dispersive sign dependent shif
 In the limit $\alpha \rightarrow \infty$ the system response returns to the cavity lorentzian.
 
 \subsection{Spontaneous Emission}
-\begin{figure*}[t]
+\begin{figure*}[bht]
   \includegraphics[width=\linewidth]{amplitudebistability.pdf}
   \caption{Development of amplitude bistability in Q function. Parameters $\omega_c=10,\ \omega_q=10,\ \xi=4,\ \kappa=1,\ g=10$. Value of $\omega_d$ marked.}
   \label{amplitudebistability}
@@ -158,6 +158,17 @@ In the limit $\frac{\gamma}{\kappa} \rightarrow 0$ the rate at which these stead
  \subsection{Analysis: Resonant Phase Transitions}
 We have two regions of bistability.
 \subsubsection{Amplitude}
+\begin{figure*}[tbh]
+  \includegraphics[width=\linewidth]{phasebistability.pdf}
+  \includegraphics[width=\linewidth]{phasebistability_with_gamma.pdf}
+  \caption{Development of phase bistability in Q function. Parameters $\omega_c = \omega_q = \omega_d ,\ \kappa=1,\ g=10$. Value of $\xi$ marked. (a) With spontaneous emission (b) without spontaneous emission}
+  \label{phasebistability}
+\end{figure*}
+\begin{figure*}[bt]
+  \includegraphics[width=\linewidth]{critical_slowing.pdf}
+  \caption{Time dependent solutions to the master equation for different parameters. Note the slow asymptotic approach of the green line to the steady state}
+  \label{critical_slowing}
+\end{figure*}
 Here in order to break down photon blockade, we self consistently detune the driving field to address the split resonance. 
 The cavity field amplitude is a split lorentzian in the detuning, broadening wihth increasing drive, with a central valley along which the intracavity field increases smoothly as the drive is scanned through the critical point.
 Along the inner walls of this lorentzian (the outer walls of the valley) is a region of amplitude bistability. 
@@ -182,18 +193,7 @@ Past the critical point, the resolution of the system split energy levels preven
 Spontaneous emission serves to couple the distinct ladders across the energy splitting. 
 Here we have switching between the probability peaks, and this switching continues for all time. 
 We have then in the steady state Q functions \cref{phasebistability} a connecting fringe between the two phase peaks, where probability transfers between the peaks. 
-\begin{figure*}[t]
-  \includegraphics[width=\linewidth]{phasebistability.pdf}
-  \includegraphics[width=\linewidth]{phasebistability_with_gamma.pdf}
-  \caption{Development of phase bistability in Q function. Parameters $\omega_c = \omega_q = \omega_d ,\ \kappa=1,\ g=10$. Value of $\xi$ marked. (a) With spontaneous emission (b) without spontaneous emission}
-  \label{phasebistability}
-\end{figure*}
-\begin{figure}[h]
-  \includegraphics[width=\linewidth]{critical_slowing.pdf}
-  \caption{Time dependent solutions to the master equation for different parameters. Note the slow asymptotic approach of the green line to the steady state}
-  \label{critical_slowing}
-\end{figure}
-\begin{figure*}[!htb]
+\begin{figure*}[htb]
     \includegraphics[width=\linewidth]{resonant.pdf}
     \caption{(a) Intracavity photon number in the semiclassical approximation (upper, stable solution) (b) Intracavity photon number, fully quantum, with a field Hilbert space truncated at 85 excitations (c) Q functions with increasing drive on resonance}
     \label{resonant}

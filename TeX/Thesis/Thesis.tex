@@ -1,4 +1,4 @@
-\documentclass[11pt, rmp, reprint, aps, floatfix]{revtex4-1}
+\documentclass[11pt, prd, reprint, aps, floatfix]{revtex4-1}
 
 %Packages
 \usepackage{amsmath}
@@ -11,6 +11,7 @@
 \usepackage{cleveref}
 \usepackage{todo}
 \usepackage{physics}
+\usepackage{tensor}
 % \usepackage{todonotes}
 \graphicspath{ {../../images/Thesis/} {../../images/Thesis/Background/} {../../images/Thesis/Background/qpFunctions/} {../../images/Thesis/carmichaelPaper/} {../../images/Thesis/bishopPaper/} }
 
@@ -29,6 +30,18 @@
 \newcommand{\gpr}{\iint_{\alpha, \beta \in \mathscr{D}}P \left( \alpha, \beta \right) \hat{\mathscr{J}} \dd{\mu}(\alpha, \beta)} 
 \newcommand{\lindblad}[2]{\mathscr{L}_{#1}[#2]}
 \newcommand{\hres}[1]{\hat{R}^\dagger(#1) \hat{S} +\hat{S}^\dagger \hat{R}(#1)}
+
+%   General parameters, for ALL pages:
+\renewcommand{\topfraction}{0.9}    % max fraction of floats at top
+\renewcommand{\bottomfraction}{0.8}    % max fraction of floats at bottom
+%   Parameters for TEXT pages (not float pages):
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}     % 2 may work better
+\setcounter{dbltopnumber}{2}    % for 2-column pages
+\renewcommand{\dbltopfraction}{0.9}    % fit big float above 2-col. text
+\renewcommand{\textfraction}{0.07}    % allow minimal text w. figs
+%   Parameters for FLOAT pages (not text pages)
 
 \begin{document}
 \begin{abstract}

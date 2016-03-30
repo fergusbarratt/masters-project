@@ -10,6 +10,8 @@ import numbers
 import warnings
 import time
 from matplotlib import cm
+import seaborn as sns
+sns.set(context='poster')
 plt.rcParams['image.cmap'] = 'viridis'
 
 class QuantumOpticsSystem(object):
@@ -190,6 +192,16 @@ class SteadyStateSystem(QuantumOpticsSystem):
                 rho)
                 for rho in self.rhos_ss]))
 
+    def g2(self):
+        if not self.precalc:
+            self._calculate()
+        return np.abs(np.asarray([qt.expect(self.a.dag()*self.a.dag()*\
+                                            self.a*self.a, 
+                                            rho)/\
+                                            qt.expect(self.a.dag()*self.a, 
+                                                      rho)**2
+                        for rho in self.rhos_ss]))
+
     def abs_cavity_field(self):
         """abs_cavity_field
         Convenience function, calculates abs(expect(op(a)))"""
@@ -250,10 +262,13 @@ class SteadyStateSystem(QuantumOpticsSystem):
         if not animate:    
             for ax in enumerate(axes):
                 if plottype=='c':
-                    mble=ax[1].contour(xvec, yvec, W[ax[0]], contno, cmap=colormap)
+                    mble=ax[1].contour(xvec, 
+                                       yvec, W[ax[0]], contno, cmap=colormap)
                 elif plottype=='cf':
-                    mble=ax[1].contourf(xvec, yvec, W[ax[0]], contno, cmap=colormap)
-                ax[1].set_title('{:0.2f}'.format(self.long_range[ax[0]]), loc='right')
+                    mble=ax[1].contourf(xvec, 
+                                        yvec, W[ax[0]], contno, cmap=colormap)
+                ax[1].set_title('{:0.2f}'.format(self.long_range[ax[0]]), 
+                                loc='right')
                 ax[1].set_xlabel('$\\mathbb{R}e($' + type + ')')
                 ax[1].set_ylabel('$\\mathbb{I}m($' + type + ')')
 
@@ -445,6 +460,7 @@ class JaynesCummingsSystem(SteadyStateSystem):
         self.sx = self.jc_sx
         self.sy = self.jc_sy
         self.sz = self.jc_sz
+        self.num = self.a.dag()*self.a
 
     def _c_ops(self):
         """_c_ops
@@ -532,6 +548,16 @@ class TimeDependentJaynesCummingsModel(JaynesCummingsSystem):
             self.initial_state = qt.tensor(self.idcavity, self.idqubit)
         else:
             self.initial_state = initial_state
+        self.__def_ops()
+
+    def __def_ops(self):
+
+        self.a = self.jc_a
+        self.sm = self.jc_sm
+        self.sx = self.jc_sx
+        self.sy = self.jc_sy
+        self.sz = self.jc_sz
+        self.num = self.a.dag()*self.a
 
     def mesolve(self, exps=[]):
         """solve

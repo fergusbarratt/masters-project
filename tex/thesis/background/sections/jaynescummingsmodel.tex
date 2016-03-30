@@ -49,35 +49,36 @@ The free field hamiltonian, neglecting the zero point energy has the form
 \end{equation}
 The atom energy, neglecting centre of mass motion and considering only population inversion, in terms of the Pauli z matrix:
 \begin{equation}
-	\ham = \frac {1} {2} \hbar \omega_A \sigma_z
+	\ham = \frac {1} {2} \hbar \omega_q \sigma_z
 \end{equation}
-where $\omega_A$ is the frequency of the bare atomic transition
+where $\omega_q$ is the frequency of the bare atomic transition
 Assuming sinusoidal mode functions with polarisation $\varepsilon_\Omega$, and incorporating constants into new dipole matrix elements $g = \frac{m \varepsilon_\Omega sin(Kz)} {2 \hbar}$, the total hamiltonian takes the form
 \begin{equation}
-	\ham = \hbar \omega \cre \hat{a} +\frac{1}{2} \hbar \omega_A \sigma_Z + \hbar (\ann +\cre)(g\atann+g^*\atcre)
+	\ham = \hbar \omega \cre \hat{a} +\frac{1}{2} \hbar \omega_q \sigma_Z + \hbar (\ann +\cre)(g\atann+g^*\atcre)
 \end{equation}
 expanding the interaction term
-\begin{equation}
-	\hat{\mathscr{V}}_{int} = \hbar (\ann +\cre)(g\atann+g^*\atcre) =  \hbar (g \ann \atann + g^* \ann \atcre + g \cre \atcre +g^* \cre\atann)
-\end{equation}
-moving to an interaction picture rotating at the transition frequency $\omega_A$ it can be seen that terms of the form $\atann \cre $ counterrotate with frequency $\omega + \omega_L$ and terms of the form $ \atann \ann$ co rotate with frequency given by the detuning $\omega-\omega_L$.
+\begin{align}
+  \hat{\mathscr{V}}_{int} &= \hbar (\ann +\cre)(g\atann+g^*\atcre) \\
+                          &=  \hbar (g \ann \atann + g^* \ann \atcre + g \cre \atcre +g^* \cre\atann)
+\end{align}
+moving to an interaction picture rotating at the transition frequency $\omega_q$ it can be seen that terms of the form $\atann \cre $ counterrotate with frequency $\omega + \omega_L$ and terms of the form $ \atann \ann$ co rotate with frequency given by the detuning $\omega-\omega_L$.
 The rotating wave approximation is the assumption that the counterrotating terms will quickly average to zero on the system timescale, and thus can be dropped in the expansion of the interaction hamiltonian.
 \subsection{The Jaynes-Cumming Hamiltonian}
 Applying all of the above leads to a hamiltonian $\ham_{JC}$ of the form:
 \begin{equation}
-	\ham_{JC} = \hbar \omega \cre \hat{a} +\frac{1}{2} \hat{\sigma}_Z \omega_A + \hbar g (\cre \atann + \hat{a} \atcre)
+	\ham_{JC} = \hbar \omega \cre \hat{a} +\frac{1}{2} \hat{\sigma}_Z \omega_q + \hbar g (\cre \atann + \hat{a} \atcre)
 \end{equation}
 \subsection{Solving the Jaynes Cumming system in the absence of drive}
+\subsubsection{Bare states}
 We first move to an interaction picture rotating with the bare system, partitioning the Hamiltonian
 \begin{align}
-	\ham_I &= \hbar \omega \hat{N}_e + \hbar(\frac{\omega_A}{2}-\omega)\hat{P}_E \\
+	\ham_I &= \hbar \omega \hat{N}_e + \hbar(\frac{\omega_q}{2}-\omega)\hat{P}_E \\
 	\ham_{II} &= -\hbar \Delta + \hbar g (\cre \atann + \hat{a} \atcre) \\
 	\ham_{JC} &= \ham_I+\ham_{II}
 \end{align}
-with $\Delta = \omega-\omega_A$,   $\hat{N}_e = \ket{2} \bra{2} + \ket{1} \bra{2} $ the (conserved) electron number and $\hat{P}_E = \cre\ann + \ket{2}\bra{2} $ the (conserved) excitation number.
-We allow the kets and observables to evolve with the conserved part, and solve for the interesting dynamics in the interaction part.
-\subsection{Unitary, zero detuning}
-We consider first evolution of the Jaynes-Cumming system in the absence of decay, dephasing and detuning.
+with $\Delta = \omega-\omega_q$,   $\hat{N}_e = \ket{2} \bra{2} + \ket{1} \bra{2} $ the (conserved) electron number and $\hat{P}_E = \cre\ann + \ket{2}\bra{2} $ the (conserved) excitation number.
+
+We consider evolution of the Jaynes-Cumming system in the absence of decay, dephasing and detuning, in the bare state basis.
 Since the field only couples successive levels of the combined atom-field system, the state of the closed system can be described in the restricted two level Hilbert space
 \begin{equation}
 	\ket{\psi(t)} = C_1(t) \kettens{1}{g} + C_2(t) \kettens{0}{e}
@@ -92,14 +93,146 @@ and get two coupled differential equations for the level amplitudes:
 	\frac{d C_2(t)}{dt} &= -i g \sqrt{n+1}C_1(t)\\
 	\frac{d C_1(t)}{dt} &= -i g \sqrt{n+1}C_2(t)
 \end{align}
-\subsubsection{Solutions}
-Here we plot the sin and cos solutions to the above. 
+which are solved by
+\begin{align}
+  C_1(t) &= \cos(g\sqrt{n+1}t)\\
+  C_2(t) &= \sin(g\sqrt{n+1}t)
+\end{align}
+\subsubsection{Dressed States}
+The uninteracting hamiltonian 
+\begin{equation}
+  \mathscr{H}_{\text{bare}} = \hbar \omega_c + \hbar \omega_q \flatfrac{\sigma_z}{2}
+\end{equation}
+satisfies 
+\begin{align}
+  \mathscr{H} \ket{0, n} &= \hbar \left\{\frac{1}{2} \omega_q + \omega_c \right\} \ket{0, n}\\
+  \mathscr{H} \ket{1, n} &= \hbar \left\{-\frac{1}{2} \omega_q + \omega_c \right\} \ket{1, n}
+\end{align}
+where $\ket{q, n} = \kettens{q}{n}$, $\{\ket{n}\}$ field fock states. 
+The interacting hamiltonian
+\begin{align}
+  \mathscr{H}_I = \hbar g \left(\ann \atcre + \atann \cre\right)
+\end{align}
+couples only within pairs $\{\ket{0, n+1},\ \ket{1, n}\}$
+We can consider the hamiltonian as acting only in the two dimensional space spanned by these states. 
+In the matrix representation we have \cite{Meystre2007}
+\begin{align*}
+  \mathscr{H} &= \mathscr{H}_{\text{bare}} + \mathscr{H}_I \\
+              &= \hbar \left(n+\frac{1}{2}\right) \omega_c 
+  \begin{pmatrix}
+    \mqty{1 & 0 \\ 0 & 1}
+  \end{pmatrix}
+              + \hbar / 2
+  \begin{pmatrix}
+    \mqty{\delta_{cq} & 2g\sqrt{n+1} \\ 2g\sqrt{n+1} & -\delta_{cq}}
+  \end{pmatrix}
+\end{align*}
+The first matrix is obviously diagonal. 
+The second is easily diagonalisable, with eigenvalues
+\begin{align}
+  \mathcal{E}_{-, n} &= \mathcal{E}_{\text{bare}} - \frac{1}{2} \hbar \sqrt{\delta_{cq}^2 + 4g^2 \left(n+1\right)}\\
+  \mathcal{E}_{+, n} &= \mathcal{E}_{\text{bare}} + \frac{1}{2} \hbar \sqrt{\delta_{cq}^2 + 4g^2 \left(n+1 \right)}
+\end{align}
+where
+\begin{equation}
+  \mathcal{E}_{\text{bare}} = \hbar\left(n + \frac{1}{2}\right) \omega_c
+\end{equation}
+and eigenvectors
+\begin{align}
+  \ket{+}_n &= \cos(\theta) \ket{0, n+1} - \sin(\theta) \ket{1, n} \\
+  \ket{-}_n &= \sin(\theta) \ket{0, n+1} + \cos(\theta) \ket{1, n} 
+\end{align}
+where
+\begin{equation}
+  \tan{2\theta} = -\frac{2g\sqrt{n+1}}{\delta_{qd}}
+\end{equation}
+These eigenstates are known as the \emph{dressed states}.
+The atomic states are \emph{dressed} by the cavity field, and the energy levels are split by an amount $\hbar \sqrt{\delta_{cq}^2 + 4g^2\left(n+1\right)}$.
+This is known as \emph{anti} or \emph{avoided} crossing.
+We have the following relation between the dressed and bare level amplitudes
+\begin{equation}
+  \begin{pmatrix}
+    \mqty{C_+(t) \\ C_-(t)}
+  \end{pmatrix}
+  =
+  \mathcal{T}
+  \begin{pmatrix}
+    \mqty{C_{1, n} \\ C_{0, n+1}}
+  \end{pmatrix}
+\end{equation}
+where
+\begin{equation}
+  \mathcal{T} = 
+  \begin{pmatrix}
+    \mqty{\cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta) }
+  \end{pmatrix}
+\end{equation}
+is a the unitary rotation matrix from one basis to the other.
+From the time evolution operator representation of the schrodinger equation, after resolving unity with the dressed states we have for the bare state probability amplitudes. 
+\begin{align*}
+  \ket{\psi(t)} &= \exp{-i\mathscr{H}t/\hbar} \ket{\psi(0)}\\
+                &= \sum_{n=0}^\infty \sum_{\pm} \exp{-i\mathscr{E}_{\pm, n}t/\hbar} \ket{\pm}_{n \ n}\bra{\pm}\ket{\psi(0)}\\
+                &= \exp{\frac{1}{2} i \sqrt{\delta_{cq}^2 + 4g^2 \left(n+1\right)} t/\hbar} C_+(0) \ket{+}_n\\
+                &+ \exp{-\frac{1}{2} i \sqrt{\delta_{cq}^2 + 4g^2 \left(n+1\right)}t/\hbar} C_-(0) \ket{-}_n
+\end{align*}
+\begin{widetext}
+\begin{align*}
+  \implies \begin{pmatrix}
+              \mqty{C_{1, n}(t) \\ C_{0, n+1}(t)}
+            \end{pmatrix} 
+            &=\mathcal{T}^{-1} 
+               \begin{pmatrix}
+                 \mqty{\exp{\frac{i}{2}\sqrt{\delta_{cq}+4g^2(n+1)}t/\hbar} & 0 \\ 
+                 0 & \exp{-\frac{i}{2}\sqrt{\delta_{cq}+4g^2(n+1)}t/\hbar} }
+               \end{pmatrix}
+   \mathcal{T}
+   \begin{pmatrix}
+      \mqty{C_{1, n}(0)\\C_{0, n+1}(0)}
+   \end{pmatrix}\\
+   &=\begin{pmatrix}
+   \cos(\frac{1}{2}\Theta t) - \frac{i\delta_{cq}}{\Theta} \sin(\frac{\Theta}{2}t)& -\frac{2ig\sqrt{n+1}}{\Theta}\sin(\frac{\Theta}{2}t)\\
+   -\frac{2ig\sqrt{n+1}}{\Theta} \sin(\frac{\Theta}{2}t) & \cos(\frac{\Theta}{2}t) + \frac{i\delta_{cq}}{\Theta}\sin(\frac{\Theta}{2}t) 
+     \end{pmatrix}
+     \begin{pmatrix}
+      C_{1, n}(0)\\
+      C_{0, n+1}(0)
+     \end{pmatrix}
+\end{align*}
+\end{widetext}
+with 
+\begin{equation*}
+  \Theta = \sqrt{\delta_{qd}^2 + 4g^2 (n+1)}
+\end{equation*}
+with $\Theta \rightarrow 2g\sqrt{n+1}$ as $\delta_{cq} \rightarrow 0$.
+We have a simple expression for the coefficients of the solution in the bare basis 
+\begin{equation}
+  \ket{\psi(t)} = C_{1, n}(t) \ket{1, n} + C_{0, n+1}(t) \ket{0, n+1}
+\end{equation}
+For arbitary detuning and initial conditions. 
+
 \subsection{Initial Conditions}
-\begin{enumerate}
-  \item Fock State
-  \item Coherent State
-  \item Rabi Flopping
-\end{enumerate}
+\subsubsection{Fock State, atom initially excited}
+The solution is 
+\begin{align*}
+  \ket{\psi(t)} &= \left(\cos(\frac{\Theta}{2}t)-\frac{i\delta_{cq}}{\Theta}\sin(\frac{\Theta}{2}t) \right)\ket{1, n} \\
+                &-\frac{2ig\sqrt{n+1}}{\Theta}\sin(\frac{\Theta}{2}t)\ket{0, n+1}
+\end{align*}
+It is clear that for $\delta_{cq} \rightarrow 0$ the solution returns to that we derived in the previous section. 
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{rabi_resonance.pdf}
+  \caption{Qubit excited $\ket{1, n}$ and ground $\ket{0, n+1}$ state probability.}
+  \label{rabi_resonance}
+\end{figure}
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{rabi_detuned.pdf}
+  \caption{Qubit excited and ground state probability as in \cref{rabi_resonance}, now with non-zero cavity-qubit detuning, and at higher frequency.}
+  \label{rabi_detuning}
+\end{figure}
+The excitation probability passes coherently from the qubit to the field with frequency given by the coupling strength multiplied by the square root of the excitation number of the field.
+On the Bloch sphere, the qubit vector is rotating around the sphere origin, hitting both the poles in one sweep. 
+
+When we add cavity-qubit detuning to the system, the rotation angle on the bloch sphere increases from zero, and the vector misses the poles. 
+The qubit now never passes all of its excitation probability to the field, since the coupled systems no longer have the same resonant frequency. 
 \subsection{Solving the Jaynes Cummings system in the presence of drive}
 \subsection{Drive}
 \begin{enumerate}
@@ -129,12 +262,12 @@ With the cavity field and the qubit on resonance ($\delta_{cd} = \Delta$), and f
 \begin{equation}
   \ham_{JC} = \hbar \Delta (\cre \ann + \atann \atcre) +\hbar g (\cre \atann + \hat{a} \atcre)
 \end{equation}
-Diagonalising yields the \emph{dressed states}
+Diagonalising yields the balanced dressed states.
 \begin{align}
-  \ket{E_{n, U}} & = \frac{1}{\sqrt{2}} (\kettens{n}{-}+\kettens{n-1}{+}) \\
-  \ket{E_{n, L}} & = \frac{1}{\sqrt{2}} (\kettens{n}{-}-\kettens{n-1}{+})
+  \ket{E_{n, U}} & = \frac{1}{\sqrt{2}} (\kettens{n}{0}+\kettens{n-1}{1}) \\
+  \ket{E_{n, L}} & = \frac{1}{\sqrt{2}} (\kettens{n}{0}-\kettens{n-1}{1})
 \end{align}
-in the tensor product of the field fock space and the atomic eigenspace spanned by the bare eigenstates $\ket{+}, \ket{-}$. These dressed eigenstates are superpositions of the bare states $\kettens{n}{-}$ and $\kettens{n-1}{+}$ and are balanced only in the resonant case. The eigenenergies are
+in the tensor product of the field fock space and the atomic eigenspace spanned by the bare eigenstates $\ket{1}, \ket{0}$. These dressed eigenstates are superpositions of the bare states $\kettens{n}{-}$ and $\kettens{n-1}{+}$ and are balanced only in the resonant case. The eigenenergies are
 \begin{align}
   E_{n, U} &= n \hbar \omega_0 + \sqrt{n} \hbar g \\
   E_{n, L} &= n \hbar \omega_0 - \sqrt{n} \hbar g

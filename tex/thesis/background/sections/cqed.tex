@@ -35,11 +35,16 @@ There are two conflicting goals for an effective qubit.
 There must be a highly anharmonic level system, where one transition can be strongly addressed in isolation. 
 Noise must be suppressed so that the qubit state can be faithfully read out and controlled. 
 In the Cooper Pair Box, these goals are orthogonal.
-\begin{figure}[!htb]
-  \resizebox{1.0\linewidth}{!}{\input{tikz/transmon.tex}}
-  \caption{Schematic of a transmon. New island is couped via capacitance C and another Josephson junction.}
+\begin{figure*}[!htb]
+  \begin{minipage}{0.5\linewidth}
+    \resizebox{1.0\linewidth}{!}{\input{tikz/transmon.tex}}
+  \end{minipage}%
+  \begin{minipage}{0.5\linewidth}
+    \includegraphics[width=0.8\linewidth]{microwave_resonator.png}
+  \end{minipage}
+  \caption{(a) Schematic of a transmon. New island is coupled via capacitance C and another Josephson junction. (b) Transmon design schematic. Visible is charge qubit cosine potential. Effect of shunting capacitance is absorbed in modified capacitances $C'_B,\ C_{g_2},\ C_{g_1},\ C_{in}$}
   \label{anharmonicity}
-\end{figure}
+\end{figure*}
 In \ref{anharmonicity} this behaviour is obvious. 
 For low $\frac{E_J}{E_C}$, The greatest level anharmonicity is achieved by operating the qubit at the half integer charge degeneracy points.
 At this point the gradient is zero and first order fluctuations are suppressed. 

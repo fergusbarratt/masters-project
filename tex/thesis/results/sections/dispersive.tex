@@ -74,7 +74,7 @@ We define $\chi_{JC} = \flatfrac{4g^2}{\delta_{cq}}$, and rescale energy levels 
     \mathscr{H} = \left(\omega_c \pm \chi_{JC}\right) a ^ \dagger a
     + \xi/\sqrt{2} ( a + a^\dagger ) \cos(\omega_d t)
 \end{equation}
-\begin{figure*}[!bht]
+\begin{figure*}[bht]
   \centering
   \begin{minipage}{0.5\linewidth}
     \vspace*{-0.5cm}
@@ -113,7 +113,7 @@ We also would expect to see a dip in the transmission at a critical detuning, wh
 \subsection{Quantum: Computational}
 We have the same master equation as in the resonant case, with hamiltonian. Computationally we now use the master equation containing the Hamiltonian with the transformation of  \cite{Carbonaro1979} applied.
 \begin{equation}
-  \ham = \omega_C \cre \ann + \left(\omega_c - \sqrt{\delta_{cq}^2 + \frac{4g^2}{N}}\right)\frac{\sigma_z}{2} + \frac{\xi}{\sqrt{2}} ( \ann + \cre ) \cos(\omega_d t) 
+  \ham = \omega_C \cre \ann + \left(\omega_c - \sqrt{\delta_{cq}^2 + 4g^2\mathscr{N}}\right)\frac{\sigma_z}{2} + \frac{\xi}{\sqrt{2}} ( \ann + \cre ) \cos(\omega_d t) 
 \end{equation}
 The details of the numerics can be found in the appendix. 
 The result of scanning the detuning $\delta_{cd}$ for several drives to produce soluble steady state master equations, with parameters as in \cite{Bishop2010} i.e. $\omega_d = 10.5665\text{Ghz}, \  \kappa = 0.001 \text{Ghz}, \  \delta_{cq} = -1.0 \text{Ghz}, \  g = 0.2\text{Ghz}$ are shown in \cref{dispersive}, where expectation values are calculated by contracting the density matrix solution with truncated states.
@@ -208,7 +208,7 @@ Provided we have the necessary precision in the laser frequency, qubit rotations
 \subsection{Analysis: The Jaynes-Cummings \& Kerr/Duffing nonlinearities}
 \begin{figure}[!hbt]
   \includegraphics[width=\linewidth]{duff.png}
-  \caption{quantum Duffing oscillator moments: dashed line: second order correlation function $g^(2)(0)$, showing antibunching and bunching, broken line: semiclassical cavity field amplitude $\abs{\alpha}$ showing bistability, solid line: quantum cavity field amplitude, showing interference dip. From \cite{Drummond1979}}
+  \caption{quantum Duffing oscillator moments: dashed line: second order correlation function $g^{(2)}(0)$, showing antibunching and bunching, broken line: semiclassical cavity field amplitude $\abs{\alpha}$ showing bistability, solid line: quantum cavity field amplitude, showing interference dip. From \cite{Drummond1979}}
 \end{figure}
 \begin{figure*}[!htb]
     \includegraphics[width=\linewidth]{dispersive.pdf}
