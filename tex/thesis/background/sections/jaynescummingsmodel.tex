@@ -63,6 +63,7 @@ expanding the interaction term
 \end{align}
 moving to an interaction picture rotating at the transition frequency $\omega_q$ it can be seen that terms of the form $\atann \cre $ counterrotate with frequency $\omega + \omega_L$ and terms of the form $ \atann \ann$ co rotate with frequency given by the detuning $\omega-\omega_L$.
 The rotating wave approximation is the assumption that the counterrotating terms will quickly average to zero on the system timescale, and thus can be dropped in the expansion of the interaction hamiltonian.
+This approximation has broad application, especially at optical frequencies \cite, but it has its limits \cite{Dolce2006} \cite{Milonni1995} \cite{Biswas1990}.
 \subsection{The Jaynes-Cumming Hamiltonian}
 Applying all of the above leads to a hamiltonian $\ham_{JC}$ of the form:
 \begin{equation}
@@ -233,15 +234,8 @@ On the Bloch sphere, the qubit vector is rotating around the sphere origin, hitt
 
 When we add cavity-qubit detuning to the system, the rotation angle on the bloch sphere increases from zero, and the vector misses the poles. 
 The qubit now never passes all of its excitation probability to the field, since the coupled systems no longer have the same resonant frequency. 
-\subsection{Solving the Jaynes Cummings system in the presence of drive}
-\subsection{Drive}
-\begin{enumerate}
-  \item Classical
-  \item Coherent
-  \item Incoherent
-\end{enumerate}
 \subsection{Photon Blockade}
-We add a coherent driving field to the Jaynes-Cummings hamiltonian. It is added coherently i.e.\ the system evolves unitarily with the drive, rather than the more general incoherent case (for example as \cite{Xu2014}), and the Hamiltonian reads:
+We add a driving field to the Jaynes-Cummings hamiltonian. It is added coherently i.e.\ the system evolves unitarily with the drive, rather than the more general incoherent case (for example as in \cite{Xu2014}), and the Hamiltonian reads:
 \begin{align}
     \ham_{JC} &= \hbar \omega_d \cre \ann + \hbar \omega_q \atann \atcre +\hbar g (\cre \atann+ \hat{a} \atcre)\\
     & + \hbar \xi (\cre e^{i\omega_d t} + \ann e^{-i\omega_d t})
@@ -275,4 +269,4 @@ in the tensor product of the field fock space and the atomic eigenspace spanned 
 in which the Rabi splitting between the upper and lower dressed states is clear. In the absence of coupling to a dressing field $(g=0)$ the Jaynes-Cumming energies form a degenerate harmonic ladder; it is clear that the qubit coupling induces an anharmonicity via the characteristic $\sqrt{n}$ Rabi splitting.
 
 We now consider the effect of an external drive tuned to the $\ket{G} \rightarrow \ket{E_{1, U/L}}$ transition\footnote{Drive frequencies at multiphoton resonances induce the same effect} (where $\ket{G}$ is the coincident dressed ground state $\ket{E_{0, -}} = \kettens{0}{-}$) with frequency $\omega_D = \hbar \omega_0 \pm \hbar g$.
-The $\kettens{1}{U/L} \rightarrow \kettens{2}{U/L}$ step of the Jaynes Cummings ladder is now detuned from the drive by $E_{2, U/L} - E_{1, U/L} - \hbar \omega_D =  \mp(2-\sqrt{2}) \hbar g$. Thus for sufficiently large g and sufficiently small linewidth, the upper steps of the ladder are inaccessible, and the Jaynes Cumming system is opaque to further photon absorption until the photon is reemitted from the cavity through some loss process. This is the photon blockade effect.
+The $\kettens{1}{U/L} \rightarrow \kettens{2}{U/L}$ step of the Jaynes Cummings ladder is now detuned from the drive by $E_{2, U/L} - E_{1, U/L} - \hbar \omega_D =  \mp(2-\sqrt{2}) \hbar g$. Thus for sufficiently large g and sufficiently small linewidth, the upper steps of the ladder are inaccessible, and the Jaynes Cumming system is opaque to further photon absorption until the photon is reemitted from the cavity through some loss process. This is the photon blockade effect \cite{Birnbaum2005}.

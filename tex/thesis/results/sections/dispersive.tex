@@ -37,7 +37,7 @@ We perform an expansion in $\mathscr{N}/\mathscr{N}_{\text{crit}}$.
            & \approx \delta \left(
              1
              + \frac{1}{2}\frac{\mathscr{N}}{\mathscr{N}_{\text{crit}}}
-             + (1/8) \frac{\mathscr{N}^2}{\mathscr{N}^2_{\text{crit}}}
+           + \frac{1}{8} \frac{\mathscr{N}^2}{\mathscr{N}^2_{\text{crit}}}
              \right)
 \end{align}
 where 
@@ -45,7 +45,7 @@ The hamiltonian becomes:
 \begin{align}
     \mathscr{H} &= \omega_c a ^ \dagger a
     + (\omega_q/2) \sigma_z
-    +  \xi/\sqrt{2} (a + a^\dagger) \cos(\omega_d t)\\
+    +  \frac{\xi}{\sqrt{2}} (a + a^\dagger) \cos(\omega_d t)\\
     &- \frac{4g^2}{\delta_{cq}}\left(a^\dagger a 
     +  \frac{\sigma_z}{2} + \frac{1}{2}\right)\sigma_z\\
     &- \frac{g^4}{\delta_{cq}^3}\Big\{
@@ -212,7 +212,7 @@ Provided we have the necessary precision in the laser frequency, qubit rotations
 \end{figure}
 \begin{figure*}[!htb]
     \includegraphics[width=\linewidth]{dispersive.pdf}
-    \caption{(a) Squared intracavity cavity amplitude in the semiclassical approximation. Top and bottom lines represent stable states, centre metastable. (b) Absolute intracavity amplitude, in the quantum regime, with a field Hilbert space truncated at 85 excitations. (c) Difference between factorised and unfactorised correlation functions}
+    \caption{(a) Squared intracavity cavity amplitude in the semiclassical approximation. Top and bottom lines represent stable states, centre metastable. (b) Absolute intracavity amplitude, in the quantum regime, with a field Hilbert space truncated at 85 excitations. (c) Difference between factorised and unfactorised correlation functions (d) Second order field correlation function $\flatfrac{\ev{\cre \cre \ann \ann}}{\ev{\cre \ann}\ev{\cre \ann}}$. }
     \label{dispersive}
 \end{figure*}
 \subsubsection{Kerr/Duffing}
@@ -234,6 +234,12 @@ We expect that photons will with higher probability hit the detector separated b
 The property is a figure of merit for single photon sources \cite{Lodahl2014}, and is known as \emph{antibunching}.
 The converse, \emph{bunching}, has $g^{(2)}(0) > 1$, and describes an enhancement in the probability of detecting coincident photons.
 \subsubsection{Jaynes-Cummings}
+\begin{figure}[bht]
+  \centering
+  \includegraphics[width=\linewidth]{low_exc.pdf}
+  \caption{JC frequency response returns to lorentzian for low drive strength}
+  \label{low_exc}
+\end{figure}
 In the derivation of the exact correspondence between the Duffing oscillator and the Jaynes-Cummings oscillator, we assumed that terms of order $O(\{\mathscr{N}/\mathscr{N}_\text{crit}\}^3)$ were completely suppressed. 
 If this approximation holds, the systems are indistinguishable. 
 To some extent this correspondence holds. 
@@ -247,7 +253,12 @@ This is not the case even in our the semiclassical model.
 For large drive strength, the system response is dominated by the cavity, and the transmission spectrum returns to a Lorentzian.  
 In this regime our assumption $\frac{\mathscr{N}}{\mathscr{N}_\text{crit}} \ll 1$ breaks down, and our perturbation expansion no longer converges. 
 The semiclassical approximation can be expected to hold further in this regime\cite{Bishop2010}, less fluctuation effects, and it is this method from which the closing of the region of bisability is derived. 
-
+\begin{figure}[bht]
+  \centering
+  \includegraphics[width=\linewidth]{high_exc.pdf}
+  \caption{JC frequency response returns to lorentzian for high drive strength}
+  \label{high_exc}
+\end{figure}
 The Jaynes-Cummings oscillator fundamentally has two degrees of freedom, the qubit and the cavity field. 
 In the correspondence we made, the qubit was frozen in its up or down state; in this respect it was treated purely classically, and as if its state was completely independent of the dynamics. 
 We showed that the correspondence is not materially affected by passing to a semiclassical method in which the qubit inversion is no longer constant.
@@ -258,5 +269,5 @@ In the dip in the cavity field amplitude in the quantum regime, the difference b
 Here then, both semiclassical approximations miss the dynamics.
 The question then becomes, does this have a significant effect on the system observables? 
 Does the effect of the qubit spoil the Duffing oscillator analogy?
-\cite{Bishop2010} have shown that the correspondence fails for high drive strength, and thus high excitation numbers. 
+\cite{Bishop2010} have shown that the correspondence fails for high drive strength, and thus high excitation numbers, we see this in \cref{high_exc}.
 In what parameter regimes does it hold?

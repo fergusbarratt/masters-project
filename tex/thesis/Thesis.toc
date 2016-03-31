@@ -3,81 +3,78 @@
 \tocdepth@munge 
 \contentsline {section}{\numberline {}Contents}{1}{}
 \tocdepth@restore 
-\contentsline {section}{\numberline {I}Introduction}{4}{}
-\contentsline {section}{\numberline {II}The Statistical Interpretation of Quantum Mechanics }{4}{}
-\contentsline {section}{\numberline {III}The Quantum Master Equation}{4}{}
-\contentsline {subsection}{\numberline {A}Quantum Measurements}{5}{}
-\contentsline {subsubsection}{\numberline {1}Von-Neumann projective measurements}{5}{}
-\contentsline {subsubsection}{\numberline {2}Physical Dynamical Maps}{6}{}
-\contentsline {subsection}{\numberline {B}Quantum Dynamical Semigroups}{6}{}
-\contentsline {subsubsection}{\numberline {1}Markov Processes}{7}{}
-\contentsline {subsubsection}{\numberline {2}Lindblad Form}{7}{}
-\contentsline {subsection}{\numberline {C}The Master Equation in Quantum Optics}{8}{}
-\contentsline {section}{\numberline {IV}Quasi-Probability Distributions}{9}{}
-\contentsline {subsection}{\numberline {A}Normal Ordering}{10}{}
-\contentsline {subsubsection}{\numberline {1}General procedure for evaluating P($\alpha $)}{10}{}
-\contentsline {subsection}{\numberline {B}Antinormal Ordering}{10}{}
-\contentsline {subsection}{\numberline {C}Symmetric Ordering}{10}{}
-\contentsline {subsection}{\numberline {D}Characteristic Functions}{10}{}
-\contentsline {subsection}{\numberline {E}Coherent State Representations}{11}{}
-\contentsline {subsubsection}{\numberline {1}P-function}{11}{}
-\contentsline {subsubsection}{\numberline {2}Q-function}{11}{}
-\contentsline {subsubsection}{\numberline {3}Wigner Function}{11}{}
-\contentsline {subsection}{\numberline {F}Fock state representations}{11}{}
-\contentsline {subsubsection}{\numberline {1}P-function}{11}{}
-\contentsline {subsubsection}{\numberline {2}Q-function}{11}{}
-\contentsline {subsubsection}{\numberline {3}Wigner function}{12}{}
-\contentsline {subsection}{\numberline {G}Generalised P Representations}{12}{}
-\contentsline {subsubsection}{\numberline {1}Diagonal}{12}{}
-\contentsline {subsubsection}{\numberline {2}Complex}{12}{}
-\contentsline {subsubsection}{\numberline {3}Positive}{12}{}
-\contentsline {subsection}{\numberline {H}Stochastic Processes \& Fokker-Planck Equations}{12}{}
-\contentsline {subsection}{\numberline {I}Application}{12}{}
-\contentsline {subsubsection}{\numberline {1}Moments}{13}{}
-\contentsline {section}{\numberline {V}Circuit QED}{14}{}
-\contentsline {subsection}{\numberline {A}cQED qubits}{14}{}
-\contentsline {subsection}{\numberline {B}Cooper Pair Box}{14}{}
-\contentsline {subsection}{\numberline {C}Transmon}{14}{}
-\contentsline {section}{\numberline {VI}The Jayes-Cumming Hamiltonian}{15}{}
-\contentsline {subsection}{\numberline {A}The Dipole Approximation}{15}{}
-\contentsline {subsection}{\numberline {B}Two Level Approximation}{15}{}
-\contentsline {subsection}{\numberline {C}The Rotating Wave Approximation}{16}{}
-\contentsline {subsection}{\numberline {D}The Jaynes-Cumming Hamiltonian}{16}{}
-\contentsline {subsection}{\numberline {E}Solving the Jaynes Cumming system in the absence of drive}{16}{}
-\contentsline {subsubsection}{\numberline {1}Bare states}{16}{}
-\contentsline {subsubsection}{\numberline {2}Dressed States}{16}{}
-\contentsline {subsection}{\numberline {F}Initial Conditions}{17}{}
-\contentsline {subsubsection}{\numberline {1}Fock State, atom initially excited}{17}{}
-\contentsline {subsection}{\numberline {G}Solving the Jaynes Cummings system in the presence of drive}{18}{}
-\contentsline {subsection}{\numberline {H}Drive}{18}{}
-\contentsline {subsection}{\numberline {I}Photon Blockade}{18}{}
-\contentsline {section}{\numberline {VII}Results: Resonant}{19}{}
-\contentsline {subsection}{\numberline {A}Quantum: Computational}{19}{}
-\contentsline {subsection}{\numberline {B}Quantum: Analytical}{19}{}
-\contentsline {subsection}{\numberline {C}Semiclassical}{19}{}
-\contentsline {subsubsection}{\numberline {1}Neoclassical Radiation Theory}{19}{}
-\contentsline {subsubsection}{\numberline {2}Steady State}{20}{}
-\contentsline {subsubsection}{\numberline {3}Non-zero detuning}{20}{}
-\contentsline {subsection}{\numberline {D}Spontaneous Emission}{20}{}
-\contentsline {subsubsection}{\numberline {1}Difference between limits}{21}{}
-\contentsline {subsection}{\numberline {E}Analysis: Resonant Phase Transitions}{22}{}
-\contentsline {subsubsection}{\numberline {1}Amplitude}{22}{}
-\contentsline {subsubsection}{\numberline {2}Phase}{22}{}
-\contentsline {section}{\numberline {VIII}Results: Strong Dispersion}{22}{}
-\contentsline {subsection}{\numberline {A}Quantum: Perturbation expansion}{22}{}
-\contentsline {subsubsection}{\numberline {1}First Order in $\flatfrac {\mathscr {N}}{\mathscr {N}_{\text {crit}}}$}{24}{}
-\contentsline {subsubsection}{\numberline {2}Second Order in $\flatfrac {\mathscr {N}}{\mathscr {N}_{\text {crit}}}$}{24}{}
-\contentsline {subsection}{\numberline {B}Quantum: Computational}{25}{}
-\contentsline {subsection}{\numberline {C}Semiclassical}{25}{}
-\contentsline {subsubsection}{\numberline {1}Hamilton's Equations}{25}{}
-\contentsline {subsubsection}{\numberline {2}Optical Bloch Equations}{26}{}
-\contentsline {subsection}{\numberline {D}Analysis: Two different mean-field methods}{26}{}
-\contentsline {subsection}{\numberline {E}Bistable ``leaf"}{26}{}
-\contentsline {subsection}{\numberline {F}Dispersive QND Readout}{26}{}
-\contentsline {subsection}{\numberline {G}Coherent Control}{27}{}
-\contentsline {subsection}{\numberline {H}Analysis: The Jaynes-Cummings \& Kerr/Duffing nonlinearities}{27}{}
-\contentsline {subsubsection}{\numberline {1}Kerr/Duffing}{27}{}
-\contentsline {subsubsection}{\numberline {2}Jaynes-Cummings}{28}{}
-\contentsline {section}{\numberline {IX}Conclusions}{29}{}
+\contentsline {section}{\numberline {}Introduction}{4}{}
+\contentsline {section}{\numberline {}The Statistical Interpretation of Quantum Mechanics }{4}{}
+\contentsline {section}{\numberline {}The Quantum Master Equation}{4}{}
+\contentsline {subsection}{\numberline {}Quantum Measurements}{5}{}
+\contentsline {subsubsection}{\numberline {}Von-Neumann projective measurements}{5}{}
+\contentsline {subsubsection}{\numberline {}Physical Dynamical Maps}{6}{}
+\contentsline {subsection}{\numberline {}Quantum Dynamical Semigroups}{6}{}
+\contentsline {subsubsection}{\numberline {}Markov Processes}{7}{}
+\contentsline {subsubsection}{\numberline {}Lindblad Form}{8}{}
+\contentsline {subsection}{\numberline {}The Master Equation in Quantum Optics}{8}{}
+\contentsline {section}{\numberline {}Quasi-Probability Distributions}{9}{}
+\contentsline {subsection}{\numberline {}Normal Ordering}{10}{}
+\contentsline {subsubsection}{\numberline {}General procedure for evaluating P($\alpha $)}{10}{}
+\contentsline {subsection}{\numberline {}Antinormal Ordering}{10}{}
+\contentsline {subsection}{\numberline {}Symmetric Ordering}{10}{}
+\contentsline {subsection}{\numberline {}Characteristic Functions}{10}{}
+\contentsline {subsection}{\numberline {}Coherent State Representations}{11}{}
+\contentsline {subsubsection}{\numberline {}P-function}{11}{}
+\contentsline {subsubsection}{\numberline {}Q-function}{11}{}
+\contentsline {subsubsection}{\numberline {}Wigner Function}{11}{}
+\contentsline {subsection}{\numberline {}Fock state Representations}{11}{}
+\contentsline {subsubsection}{\numberline {}P-function}{11}{}
+\contentsline {subsubsection}{\numberline {}Q-function}{11}{}
+\contentsline {subsubsection}{\numberline {}Wigner function}{12}{}
+\contentsline {subsection}{\numberline {}Generalised P Representations}{12}{}
+\contentsline {subsubsection}{\numberline {}Diagonal}{12}{}
+\contentsline {subsubsection}{\numberline {}Complex}{12}{}
+\contentsline {subsubsection}{\numberline {}Positive}{12}{}
+\contentsline {subsection}{\numberline {}Application}{12}{}
+\contentsline {subsubsection}{\numberline {}Moments}{13}{}
+\contentsline {section}{\numberline {}Circuit QED}{14}{}
+\contentsline {subsection}{\numberline {}cQED qubits}{14}{}
+\contentsline {subsection}{\numberline {}Cooper Pair Box}{14}{}
+\contentsline {subsection}{\numberline {}Transmon}{14}{}
+\contentsline {section}{\numberline {}The Jayes-Cumming Hamiltonian}{15}{}
+\contentsline {subsection}{\numberline {}The Dipole Approximation}{15}{}
+\contentsline {subsection}{\numberline {}Two Level Approximation}{15}{}
+\contentsline {subsection}{\numberline {}The Rotating Wave Approximation}{15}{}
+\contentsline {subsection}{\numberline {}The Jaynes-Cumming Hamiltonian}{16}{}
+\contentsline {subsection}{\numberline {}Solving the Jaynes Cumming system in the absence of drive}{16}{}
+\contentsline {subsubsection}{\numberline {}Bare states}{16}{}
+\contentsline {subsubsection}{\numberline {}Dressed States}{17}{}
+\contentsline {subsection}{\numberline {}Initial Conditions}{18}{}
+\contentsline {subsubsection}{\numberline {}Fock State, atom initially excited}{18}{}
+\contentsline {subsection}{\numberline {}Photon Blockade}{18}{}
+\contentsline {section}{\numberline {}Results: Resonant}{19}{}
+\contentsline {subsection}{\numberline {}Quantum: Computational}{19}{}
+\contentsline {subsection}{\numberline {}Quantum: Analytical}{19}{}
+\contentsline {subsection}{\numberline {}Semiclassical}{19}{}
+\contentsline {subsubsection}{\numberline {}Neoclassical Radiation Theory}{20}{}
+\contentsline {subsubsection}{\numberline {}Steady State}{20}{}
+\contentsline {subsubsection}{\numberline {}Non-zero detuning}{20}{}
+\contentsline {subsection}{\numberline {}Spontaneous Emission}{21}{}
+\contentsline {subsubsection}{\numberline {}Difference between limits}{21}{}
+\contentsline {subsection}{\numberline {}Analysis: Resonant Phase Transitions}{21}{}
+\contentsline {subsubsection}{\numberline {}Amplitude}{21}{}
+\contentsline {subsubsection}{\numberline {}Phase}{22}{}
+\contentsline {section}{\numberline {}Results: Strong Dispersion}{23}{}
+\contentsline {subsection}{\numberline {}Quantum: Perturbation expansion}{23}{}
+\contentsline {subsubsection}{\numberline {}First Order in $\flatfrac {\mathscr {N}}{\mathscr {N}_{\text {crit}}}$}{24}{}
+\contentsline {subsubsection}{\numberline {}Second Order in $\flatfrac {\mathscr {N}}{\mathscr {N}_{\text {crit}}}$}{25}{}
+\contentsline {subsection}{\numberline {}Quantum: Computational}{25}{}
+\contentsline {subsection}{\numberline {}Semiclassical}{25}{}
+\contentsline {subsubsection}{\numberline {}Hamilton's Equations}{25}{}
+\contentsline {subsubsection}{\numberline {}Optical Bloch Equations}{26}{}
+\contentsline {subsection}{\numberline {}Analysis: Two different mean-field methods}{26}{}
+\contentsline {subsection}{\numberline {}Bistable ``leaf"}{26}{}
+\contentsline {subsection}{\numberline {}Dispersive QND Readout}{27}{}
+\contentsline {subsection}{\numberline {}Coherent Control}{27}{}
+\contentsline {subsection}{\numberline {}Analysis: The Jaynes-Cummings \& Kerr/Duffing nonlinearities}{27}{}
+\contentsline {subsubsection}{\numberline {}Kerr/Duffing}{27}{}
+\contentsline {subsubsection}{\numberline {}Jaynes-Cummings}{28}{}
+\contentsline {section}{\numberline {}Conclusions}{29}{}
 \appendix 
-\contentsline {section}{\numberline {}References}{31}{}
+\contentsline {section}{\numberline {}References}{32}{}

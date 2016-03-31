@@ -105,17 +105,33 @@ class SteadyStateSystem(QuantumOpticsSystem):
     def rhos(self, nslice=None):
         '''rho
         return steadystate density matrices'''
-        precalc=True
+        self.precalc=True
+
+        if self.noisy:
+            print('N = {}, len() = {}'.format(self.N_field_levels, 
+                                              len(self.long_range)))
+
+        def progress(*args):
+            if self.noisy:
+                print('|', sep='', end='', flush=True)
+            return args
+
         if nslice is not None:
-            return np.asarray([qt.steadystate(ham,
-                                              self._c_ops())
+            return np.asarray([progress(qt.steadystate(ham,
+                                                       self._c_ops()))
             for ham in list(self.hamiltonian())[nslice]]).T
         else:
-            return np.asarray([qt.steadystate(ham,
-                                              self._c_ops()) 
+            return np.asarray([progress(qt.steadystate(ham,
+                                                       self._c_ops()))
             for ham in self.hamiltonian()]).T
 
-    def qps(self, xvec, yvec, start=None, stop=None, tr=None, functype='Q'):
+    def qps(self, 
+            xvec, 
+            yvec, 
+            start=None, 
+            stop=None, 
+            tr=None, 
+            functype='Q'):
 
         class qp_list(object):
             """qps
@@ -190,7 +206,7 @@ class SteadyStateSystem(QuantumOpticsSystem):
                 for rho in self.rhos_ss])*\
                 np.asarray([qt.expect(self.sm,
                 rho)
-                for rho in self.rhos_ss]))
+                for rho in self.rhos_ss])).T
 
     def g2(self):
         if not self.precalc:
@@ -200,7 +216,7 @@ class SteadyStateSystem(QuantumOpticsSystem):
                                             rho)/\
                                             qt.expect(self.a.dag()*self.a, 
                                                       rho)**2
-                        for rho in self.rhos_ss]))
+                        for rho in self.rhos_ss])).T
 
     def abs_cavity_field(self):
         """abs_cavity_field
@@ -209,7 +225,7 @@ class SteadyStateSystem(QuantumOpticsSystem):
             self._calculate()
         return np.absolute([qt.expect(self.a,
                 rho)
-            for rho in self.rhos_ss])
+            for rho in self.rhos_ss]).T
 
     def purities(self):
         """purities
@@ -217,7 +233,7 @@ class SteadyStateSystem(QuantumOpticsSystem):
         if not self.precalc:
             self._calculate()
         return np.asarray(
-                    [(rho** 2).tr() for rho in self.rhos_ss])
+                    [(rho** 2).tr() for rho in self.rhos_ss]).T
 
     def draw_qps(self,
                  animate=False,
@@ -430,7 +446,11 @@ class JaynesCummingsSystem(SteadyStateSystem):
             c_op_params,
             coupling,
             N_field_levels,
+            noisy=False,
             precalc=True):
+
+        self.noisy=noisy
+        self.precalc=precalc
 
         (self.long_range,
         self.params) = self._to_even_arrays([drive_range,

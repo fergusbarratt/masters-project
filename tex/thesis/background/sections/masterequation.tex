@@ -37,10 +37,10 @@ We start with the Hamiltonian for a closed, potentially mixed quantum system and
 The partial trace operation is an operator-valued function that takes a operator on a larger Hilbert space and discards its action on all but a smaller Hilbert space, colloquially ``tracing over'' the degrees of freedom of the discarded subsystem to leave the operator defined on the smaller subsystem.
 It is defined 
 \begin{equation}
-  \tr{\hat{O}} = \sum_\sigma\ev{\hat{O}}{\sigma}
+  \tr_R{\hat{O}} = \sum_\sigma\ev{\hat{O}}{\sigma}
   \label{trace}
 \end{equation}
-where $\{\ket{\sigma}\}_{\sigma \in I}$ is a basis of the discarded space.
+where $\{\ket{\sigma}\}_{\sigma \in I}$ is a basis of $R$, the discarded space.
 Unitarily evolving the large system, and performing the partial trace over the environment.
 \begin{equation}
 	\dens_S (t) = tr_E \{U(t, 0) \dens (0) U^\dagger (t, 0) \}

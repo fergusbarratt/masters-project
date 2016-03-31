@@ -101,9 +101,15 @@ In the limit $\alpha \rightarrow \infty$ the system response returns to the cavi
   \caption{Development of amplitude bistability in Q function. Parameters $\omega_c=10,\ \omega_q=10,\ \xi=4,\ \kappa=1,\ g=10$. Value of $\omega_d$ marked.}
   \label{amplitudebistability}
 \end{figure*}
+\begin{figure*}[tbh]
+  \includegraphics[width=\linewidth]{phasebistability.pdf}
+  \includegraphics[width=\linewidth]{phasebistability_with_gamma.pdf}
+  \caption{Development of phase bistability in Q function. Parameters $\omega_c = \omega_q = \omega_d ,\ \kappa=1,\ g=10$. Value of $\xi$ marked. (a) With spontaneous emission (b) without spontaneous emission}
+  \label{phasebistability}
+\end{figure*}
 
 We now reintroduce the spontaneous emission parameter.
-The optical Bloch equations with spontaneous emission read (see \cref{sc_with_gamma})
+The optical Bloch equations with spontaneous emission read. 
 \begin{align}
   \frac{d \alpha}{dt} &= -(\kappa - i \Delta \omega)\alpha - ig \beta - i\xi\label{eq:alphase}\\
   \frac{d \beta}{dt} &= -(\frac{\gamma}{2}-i\Delta\omega)\beta+ig\alpha\zeta \label{eq:betase}\\
@@ -158,19 +164,13 @@ In the limit $\frac{\gamma}{\kappa} \rightarrow 0$ the rate at which these stead
  \subsection{Analysis: Resonant Phase Transitions}
 We have two regions of bistability.
 \subsubsection{Amplitude}
-\begin{figure*}[tbh]
-  \includegraphics[width=\linewidth]{phasebistability.pdf}
-  \includegraphics[width=\linewidth]{phasebistability_with_gamma.pdf}
-  \caption{Development of phase bistability in Q function. Parameters $\omega_c = \omega_q = \omega_d ,\ \kappa=1,\ g=10$. Value of $\xi$ marked. (a) With spontaneous emission (b) without spontaneous emission}
-  \label{phasebistability}
-\end{figure*}
 \begin{figure*}[bt]
   \includegraphics[width=\linewidth]{critical_slowing.pdf}
   \caption{Time dependent solutions to the master equation for different parameters. Note the slow asymptotic approach of the green line to the steady state}
   \label{critical_slowing}
 \end{figure*}
 Here in order to break down photon blockade, we self consistently detune the driving field to address the split resonance. 
-The cavity field amplitude is a split lorentzian in the detuning, broadening wihth increasing drive, with a central valley along which the intracavity field increases smoothly as the drive is scanned through the critical point.
+The cavity field amplitude is a split lorentzian in the detuning, broadening with increasing drive, with a central valley along which the intracavity field increases smoothly as the drive is scanned through the critical point.
 Along the inner walls of this lorentzian (the outer walls of the valley) is a region of amplitude bistability. 
 There are two coexistent field states as we detune the drive towards the new resonance, the vacuum state where the photon blockade has remained in place, and a displaced squeezed state at nonzero amplitude, where the sufficient detuning has allowed the cavity to fill with light. 
 The transition from the dark to the bright cavity represents a single site phase transition, of first order \cite{Carmichael2015}
